@@ -1,0 +1,45 @@
+graph TD
+    subgraph "也门2023年洪灾 (Yemen 2023 Floods)"
+        direction TB
+        C1["Condition: 基础设施损毁 (C1, C2)"]
+        C2["Condition: 难民营脆弱性 (C7, C8, C9)"]
+        C3["Condition: 持续暴雨/预警滞后 (C6, C10)"]
+
+        H1["Hazard: 山洪 (N3, MH0006)"]
+        H2["Hazard: 地表洪水 (N8, MH0012)"]
+        H3["Hazard: 积水洪水 (N12, MH0010)"]
+        H4["Hazard: 热带气旋关联洪水 (N16, MH0057)"]
+
+        I1["Impact: 难民受威胁/伤亡 (N4)"]
+        I2["Impact: 人员伤亡/财产损失 (N9)"]
+        I3["Impact: 人员伤亡/流离失所 (N13)"]
+        I4["Impact: 人员伤亡/设施损毁 (N17)"]
+
+        A1["Actor: 也门红新月会 (N5)"]
+        A2["Actor: 塔伊兹省政府/WFP (N10)"]
+        A3["Actor: DG ECHO伙伴 (N14)"]
+        A4["Actor: Al-Mahra省政府/UN机构 (N18)"]
+
+        B1["Behaviour: 计划分发援助 (N6)"]
+        B2["Behaviour: 发布通报/预警 (N11)"]
+        B3["Behaviour: 提供紧急援助 (N15)"]
+        B4["Behaviour: 宣布紧急状态/协调 (N19)"]
+
+        C1 -->|"Amplifies (C1, C2)"| H1
+        C2 -->|"Amplifies (C7, C8)"| H1
+        H1 -->|"Trigger (C7, C8)"| I1
+        A1 -->|"Implementation (C2)"| B1
+        A1 -->|"Coordination (C2)"| IFRC[(IFRC)]
+
+        C3 -->|"Trigger (C6, C10)"| H2
+        H2 -->|"Trigger (C6, C12)"| I2
+        A2 -->|"Implementation (C6)"| B2
+        A2 -->|"Inform (C6)"| WFP[(WFP)]
+
+        H3 -->|"Trigger (C2, C5)"| I3
+        A3 -->|"Implementation (C4)"| B3
+
+        H4 -->|"Trigger (C13)"| I4
+        A4 -->|"Implementation (C13)"| B4
+        A4 -->|"Request (C13)"| UN[(UN)]
+    end

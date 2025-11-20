@@ -1,0 +1,59 @@
+graph LR
+    subgraph "也门2023年洪灾"
+        direction TB
+        subgraph "致灾因子 (Hazard)"
+            H1(MH0006: 山洪)
+            H2(MH0012: 地表洪水)
+            H3(MH0010: 积水洪水)
+            H4(MH0057: 热带气旋关联洪灾)
+        end
+
+        subgraph "条件 (Condition)"
+            C1(长期冲突致基础设施损毁)
+            C2(难民营结构脆弱/位于易洪区)
+            C3(持续暴雨/气象预警滞后)
+        end
+
+        subgraph "影响 (Impact)"
+            I1(马里卜难民营居民受威胁/伤亡)
+            I2(塔伊兹省人员伤亡/财产损失)
+            I3(荷台达市人员伤亡/家庭流离失所)
+            I4(索科特拉岛人员伤亡/设施损毁)
+        end
+
+        subgraph "行动主体 (Actor)"
+            A1(也门红新月会 - YRCS)
+            A2(塔伊兹省政府)
+            A3(世界粮食计划署 - WFP)
+            A4(DG ECHO 合作伙伴)
+            A5(Al-Mahra 省政府)
+            A6(UN 人道主义机构)
+        end
+
+        subgraph "行为 (Behaviour)"
+            B1(YRCS计划分发NFI/食品包)
+            B2(塔伊兹省发布灾情通报)
+            B3(WFP预警后续降雨风险)
+            B4(DG ECHO伙伴提供紧急援助)
+            B5(Al-Mahra省宣布紧急状态)
+            B6(UN协调救援力量)
+        end
+
+        C2 -->|Amplifies| H1
+        C1 -->|Amplifies| H1
+        H1 -->|Trigger| I1
+        A1 -->|Implements| B1
+        A1 -->|Coordinates_with| IFRC
+
+        C3 -->|Triggers| H2
+        H2 -->|Triggers| I2
+        A2 -->|Implements| B2
+        A2 -->|Informs| A3
+
+        H3 -->|Triggers| I3
+        A4 -->|Implements| B4
+
+        H4 -->|Triggers| I4
+        A5 -->|Implements| B5
+        A5 -->|Requests| A6
+    end
