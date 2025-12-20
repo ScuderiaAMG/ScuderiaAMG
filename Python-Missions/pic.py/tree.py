@@ -4,19 +4,16 @@ import math
 import random
 import sys
 
-# --- 全局常量设置 ---
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 700
 FPS = 60
 
-# 树相关常量
 TREE_HEIGHT = 350
 TRUNK_HEIGHT = 40
 BASE_RADIUS = 140
 
-# 颜色定义
 BLACK = (0, 0, 0)
-GREEN = (34, 139, 34)  # 圣诞树绿色
+GREEN = (34, 139, 34)  
 RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 BLUE = (0, 0, 255)
@@ -27,30 +24,25 @@ SILVER = (192, 192, 192)
 WHITE = (255, 255, 255)
 PINK = (255, 192, 203)
 CYAN = (0, 255, 255)
-HEART_COLOR = (255, 105, 180) # 粉红色爱心
-GROUND_COLOR = (240, 248, 255) # 地面粒子颜色 (类似 AliceBlue)
-
-# 粒子颜色列表 - 更丰富的颜色
+HEART_COLOR = (255, 105, 180) 
+GROUND_COLOR = (240, 248, 255) 
 TREE_PARTICLE_COLORS = [GREEN, RED, YELLOW, BLUE, PURPLE, ORANGE, GOLD, SILVER, PINK, CYAN]
-BACKGROUND_PARTICLE_COLORS_FAR = [WHITE, (200, 200, 200), (150, 150, 150)] # 后方背景粒子
-BACKGROUND_PARTICLE_COLORS_NEAR = [(230, 230, 250), (240, 248, 255), (255, 250, 240)] # 前方背景粒子 (更亮)
+BACKGROUND_PARTICLE_COLORS_FAR = [WHITE, (200, 200, 200), (150, 150, 150)]
+BACKGROUND_PARTICLE_COLORS_NEAR = [(230, 230, 250), (240, 248, 255), (255, 250, 240)] 
 
-# --- 3D 粒子类定义 ---
 class Particle3D:
     def __init__(self, x, y, z, color, size, is_decoration=False):
-        self.initial_pos = np.array([x, y, z, 1])  # 齐次坐标
+        self.initial_pos = np.array([x, y, z, 1])  
         self.color = color
         self.size = size
         self.current_pos = self.initial_pos.copy()
         self.is_decoration = is_decoration
-        # 为装饰球添加闪烁效果的参数
         if is_decoration:
             self.original_color = color
             self.blink_speed = random.uniform(0.02, 0.05)
             self.blink_phase = random.uniform(0, 2 * math.pi)
 
     def rotate_y(self, angle):
-        """绕 Y 轴旋转"""
         cos_a = math.cos(angle)
         sin_a = math.sin(angle)
         rotation_matrix = np.array([
