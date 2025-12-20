@@ -1,0 +1,18 @@
+%0 Conference Proceedings
+%T Face Detection and Expression Recognition Using Haar Cascade Classifier and Fisherface Algorithm
+%A Gangopadhyay, Indrasom
+%A Chatterjee, Anulekha
+%A Das, Indrajit
+%Y Bhattacharyya, Siddhartha
+%Y Pal, Sankar K.
+%Y Pan, Indrajit
+%Y Das, Abhijit
+%S Recent Trends in Signal and Image Processing
+%D 2019
+%I Springer Singapore
+%C Singapore
+%@ 978-981-13-6783-0
+%F 10.1007/978-981-13-6783-0_1
+%X Facial expression recognition is the process of identifying the expression that is displayed by a person, and it has several applications in the fields of medicine, human–computer interaction others; where recognition of expressions displayed on a face is of vital. The process mainly comprises face detection and expression recognition using Haar classifier and using Fisherface based on Fisher’s linear discriminant analysis (FLDA) for dimensionality reduction, respectively. The dataset from which the faces were presented to the classifiers yielded a precision of 96.3% with a recognition speed of 8.2 s. An improvement in recognition accuracy of 3.4% is observed by this algorithm from other algorithms, viz. eigenfaces, LBPH recognizer, and artificial neural network; although with a drawback of incorrect recognition in cases of uneven illumination or low-light conditions. This result may be considered as efficient both with respect to accuracy and speed of recognition of the facial expressions.
+%P 1-11
+

@@ -1,0 +1,17 @@
+%0 Journal Article
+%A 陈园园
+%+ 苏州工业职业技术学院;
+%T 人脸检测算法的改进与仿真研究
+%J 计算机仿真
+%D 2011
+%V 28
+%N 07
+%K 人脸检测;样本扩张;弱分类器;加权参数
+%X 研究提高人脸检测算法准确率问题,针对传统AdaBoost算法在人脸检测训练过程中出现的退化现象和识别率低的问题,提出了一种改进的AdaBoost人脸检测方法。在传统AdaBoost算法的基础上,通过假阳性对样本的权值进行动态更新,调节因子对调节权值进行修正防止其过分增大,通过判决阈值改善分类器识别能力。在CMU+MIT人脸库上对算法进行了实现,实验结果表明,改进的AdaBoost算法较好地解决了传统AdaBoost算法所出现的退化问题,在保证识别率的同时降低了误检率。
+%P 281-284
+%@ 1006-9348
+%L 11-3724/TP
+%U https://kns.cnki.net/kcms2/article/abstract?v=tMRSZR5ycItwqwCaF9WDuiwOwr4uxpzOXND97V5nRQT8tc6rfURTuoGrTnY28pJPC0ZJxVrjMVVpdh1sXvVvpLtHktxdvVj8ZhMiIXq6hMgUQ403Uftw5stKW82SJj7PHGY1seonQ6iFlXUrZ97eavN8sjTz43r9t1E9XS1zSnJQdIXZpriWxyVQZrGkXZd0&uniplatform=NZKPT&language=CHS
+%W CNKI
+
+ 

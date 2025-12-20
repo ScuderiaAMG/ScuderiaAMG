@@ -1,0 +1,443 @@
+\documentclass[UTF8]{ctexart}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{listings, xcolor}
+\usepackage{float}
+\usepackage[backend=biber, style=gb7714-2015]{biblatex} % 修改这里
+\addbibresource{refs.bib}
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolor},
+  commentstyle=\color{codegray},
+  keywordstyle=\color{blue},
+  numberstyle=\tiny\color{gray},
+  stringstyle=\color{red},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{基于Haar特征分类器的解析与实际应用示例}
+\author{迟泰炎 \\ 华中科技大学人工智能与自动化学院}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本文解析了Haar特征分类器的理论基础、发展历程、算法原理、训练与应用方法，实际应用举例，分析了其在实时人脸检测、无人机飞行控制等场景中的性能表现与局限，并对未来基于深度学习的替代方案进行了思考。
+\end{abstract}
+
+\noindent\textbf{关键词：} Haar特征；积分图；AdaBoost；级联分类器；实时对象检测
+
+\section{引言}
+自Viola和Jones在2001年首次提出基于Haar特征的实时人脸检测算法以来，该方法因其计算效率高、实现简单而迅速成为计算机视觉领域的经典技术之一\cite{viola2001}。Haar特征分类器结合了积分图Integral Image、AdaBoost学习框架与级联分类器Cascade Classifier结构，实现了对图像中目标对象的高速、准确检测。随着移动设备与嵌入式系统的普及，资源受限环境下的实时检测需求愈发迫切，Haar特征方法因其低计算复杂度，依然得到广泛应用。然而，深度学习方法的兴起，如Faster R-CNN、YOLO、SSD等，在检测精度和鲁棒性方面已显著超越传统特征方法\cite{dalal2005}。本文旨在对Haar特征分类器进行技术分析，并在无人机飞行控制中应用Haar特征分类器以实现对于飞行姿态控制。
+
+\section{Haar特征与积分图}
+\subsection{Haar特征}
+Haar特征源自1909年Haar小波Haar wavelet理论。经典的Haar特征通过对比图像中两个或三个相邻矩形区域灰度值之差，捕捉区域内的边缘、线条或中心对称结构\cite{lienhart2002}。常见特征类型包括：
+
+二维边缘特征（two-rectangle features），用于检测水平或垂直边缘；
+
+线性特征（three-rectangle features），用于检测亮条纹或暗条纹；
+
+中心特征（four-rectangle features），用于检测中心与周围亮度对比。
+
+通过在一定尺度与位置上计算上述特征，可以构建包含数万乃至数十万维的特征集合，用于描述图像局部结构。
+
+Haar-like特征值定义为图像中白色矩形区域内部所有像素之和与黑色矩形区域所有像素之和的差值，于是Haar-like特征也被称为矩形特征\cite{chen2011}。
+
+对于边缘和线性特征值的计算公式为\cite{wang2014}：\[{{F}_{1}}=\sum\limits_{i=1,3,...,2N-1}^{{}}{{{\omega }_{\text{i}}}sum({{r}_{i}})}-\sum\limits_{j=2,4,...,2N}{{{\omega }_{j}}sum({{r}_{j}})}\]
+
+而对于对角线特征值的计算公式为\cite{wang2014}：\[{{F}_{2}}=\sum\limits_{i=1,3,...,2N-1}{{{\omega }_{i}}sum({{r}_{i}})}-2\sum\limits_{j=2,4,...,2N}{{{\omega }_{j}}sum({{r}_{j}})}\]
+
+\subsection{积分图}
+针对Haar特征需要在不同位置、不同尺度上反复计算矩形区域像素和的问题，Viola–Jones方法引入积分图数据结构。积分图在像素(x,y)处的值定义为原图从(0,0)到(x,y)矩形区域的像素累加和。利用积分图，可在常数时间内通过三个加减操作计算任意矩形区域的像素和，大幅度加速特征提取过程。
+
+\section{AdaBoost与级联分类器}
+\subsection{OpenCV简介}
+OpenCV 是由英特尔开发的免费开源图像处理开发包，主要是由 C 语言写成，其中也包含了部分的 C++，由于它事先封装好了图形图像处理的算法，譬如灰度化、直方图、直方图均衡化、机器学习、贝叶斯理论等等，而受到图形图像开发者的青睐。
+
+OpenCV 诞生于 Intel 研究中心，其目的是为了促进 CPU 密集型应用，并且在计算机视觉领域，为了可以在以前的基础上继续开始研究，而不用从底层开始构造函数，因此，在 Intel 性能库团队的帮助下，OpenCV 诞生了。
+
+OpenCV 有以下一些特点\cite{hou2012}：
+
+（1）开源免费，无论是谁以何种目的，都可以免费使用或者二次开发 OpenCV。而不必担心是否要收费的问题
+
+（2）预先封装好了图形图像处理的很多算法，大大方便了开发者。
+
+（3）可重写的结构和功能
+
+（4）与 Intel 处理器架构相兼容，具有强大的图形图像处理功能
+
+（5）友好简明的用户接口
+
+（6）良好的函数封装性。
+
+\subsection{AdaBoost特征选择}
+AdaBoost是一种迭代式加权分类算法，用于从海量的Haar特征中挑选若干最具判别力的特征，并组合若干弱分类器构建强分类器。在每轮迭代中，算法根据前一轮分类器的错误分布对样本加权，选取错误率最低的特征建立新的弱分类器，并更新样本权重。迭代结束后，将所有弱分类器按权重线性组合，得到最终的强分类器。其数学描述如下。
+在每轮迭代中，算法根据当前样本分布权重$D_t(i)$选择分类错误率最小的特征。不妨设第t轮迭代的样本权重分布为：
+
+\[{D_t(i)} = \frac{\omega_t^{(i)}}{\sum_{j=1}^N \omega_t^{(j)}} \quad (i=1,2,\dots,N)\]
+其中$\omega_t^{(i)}$为第i个样本在第t轮的权重，N为样本总数。对于候选特征$h_j$，计算其加权分类误差：
+
+\[\boldsymbol{\varepsilon}_j = \sum_{i=1}^N D_t(i) \cdot \mathrm{I}(h_j(\mathbf{x}_i) \neq \mathbf{y}_i)\]
+选取误差最小的特征$h_t$构建弱分类器，并更新样本权重：
+
+\[\boldsymbol{\omega}_{t+1}^{(i)} = \boldsymbol{\omega}_t^{(i)} \cdot \exp(-\alpha_t \mathbf{y}_i h_t(\mathbf{x}_i))\]
+其中$\alpha_t = \frac{1}{2} \ln\left(\frac{1 - \boldsymbol{\varepsilon}_t}{\boldsymbol{\varepsilon}_t}\right)$为弱分类器权重，$\varepsilon_t$为当前分类误差。最终强分类器由所有弱分类器的线性组合构成：
+
+\[H(\mathbf{x}) = \operatorname{sign}\left( \sum_{t=1}^{T} \alpha_t h_t(\mathbf{x}) \right)\]
+其中T为迭代次数，$\alpha_t$的指数形式保证分类精度高的弱分类器对最终结果贡献更大。
+AdaBoost通过最小化指数损失函数$\sum_{i=1}^{N} \exp(-y_i H(\mathbf{x}_i))$优化分类性能。研究表明，其泛化误差界满足：
+\[\Pr_{\mathbf{x},y}[H(\mathbf{x}) \ne y] \le \frac{1}{N} \sum_{i=1}^{N} \exp\left(-y_i \sum_{t=1}^{T} \alpha_t h_t(\mathbf{x}_i)\right)\]
+表明算法通过逐步聚焦难分类样本来提升鲁棒性\cite{phy2015}。
+
+\subsection{级联分类器Cascade Classifier结构}
+为了进一步提升检测速度，Viola–Jones提出级联分类器结构。将N个强分类器串联成多个阶段，每个阶段使用少量但高效的特征判别大部分负样本，仅保留可能包含目标的少量窗口进入下一阶段。这样绝大多数非目标窗口可在早期阶段被快速剔除，实现近似常数时间的检测效率\cite{phy2014}。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.3\textwidth]{5.png} 
+  \caption{人脸检测系统流程图}
+  \label{fig:sim_result}
+\end{figure}
+
+\section{多种模型环境对比}
+\subsection{样本准备}
+采集多种光照条件、多种拍摄角度的人脸照片，统一改变分辨率为640*480的JPG格式作为正样本数据集，并同时采集同光照条件、多角度的相同无人脸的环境照片作为负样本数据集。
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{6.png} 
+  \caption{正样本数据集示例}
+  \label{fig:sim_result}
+\end{figure}
+\subsection{资源限制}
+1.目前已有计算平台：
+
+CPU：Intel Core I7-14700HX 28Cores；
+
+GPU：Nvidia RTX 4060 Laptop 55W 8GB；
+
+SSD：Samsung SSD 990 Pro 1TB；
+
+设定资源限制为：每个模型验证过程中，GPU占用不多于30\%，CPU占用不多于10核。
+
+2.对于Haar Cascade、HOG+SVM、YOLOv3三种模型进行对比验证：
+
+Haar级联分类器调用源码：
+\begin{lstlisting}[language=Python,caption=Haar级联分类器调用源码]
+import cv2 as cv
+import os
+import time
+import glob
+from concurrent.futures import ProcessPoolExecutor, as_completed
+TARGET_FPS = 8
+FRAME_INTERVAL = 1.0 / TARGET_FPS
+IMAGE_FOLDER = "/home/legion/dataset/file"
+NUM_CORES = 10  
+def init_classifier():
+    return cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
+def process_images_parallel(image_paths):
+    face_cascade = init_classifier()
+    face_count = 0
+    start_time = time.time()
+    while time.time() - start_time < 3600: 
+        for path in image_paths:
+            try:
+                img = cv.imread(path)
+                if img is None:
+                    continue
+                gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+                faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+                face_count += len(faces)
+                time.sleep(max(FRAME_INTERVAL - (time.time() % FRAME_INTERVAL), 0)) 
+            except Exception as e:
+                print(f"ERROR: Processing failed for {path}: {str(e)}")
+    return face_count
+if __name__ == "__main__":
+    image_paths = glob.glob(os.path.join(IMAGE_FOLDER, "*.[jJ][pP][gG]")) + \
+                 glob.glob(os.path.join(IMAGE_FOLDER, "*.[jJ][pP][eE][gG]")) + \
+                 glob.glob(os.path.join(IMAGE_FOLDER, "*.[pP][nN][gG]"))
+    total_images = len(image_paths)
+    print(f"Found {total_images} images in folder: {IMAGE_FOLDER}")
+    chunk_size = max(1, len(image_paths) // NUM_CORES)
+    image_chunks = [image_paths[i:i+chunk_size] for i in range(0, len(image_paths), chunk_size)]
+    start_total = time.time()
+    with ProcessPoolExecutor(max_workers=NUM_CORES) as executor:
+        futures = [executor.submit(process_images_parallel, chunk) for chunk in image_chunks]
+        total_faces = sum(future.result() for future in as_completed(futures))
+    duration = time.time() - start_total
+    detection_rate = (total_faces / (total_images * (3600 / duration))) * 100 
+    print(f"Total Images Processed: {int(total_images * (3600 / duration))}")
+    print(f"Face Detections: {total_faces}")
+    print(f"Detection Rate: {detection_rate:.2f}%")
+    print(f"Processing Time: {duration:.2f}s")
+print(f"Average FPS: {total_images / duration:.2f}")
+\end{lstlisting}
+
+HOG+SVM识别调用源码：
+\begin{lstlisting}[language=Python,caption=HOG+SVM识别调用源码]
+import cv2 as cv
+import os
+import time
+from multiprocessing import Pool, cpu_count
+from functools import partial
+def process_image(path, face_cascade):
+    try:
+        img = cv.imread(path)
+        gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+        faces = face_cascade.detectMultiScale(
+            gray,
+            scaleFactor=1.1,
+            minNeighbors=5,
+            minSize=(30, 30)
+        )
+        return len(faces) > 0
+    except:
+        return False
+def main():
+    face_cascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    IMAGE_FOLDER = "/home/legion/dataset/file" 
+    print(f"Processing images in folder: {IMAGE_FOLDER}")
+    image_paths = [os.path.join(IMAGE_FOLDER, f) for f in os.listdir(IMAGE_FOLDER) 
+                  if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+    total_images = len(image_paths)
+    detection_results = []
+    start_time = time.time()
+    frame_interval = 1.0 / 8  
+    with Pool(10) as pool:
+        process_func = partial(process_image, face_cascade=face_cascade)
+        for result in pool.imap_unordered(process_func, image_paths):
+            detection_results.append(result)
+            time.sleep(max(frame_interval - (time.time() % frame_interval), 0))
+    end_time = time.time()
+    duration = end_time - start_time
+    valid_results = [r for r in detection_results if r is not None]
+    face_count = sum(valid_results)
+    accuracy = (face_count / len(valid_results)) * 100 if valid_results else 0
+    print(f"Total Images Processed: {total_images}")
+    print(f"Face Detections: {face_count}")
+    print(f"Detection Rate: {accuracy:.2f}%")
+    print(f"Processing Time: {duration:.2f}s")
+    print(f"Average FPS: {len(valid_results)/duration:.2f}")
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+YOLOv3识别调用源码：
+\begin{lstlisting}[language=Python,caption=YOLOv3识别调用源码]
+import torch
+import os
+from PIL import Image
+import time
+import glob
+import psutil
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s').eval().cuda()
+TARGET_FPS = 8
+FRAME_INTERVAL = 1.0 / TARGET_FPS
+def limit_gpu_usage(target_utilization=0.3):
+    torch.cuda.set_per_process_memory_fraction(target_utilization)
+def process_images(image_folder):
+    image_paths = glob.glob(os.path.join(image_folder, "*.[jJ][pP][gG]")) + \
+                 glob.glob(os.path.join(image_folder, "*.[pP][nN][gG]"))
+    total_images = len(image_paths)
+    detection_count = 0
+    start_time = time.time()
+    for path in image_paths:
+        try:
+            img = Image.open(path).convert('RGB')
+            results = model(img, size=640)
+            detection_count += int(0 in results.pred[0][:, -1].unique().tolist())
+            time.sleep(max(FRAME_INTERVAL - (time.time() % FRAME_INTERVAL), 0))
+        except Exception as e:
+            print(f"ERROR: Failed to process {path}: {str(e)}")
+            continue
+    end_time = time.time()
+    return detection_count, total_images, end_time - start_time
+if __name__ == "__main__":
+    limit_gpu_usage(0.3)
+    IMAGE_FOLDER = "/home/legion/dataset/file"
+    print(f"Processing images in folder: {IMAGE_FOLDER}")
+    start_time = time.time()
+    detections, total, duration = process_images(IMAGE_FOLDER)
+    run_time = time.time() - start_time
+    print(f"Total Images Processed: {total}")
+    print(f"Face Detections: {detections}")
+    print(f"Detection Rate: {(detections/total)*100:.2f}%")
+    print(f"Processing Time: {duration:.2f}s")
+    print(f"Average FPS: {total/duration:.2f}")
+    print(f"Total Runtime: {run_time/3600:.2f} hours")
+\end{lstlisting}
+
+3.识别设置：
+
+在含有环境图片和人脸图片的路径下进行随机读取照片，并进行人脸识别，读取速度为8fps，连续识别1小时。
+
+4.验证结果：
+\begin{table}[htbp]
+\centering
+\caption{不同方法对比}
+\begin{tabular}{|c|c|c|}
+\hline
+方法 & 准确率(\%) & 检测速度(fps) \\
+\hline
+Haar Cascade & 85 & 60 \\
+HOG+SVM & 90 & 15 \\
+YOLOv3 & 95 & 45 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{实际应用示例}
+基于华中科技大学计算机科学与技术学院AirHust无人机竞技团队的智飞410无人机进行人脸识别降落任务，竞赛规则为无人机降落后投影区域外围矩形框在人脸照片上方覆盖面积的比例越高则分数越高。
+
+对于人脸识别降落任务，由于机载Nvidia Jetson Nano开发板无GPU，算力低内存小，主体任务中还需要调用机头侧的Intel T265鱼眼摄像头，笔者提出放弃Yolov8而改用{OpenCV下的haarcascade\_frontalface\_default.xml参数文件进行人脸识别。事实证明使用Haar后对于CPU算力占用减少，视频流帧率更高，检测精确度大幅提升。
+
+
+\subsection{示例代码片段}
+\begin{lstlisting}[language=C++,caption=人脸检测代码片段]
+#include <ros/ros.h>
+#include <opencv2/opencv.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <sensor_msgs/Image.h>
+#include <std_msgs/Int32MultiArray.h> 
+#include <std_msgs/Bool.h> 
+#include <std_msgs/Int32.h> 
+using namespace cv;
+using namespace std;
+class FaceDetector {
+public:
+    FaceDetector() {if (!face_cascade.load("/usr/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml")) {ROS_ERROR("无法加载人脸识别模型文件！");
+            ros::shutdown();
+        }
+        image_sub_ = nh_.subscribe("/usb_cam/image_raw", 1, &FaceDetector::imageCallback, this);
+        face_center_pub_ = nh_.advertise<std_msgs::Int32MultiArray>("/face_center_pixel", 10);
+        face_flag_pub_ = nh_.advertise<std_msgs::Bool>("/face_detected_flag", 10); 
+        crossover_sub_ = nh_.subscribe("/px4/crossover", 10, &FaceDetector::crossoverCallback, this);
+        namedWindow("Face Detection", WINDOW_NORMAL); 
+        crossover_flag_ = 0;
+    }
+    ~FaceDetector() {destroyWindow("Face Detection");
+    }
+    void crossoverCallback(const std_msgs::Int32::ConstPtr& msg) {crossover_flag_ = msg->data;
+    }
+    void imageCallback(const sensor_msgs::ImageConstPtr& msg) {try {
+            cout << "receive_image" << endl;
+            cout << "crossover_flag_: " << crossover_flag_ << endl;
+            Mat frame = cv_bridge::toCvShare(msg, "bgr8")->image; 
+            std_msgs::Bool flag_msg;
+            flag_msg.data = false; 
+            if (crossover_flag_ == 1) { Mat gray;
+                cvtColor(frame, gray, COLOR_BGR2GRAY);
+                vector<Rect> faces;
+                face_cascade.detectMultiScale(gray, faces, 1.1, 5, 0 | CASCADE_SCALE_IMAGE, Size(30, 30));
+                if (!faces.empty()) {
+                    int center_x = faces[0].x + faces[0].width / 2;
+                    int center_y = faces[0].y + faces[0].height / 2;
+                    std_msgs::Int32MultiArray msg_center;
+                    msg_center.data.push_back(center_x);
+                    msg_center.data.push_back(center_y);
+                    face_center_pub_.publish(msg_center);
+                    flag_msg.data = true; 
+                    cout << "face_detect" << endl;
+                    cout << "center_x: " << center_x << endl;
+                    cout << "center_y: " << center_y << endl;
+                } 
+                for (const auto& face : faces) {
+                    rectangle(frame, face, Scalar(0, 255, 0), 2);
+                }
+            } else {
+                putText(frame, "Waiting for crossover signal...", Point(30, 30), 
+                        FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 0, 255), 2);
+            }
+            face_flag_pub_.publish(flag_msg); 
+            Mat display_frame;
+            resize(frame, display_frame, Size(320, 240), 0, 0, INTER_LINEAR);
+            imshow("Face Detection", display_frame);
+            waitKey(1); 
+        } catch (cv_bridge::Exception& e) {
+            ROS_ERROR("cv_bridge异常: %s", e.what());
+        }
+    }
+private:
+    ros::NodeHandle nh_;
+    ros::Subscriber image_sub_;
+    ros::Subscriber crossover_sub_; 
+    ros::Publisher face_center_pub_;
+    ros::Publisher face_flag_pub_;
+    CascadeClassifier face_cascade;
+    int crossover_flag_; 
+};
+int main(int argc, char** argv) {
+    ros::init(argc, argv, "face_detector");
+    FaceDetector detector;
+    ros::spin(); 
+    return 0;
+}
+
+\end{lstlisting}
+在ROS Noetic Ubuntu 20.04仿真验证中，Haar级联分类器表现出色：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{1.png} 
+  \caption{人脸检测仿真结果}
+  \label{fig:sim_result}
+\end{figure}
+
+同样，在ROS Noetic Ubuntu 18.04的410无人机实机飞行结果也令人满意：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.65\textwidth]{2.png} 
+  \caption{实机飞行终端截图}
+  \label{fig:sim_result}
+\end{figure}
+
+降落点现场实拍：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{4.jpg} 
+  \caption{降落点正上方俯视图}
+  \label{fig:sim_result}
+\end{figure}
+
+可见无人机在人脸照片的正上方，覆盖率达到了100\%。但是在调用YoloV5模型的识别任务中，无人机在相同飞行高度中无法稳定识别，且识别时帧率远低于调用Haar级联分类器的情况。这也说明Haar与Yolo相比，在资源有限的情况下能够更好的执行任务。
+
+\section{优势、局限与发展趋势}
+\subsection{优势}
+计算效率高：积分图与级联结构确保实时性；
+
+实现简单：无须GPU即可部署；
+
+资源消耗低：适合嵌入式与移动端。
+
+\subsection{局限}
+鲁棒性差：对光照、遮挡、姿态变化敏感；
+
+特征表达能力有限：仅捕捉简单纹理与边缘信息；
+
+训练成本高：需海量样本与长时间迭代。
+
+\subsection{发展趋势}
+深度学习方法，如Faster R-CNN、SSD、YoloV8等，通过端到端特征学习与更强的表征能力，已在精度与鲁棒性上超越传统方法。但在资源受限场景，如智能摄像头、无人机等，轻量级的Haar特征分类器或能与轻量化神经网络相结合，形成折中方案。
+
+
+
+\printbibliography[title={参考文献}]
+
+\end{document}

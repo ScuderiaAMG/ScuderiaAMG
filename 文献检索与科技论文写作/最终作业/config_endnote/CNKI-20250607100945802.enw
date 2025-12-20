@@ -1,0 +1,19 @@
+%0 Journal Article
+%A 王蓉
+%A 侯鹏鹏
+%A 曾昭龙
+%+ 中国人民公安大学警务信息工程学院;
+%T 基于OpenCV的人脸检测与跟踪方法实现
+%J 科学技术与工程
+%D 2014
+%V 14
+%N 24
+%K 图像处理;人脸检测;人脸跟踪;OpenCV
+%X 人脸是视频内容中的重要信息,对人脸的检测与跟踪是智能视频分析的一个重要分支。实现了基于OpenCV的人脸检测与跟踪方法。首先计算视频图像的Haar-like特征,然后利用AdaBoost级联分类器进行人脸检测,最后使用基于颜色的Camshift算法实现人脸跟踪。在VS 2010开发平台上调用OpenCV函数库进行C++编程;并使用MFC框架实现了人脸检测与跟踪方法。仿真实验结果证明方法思路合理、计算复杂度较低、鲁棒性较好。
+%P 115-118+126
+%@ 1671-1815
+%L 11-4688/T
+%U https://kns.cnki.net/kcms2/article/abstract?v=tMRSZR5ycIu8270xTfTlNxWNbWFQs79-vK3YE_lA5KtjxtxvD8Yv_jfTNJL88TUJkGqQB2sqCxmP7ayZhdaAhFNQIwIW554q3RClRd2iP2nkpvHB-5q2BWtwlXMqX75aIMgV4FdvsPJfO8lXSx_Cy2Iz5HfdaMvHALV_JEPDJWNfn7I6PCQ3Jw7n4WMfJBLt&uniplatform=NZKPT&language=CHS
+%W CNKI
+
+ 

@@ -1,0 +1,247 @@
+\documentclass[UTF8]{ctexart}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{listings, xcolor}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{float}
+
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{backcolor}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolor},
+  commentstyle=\color{codegray},
+  keywordstyle=\color{blue},
+  numberstyle=\tiny\color{gray},
+  stringstyle=\color{red},
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+\lstset{style=mystyle}
+
+\title{基于Haar特征分类器的解析}
+\author{迟泰炎 \\ 华中科技大学人工智能与自动化学院}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本文解析了Haar特征分类器的理论基础、发展历程、算法原理、训练与应用方法，实际应用举例，分析了其在实时人脸检测、行人检测、车辆检测等场景中的性能表现与局限，并对未来基于深度学习的替代方案进行了思考。
+\end{abstract}
+
+\noindent\textbf{关键词：} Haar特征；积分图；AdaBoost；级联分类器；实时对象检测
+
+\section{引言}
+自Viola和Jones在2001年首次提出基于Haar特征的实时人脸检测算法以来，该方法因其计算效率高、实现简单而迅速成为计算机视觉领域的经典技术之一\cite{viola2001}。Haar特征分类器结合了积分图Integral Image、AdaBoost学习框架与级联分类器Cascade Classifier结构，实现了对图像中目标对象的高速、准确检测。随着移动设备与嵌入式系统的普及，资源受限环境下的实时检测需求愈发迫切，Haar特征方法因其低计算复杂度，依然得到广泛应用。然而，深度学习方法的兴起，如Faster R-CNN、YOLO、SSD等，在检测精度和鲁棒性方面已显著超越传统特征方法\cite{dalal2005}。本文旨在对Haar特征分类器进行全面深入的技术分析，为后续研究与工程实践提供参考。
+
+\section{Haar特征与积分图}
+\subsection{Haar特征}
+Haar特征源自1909年Haar小波Haar wavelet理论。经典的Haar特征通过对比图像中两个或三个相邻矩形区域灰度值之差，捕捉区域内的边缘、线条或中心对称结构\cite{lienhart2002}。常见特征类型包括：
+
+二维边缘特征（two-rectangle features），用于检测水平或垂直边缘；
+
+线性特征（three-rectangle features），用于检测亮条纹或暗条纹；
+
+中心特征（four-rectangle features），用于检测中心与周围亮度对比。
+
+通过在一定尺度与位置上计算上述特征，可以构建包含数万乃至数十万维的特征集合，用于描述图像局部结构。
+
+\subsection{积分图}
+针对Haar特征需要在不同位置、不同尺度上反复计算矩形区域像素和的问题，Viola–Jones方法引入积分图数据结构。积分图在像素(x,y)处的值定义为原图从(0,0)到(x,y)矩形区域的像素累加和。利用积分图，可在常数时间内通过三个加减操作计算任意矩形区域的像素和，大幅度加速特征提取过程。
+
+\section{AdaBoost与级联分类器}
+\subsection{AdaBoost特征选择}
+AdaBoost是一种迭代式加权分类算法，用于从海量的Haar特征中挑选若干最具判别力的特征，并组合若干弱分类器构建强分类器。在每轮迭代中，算法根据前一轮分类器的错误分布对样本加权，选取错误率最低的特征建立新的弱分类器，并更新样本权重。迭代结束后，将所有弱分类器按权重线性组合，得到最终的强分类器。
+
+\subsection{级联分类器结构}
+为了进一步提升检测速度，Viola–Jones提出级联分类器结构。将N个强分类器串联成多个阶段，每个阶段使用少量但高效的特征判别大部分负样本，仅保留可能包含目标的少量窗口进入下一阶段。这样绝大多数非目标窗口可在早期阶段被快速剔除，实现近似常数时间的检测效率。
+
+\section{训练方法与参数设置}
+\subsection{样本准备}
+正样本：包含目标对象（如人脸）的裁剪图像；
+
+负样本：不含目标的自然场景图像。
+
+可使用\texttt{OpenCV}的\texttt{opencv\_createsamples}工具生成带有随机平移、缩放、旋转扰动的正样本，生成\texttt{.vec}二进制样本文件。
+
+\subsection{训练流程}
+1.	配置训练参数：
+
+正样本数（如6000）与负样本数（如10000）；
+
+级联阶段数（如20–25）；
+
+每阶段的假正率（如0.5）与检测率（如0.995）；
+
+样本窗口尺寸（如24×24像素）。
+
+2.	调用opencv\_traincascade：
+\begin{table}[htbp]
+\centering
+\caption{不同方法对比}
+\begin{tabular}{|c|c|c|}
+\hline
+方法 & 准确率(\%) & 检测速度(fps) \\
+\hline
+Haar Cascade & 85 & 60 \\
+HOG+SVM & 90 & 15 \\
+YOLOv3 & 95 & 45 \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{实际应用示例}
+基于华中科技大学计算机科学与技术学院AirHust无人机竞技团队的智飞410无人机进行人脸识别降落任务，竞赛规则为无人机降落后投影区域外围矩形框在人脸照片上方覆盖面积的比例越高则分数越高。
+
+对于人脸识别降落任务，由于机载Nvidia Jetson Nano开发板无GPU，算力低内存小，主体任务中还需要调用机头侧的Intel T265鱼眼摄像头，笔者提出放弃Yolov8而改用{OpenCV下的haarcascade\_frontalface\_default.xml参数文件进行人脸识别。事实证明使用Haar后对于CPU算力占用减少，视频流帧率更高，检测精确度大幅提升。
+
+
+\subsection{示例代码片段}
+\begin{lstlisting}[language=C++,caption=人脸检测代码片段]
+#include <ros/ros.h>
+#include <opencv2/opencv.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <sensor_msgs/Image.h>
+#include <std_msgs/Int32MultiArray.h> 
+#include <std_msgs/Bool.h> 
+#include <std_msgs/Int32.h> 
+using namespace cv;
+using namespace std;
+class FaceDetector {
+public:
+    FaceDetector() {if (!face_cascade.load("/usr/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml")) {ROS_ERROR("无法加载人脸识别模型文件！");
+            ros::shutdown();
+        }
+        image_sub_ = nh_.subscribe("/usb_cam/image_raw", 1, &FaceDetector::imageCallback, this);
+        face_center_pub_ = nh_.advertise<std_msgs::Int32MultiArray>("/face_center_pixel", 10);
+        face_flag_pub_ = nh_.advertise<std_msgs::Bool>("/face_detected_flag", 10); 
+        crossover_sub_ = nh_.subscribe("/px4/crossover", 10, &FaceDetector::crossoverCallback, this);
+        namedWindow("Face Detection", WINDOW_NORMAL); 
+        crossover_flag_ = 0;
+    }
+    ~FaceDetector() {destroyWindow("Face Detection");
+    }
+    void crossoverCallback(const std_msgs::Int32::ConstPtr& msg) {crossover_flag_ = msg->data;
+    }
+    void imageCallback(const sensor_msgs::ImageConstPtr& msg) {try {
+            cout << "receive_image" << endl;
+            cout << "crossover_flag_: " << crossover_flag_ << endl;
+            Mat frame = cv_bridge::toCvShare(msg, "bgr8")->image; 
+            std_msgs::Bool flag_msg;
+            flag_msg.data = false; 
+            if (crossover_flag_ == 1) { Mat gray;
+                cvtColor(frame, gray, COLOR_BGR2GRAY);
+                vector<Rect> faces;
+                face_cascade.detectMultiScale(gray, faces, 1.1, 5, 0 | CASCADE_SCALE_IMAGE, Size(30, 30));
+                if (!faces.empty()) {
+                    int center_x = faces[0].x + faces[0].width / 2;
+                    int center_y = faces[0].y + faces[0].height / 2;
+                    std_msgs::Int32MultiArray msg_center;
+                    msg_center.data.push_back(center_x);
+                    msg_center.data.push_back(center_y);
+                    face_center_pub_.publish(msg_center);
+                    flag_msg.data = true; 
+                    cout << "face_detect" << endl;
+                    cout << "center_x: " << center_x << endl;
+                    cout << "center_y: " << center_y << endl;
+                } 
+                for (const auto& face : faces) {
+                    rectangle(frame, face, Scalar(0, 255, 0), 2);
+                }
+            } else {
+                putText(frame, "Waiting for crossover signal...", Point(30, 30), 
+                        FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0, 0, 255), 2);
+            }
+            face_flag_pub_.publish(flag_msg); 
+            Mat display_frame;
+            resize(frame, display_frame, Size(320, 240), 0, 0, INTER_LINEAR);
+            imshow("Face Detection", display_frame);
+            waitKey(1); 
+        } catch (cv_bridge::Exception& e) {
+            ROS_ERROR("cv_bridge异常: %s", e.what());
+        }
+    }
+private:
+    ros::NodeHandle nh_;
+    ros::Subscriber image_sub_;
+    ros::Subscriber crossover_sub_; 
+    ros::Publisher face_center_pub_;
+    ros::Publisher face_flag_pub_;
+    CascadeClassifier face_cascade;
+    int crossover_flag_; 
+};
+int main(int argc, char** argv) {
+    ros::init(argc, argv, "face_detector");
+    FaceDetector detector;
+    ros::spin(); 
+    return 0;
+}
+
+\end{lstlisting}
+在ROS Noetic Ubuntu 20.04仿真验证中，Haar表现出色：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{1.png} 
+  \caption{人脸检测仿真结果}
+  \label{fig:sim_result}
+\end{figure}
+
+同样，在410无人机的ROS Noetic Ubuntu 18.04中实机飞行结果也令人满意：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{2.png} 
+  \caption{实机飞行终端截图}
+  \label{fig:sim_result}
+\end{figure}
+
+降落点现场实拍：
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{4.jpg} 
+  \caption{降落点正上方俯视图}
+  \label{fig:sim_result}
+\end{figure}
+
+
+\section{优势、局限与发展趋势}
+\subsection{优势}
+计算效率高：积分图与级联结构确保实时性；
+
+实现简单：无须GPU即可部署；
+
+资源消耗低：适合嵌入式与移动端。
+
+\subsection{局限}
+鲁棒性差：对光照、遮挡、姿态变化敏感；
+
+特征表达能力有限：仅捕捉简单纹理与边缘信息；
+
+训练成本高：需海量样本与长时间迭代。
+
+\subsection{发展趋势}
+深度学习方法，如Faster R-CNN、SSD、YOLO系列等，通过端到端特征学习与更强的表征能力，已在精度与鲁棒性上超越传统方法。但在资源受限场景，如智能摄像头、无人机等，轻量级的Haar特征分类器或能与轻量化神经网络相结合，形成折中方案。
+
+\section{结论}
+本文分析了Haar特征分类器的理论基础、算法流程、实现细节与应用效果、实际应用，分析了其优势与不足，并与现代深度学习方法进行了对比，得出其在资源受限环境中仍具备应用价值。未来可结合轻量化深度网络与传统特征方法，优化实时检测性能。
+
+\begin{thebibliography}{1}
+\bibitem{viola2001} P. Viola and M. Jones, ``Rapid Object Detection using a Boosted Cascade of Simple Features,'' in Proc. CVPR, 2001.
+\bibitem{dalal2005} N. Dalal and B. Triggs, ``Histograms of Oriented Gradients for Human Detection,'' in Proc. CVPR, 2005.
+\bibitem{lienhart2002} R. Lienhart and J. Maydt, ``An Extended Set of Haar-like Features for Rapid Object Detection,'' in Proc. ICIP, 2002.
+\end{thebibliography}
+
+\end{document}
