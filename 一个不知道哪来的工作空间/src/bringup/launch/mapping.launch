@@ -1,0 +1,15 @@
+<launch> 
+
+	<!--设置静态坐标系 -->
+    
+	<!--启动mavros节点 -->
+    <!--include file="$(find mavros)/launch/px4.launch" /-->
+    
+	<!--启动MID360雷达节点 -->
+    <include file="$(find livox_ros_driver2)/launch/msg_MID360.launch" />
+    
+    <include file="$(find slam_navigation)/launch/slam_mapping.launch" />
+
+	<!--启动坐标转换节点 -->
+</launch>
+

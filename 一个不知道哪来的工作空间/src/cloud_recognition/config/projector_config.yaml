@@ -1,0 +1,32 @@
+# 平面尺寸（米）
+plane_width: 3.0
+#plane_height: 3.0
+
+# 点投影膨胀半径（米）
+point_radius: 0.03
+
+# 拉伸长度（米）
+extrusion_length: 3.0
+
+# 输入话题基础名称，会自动生成 input_topic_base + "1", input_topic_base + "2", ... 
+#input_topic_base: "/fast_detector/refined_plane_"
+input_topic_base: "/plane_extractor/plane_clouds_"
+# 最大输入话题数量，将会订阅从 1 到 max_input_topics 的所有话题
+#max_input_topics: 4  # 生成: /fast_detector/refined_plane_1 到 /fast_detector/refined_plane_4
+
+# 目标坐标系
+target_frame: "camera_init"
+
+# 图像输出参数
+image_width: 800
+image_height: 600
+
+# 固定分辨率设置（可选）
+fixed_resolution_m_per_px: 0.02  # 每像素对应的米数
+use_fixed_resolution: true     # 是否使用固定分辨率
+
+# 形态学处理参数
+morphology_kernel_size: 5        # 形态学操作的内核大小
+
+# 微孔面积阈值（像素）
+min_hole_area_px: 10

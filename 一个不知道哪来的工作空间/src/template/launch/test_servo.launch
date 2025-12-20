@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="template" type="test_servo" name="" output="screen">
+  </node>
+</launch>

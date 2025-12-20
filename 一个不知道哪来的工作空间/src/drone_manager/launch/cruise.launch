@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="drone_manager" type="cruise_node" name="cruise_node" output="screen">
+    <rosparam file="$(find drone_manager)/config/cruise.yaml" command="load"/>
+  </node>
+</launch>

@@ -1,0 +1,13 @@
+<launch>  
+    <include file="$(find mavros)/launch/px4.launch" />
+    
+    <include file="$(find livox_ros_driver2)/launch/msg_MID360.launch" />
+    
+    <node name='lidar_to_mavros' pkg="lidar_to_mavros" type="lidar_to_mavros" />
+    
+	<include file="$(find usb_cam)/launch/usb_cam-test.launch" />
+		
+    <include file="$(find robot_vision)/launch/ar_track_camera.launch" /> 
+ 
+	<node name='ar_track_landing' pkg="ar_track_landing" type="ar_track_landing" output="screen" />
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+    <!-- 地图累积器 -->
+    <node name="map_accumulator" pkg="ring_detector" type="map_accumulator_node" output="screen">
+        <rosparam file="$(find ring_detector)/config/map_accumulator.yaml" command="load"/>
+        <param name="input_topic" value="/cloud_registered"/>
+        <param name="map_frame" value="camera_init"/>
+        <param name="save_directory" value="/home/phoenixtech/maps"/>
+    </node>
+</launch>

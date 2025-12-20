@@ -1,0 +1,35 @@
+# config.yaml - 统一配置文件
+resolution: 0.02 # m/px，全局分辨率
+
+# 观测目标 1: 外白内黑矩形
+obs1:
+  type: "rectangle"
+  outer_width: 1.42 # 外矩形宽度 (m)
+  outer_height: 1.14 # 外矩形高度 (m)
+  inner_width: 1.04 # 内矩形宽度 (m)
+  inner_height: 0.76 # 内矩形高度 (m)
+
+# 观测目标 2: 同心圆（外白内黑）
+obs2:
+  type: "circle"
+  outer_diameter: 1.2 # 外圆直径 (m)
+  inner_diameter: 0.9 # 内圆直径 (m)
+  padding: 0.2 # 外围留白（米），确保圆不贴边
+
+# 观测目标 3: 左右双黑块 + 中间白柱（水平分隔）
+obs3:
+  type: "dual_horizontal"
+  outer_width: 2.24 # 外框宽度 (m)
+  outer_height: 1.18 # 外框高度 (m)
+  inner_width: 0.9 # 每个黑块宽度 (m)
+  inner_height: 0.9 # 每个黑块高度 (m)
+  column_width: 0.1 # 中间竖直白柱宽度 (m)
+
+# 观测目标 4: 上下双黑块 + 中间白柱（垂直分隔）
+obs4:
+  type: "dual_vertical"
+  outer_width: 1.36 # 外框宽度 (m)
+  outer_height: 2.28 # 外框高度 (m)
+  inner_width: 1.18 # 每个黑块宽度 (m)
+  inner_height: 1.0 # 每个黑块高度 (m)
+  column_width: 0.09 # 中间水平白条高度 (m)

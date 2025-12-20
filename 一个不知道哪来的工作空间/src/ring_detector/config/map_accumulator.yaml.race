@@ -1,0 +1,36 @@
+# map_accumulator.yaml
+input_topic: "/cloud_registered"
+map_frame: "world" # 或 "camera_init"，根据你的Fast-LIO设置
+base_frame: "base_link"
+voxel_leaf_size: 0.05
+max_points: 100000000
+save_directory: "/home/$(USER)/fastlio_maps" # 请替换 $(USER) 或使用绝对路径
+save_interval: 30.0
+enable_realtime_preview: true
+preview_rate: 20
+
+# --- 关键：启用并配置 ROI ---
+enable_map_roi_filter: true # 必须设为 true 才会生效
+map_roi_min_x: 0.0
+map_roi_max_x: 8.0
+map_roi_min_y: -7.8
+map_roi_max_y: 0.95
+map_roi_min_z: 0.6
+map_roi_max_z: 3.5
+#map_roi_min_x: 1.1
+#map_roi_max_x: 9.7
+#map_roi_min_y: -4.2
+#map_roi_max_y: 4.50
+#map_roi_min_z: -0.55
+#map_roi_max_z: 2.35
+
+# --- 新增：DisROI 配置（忽略/丢弃区域）---
+# 注意：DisROI区域是在世界坐标系(map_frame)下定义的
+# 该区域内的所有点云将被直接舍弃，不参与地图积累
+enable_disroi_filter: false # 启用DisROI过滤
+disroi_min_x: 3.5          # 世界坐标系下的X轴范围
+disroi_max_x: 5.2        # 例如：机器人起始位置附近区域
+disroi_min_y: -2.75         # 世界坐标系下的Y轴范围  
+disroi_max_y: -1.5         # 这些点云将被直接丢弃
+disroi_min_z: -100.0          # 世界坐标系下的Z轴范围
+disroi_max_z: 100.0          # 不参与地图积累

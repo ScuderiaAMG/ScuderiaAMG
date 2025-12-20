@@ -1,0 +1,54 @@
+<launch>
+    <!-- 刀旗检测节点 -->
+    <node name="flag_recognition" pkg="cloud_recognition" type="flag_recognition" output="screen">
+        
+        <!-- 话题参数 -->
+        <param name="input_topic" value="/map_accumulator/accumulated_map" />
+        <param name="output_flag_topic" value="/flag_coordinates" />
+        <param name="output_marker_topic" value="/flag_markers" />
+        <param name="output_downsampled_topic" value="/downsampled_cloud" />
+        <param name="output_clustered_topic" value="/clustered_cloud" />
+        
+        <!-- ROI参数 -->
+        <param name="roi_min_x" value="0.0" />
+        <param name="roi_max_x" value="7.8" />
+        <param name="roi_min_y" value="-8.0" />
+        <param name="roi_max_y" value="0.50" />
+        <param name="roi_min_z" value="0.2" />
+        <param name="roi_max_z" value="2.8" />
+        
+        <param name="det_roi1_min_x" value="0.0" />
+        <param name="det_roi1_max_x" value="7.8" />
+        <param name="det_roi1_min_y" value="-8.0" />
+        <param name="det_roi1_max_y" value="0.50" />
+        <param name="det_roi1_min_z" value="0.2" />
+        <param name="det_roi1_max_z" value="2.8" />
+
+        <param name="det_roi2_min_x" value="0.0" />
+        <param name="det_roi2_max_x" value="7.8" />
+        <param name="det_roi2_min_y" value="-8.0" />
+        <param name="det_roi2_max_y" value="0.50" />
+        <param name="det_roi2_min_z" value="0.2" />
+        <param name="det_roi2_max_z" value="2.8" />
+        
+        <!-- 降采样参数 -->
+        <param name="voxel_leaf_size" value="0.05" />
+        
+        <!-- 聚类参数 -->
+        <param name="cluster_tolerance" value="0.15" />
+        <param name="min_cluster_size" value="100" />
+        <param name="max_cluster_size" value="10000" />
+        
+        <!-- 刀旗特征参数 -->
+        <param name="flag_width_min" value="0.2" />
+        <param name="flag_width_max" value="0.7" />
+        <param name="min_flag_height" value="1.8" />
+        <param name="max_flag_height" value="2.7" />
+        
+        <!-- 周围环境参数 -->
+        <param name="surrounding_radius" value="0.3" />
+        <param name="surrounding_threshold" value="10" />
+        
+    </node>
+    
+</launch>

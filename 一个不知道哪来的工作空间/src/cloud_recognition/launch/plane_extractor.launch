@@ -1,0 +1,10 @@
+<launch>
+    <!-- 加载参数 -->
+    <rosparam command="load" file="$(find cloud_recognition)/config/plane_config.yaml" />
+    <include file="$(find cloud_recognition)/launch/plane_topic_num.launch" />
+        
+    <!-- 启动节点 -->
+    <node name="plane_extractor" pkg="cloud_recognition" type="plane_extractor" output="screen" />
+
+    
+</launch>

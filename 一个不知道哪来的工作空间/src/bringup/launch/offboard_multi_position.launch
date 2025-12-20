@@ -1,0 +1,21 @@
+<launch> 
+
+	<!--设置静态坐标系 -->
+    <node pkg="tf" type="static_transform_publisher"  name="t265_camera_link_to_laser" args="0 0 0 0 0 0 camera_link laser 100" />
+
+    <node pkg="tf" type="static_transform_publisher"  name="t265_camera_link_to_base_link"  args="0 0 0 0 0 0 camera_link base_link 100" />  	
+    
+	<!--启动mavros节点 -->
+    <include file="$(find robot_bringup)/launch/px4.launch" />
+
+	<!--启动T265节点 -->
+    <include file="$(find robot_bringup)/launch/demo_t265.launch" />
+
+	<!--启动坐标转换节点 -->
+    <include file="$(find vision_to_mavros)/launch/t265_tf_to_mavros.launch" />
+
+    <!--启动多点飞行节点 -->
+    <node name='offboard_multi_position' pkg="offboard_multi_position" type="offboard_multi_position" output="screen" />
+    
+</launch>
+

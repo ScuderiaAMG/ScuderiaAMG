@@ -1,0 +1,20 @@
+# config/ring_detector.yaml
+ring_detector:
+  # 点云预处理参数
+  voxel_leaf_size: 0.02  # 体素滤波的叶大小 (m)
+  
+  # 平面分割参数
+  distance_threshold: 0.03  # 平面分割的距离阈值 (m)
+  max_iterations: 1000      # RANSAC最大迭代次数
+  
+  # 圆环检测参数
+  radius_min: 0.05          # 最小圆环半径 (m)
+  radius_max: 0.5           # 最大圆环半径 (m)
+  inlier_threshold: 0.02    # 内点阈值 (m)
+  min_inlier_ratio: 0.15    # 最小内点比例
+  min_inlier_count: 30      # 最小内点数量
+  
+  # 输入输出参数
+  input_topic: "/cloud_registered"  # 输入点云话题
+  publish_markers: true             # 是否发布可视化标记
+  publish_debug_cloud: false        # 是否发布调试点云

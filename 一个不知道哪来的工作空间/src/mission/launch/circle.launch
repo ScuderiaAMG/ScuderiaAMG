@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="mission" type="circle" name="" output="screen">
+    <rosparam command="load" file="$(find mission)/config/endurance.yaml" />
+  </node>
+</launch>

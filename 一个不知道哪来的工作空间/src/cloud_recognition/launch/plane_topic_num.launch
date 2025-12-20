@@ -1,0 +1,14 @@
+<launch>
+    <!-- 定义全局参数 -->
+    <arg name="max_planes" default="10" /> <!-- 提取最大平面数 -->
+    <arg name="total_max_fragments" default="12" /> <!-- 总最大碎片数 -->
+
+    <arg name="max_topics" default="12" /> <!-- 最大话题数 -->
+
+    <param name="plane_extraction/max_planes" value="$(arg max_planes)" />
+    <param name="plane_extraction/total_max_fragments" value="$(arg total_max_fragments)" />
+    <param name="template_match/num_planes" value="$(arg max_topics)" />
+    <param name="point_projector/max_input_topics" value="$(arg max_topics)" /> 
+    <param name="point_converter/num_planes" value="$(arg max_topics)" />       
+        
+</launch>

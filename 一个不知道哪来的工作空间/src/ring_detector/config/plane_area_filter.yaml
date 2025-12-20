@@ -1,0 +1,16 @@
+plane_area_filter:
+  # 输入输出设置
+  input_plane_topic: "/plane_extractor/plane_map"          # 输入平面点云
+  output_filtered_topic: "/plane_area_filter/filtered_planes"  # 输出筛选后的点云
+  
+  # 面积筛选参数
+  min_area: 0.5      # 最小面积 (平方米)
+  max_area: 3.0      # 最大面积 (平方米)
+  min_points: 50     # 最少点数
+  
+  # 聚类参数
+  cluster_tolerance: 0.5  # 聚类容忍度 (米)
+  
+  # 筛选控制
+  enable_continuous_filtering: true  # 是否启用连续筛选
+  filtering_interval: 1.0            # 筛选间隔 (秒)

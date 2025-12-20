@@ -1,0 +1,18 @@
+<launch>     
+    
+	<!--启动mavros以及定位节点节点 -->
+    <include file="$(find abot_bringup)/launch/location.launch" />
+     
+	<!--启动USB摄像头节点 -->
+    <include file="$(find usb_cam)/launch/usb_cam-test.launch" />
+
+	<!--启动yolo识别节点 -->
+    <include file="$(find darknet_ros)/launch/darknet_ros.launch" />  
+
+	<!--启动坐标转换节点 -->
+	<include file="$(find object_darknet)/launch/object_darknet.launch" />   
+	
+	<!--启动运动控制节点-->
+	<node name='precise_drop' pkg="precise_drop" type="precise_drop" output="screen" /> 
+</launch>
+

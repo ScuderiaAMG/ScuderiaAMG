@@ -1,0 +1,8 @@
+<launch>
+    <!-- 启动 Gazebo 真值 Odometry 发布器 -->
+    <node pkg="template" type="gazebo_odom_publisher.py" name="gazebo_odom_publisher" output="screen">
+    </node>
+
+    <!-- 启动 TF 点云处理节点（假设 tf_cloud.py 不需要参数） -->
+    <node pkg="template" type="tf_cloud.py" name="tf_cloud" output="screen" />
+</launch>

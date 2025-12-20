@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="mission" type="trajectory_visualizer" name="" output="screen">
+  </node>
+
+</launch>

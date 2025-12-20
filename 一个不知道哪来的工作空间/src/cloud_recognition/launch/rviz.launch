@@ -1,0 +1,4 @@
+<launch>
+  <!-- 启动 RViz 并加载指定的 .rviz 配置文件 -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cloud_recognition)/config/rviz.rviz" required="true" />
+</launch>

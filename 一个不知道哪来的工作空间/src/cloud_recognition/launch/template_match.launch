@@ -1,0 +1,53 @@
+<!-- <launch>
+    <node name="template_match" pkg="cloud_recognition" type="template_match" output="screen">
+        <rosparam command="load" file="$(find cloud_recognition)/config/template_match.yaml" />
+    </node>
+</launch> -->
+
+<launch>
+  <include file="$(find cloud_recognition)/launch/plane_topic_num.launch" />
+  <node name="template_match" pkg="cloud_recognition" type="template_match" output="screen">
+    <!-- <param name="num_planes" value="5" /> -->
+    
+    <!-- ✅ 正确：使用 YAML 列表 -->
+    <param name="template_paths" type="yaml" value="[
+      '$(find cloud_recognition)/template/obs5.png',
+      '$(find cloud_recognition)/template/obs6.png',
+      '$(find cloud_recognition)/template/obs1.png',
+      '$(find cloud_recognition)/template/obs2.png',
+      '$(find cloud_recognition)/template/obs3.png',
+      '$(find cloud_recognition)/template/obs4.png',
+    ]" />
+
+    <param name="template_names" type="yaml" value="['obs5','obs6','obs1', 'obs2','obs3','obs4']" />
+
+    <param name="template_thresholds" type="yaml" value="[
+      1.2,
+      1.2,
+      1.2,
+      0.60,
+      1.2,
+      1.2     
+    ]" />
+
+    <param name="template_ids" type="yaml" value="[
+      4,
+      5,
+      0,
+      1,
+      2,
+      3      
+    ]" />
+
+    <param name="matching_threshold" value="0.65" />
+    <param name="match_method" value="5" /> 
+    <!-- 新增：读取 x 和 y 方向的缩放容忍度和缩放步长参数 -->
+    <param name="scale_x_min" value="0.95" />
+    <param name="scale_x_max" value="1.05" />
+    <param name="scale_x_step" value="0.05" />
+    <param name="scale_y_min" value="0.95" />
+    <param name="scale_y_max" value="1.05" />
+    <param name="scale_y_step" value="0.05" />
+
+  </node>
+</launch>

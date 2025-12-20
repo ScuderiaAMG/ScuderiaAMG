@@ -1,0 +1,376 @@
+#include <ros/ros.h>
+#include <sensor_msgs/PointCloud2.h>
+#include <pcl_conversions/pcl_conversions.h>
+#include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
+#include <pcl/filters/extract_indices.h>
+#include <pcl/segmentation/sac_segmentation.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/passthrough.h>
+#include <pcl/segmentation/extract_clusters.h>
+#include <pcl/common/common.h>
+#include <cmath>
+
+class PlaneExtractor
+{
+public:
+    PlaneExtractor()
+    {
+        loadParameters();
+
+        sub_ = nh_.subscribe(input_topic_, 1, &PlaneExtractor::cloudCallback, this);
+
+        // 动态创建发布者：支持最多 total_max_fragments_ 个平面片段（主平面 + 分裂后的子簇）
+        for (int i = 0; i < total_max_fragments_; ++i)
+        {
+            std::string topic_name = "/plane_extractor/plane_clouds_" + std::to_string(i + 1);
+            pub_planes_.push_back(nh_.advertise<sensor_msgs::PointCloud2>(topic_name, 1));
+        }
+
+        ROS_INFO_STREAM("PlaneExtractor node started.");
+        ROS_INFO_STREAM("Input topic: " << input_topic_);
+        ROS_INFO_STREAM("Max main planes to extract: " << max_planes_);
+        ROS_INFO_STREAM("Max total plane fragments (topics): " << total_max_fragments_);
+        ROS_INFO_STREAM("Vertical tolerance (rad): " << vertical_tolerance_);
+        ROS_INFO_STREAM("Distance expansion factor: " << distance_expansion_factor_);
+        ROS_INFO_STREAM("ROI: x[" << roi_x_min_ << ", " << roi_x_max_ << "] "
+                                  << "y[" << roi_y_min_ << ", " << roi_y_max_ << "] "
+                                  << "z[" << roi_z_min_ << ", " << roi_z_max_ << "]");
+        ROS_INFO_STREAM("Clustering tolerance: " << cluster_tolerance_ << " m");
+        ROS_INFO_STREAM("Min cluster size: " << min_cluster_size_);
+        ROS_INFO_STREAM("Max cluster size: " << max_cluster_size_);
+    }
+
+private:
+    void loadParameters()
+    {
+        nh_.param<double>("roi/x_min", roi_x_min_, 0.5);
+        nh_.param<double>("roi/x_max", roi_x_max_, 2.0);
+        nh_.param<double>("roi/y_min", roi_y_min_, -1.0);
+        nh_.param<double>("roi/y_max", roi_y_max_, 1.0);
+        nh_.param<double>("roi/z_min", roi_z_min_, 0.0);
+        nh_.param<double>("roi/z_max", roi_z_max_, 1.5);
+
+        nh_.param<int>("segmentation/max_iterations", max_iterations_, 200);
+        nh_.param<double>("segmentation/distance_threshold", distance_threshold_, 0.02);
+        nh_.param<bool>("segmentation/optimize_coefficients", optimize_coefficients_, true);
+
+        nh_.param<double>("preprocessing/voxel_leaf_size", voxel_leaf_size_, 0.01);
+        nh_.param<std::string>("preprocessing/input_topic", input_topic_, "/cloud_registered");
+
+        nh_.param<int>("plane_extraction/max_planes", max_planes_, 2);
+        nh_.param<double>("plane_extraction/vertical_tolerance", vertical_tolerance_, 0.1); // 弧度
+        nh_.param<int>("plane_extraction/total_max_fragments", total_max_fragments_, 20);   // 最大片段数（用于话题编号）
+        nh_.param<double>("plane_extraction/distance_expansion_factor", distance_expansion_factor_, 1.5); // 原始点云提取时的距离放宽因子
+        nh_.param<double>("plane_extraction/bounding_box_margin", bounding_box_margin_, 0.1); // 边界框边距
+        nh_.param<bool>("plane_extraction/enable_plane_verification", enable_plane_verification_, true); // 是否启用平面验证
+
+        // 聚类参数
+        nh_.param<double>("clustering/tolerance", cluster_tolerance_, 0.05);
+        nh_.param<int>("clustering/min_cluster_size", min_cluster_size_, 50);
+        nh_.param<int>("clustering/max_cluster_size", max_cluster_size_, 10000);
+    }
+
+    bool isVerticalPlane(const pcl::ModelCoefficients::Ptr coeffs, double tolerance)
+    {
+        double a = coeffs->values[0];
+        double b = coeffs->values[1];
+        double c = coeffs->values[2];
+
+        double norm = std::sqrt(a * a + b * b + c * c);
+        if (norm < 1e-6)
+            return false;
+        double cos_theta = std::abs(c) / norm;
+        double angle = std::acos(cos_theta);
+
+        double target_angle = M_PI / 2.0;
+        return std::abs(angle - target_angle) <= tolerance;
+    }
+
+    void cloudCallback(const sensor_msgs::PointCloud2ConstPtr &input_msg)
+    {
+        pcl::PointCloud<pcl::PointXYZ>::Ptr original_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+        pcl::fromROSMsg(*input_msg, *original_cloud);
+
+        // === 第一步：预处理用于快速平面计算 ===
+        pcl::PointCloud<pcl::PointXYZ>::Ptr filtered_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+        pcl::PointCloud<pcl::PointXYZ>::Ptr region_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+
+        // 降采样（用于平面计算）
+        pcl::VoxelGrid<pcl::PointXYZ> voxel;
+        voxel.setInputCloud(original_cloud);
+        voxel.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);
+        voxel.filter(*filtered_cloud);
+
+        // ROI 过滤（用于平面计算）
+        pcl::PassThrough<pcl::PointXYZ> pass;
+        pass.setInputCloud(filtered_cloud);
+        pass.setFilterFieldName("x");
+        pass.setFilterLimits(roi_x_min_, roi_x_max_);
+        pass.filter(*region_cloud);
+
+        pass.setInputCloud(region_cloud);
+        pass.setFilterFieldName("y");
+        pass.setFilterLimits(roi_y_min_, roi_y_max_);
+        pass.filter(*region_cloud);
+
+        pass.setInputCloud(region_cloud);
+        pass.setFilterFieldName("z");
+        pass.setFilterLimits(roi_z_min_, roi_z_max_);
+        pass.filter(*region_cloud);
+
+        // === 第二步：对原始点云也做ROI过滤（保持密度，用于最终输出） ===
+        pcl::PointCloud<pcl::PointXYZ>::Ptr original_roi_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+        pass.setInputCloud(original_cloud);
+        pass.setFilterFieldName("x");
+        pass.setFilterLimits(roi_x_min_, roi_x_max_);
+        pass.filter(*original_roi_cloud);
+
+        pass.setInputCloud(original_roi_cloud);
+        pass.setFilterFieldName("y");
+        pass.setFilterLimits(roi_y_min_, roi_y_max_);
+        pass.filter(*original_roi_cloud);
+
+        pass.setInputCloud(original_roi_cloud);
+        pass.setFilterFieldName("z");
+        pass.setFilterLimits(roi_z_min_, roi_z_max_);
+        pass.filter(*original_roi_cloud);
+
+        if (region_cloud->points.size() < 100)
+        {
+            ROS_WARN("Not enough points in ROI for plane segmentation.");
+            return;
+        }
+
+        if (original_roi_cloud->points.size() < 100)
+        {
+            ROS_WARN("Not enough original points in ROI for output.");
+            return;
+        }
+
+        // === 第三步：用预处理点云计算平面参数，用原始点云提取结果 ===
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_remaining(new pcl::PointCloud<pcl::PointXYZ>);
+        *cloud_remaining = *region_cloud;
+
+        // 存储所有检测到的平面参数
+        std::vector<pcl::ModelCoefficients::Ptr> detected_planes;
+
+        int plane_count = 0;
+        next_pub_index_ = 0;
+
+        while (plane_count < max_planes_ && next_pub_index_ < total_max_fragments_)
+        {
+            // === 用预处理点云快速计算平面参数 ===
+            pcl::ModelCoefficients::Ptr coefficients(new pcl::ModelCoefficients);
+            pcl::PointIndices::Ptr inliers(new pcl::PointIndices);
+
+            pcl::SACSegmentation<pcl::PointXYZ> seg;
+            seg.setOptimizeCoefficients(optimize_coefficients_);
+            seg.setModelType(pcl::SACMODEL_PLANE);
+            seg.setMethodType(pcl::SAC_RANSAC);
+            seg.setMaxIterations(max_iterations_);
+            seg.setDistanceThreshold(distance_threshold_);
+            seg.setInputCloud(cloud_remaining);
+            seg.segment(*inliers, *coefficients);
+
+            if (inliers->indices.empty())
+            {
+                ROS_DEBUG("RANSAC failed to find a plane.");
+                break;
+            }
+
+            // 判断是否垂直
+            if (!isVerticalPlane(coefficients, vertical_tolerance_))
+            {
+                ROS_DEBUG("Plane is not vertical, skipping.");
+
+                // 从预处理点云中移除这些点
+                pcl::ExtractIndices<pcl::PointXYZ> extract;
+                extract.setInputCloud(cloud_remaining);
+                extract.setIndices(inliers);
+                extract.setNegative(true);
+                pcl::PointCloud<pcl::PointXYZ>::Ptr temp(new pcl::PointCloud<pcl::PointXYZ>);
+                extract.filter(*temp);
+                *cloud_remaining = *temp;
+
+                continue;
+            }
+
+            // 保存检测到的平面参数
+            detected_planes.push_back(coefficients);
+
+            ROS_INFO_STREAM("Detected vertical plane " << plane_count + 1 
+                           << " with coefficients: [" << coefficients->values[0] 
+                           << ", " << coefficients->values[1] 
+                           << ", " << coefficients->values[2] 
+                           << ", " << coefficients->values[3] << "]");
+
+            // === 对预处理后的平面点云进行欧式聚类分割（快速计算） ===
+            pcl::ExtractIndices<pcl::PointXYZ> extract;
+            extract.setInputCloud(cloud_remaining);
+            extract.setIndices(inliers);
+            pcl::PointCloud<pcl::PointXYZ>::Ptr plane_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+            extract.filter(*plane_cloud);
+
+            std::vector<pcl::PointIndices> cluster_indices;
+            pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>);
+            tree->setInputCloud(plane_cloud);
+
+            pcl::EuclideanClusterExtraction<pcl::PointXYZ> ec;
+            ec.setClusterTolerance(cluster_tolerance_);
+            ec.setMinClusterSize(min_cluster_size_);
+            ec.setMaxClusterSize(max_cluster_size_);
+            ec.setSearchMethod(tree);
+            ec.setInputCloud(plane_cloud);
+            ec.extract(cluster_indices);
+
+            ROS_INFO_STREAM("Plane " << plane_count + 1 << ": found " << cluster_indices.size() 
+                           << " clusters from " << plane_cloud->points.size() << " preprocessed points.");
+
+            // === 对每个预处理聚类，提取对应的原始点云区域 ===
+            for (const auto &cluster : cluster_indices)
+            {
+                if (next_pub_index_ >= total_max_fragments_)
+                {
+                    ROS_WARN("Maximum fragment count reached. Stopping further publishing.");
+                    break;
+                }
+
+                // 计算预处理聚类的边界框
+                pcl::PointXYZ min_pt, max_pt;
+                pcl::PointCloud<pcl::PointXYZ>::Ptr cluster_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+                for (int idx : cluster.indices)
+                {
+                    cluster_cloud->points.push_back(plane_cloud->points[idx]);
+                }
+                cluster_cloud->width = cluster_cloud->points.size();
+                cluster_cloud->height = 1;
+                cluster_cloud->is_dense = false;
+
+                // 手动计算边界框
+                if (!cluster_cloud->empty())
+                {
+                    min_pt.x = max_pt.x = cluster_cloud->points[0].x;
+                    min_pt.y = max_pt.y = cluster_cloud->points[0].y;
+                    min_pt.z = max_pt.z = cluster_cloud->points[0].z;
+                    
+                    for (const auto& point : cluster_cloud->points)
+                    {
+                        if (point.x < min_pt.x) min_pt.x = point.x;
+                        if (point.x > max_pt.x) max_pt.x = point.x;
+                        if (point.y < min_pt.y) min_pt.y = point.y;
+                        if (point.y > max_pt.y) max_pt.y = point.y;
+                        if (point.z < min_pt.z) min_pt.z = point.z;
+                        if (point.z > max_pt.z) max_pt.z = point.z;
+                    }
+                }
+
+                // 为边界框添加一些边距
+                float margin = bounding_box_margin_; // 可配置的边距
+                min_pt.x -= margin; min_pt.y -= margin; min_pt.z -= margin;
+                max_pt.x += margin; max_pt.y += margin; max_pt.z += margin;
+
+                // 从原始ROI点云中提取该边界框内的所有点
+                pcl::PointCloud<pcl::PointXYZ>::Ptr original_cluster_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+                for (const auto& point : original_roi_cloud->points)
+                {
+                    if (point.x >= min_pt.x && point.x <= max_pt.x &&
+                        point.y >= min_pt.y && point.y <= max_pt.y &&
+                        point.z >= min_pt.z && point.z <= max_pt.z)
+                    {
+                        if (enable_plane_verification_) {
+                            // 启用平面验证：验证点是否真的属于该平面
+                            double distance = std::abs(coefficients->values[0] * point.x + 
+                                                     coefficients->values[1] * point.y + 
+                                                     coefficients->values[2] * point.z + 
+                                                     coefficients->values[3]);
+                            
+                            if (distance <= distance_threshold_ * distance_expansion_factor_)
+                            {
+                                original_cluster_cloud->points.push_back(point);
+                            }
+                        } else {
+                            // 关闭平面验证：直接添加边界框内的所有点
+                            original_cluster_cloud->points.push_back(point);
+                        }
+                    }
+                }
+                original_cluster_cloud->width = original_cluster_cloud->points.size();
+                original_cluster_cloud->height = 1;
+                original_cluster_cloud->is_dense = false;
+
+                // 发布原始密集点云
+                sensor_msgs::PointCloud2 output_msg;
+                pcl::toROSMsg(*original_cluster_cloud, output_msg);
+                output_msg.header = input_msg->header;
+                pub_planes_[next_pub_index_].publish(output_msg);
+
+                ROS_INFO_STREAM("Published cluster with " << original_cluster_cloud->points.size()
+                                                          << " original points (from " << cluster_cloud->points.size() 
+                                                          << " preprocessed) to /plane_extractor/plane_clouds_"
+                                                          << (next_pub_index_ + 1));
+
+                next_pub_index_++;
+            }
+
+            // 从预处理点云中移除这个平面的点，用于下次平面检测
+            pcl::ExtractIndices<pcl::PointXYZ> extract_preprocessed;
+            extract_preprocessed.setInputCloud(cloud_remaining);
+            extract_preprocessed.setIndices(inliers);
+            extract_preprocessed.setNegative(true);
+            pcl::PointCloud<pcl::PointXYZ>::Ptr temp(new pcl::PointCloud<pcl::PointXYZ>);
+            extract_preprocessed.filter(*temp);
+            *cloud_remaining = *temp;
+
+            plane_count++;
+        }
+
+        if (plane_count == 0)
+        {
+            ROS_WARN("No vertical planes found in the specified region.");
+        }
+        else
+        {
+            ROS_INFO_STREAM("Extracted " << plane_count << " main planes, published " << next_pub_index_ << " fragments.");
+        }
+    }
+
+    ros::NodeHandle nh_;
+    ros::Subscriber sub_;
+    std::vector<ros::Publisher> pub_planes_;
+
+    // 参数变量
+    double roi_x_min_, roi_x_max_;
+    double roi_y_min_, roi_y_max_;
+    double roi_z_min_, roi_z_max_;
+
+    int max_iterations_;
+    double distance_threshold_;
+    bool optimize_coefficients_;
+
+    double voxel_leaf_size_;
+    std::string input_topic_;
+
+    int max_planes_;
+    double vertical_tolerance_;
+    int total_max_fragments_; // 最大支持的平面片段数（用于话题编号）
+    double distance_expansion_factor_; // 原始点云提取时的距离放宽因子
+    double bounding_box_margin_; // 边界框边距
+    bool enable_plane_verification_; // 是否启用平面验证
+
+    // 聚类参数
+    double cluster_tolerance_;
+    int min_cluster_size_;
+    int max_cluster_size_;
+
+    // 全局发布索引
+    int next_pub_index_;
+};
+
+int main(int argc, char **argv)
+{
+    ros::init(argc, argv, "plane_extractor");
+    PlaneExtractor pe;
+    ros::spin();
+    return 0;
+}

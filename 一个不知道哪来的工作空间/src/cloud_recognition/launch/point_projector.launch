@@ -1,0 +1,12 @@
+<launch>
+    <include file="$(find cloud_recognition)/launch/plane_topic_num.launch" />
+    <node name="point_projector" pkg="cloud_recognition" type="point_projector" output="screen">
+        <rosparam command="load" file="$(find cloud_recognition)/config/projector_config.yaml"/>
+        <!-- <param name="target_frame" value="camera_init"/>         -->
+        <!-- <param name="image_width" value="800"/>
+        <param name="image_height" value="600"/> -->
+        <!-- <param name="fixed_resolution_m_per_px" value="0.02"/>  -->
+        <!-- <param name="use_fixed_resolution" value="true"/> -->
+        <!-- <param name="morphology_kernel_size" value="3"/> 形态学操作核大小 -->
+    </node>
+</launch>

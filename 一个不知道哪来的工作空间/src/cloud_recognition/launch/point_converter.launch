@@ -1,0 +1,29 @@
+<launch>
+  <include file="$(find cloud_recognition)/launch/plane_topic_num.launch" />
+  
+  <node name="point_converter" pkg="cloud_recognition" type="point_converter" output="screen">
+
+    <!-- 平面数量 -->
+    <!-- <param name="num_planes" value="4" /> -->
+
+    <!-- 更新半径（米） -->
+    <param name="update_radius" value="1.0" /> 
+
+    <!-- 预筛选最小点数 -->
+    <param name="min_neighbors_for_initial_pass" value="2" />
+
+    <!-- 预筛选半径 -->
+    <param name="neighbor_search_radius" value="0.2" />
+
+    <!-- 新增：每个ID的最大点数限制 -->
+     <rosparam param="max_points_per_id">
+      "0": 0
+      "1": 1
+      "2": 0
+      "3": 0
+      "4": 0
+      "5": 0
+    </rosparam>
+
+  </node>
+</launch>

@@ -1,0 +1,17 @@
+<!-- launch/map_and_plane.launch -->
+<launch>
+    <!-- 地图累积器 -->
+    <node name="map_accumulator" pkg="ring_detector" type="map_accumulator_node" output="screen">
+        <rosparam file="$(find ring_detector)/config/map_accumulator.yaml" command="load"/>
+        <param name="input_topic" value="/cloud_registered"/>
+        <param name="map_frame" value="camera_init"/>
+        <param name="save_directory" value="/home/phoenixtech/maps"/>
+    </node>
+    
+    <!-- 平面提取器 -->
+    <node name="plane_extractor" pkg="ring_detector" type="plane_extractor_node" output="screen">
+        <rosparam file="$(find ring_detector)/config/plane_extractor.yaml" command="load"/>
+        <param name="input_map_topic" value="/map_accumulator/accumulated_map"/>
+        <param name="output_plane_topic" value="/plane_extractor/plane_map"/>
+    </node>
+</launch>

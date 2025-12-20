@@ -1,0 +1,28 @@
+# config/plane_extractor.yaml
+plane_extractor:
+  # 输入输出设置
+  input_map_topic: "/map_accumulator/accumulated_map"
+  output_plane_topic: "/plane_extractor/plane_map"
+  
+  # 垂直平面提取参数
+  distance_threshold: 0.2
+  max_iterations: 150
+  min_plane_points: 100
+  min_vertical_component: 0.7
+  max_retry_interval: 6.0  # 新增：最大重试间隔
+  
+  # 点云处理参数
+  voxel_leaf_size: 0.02
+  
+  # 提取控制
+  enable_continuous_extraction: true
+  extraction_interval: 2.0
+  
+  # ROI参数
+  roi_min_x: -5.0
+  roi_max_x: 5.0
+  roi_min_y: -5.0
+  roi_max_y: 5.0
+  roi_min_z: -1.0
+  roi_max_z: 3.0
+  roi_frame_id: "camera_init"

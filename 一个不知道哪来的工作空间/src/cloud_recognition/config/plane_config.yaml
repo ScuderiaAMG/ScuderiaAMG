@@ -1,0 +1,43 @@
+# config/plane_config.yaml
+
+# 感兴趣区域 (ROI) 参数
+roi: #采用大范围
+  x_min: -10.0
+  x_max: 20.0
+  y_min: -20.0
+  y_max: 20.0
+  z_min: -10.0
+  z_max: 10.0
+
+# 平面分割参数
+segmentation:
+  max_iterations: 200
+  distance_threshold: 0.02 # 调回0.02以提高预处理精度
+  optimize_coefficients: True # 是否优化系数
+
+# 点云预处理参数
+preprocessing:
+  voxel_leaf_size: 0.05 # 可以增大以提高速度（计算在预处理点云上）
+  input_topic: "/map_accumulator/accumulated_map"
+  output_topic: "/plane_points"
+
+plane_extraction:
+ # max_planes: 5 # 提取的最大平面数量
+  vertical_tolerance: 0.5 # 垂直平面容忍度
+ # total_max_fragments: 5 # 发布的最大碎片数量
+  distance_expansion_factor: 15 # 降低到1.5（原来2.0可能太宽松）
+  bounding_box_margin: 0.9 # 减小边距以提高精度
+  enable_plane_verification: true # 是否启用平面验证（false可提高性能）
+
+clustering:
+  min_cluster_size: 50 # 最小聚类大小
+  max_cluster_size: 999999 # 最大聚类大小
+  tolerance: 0.1 # 聚类容忍度(单位：米)
+
+merge:
+  distance_threshold: 0.5  # 质心距离阈值，单位米
+  angle_threshold: 0.3     # 平面角度阈值，单位弧度（约5.7度）
+
+height_filter:
+  max_height: 3.8      # 最大高度阈值，单位米
+  enable: true         # 是否启用高度过滤

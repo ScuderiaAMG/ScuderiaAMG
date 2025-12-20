@@ -1,0 +1,26 @@
+<launch>
+
+    <!-- 点云积累 -->
+    <include file="$(find ring_detector)/launch/roi_mapping.launch" />
+
+    <!-- 平面提取 -->
+    <include file="$(find cloud_recognition)/launch/plane_extractor.launch" />
+
+    <!-- 投影 -->
+    <include file="$(find cloud_recognition)/launch/point_projector.launch" />
+
+    <!-- 模板匹配 -->
+    <include file="$(find cloud_recognition)/launch/template_match.launch" />
+
+    <!-- 点云转换 -->
+    <include file="$(find cloud_recognition)/launch/point_converter.launch" />
+
+    <!-- 刀旗识别 -->
+    <include file="$(find cloud_recognition)/launch/flag_recognition.launch" />
+     
+    <!-- 启动 RViz -->
+    <include file="$(find cloud_recognition)/launch/rviz.launch" />
+    
+
+
+</launch>
