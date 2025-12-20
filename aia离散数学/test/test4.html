@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css  " integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js  " integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css  "
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js  "
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#1f77b4", "font": {"color": "#333333"}, "id": "C1", "label": "C1\n长期冲突致基础设施损毁", "shape": "ellipse", "size": 22}, {"color": "#1f77b4", "font": {"color": "#333333"}, "id": "C2", "label": "C2\n难民营结构脆弱\/位于易洪区", "shape": "ellipse", "size": 22}, {"color": "#1f77b4", "font": {"color": "#333333"}, "id": "C3", "label": "C3\n持续暴雨\/气象预警滞后", "shape": "ellipse", "size": 22}, {"color": "#d62728", "font": {"color": "#333333"}, "id": "H1", "label": "H1\n山洪（MH0006）", "shape": "ellipse", "size": 22}, {"color": "#d62728", "font": {"color": "#333333"}, "id": "H2", "label": "H2\n地表洪水（MH0012）", "shape": "ellipse", "size": 22}, {"color": "#d62728", "font": {"color": "#333333"}, "id": "H3", "label": "H3\n积水洪水（MH0010）", "shape": "ellipse", "size": 22}, {"color": "#d62728", "font": {"color": "#333333"}, "id": "H4", "label": "H4\n热带气旋关联洪灾（MH0057）", "shape": "ellipse", "size": 22}, {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I1", "label": "I1\n马里卜难民营居民受威胁\/伤亡", "shape": "ellipse", "size": 22}, {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I2", "label": "I2\n塔伊兹省人员伤亡\/财产损失", "shape": "ellipse", "size": 22}, {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I3", "label": "I3\n荷台达市人员伤亡\/家庭流离失所", "shape": "ellipse", "size": 22}, {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I4", "label": "I4\n索科特拉岛人员伤亡\/设施损毁", "shape": "ellipse", "size": 22}, {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A1", "label": "A1\n也门红新月会 - YRCS", "shape": "ellipse", "size": 22}, {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A2", "label": "A2\n塔伊兹省政府", "shape": "ellipse", "size": 22}, {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A3", "label": "A3\n世界粮食计划署 - WFP", "shape": "ellipse", "size": 22}, {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A4", "label": "A4\nDG ECHO 合作伙伴", "shape": "ellipse", "size": 22}, {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A5", "label": "A5\nAl-Mahra 省政府", "shape": "ellipse", "size": 22}, {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A6", "label": "A6\nUN 人道主义机构", "shape": "ellipse", "size": 22}, {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B1", "label": "B1\nYRCS计划分发NFI\/食品包", "shape": "ellipse", "size": 22}, {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B2", "label": "B2\n塔伊兹省发布灾情通报", "shape": "ellipse", "size": 22}, {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B3", "label": "B3\nWFP预警后续降雨风险", "shape": "ellipse", "size": 22}, {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B4", "label": "B4\nDG ECHO伙伴提供紧急援助", "shape": "ellipse", "size": 22}, {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B5", "label": "B5\nAl-Mahra省宣布紧急状态", "shape": "ellipse", "size": 22}, {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B6", "label": "B6\nUN协调救援力量", "shape": "ellipse", "size": 22}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#666666", "from": "C2", "label": "E1:Amplify", "length": 300, "to": "H1", "width": 2}, {"arrows": "to", "color": "#666666", "from": "C1", "label": "E2:Amplify", "length": 300, "to": "H1", "width": 2}, {"arrows": "to", "color": "#666666", "from": "H1", "label": "E3:Trigger", "length": 300, "to": "I1", "width": 2}, {"arrows": "to", "color": "#666666", "from": "C3", "label": "E4:Trigger", "length": 300, "to": "H2", "width": 2}, {"arrows": "to", "color": "#666666", "from": "H2", "label": "E5:Trigger", "length": 300, "to": "I2", "width": 2}, {"arrows": "to", "color": "#666666", "from": "H3", "label": "E6:Trigger", "length": 300, "to": "I3", "width": 2}, {"arrows": "to", "color": "#666666", "from": "H4", "label": "E7:Trigger", "length": 300, "to": "I4", "width": 2}, {"arrows": "to", "color": "#666666", "from": "A1", "label": "E8:参与实施", "length": 300, "to": "B1", "width": 2}, {"arrows": "to", "color": "#666666", "from": "A2", "label": "E9:参与实施", "length": 300, "to": "B2", "width": 2}, {"arrows": "to", "color": "#666666", "from": "A2", "label": "E10:informs", "length": 300, "to": "A3", "width": 2}, {"arrows": "to", "color": "#666666", "from": "A4", "label": "E11:参与实施", "length": 300, "to": "B4", "width": 2}, {"arrows": "to", "color": "#666666", "from": "A5", "label": "E12:参与实施", "length": 300, "to": "B5", "width": 2}, {"arrows": "to", "color": "#666666", "from": "A5", "label": "E13:requests", "length": 300, "to": "A6", "width": 2}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

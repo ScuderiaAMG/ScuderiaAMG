@@ -1,0 +1,129 @@
+=== DOC C1 ===
+citation_id: C1
+date_pub: 2023-05-11
+language: en
+source_name: International Federation of Red Cross and Red Crescent Societies (IFRC)
+source_url: https://www.ifrc.org/emergency/yem-flood-2023-03-heavy-rains-and-floods-yemen-update-1
+Official reliable media: Yes
+News title: Heavy rains and floods in Yemen - Update #1 (Mar-May 2023)
+body: 2023年3月15日至5月11日，也门多省（Al-Jawf、Marib、Hajjah、Amran、Shabwa、Lahj、Al-Bayda、Al-Mahwit、Taiz、Al-Mahra等）遭遇季节性暴雨引发洪灾。截至5月，累计24142户家庭受影响，39人死亡、41人受伤，近1158栋建筑部分或完全坍塌；Al-Mehraq村1名儿童死亡，Raymah省9人因车辆滑出雨毁道路死亡；IDP营地（如Lahj省Al-Sharayer营地）82户家庭 shelters 全毁；YRCS（也门红新月会）开展搜救、分发非食品物资（NFI）和卫生包，动员285名志愿者参与救援。
+
+=== DOC C2 ===
+citation_id: C2
+date_pub: 2023-05-06
+language: en
+source_name: IFRC
+source_url: https://www.ifrc.org/emergency/yem-flood-2023-03-heavy-rains-and-floods-yemen-field-report
+Official reliable media: Yes
+News title: Yemen Floods 2023 - Field Report (Mar-May 2023)
+body: 2023年3月中旬起，也门18个省（含Ibb、Amanat Al-Asima、Sana’a等）暴雨引发洪灾，18000余户家庭受影响，31人死亡、37人受伤、3人失踪，122731人流离失所；Marib省为最严重地区，7972户家庭受影响，245栋房屋被毁；FAO报告Taiz省Salh区30栋房屋受损，Al-Mahwit省因大坝坍塌4人死亡；YRCS在Hajjah省分发167套NFI和卫生包，计划在Marib省分发1500套NFI、食品包及塑料布；UNFPA牵头的快速响应团队向1753户洪灾家庭提供紧急援助。
+
+=== DOC C3 ===
+citation_id: C3
+date_pub: 2023-06-13
+language: en
+source_name: The Watchers
+source_url: https://thewatchers.eco/severe-flooding-in-yemen-impacted-over-165-000-people-exacerbating-the-displacement-crisis/
+Official reliable media: Yes
+News title: Severe flooding in Yemen impacted over 165,000 people (Jun 2023)
+body: 2023年3月至6月，也门70余区超16.5万人受洪灾影响，31人死亡、37人受伤，近1000栋建筑坍塌；Marib、Hajjah、Amran为受灾最严重三省；OCHA预警112区60.3万人面临洪水高风险；2022年气候相关事件致流离失所增93%，2023年洪灾进一步加剧IDP危机， shelters和财物被冲毁；FAO报告南部、中部及西部也门4月初暴雨再引发洪水，Shabwah和Abyan省5人死亡、30栋房屋损毁。
+
+=== DOC C4 ===
+citation_id: C4
+date_pub: 2023-03-24
+language: en
+source_name: European Commission's Directorate-General for European Civil Protection and Humanitarian Aid Operations (DG ECHO)
+source_url: https://reliefweb.int/report/yemen/yemen-floods-dg-echo-dg-echo-partners-media-echo-daily-flash-24-march-2023
+Official reliable media: Yes
+News title: Yemen Floods - ECHO Daily Flash (24 Mar 2023)
+body: 2023年3月13-18日，Marib市及Marib al Wadi地区IDP营地遭暴雨和风灾，约5万人受影响， shelters部分或完全损毁；DG ECHO合作伙伴现场响应，提供紧急避难所、NFI分发及应急现金援助。
+
+=== DOC C5 ===
+citation_id: C5
+date_pub: 2023-04-11
+language: en
+source_name: ReliefWeb
+source_url: https://reliefweb.int/disaster/fl-2023-000068-yem
+Official reliable media: Yes
+News title: Yemen Floods - Apr 2023
+body: 2023年4月初，也门南部、中部及西部暴雨引发洪水，Shabwah和Abyan省5人死亡，30栋房屋损毁；5月FAO报告Al-Mahwit省大坝坍塌致4人死亡，Ibb省及高地地区街道被淹、房屋损毁；预计Wadi Zabid等区域超5000人面临洪水风险；4月洪灾累计31人死亡、37人受伤、3人失踪，洪灾损毁灌溉设施，引发岩崩（Ibb省Yarim区）。
+
+=== DOC C6 ===
+citation_id: C6
+date_pub: 2023-06-25
+language: zh-CN
+source_name: 国家气候中心（央视新闻客户端）
+source_url: https://ncc-cma.net/channel/news/newsid/100167
+Official reliable media: Yes
+News title: 也门遭暴雨袭击 已致12人死亡8人失踪（Jun 2023）
+body: 2023年6月22日，也门塔伊兹省暴雨致12人死亡、8人失踪、8人受伤，24辆汽车被冲走，损失超3亿也门里亚尔（约410万元人民币）；也门自3月起持续遭暴雨袭击，气象部门及世界粮食计划署预警下周全境强降雨，7月进入雨季。
+
+=== DOC C7 ===
+citation_id: C7
+date_pub: 2023-03-20
+language: zh-CN
+source_name: 人民网（东南网转载）
+source_url: https://news.fjsen.com/wap/2023-03/20/content_31274057.htm
+Official reliable media: Yes
+News title: 也门难民营中1万多人面临洪水威胁（Mar 2023）
+body: 2023年3月，也门季风降雨引发洪水，Marib省、Al-Jawf省、Al-Bayda省等多区持续降雨伴雷暴大风；Marib省难民营1.3万人面临洪水威胁，89%居住于茅草屋或破旧帐篷，部分人因房屋屋顶坠落重伤；Marib省超200万IDP居住于197个营地，拉卡难民营（山谷地区）遭洪水破坏；UN粮农组织预警5省571个IDP居住点、60.3万人面临洪水风险；也门政府与UN人道主义协调员协商援助方案，启动应急措施。
+
+=== DOC C8 ===
+citation_id: C8
+date_pub: 2023-03-18
+language: zh-CN
+source_name: 新浪财经（人民网转载）
+source_url: https://finance.sina.com.cn/jjxw/2023-03-18/doc-imymhriy4188707.shtml
+Official reliable media: Yes
+News title: 也门难民营中1万多人面临洪水威胁（Mar 2023）
+body: 2023年3月，也门Marib省难民营13609名居民遭暴雨威胁，IDP营地帐篷及山谷地区拉卡难民营被毁；Marib省超200万IDP分布于197个营地；UN粮农组织预警5省571个IDP点、60.3万人面临洪水风险；也门政府与UN协调员格雷斯利协商IDP援助，采取应急响应。
+
+=== DOC C9 ===
+citation_id: C9
+date_pub: 2023-03-18
+language: zh-CN
+source_name: 人民网
+source_url: https://world.people.com.cn/n1/2023/0318/c1002-32646786.html
+Official reliable media: Yes
+News title: 也门难民营中1万多人面临洪水威胁（Mar 2023）
+body: 2023年3月，也门季风降雨引发洪水，Marib省难民营1.3万人受威胁，89%居住于茅草/帐篷结构；Marib省IDP营地管理机构报告暴雨致部分居民重伤，拉卡难民营被毁；UN粮农组织预警5省571个IDP点、60.3万人面临洪水风险；也门政府与UN协商援助，启动应急政策。
+
+=== DOC C10 ===
+citation_id: C10
+date_pub: 2023-06-23
+language: zh-CN
+source_name: 每日经济新闻（央视新闻转载）
+source_url: https://m.nbd.com.cn/articles/2023-06-23/2884207.html
+Official reliable media: Yes
+News title: 也门遭暴雨袭击 已致12人死亡8人失踪（Jun 2023）
+body: 2023年6月22日，也门塔伊兹省政府通报暴雨致12人死亡、8人失踪、8人受伤，24辆汽车（含货运车）被冲走，经济损失超3亿也门里亚尔；也门自3月起持续暴雨，气象部门预警下周全境强降雨，7月进入雨季。
+
+=== DOC C11 ===
+citation_id: C11
+date_pub: 2023-06-23
+language: zh-CN
+source_name: 中国创投网（央视新闻转载）
+source_url: https://cn.xunjk.com/xiaofei/2023/0623/408912.html
+Official reliable media: Yes
+News title: 也门遭暴雨袭击 已致12人死亡8人失踪（Jun 2023）
+body: 2023年6月22日，也门塔伊兹省暴雨致12人死亡、8人失踪、8人受伤，24辆汽车被冲走，损失超3亿也门里亚尔；也门3月起持续暴雨，气象部门及世界粮食计划署预警下周强降雨，7月进入雨季。
+
+=== DOC C12 ===
+citation_id: C12
+date_pub: 2023-06-23
+language: zh-CN
+source_name: 香港中通社
+source_url: https://www.hkcna.hk/docDetail.jsp?id=100393371&channel=2813
+Official reliable media: Yes
+News title: 也门暴雨致12死8失蹤（Jun 2023）
+body: 2023年6月22日，也门塔伊兹省暴雨致12人死亡、8人失踪、8人受伤，24辆汽车被冲走，损失超3亿也门里亚尔（约120万美元）；也门3月起持续暴雨，气象部门预警下周全境强降雨，7月进入雨季；2022年7月也门暴雨曾致9人死亡、房屋农田受损。
+
+=== DOC C13 ===
+citation_id: C13
+date_pub: 2023-10-26
+language: zh-CN
+source_name: 看看新闻网
+source_url: https://www.kankanews.com/detail/dZ2e8BmWjwR
+Official reliable media: Yes
+News title: 热带气旋“泰杰”已致也门7人死亡（Oct 2023）
+body: 2023年10月23日，热带气旋“泰杰”登陆也门Al-Mahra省，持续影响索科特拉岛及沿海地区，致7人死亡、上千家庭流离失所；暴雨引发洪水，道路及基础设施严重受损，南部部分地区进入紧急状态，救援力量无法抵达受灾区域；“泰杰”登陆后减弱为热带低气压。

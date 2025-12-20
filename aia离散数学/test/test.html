@@ -1,0 +1,207 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css  " integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js  " integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css  "
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js  "
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1>也门2023年洪灾CHIBA知识图谱</h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([
+                      // --- 马里卜省难民营洪灾 ---
+                      {"color": "#1f77b4", "font": {"color": "#333333"}, "id": "C7", "label": "C7\n茅草屋/破旧帐篷", "shape": "ellipse", "size": 22},
+                      {"color": "#1f77b4", "font": {"color": "#333333"}, "id": "C8", "label": "C8\n基础设施损毁", "shape": "ellipse", "size": 22},
+                      {"color": "#d62728", "font": {"color": "#333333"}, "id": "H6", "label": "H6\n山洪 (MH0006)", "shape": "ellipse", "size": 22},
+                      {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I7", "label": "I7\n1.3万人受威胁/居民受伤", "shape": "ellipse", "size": 22},
+                      {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A5", "label": "A5\n也门红新月会 (YRCS)", "shape": "ellipse", "size": 22},
+                      {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B6", "label": "B6\n计划分发NFI/食品包/塑料布", "shape": "ellipse", "size": 22},
+                      {"color": "#ffffff", "font": {"color": "#333333", "strokeWidth": 2, "strokeColor": "#000000"}, "id": "IFRC", "label": "IFRC", "shape": "ellipse", "size": 18},
+
+                      // --- 塔伊兹省暴雨洪灾 ---
+                      {"color": "#1f77b4", "font": {"color": "#333333"}, "id": "C9", "label": "C9\n持续暴雨/预警滞后", "shape": "ellipse", "size": 22},
+                      {"color": "#d62728", "font": {"color": "#333333"}, "id": "H7", "label": "H7\n地表洪水 (MH0012)", "shape": "ellipse", "size": 22},
+                      {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I8", "label": "I8\n12死8失8伤/财产损失", "shape": "ellipse", "size": 22},
+                      {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A6", "label": "A6\n塔伊兹省政府", "shape": "ellipse", "size": 22},
+                      {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A7", "label": "A7\n世界粮食计划署 (WFP)", "shape": "ellipse", "size": 22},
+                      {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B7", "label": "B7\n发布通报/预警", "shape": "ellipse", "size": 22},
+
+                      // --- 荷台达市洪灾 ---
+                      {"color": "#d62728", "font": {"color": "#333333"}, "id": "H8", "label": "H8\n积水洪水 (MH0010)", "shape": "ellipse", "size": 22},
+                      {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I9", "label": "I9\n30死5失/500户流离失所", "shape": "ellipse", "size": 22},
+                      {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A8", "label": "A8\n胡塞武装/DG ECHO合作伙伴", "shape": "ellipse", "size": 22},
+                      {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B8", "label": "B8\n提供紧急避难所/NFI/现金", "shape": "ellipse", "size": 22},
+
+                      // --- 热带气旋 '泰杰' 洪灾 ---
+                      {"color": "#d62728", "font": {"color": "#333333"}, "id": "H9", "label": "H9\n热带气旋关联洪灾 (MH0057)", "shape": "ellipse", "size": 22},
+                      {"color": "#ff7f0e", "font": {"color": "#333333"}, "id": "I10", "label": "I10\n7死/上千家庭流离失所", "shape": "ellipse", "size": 22},
+                      {"color": "#2ca02c", "font": {"color": "#333333"}, "id": "A9", "label": "A9\nAl-Mahra省政府/UN机构", "shape": "ellipse", "size": 22},
+                      {"color": "#9467bd", "font": {"color": "#333333"}, "id": "B9", "label": "B9\n宣布紧急状态/协调救援", "shape": "ellipse", "size": 22},
+                      {"color": "#ffffff", "font": {"color": "#333333", "strokeWidth": 2, "strokeColor": "#000000"}, "id": "UN", "label": "UN", "shape": "ellipse", "size": 18}
+                  ]);
+                  edges = new vis.DataSet([
+                      // --- 马里卜场景边关系 ---
+                      {"arrows": "to", "color": "#666666", "from": "C7", "label": "E1:Amplifies", "length": 300, "to": "H6", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "C8", "label": "E2:Amplifies", "length": 300, "to": "H6", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "H6", "label": "E3:Trigger", "length": 300, "to": "I7", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "A5", "label": "E4:实施", "length": 300, "to": "B6", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "A5", "label": "E5:Coordinates_with", "length": 300, "to": "IFRC", "width": 2},
+
+                      // --- 塔伊兹场景边关系 ---
+                      {"arrows": "to", "color": "#666666", "from": "C9", "label": "E6:Trigger", "length": 300, "to": "H7", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "H7", "label": "E7:Trigger", "length": 300, "to": "I8", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "A6", "label": "E8:实施", "length": 300, "to": "B7", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "A6", "label": "E9:Informs", "length": 300, "to": "A7", "width": 2},
+
+                      // --- 荷台达场景边关系 ---
+                      {"arrows": "to", "color": "#666666", "from": "H8", "label": "E10:Trigger", "length": 300, "to": "I9", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "A8", "label": "E11:实施", "length": 300, "to": "B8", "width": 2},
+
+                      // --- 热带气旋泰杰场景边关系 ---
+                      {"arrows": "to", "color": "#666666", "from": "H9", "label": "E12:Trigger", "length": 300, "to": "I10", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "A9", "label": "E13:实施", "length": 300, "to": "B9", "width": 2},
+                      {"arrows": "to", "color": "#666666", "from": "A9", "label": "E14:Requests", "length": 300, "to": "UN", "width": 2}
+                  ]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

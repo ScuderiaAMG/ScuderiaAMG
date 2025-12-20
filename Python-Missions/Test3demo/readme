@@ -1,0 +1,52 @@
+agri_drone_simulator/
+│
+├── main.py                    # 程序入口，负责启动和主循环
+├── config.py                  # 全局配置文件 (如文件路径等)
+├── utils/                     # 工具模块
+│   ├── __init__.py
+│   ├── file_handler.py        # 文件读写操作 (用户数据, 农田数据, 无人机数据等)
+│   ├── input_handler.py       # 键盘鼠标输入处理
+│   └── logger.py              # 日志记录
+├── models/                    # 数据模型
+│   ├── __init__.py
+│   ├── user.py                # 用户类
+│   ├── field.py               # 农田类 (包含地块, 障碍, 庄稼, 起点等信息)
+│   ├── drone.py               # 无人机类 (型号, 飞行时间, 喷嘴等)
+│   ├── pesticide.py           # 农药类 (类型, 混合比例等)
+│   └── simulation.py          # 模拟环境类 (气象, 地形等)
+├── algorithms/                # 算法模块
+│   ├── __init__.py
+│   ├── pathfinding/           # 路径规划算法
+│   │   ├── __init__.py
+│   │   ├── a_star.py          # A* 算法实现 [[18]]
+│   │   ├── tsp.py             # TSP 算法实现或接口 [[10]]
+│   │   └── base_planner.py    # 路径规划器基类
+│   └── spraying/              # 喷洒模拟算法 (覆盖率计算等)
+├── ui/                        # 图形用户界面
+│   ├── __init__.py
+│   ├── screens/               # 不同页面
+│   │   ├── __init__.py
+│   │   ├── welcome_screen.py  # 开机欢迎动画
+│   │   ├── login_screen.py    # 登录页面
+│   │   ├── register_screen.py # 注册页面
+│   │   ├── field_screen.py    # 农田创建/编辑页面
+│   │   ├── drone_screen.py    # 无人机信息录入页面
+│   │   ├── pesticide_screen.py# 农药配置页面
+│   │   └── simulation_screen.py # 无人机喷洒模拟页面
+│   ├── components/            # UI组件 (按钮, 文本框等)
+│   └── graphics_engine.py     # 图形绘制引擎 (农田网格, 无人机, 路径等) [[20]]
+├── data/                      # 数据存储目录
+│   ├── users/                 # 用户数据文件夹
+│   │   └── <username>/        # 每个用户的子文件夹
+│   │       ├── profile.json   # 用户基本信息
+│   │       ├── fields/        # 该用户的农田数据
+│   │       │   └── <field_name>.json
+│   │       ├── drones/        # 该用户的无人机数据
+│   │       │   └── <drone_name>.json
+│   │       └── pesticides/    # 该用户的农药数据
+│   │           └── pesticides.json
+│   └── shared/                # 系统共享数据 (如默认无人机模板等)
+└── resources/                 # 资源文件 (图片, 动画, 鼠标指针等)
+    ├── images/
+    ├── animations/
+    └── cursors/
