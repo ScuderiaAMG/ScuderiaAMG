@@ -1,0 +1,182 @@
+验证结果:
+平均奖励: 131.83 ± 134.74
+最大奖励: 321.00
+最小奖励: 6.00
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-0.mp4
+验证回合 1/30, 步数: 368, 奖励: 6.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-1.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-1.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-1.mp4
+验证回合 2/30, 步数: 368, 奖励: 6.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-2.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-2.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-2.mp4
+验证回合 3/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-3.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-3.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-3.mp4
+验证回合 4/30, 步数: 26993, 奖励: 151.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-4.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-4.mp4
+
+MoviePy - Done !
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-4.mp4
+验证回合 5/30, 步数: 26993, 奖励: 151.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-5.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-5.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-5.mp4
+验证回合 6/30, 步数: 368, 奖励: 6.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-6.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-6.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-6.mp4
+验证回合 7/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-7.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-7.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-7.mp4
+验证回合 8/30, 步数: 27000, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-8.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-8.mp4
+
+MoviePy - Done !
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-8.mp4
+验证回合 9/30, 步数: 26995, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-9.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-9.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-9.mp4
+验证回合 10/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-10.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-10.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-10.mp4
+验证回合 11/30, 步数: 26995, 奖励: 151.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-11.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-11.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-11.mp4
+验证回合 12/30, 步数: 368, 奖励: 6.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-12.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-12.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-12.mp4
+验证回合 13/30, 步数: 26999, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-13.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-13.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-13.mp4
+验证回合 14/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-14.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-14.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-14.mp4
+验证回合 15/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-15.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-15.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-15.mp4
+验证回合 16/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-16.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-16.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-16.mp4
+验证回合 17/30, 步数: 27000, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-17.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-17.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-17.mp4
+验证回合 18/30, 步数: 26994, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-18.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-18.mp4
+
+MoviePy - Done !
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-18.mp4
+验证回合 19/30, 步数: 26996, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-19.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-19.mp4
+
+frame_index:  49%|█████████████████████████████████████████████████████████▉                                                            | 13242/26997 [00:31<00:33, 408.06it/s, now=None]frame_index:  51%|████████████████████████████████████████████████████████████▏                                                         | 13777/26997 [00:32<00:32, 404.80it/s, now=None]MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-19.mp4
+验证回合 20/30, 步数: 26997, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-20.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-20.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-20.mp4
+验证回合 21/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-21.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-21.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-21.mp4
+验证回合 22/30, 步数: 26997, 奖励: 151.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-22.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-22.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-22.mp4
+验证回合 23/30, 步数: 368, 奖励: 6.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-23.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-23.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-23.mp4
+验证回合 24/30, 步数: 27000, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-24.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-24.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-24.mp4
+验证回合 25/30, 步数: 26995, 奖励: 151.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-25.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-25.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-25.mp4
+验证回合 26/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-26.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-26.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-26.mp4
+验证回合 27/30, 步数: 26993, 奖励: 151.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-27.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-27.mp4
+
+MoviePy - Done !
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-27.mp4
+验证回合 28/30, 步数: 26999, 奖励: 321.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-28.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-28.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-28.mp4
+验证回合 29/30, 步数: 524, 奖励: 13.00
+MoviePy - Building video /home/airhust/dqn_nature/video/rl-video-episode-29.mp4.
+MoviePy - Writing video /home/airhust/dqn_nature/video/rl-video-episode-29.mp4
+
+MoviePy - Done !                                                                                                                                                                         
+MoviePy - video ready /home/airhust/dqn_nature/video/rl-video-episode-29.mp4
+验证回合 30/30, 步数: 524, 奖励: 13.00
