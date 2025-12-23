@@ -242,7 +242,6 @@ def generate_background_particles(num_particles_far=600, num_particles_near=300)
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("Python")
     clock = pygame.time.Clock()
     y_offset = -140
     tree_points = generate_tree_points(num_layers=10, points_per_layer=300, y_offset=y_offset)
@@ -300,7 +299,7 @@ def main():
 
         pygame.display.flip()
         clock.tick(FPS)
-        
+
     pygame.quit()
     sys.exit()
 
