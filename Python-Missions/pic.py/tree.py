@@ -1106,7 +1106,7 @@ def generate_background_particles(num_particles_far=800, num_particles_near=400)
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    pygame.display.set_caption("超炫3D圣诞树：银河之心")
+    pygame.display.set_caption("?")
     clock = pygame.time.Clock()
     
     background = GradientBackground(SCREEN_WIDTH, SCREEN_HEIGHT)
