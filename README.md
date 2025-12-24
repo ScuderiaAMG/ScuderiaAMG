@@ -2,7 +2,7 @@
 
 Currently working on ROS system, Deep learning, Computer vision，learning in Huazhong University of Science and Technology, School of Artificial Intelligence and Automation, Automation.
 
-*ScuderiaAMG* is a repository for private use, for courses, playing, challenge myself, and some surprises for someone.
+*ScuderiaAMG* is a repository for private use, for courses, playing, challenge myself, and some surprises for someone. Every year it will be closed during *January June July December*.
 
 escherichia30636@qq.com / taiyanchi157@gmail.com
 
