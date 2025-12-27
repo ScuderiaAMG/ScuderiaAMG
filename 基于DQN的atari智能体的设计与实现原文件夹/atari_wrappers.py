@@ -50,7 +50,6 @@ class WarpFrame(gym.ObservationWrapper):
         super().__init__(env)
         self.width = width
         self.height = height
-        # 输出 (84, 84)，不是 (84, 84, 1)
         self.observation_space = gym.spaces.Box(
             low=0, high=255, shape=(height, width), dtype=np.uint8
         )
@@ -81,7 +80,6 @@ class FrameStack(gym.Wrapper):
     def __init__(self, env, k=4):
         super().__init__(env)
         self.k = k
-        # 假设 env.observation_space.shape 是 (84, 84)
         self.frames = np.zeros((k,) + env.observation_space.shape, dtype=np.uint8)
         self.observation_space = gym.spaces.Box(
             low=0, high=255, shape=(k,) + env.observation_space.shape, dtype=np.uint8
@@ -89,7 +87,7 @@ class FrameStack(gym.Wrapper):
 
     def reset(self, **kwargs):
         obs, info = self.env.reset(**kwargs)
-        self.frames = np.tile(obs, (self.k, 1, 1))  # (4, 84, 84)
+        self.frames = np.tile(obs, (self.k, 1, 1))  
         return self.frames, info
 
     def step(self, action):
