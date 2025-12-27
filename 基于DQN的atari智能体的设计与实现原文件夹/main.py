@@ -14,12 +14,9 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
-    # 创建环境（关键！使用 v4）
     env = make_atari("BreakoutNoFrameskip-v4")
-#    obs_shape_for_model = (env.observation_space.shape[-1],) + env.observation_space.shape[:2]  # (4, 84, 84)
     obs, _ = env.reset()
     print("Observation shape:", obs.shape)
-#    agent = DQNAgent(env, device)
     agent = DQNAgent(env, device)
     replay_buffer = ReplayBuffer(1_000_000)
     
@@ -39,12 +36,10 @@ def main():
                 episode_reward += reward
                 frames += 4
 
-                # 开始训练（Nature DQN：50k 帧后开始）
                 if len(replay_buffer) > 50_000:
                     batch = replay_buffer.sample(32)
                     agent.train_step(batch)
 
-                    # 每 10k 帧更新目标网络
                     if frames % 10_000 == 0:
                         agent.update_target_net()
 
@@ -59,10 +54,9 @@ def main():
         print("Training interrupted.")
     finally:
         env.close()
-        # 保存模型
         os.makedirs("models", exist_ok=True)
         torch.save(agent.q_net.state_dict(), "models/dqn_breakout_final.pth")
-        print("✅ Model saved to models/dqn_breakout_final.pth")
+        print(" Model saved to models/dqn_breakout_final.pth")
 
 if __name__ == "__main__":
     main()
