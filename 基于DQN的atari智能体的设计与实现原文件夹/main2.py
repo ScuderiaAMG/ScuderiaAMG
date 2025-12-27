@@ -14,19 +14,16 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
-    # 创建环境（关键！使用 v4）
     env = make_atari("BreakoutNoFrameskip-v4")
-#    obs_shape_for_model = (env.observation_space.shape[-1],) + env.observation_space.shape[:2]  # (4, 84, 84)
     obs, _ = env.reset()
     print("Observation shape:", obs.shape)
-#    agent = DQNAgent(env, device)
     agent = DQNAgent(env, device)
     replay_buffer = ReplayBuffer(1_000_000)
     
     total_frames = 50_000_000
     frames = 0
     episode = 0
-    best_reward = float('-inf')  # 跟踪最佳奖励
+    best_reward = float('-inf')  
     best_model_saved = False
 
     try:
@@ -41,25 +38,22 @@ def main():
                 episode_reward += reward
                 frames += 4
 
-                # 开始训练（Nature DQN：50k 帧后开始）
                 if len(replay_buffer) > 50_000:
                     batch = replay_buffer.sample(32)
                     agent.train_step(batch)
 
-                    # 每 10k 帧更新目标网络
                     if frames % 10_000 == 0:
                         agent.update_target_net()
 
                 if done or truncated or frames >= total_frames:
                     break
 
-            # 检查是否是最佳模型
             if episode_reward > best_reward:
                 best_reward = episode_reward
                 best_model_saved = True
                 os.makedirs("models", exist_ok=True)
                 torch.save(agent.q_net.state_dict(), "models/dqn_breakout_best.pth")
-                print(f"🎉 New best model saved with reward: {episode_reward:.2f}")
+                print(f"New best model saved with reward: {episode_reward:.2f}")
 
             episode += 1
             if episode % 100 == 0:
@@ -69,14 +63,12 @@ def main():
         print("Training interrupted.")
     finally:
         env.close()
-        # 保存最佳模型
         if best_model_saved:
-            print(f"✅ Best model saved to models/dqn_breakout_best.pth with reward: {best_reward:.2f}")
+            print(f"Best model saved to models/dqn_breakout_best.pth with reward: {best_reward:.2f}")
         else:
-            # 如果没有保存过最佳模型，保存当前模型
             os.makedirs("models", exist_ok=True)
             torch.save(agent.q_net.state_dict(), "models/dqn_breakout_final.pth")
-            print("✅ Final model saved to models/dqn_breakout_final.pth")
+            print("Final model saved to models/dqn_breakout_final.pth")
 
 if __name__ == "__main__":
     main()
