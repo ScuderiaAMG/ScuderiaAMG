@@ -49,7 +49,6 @@ class DQNAgent:
         torch.nn.utils.clip_grad_norm_(self.q_net.parameters(), 10)
         self.optimizer.step()
 
-        # Epsilon decay
         if self.epsilon > self.epsilon_final:
             self.epsilon -= (1.0 - self.epsilon_final) / self.epsilon_decay
         self.total_steps += 1
