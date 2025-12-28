@@ -12,26 +12,13 @@ Still we rise.
 
 # 嗨！
 
-目前在华中科技大学人工智能与自动化学院学习自动化，研究方向是 ROS 系统、深度学习和计算机视觉。
+目前在华中科技大学人工智能与自动化学院学习自动化，学习方向是 ROS 系统、深度学习和计算机视觉。
 
-*ScuderiaAMG* 是一个私人代码库，用于课程开发、游戏、自我挑战，以及给朋友准备一些惊喜。每年*一月、六月、七月和十二月*期间会关闭。
+*ScuderiaAMG* 是一个私人代码库，用于课程开发、游戏、自我挑战，以及给someone准备一些惊喜。每年*一月、六月、七月和十二月*期间会关闭。
 
 escherichia30636@qq.com / taiyanchi157@gmail.com
 
 梅赛德斯-AMG Petronas F1 车队的粉丝 / 刘易斯·汉密尔顿的粉丝
 
 Still we rise.
-<!--
-**ScuderiaAMG/ScuderiaAMG** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
