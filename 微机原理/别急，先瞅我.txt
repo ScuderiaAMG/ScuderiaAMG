@@ -1,0 +1,14 @@
+微机原理实验期末部分考试题及其代码
+Vivado版本号：2018.3
+开发板：Nexys4 DDR (xc7a100tcsg324-1)
+Word 文档为C语言代码，可以直接烧录使用。
+DEFINITIVE_EDITION 为代码文件。
+c语言文件相对跳转地址：DEFINITIVE_EDITION\Heratts.sdk\CH0\src
+注意：
+1，下载使用可能出现read only 报错，请另存文件
+2，请确保文件路径合法无中文
+3，严格检查电路原理图是否和c语言代码匹配
+4，欢迎修正拓展
+鸣谢：
+感谢学委支持帮助
+当前版本号：1.0
