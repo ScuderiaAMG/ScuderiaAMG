@@ -1,0 +1,15 @@
+* source TEST3
+V_Vin         IN 0  AC 10mV
++SIN 0 10mV 1kHz 0 0 0
+C_Cb1         IN N00399  10u  TC=0,0 
+C_Cc1         N00403 OUT  10u  TC=0,0 
+C_Ce1         0 N00411  100u  TC=0,0 
+R_Rb3         0 N00399  24k TC=0,0 
+R_R2         N00399 N00505  1k TC=0,0 
+R_Rc1         N00403 VCC  3k TC=0,0 
+R_Rf1         N00411 N00407  22 TC=0,0 
+R_RL         0 OUT  3k TC=0,0 
+R_Re1         0 N00411  1k TC=0,0 
+V_Vcc1         VCC 0 12V
+Q_Q2         N00403 N00399 N00407 Q2N3904
+X_RP1         N00505 VCC VCC POT PARAMS: SET=0.5 VALUE=100k

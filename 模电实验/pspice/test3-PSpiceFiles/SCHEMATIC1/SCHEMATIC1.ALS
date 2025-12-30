@@ -1,0 +1,18 @@
+.ALIASES
+V_Vin           Vin(+=IN -=0 ) CN @TEST3.SCHEMATIC1(sch_1):INS32@SOURCE.VSIN.Normal(chips)
+C_Cb1           Cb1(1=IN 2=N00399 ) CN @TEST3.SCHEMATIC1(sch_1):INS69@ANALOG.C.Normal(chips)
+C_Cc1           Cc1(1=N00403 2=OUT ) CN @TEST3.SCHEMATIC1(sch_1):INS94@ANALOG.C.Normal(chips)
+C_Ce1           Ce1(1=0 2=N00411 ) CN @TEST3.SCHEMATIC1(sch_1):INS110@ANALOG.C.Normal(chips)
+R_Rb3           Rb3(1=0 2=N00399 ) CN @TEST3.SCHEMATIC1(sch_1):INS144@ANALOG.R.Normal(chips)
+R_R2            R2(1=N00399 2=N00505 ) CN @TEST3.SCHEMATIC1(sch_1):INS160@ANALOG.R.Normal(chips)
+R_Rc1           Rc1(1=N00403 2=VCC ) CN @TEST3.SCHEMATIC1(sch_1):INS267@ANALOG.R.Normal(chips)
+R_Rf1           Rf1(1=N00411 2=N00407 ) CN @TEST3.SCHEMATIC1(sch_1):INS283@ANALOG.R.Normal(chips)
+R_RL            RL(1=0 2=OUT ) CN @TEST3.SCHEMATIC1(sch_1):INS299@ANALOG.R.Normal(chips)
+R_Re1           Re1(1=0 2=N00411 ) CN @TEST3.SCHEMATIC1(sch_1):INS315@ANALOG.R.Normal(chips)
+V_Vcc1          Vcc1(+=VCC -=0 ) CN @TEST3.SCHEMATIC1(sch_1):INS340@SOURCE.VDC.Normal(chips)
+Q_Q2            Q2(c=N00403 b=N00399 e=N00407 ) CN @TEST3.SCHEMATIC1(sch_1):INS367@EVAL.Q2N3904.Normal(chips)
+X_RP1           RP1(1=N00505 T=VCC 2=VCC ) CN @TEST3.SCHEMATIC1(sch_1):INS464@BREAKOUT.POT.Normal(chips)
+_    _(IN=IN)
+_    _(OUT=OUT)
+_    _(VCC=VCC)
+.ENDALIASES
