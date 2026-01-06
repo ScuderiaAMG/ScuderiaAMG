@@ -1,6 +1,6 @@
 # Verilog DHL
 
-![verilog](pic/assign.png)
+![verilog](pic/assign2.png)
 这是一个非常标准的 Verilog 基础考核题。基于之前的讨论，我们可以非常精准地回答这四道题。
 
 以下是针对图片中四个问题的详细解答：
