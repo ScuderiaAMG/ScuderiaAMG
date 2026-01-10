@@ -109,6 +109,8 @@ $$ \varepsilon_{QP} = \frac{\mu_0 I v}{2\pi} \left[ \pi - \frac{2r}{\sqrt{r^2 - 
 
 **故选 A。**
 
+***
+
 ![3](pic/3.png)
 
 这是一个基于**迈克尔逊干涉仪（Michelson Interferometer）**原理的物理计算题。题目要求计算反射镜 $M_2$ 在整个过程中转过的总角度。
