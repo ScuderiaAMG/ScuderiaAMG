@@ -240,3 +240,200 @@ $$ \Delta\theta = \frac{(N_1 + N_2 - 2)\lambda}{2L} $$
     $$ \cos\phi = \frac{S_z}{|\vec{S}|} = \frac{\pm\frac{1}{2}\hbar}{\frac{\sqrt{3}}{2}\hbar} = \pm\frac{1}{\sqrt{3}} = \pm\frac{\sqrt{3}}{3} $$
     
     因此，自旋对应的余弦值有两个固定的可能值：一个是正的 $\frac{\sqrt{3}}{3}$，另一个是负的 $-\frac{\sqrt{3}}{3}$。
+
+
+
+***
+
+衍射的光强推导，薛定谔方程推导定态薛定谔方程， 无穷势井  波函数表达式和能量表达式，N个同方向同频率叠加。
+
+---
+
+### 第一部分：单缝衍射的光强公式推导
+
+**目标公式：**
+\[ I(\theta) = I_0 \left( \frac{\sin \alpha}{\alpha} \right)^2, \quad \text{其中 } \alpha = \frac{\pi a \sin \theta}{\lambda} \]
+
+**详细证明：**
+
+1.  **物理模型**：
+    考虑宽度为 \(a\) 的单缝，有单色平面波（波长 \(\lambda\)）垂直入射。根据**惠更斯-菲涅耳原理**，缝上的每一点都可以看作是一个次级波源。
+
+2.  **建立坐标系**：
+    设缝沿 \(x\) 轴分布，范围从 \(-a/2\) 到 \(a/2\)。我们将缝分割成无数个宽度为 \(dx\) 的微元。
+    设入射光振幅为 \(A_0\)，则单位长度的振幅为 \(A_0/a\)。微元 \(dx\) 发出的子波复振幅为：
+    \[ dE_0 = \frac{A_0}{a} dx \]
+
+3.  **相位差计算**：
+    考虑衍射角为 \(\theta\) 的方向。位于 \(x\) 处的点波源发出的光，到达远处屏幕时，相对于中心点 \(x=0\) 的光程差为 \(\Delta L = x \sin \theta\)。
+    对应的相位差 \(\phi\) 为：
+    \[ \phi = k \Delta L = \frac{2\pi}{\lambda} x \sin \theta \]
+
+4.  **积分求总振幅**：
+    屏幕上某点的总复振幅 \(E(\theta)\) 是所有微元贡献的积分：
+    \[ E(\theta) = \int_{-a/2}^{a/2} \frac{A_0}{a} e^{i \frac{2\pi}{\lambda} x \sin \theta} \, dx \]
+    
+    令 \(u = \frac{2\pi \sin \theta}{\lambda}\)，则积分变为：
+    \[ E(\theta) = \frac{A_0}{a} \int_{-a/2}^{a/2} e^{i u x} \, dx = \frac{A_0}{a} \left[ \frac{e^{i u x}}{i u} \right]_{-a/2}^{a/2} \]
+    \[ E(\theta) = \frac{A_0}{a} \frac{e^{i u a/2} - e^{-i u a/2}}{i u} \]
+    
+    利用欧拉公式 \(\sin \theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}\)，上式化简为：
+    \[ E(\theta) = \frac{A_0}{a} \frac{2i \sin(u a / 2)}{i u} = A_0 \frac{\sin(u a / 2)}{u a / 2} \]
+
+5.  **代入参数**：
+    将 \(u = \frac{2\pi \sin \theta}{\lambda}\) 代回，令 \(\alpha = \frac{u a}{2} = \frac{\pi a \sin \theta}{\lambda}\)，则：
+    \[ E(\theta) = A_0 \frac{\sin \alpha}{\alpha} \]
+
+6.  **光强公式**：
+    光强 \(I\) 与振幅的模平方成正比（\(I \propto |E|^2\)）：
+    \[ I(\theta) = |E(\theta)|^2 = I_0 \left( \frac{\sin \alpha}{\alpha} \right)^2 \]
+    证毕。
+
+---
+
+### 第二部分：从含时薛定谔方程推导定态薛定谔方程
+
+**目标公式：**
+\[ \hat{H} \psi(x) = E \psi(x) \]
+即 \(-\frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2} + V(x)\psi = E\psi\)
+
+**详细推导：**
+
+1.  **起始方程**：
+    一维含时薛定谔方程为：
+    \[ i\hbar \frac{\partial \Psi(x,t)}{\partial t} = -\frac{\hbar^2}{2m} \frac{\partial^2 \Psi(x,t)}{\partial x^2} + V(x,t)\Psi(x,t) \]
+
+2.  **定态假设与分离变量**：
+    假设势能 \(V\) 不随时间变化，即 \(V(x,t) = V(x)\)。此时可以使用**分离变量法**。
+    设波函数解的形式为：
+    \[ \Psi(x,t) = \psi(x) \cdot f(t) \]
+
+3.  **代入方程**：
+    将 \(\Psi = \psi f\) 代入原方程：
+    \[ i\hbar \psi(x) \frac{df(t)}{dt} = f(t) \left[ -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + V(x)\psi(x) \right] \]
+
+4.  **分离变量**：
+    等式两边同时除以 \(\psi(x)f(t)\)：
+    \[ i\hbar \frac{1}{f(t)} \frac{df(t)}{dt} = \frac{1}{\psi(x)} \left[ -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + V(x)\psi(x) \right] \]
+    
+    左边只与 \(t\) 有关，右边只与 \(x\) 有关。要使等式对任意 \(x, t\) 成立，两边必须等于同一个常数。我们将这个常数记为 \(E\)（即体系的总能量）。
+
+5.  **分解为两个方程**：
+    
+    *   **时间部分**：
+        \[ i\hbar \frac{1}{f} \frac{df}{dt} = E \implies \frac{df}{dt} = -\frac{iE}{\hbar} f \]
+        解得：\(f(t) = e^{-iEt/\hbar}\)
+
+    *   **空间部分（即定态薛定谔方程）**：
+        \[ \frac{1}{\psi} \left[ -\frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2} + V(x)\psi \right] = E \]
+        整理得：
+        \[ -\frac{\hbar^2}{2m} \frac{d^2 \psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x) \]
+        或者写成算符形式：\(\hat{H}\psi = E\psi\)。
+        证毕。
+
+---
+
+### 第三部分：一维无限深势井的波函数和能量
+
+**势能定义**：
+\[ V(x) = \begin{cases} 0 & 0 < x < a \\ \infty & \text{其他} \end{cases} \]
+
+**详细推导：**
+
+1.  **列出方程**：
+    在势井内（\(0 < x < a\)），\(V(x)=0\)，定态方程为：
+    \[ -\frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2} = E \psi \]
+    令 \(k^2 = \frac{2mE}{\hbar^2}\)，方程化为简谐振动形式：
+    \[ \frac{d^2 \psi}{dx^2} + k^2 \psi = 0 \]
+
+2.  **通解**：
+    \[ \psi(x) = A \sin(kx) + B \cos(kx) \]
+
+3.  **应用边界条件**：
+    由于势壁无限高，粒子不能穿透，波函数在边界处必须为0。
+    *   **在 \(x=0\) 处**：
+        \[ \psi(0) = A \cdot 0 + B \cdot 1 = 0 \implies B = 0 \]
+        因此，\(\psi(x) = A \sin(kx)\)。
+    *   **在 \(x=a\) 处**：
+        \[ \psi(a) = A \sin(ka) = 0 \]
+        由于 \(A \neq 0\)（否则没有粒子），必须有 \(\sin(ka) = 0\)。
+        这意味着 \(ka = n\pi\)，其中 \(n = 1, 2, 3, \dots\)（\(n\)不能为0，否则波函数处处为0；不能为负，因为与正数解线性相关）。
+
+4.  **能量本征值 \(E_n\)**：
+    由 \(k = \frac{n\pi}{a}\) 和 \(k^2 = \frac{2mE}{\hbar^2}\) 联立：
+    \[ \frac{2mE}{\hbar^2} = \frac{n^2 \pi^2}{a^2} \]
+    解得：
+    \[ E_n = \frac{n^2 \pi^2 \hbar^2}{2ma^2}, \quad n=1,2,3\dots \]
+
+5.  **波函数归一化**：
+    利用归一化条件 \(\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1\)：
+    \[ \int_0^a A^2 \sin^2\left(\frac{n\pi x}{a}\right) dx = 1 \]
+    利用积分公式 \(\int \sin^2(cx) dx = \frac{x}{2} - \frac{\sin(2cx)}{4c}\)：
+    \[ A^2 \left[ \frac{x}{2} - \frac{\sin(2n\pi x/a)}{4n\pi/a} \right]_0^a = A^2 \left( \frac{a}{2} - 0 \right) = 1 \]
+    \[ A^2 \frac{a}{2} = 1 \implies A = \sqrt{\frac{2}{a}} \]
+
+    **最终波函数**：
+    \[ \psi_n(x) = \sqrt{\frac{2}{a}} \sin\left(\frac{n\pi x}{a}\right) \]
+
+---
+
+### 第四部分：N个同方向同频率波的叠加（及其对前述公式的证明联系）
+
+这一部分我们推导 **N个等幅、同频、同向且相位差恒定的波的叠加**。这正是**多缝干涉（光栅）**的基础，而当 \(N \to \infty\) 时，这就变成了**单缝衍射**（第一部分的积分形式）。
+
+**目标公式（N个波叠加）：**
+\[ I = I_0 \frac{\sin^2(N \delta / 2)}{\sin^2(\delta / 2)} \]
+其中 \(\delta\) 是相邻两个波的相位差。
+
+**详细证明：**
+
+1.  **复振幅表示**：
+    设第 \(j\) 个波的复振幅为 \(E_j\)。它们频率相同（\(\omega\)）、振幅相同（\(A_0\)）、传播方向相同，且相邻两个波的相位差为 \(\delta\)。
+    \[ E_j = A_0 e^{i[-( \omega t - kx) + j\delta]} \]
+    为了简化，忽略时间项和空间基准项，只看相位部分：
+    \[ E_j = A_0 e^{i j \delta}, \quad j = 0, 1, \dots, N-1 \]
+
+2.  **求和（振幅叠加）**：
+    总振幅 \(E\) 为等比数列求和：
+    \[ E = \sum_{j=0}^{N-1} A_0 e^{i j \delta} = A_0 (1 + e^{i\delta} + e^{i2\delta} + \dots + e^{i(N-1)\delta}) \]
+    利用等比数列求和公式 \(S_N = a_1 \frac{1-q^N}{1-q}\)：
+    \[ E = A_0 \frac{1 - e^{i N \delta}}{1 - e^{i \delta}} \]
+
+3.  **化简复数形式**：
+    利用技巧 \(1 - e^{i\theta} = e^{i\theta/2}(e^{-i\theta/2} - e^{i\theta/2}) = e^{i\theta/2}(-2i \sin(\theta/2))\)：
+    \[ E = A_0 \frac{e^{i N \delta / 2} (-2i \sin(N \delta / 2))}{e^{i \delta / 2} (-2i \sin(\delta / 2))} \]
+    \[ E = A_0 e^{i(N-1)\delta/2} \frac{\sin(N \delta / 2)}{\sin(\delta / 2)} \]
+
+4.  **强度计算**：
+    强度 \(I = |E|^2\)：
+    \[ I = |A_0|^2 \left| \frac{\sin(N \delta / 2)}{\sin(\delta / 2)} \right|^2 \]
+    令 \(I_{single} = |A_0|^2\) 为单个波的强度，则：
+    \[ I = I_{single} \frac{\sin^2(N \delta / 2)}{\sin^2(\delta / 2)} \]
+
+**如何用这个公式证明单缝衍射公式（第一部分）？**
+
+这是从离散叠加到连续积分的过渡证明：
+
+1.  **设定极限条件**：
+    将单缝看作是由 \(N\) 个微元组成的，总宽度为 \(a\)。
+    当 \(N \to \infty\) 时，每个微元的宽度 \(\Delta x \to 0\)。
+    
+2.  **相位差对应**：
+    总相位差（缝的两端）为 \(\Phi = \frac{2\pi a \sin \theta}{\lambda} = 2\alpha\)。
+    相邻微元的相位差 \(\delta = \frac{\Phi}{N} = \frac{2\alpha}{N}\)。
+
+3.  **振幅对应**：
+    设总入射光振幅为 \(A_{total}\)，则每个微元的振幅 \(A_0 = \frac{A_{total}}{N}\)。
+
+4.  **取极限**：
+    代入N波叠加公式：
+    \[ E \propto \lim_{N \to \infty} \left( \frac{A_{total}}{N} \right) \frac{\sin(N \cdot \frac{2\alpha}{2N})}{\sin(\frac{2\alpha}{2N})} \]
+    \[ E \propto A_{total} \lim_{N \to \infty} \frac{1}{N} \frac{\sin(\alpha)}{\sin(\alpha/N)} \]
+    
+    利用小角度近似，当 \(N \to \infty\) 时，\(\sin(\alpha/N) \approx \alpha/N\)：
+    \[ E \propto A_{total} \frac{\sin(\alpha)}{N \cdot (\alpha/N)} = A_{total} \frac{\sin \alpha}{\alpha} \]
+    
+    平方后即得衍射光强公式：
+    \[ I \propto \left( \frac{\sin \alpha}{\alpha} \right)^2 \]
+
+这证明了单缝衍射本质上是缝上无数个点波源（\(N \to \infty\)）同频率、同方向叠加的结果。
