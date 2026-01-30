@@ -1,0 +1,4 @@
+model_type,rmse
+linear_regression,0.0003063445868801754
+gradient_boosting,0.0001312905372343601
+combined,0.0
