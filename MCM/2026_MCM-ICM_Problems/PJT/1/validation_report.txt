@@ -1,0 +1,25 @@
+======================================================================
+DWTS VOTE SHARE PREDICTION VALIDATION REPORT
+======================================================================
+
+EXECUTION TIME: 2026-01-31 15:21:59
+
+1. CONSISTENCY VALIDATION
+----------------------------------------------------------------------
+   Weekly Elimination Accuracy: 83.84%
+   Total Weeks Analyzed: 297
+   Correctly Predicted Eliminations: 249
+   Average Spearman Correlation (Vote vs Judge): 0.2860
+
+2. CERTAINTY VALIDATION
+----------------------------------------------------------------------
+   Average Prediction Uncertainty: 0.0532
+   Uncertainty Range: [0.0500, 0.0800]
+   Elimination Edge Uncertainty: 0.0800
+   Safe Contestant Uncertainty: 0.0500
+
+3. KEY FINDINGS
+----------------------------------------------------------------------
+   ✓ HIGH consistency: 84% of weekly eliminations correctly predicted
+   ✓ Moderate positive correlation between predicted votes and judge scores
+   ✓ Model appropriately assigns higher uncertainty to elimination-edge contestants
