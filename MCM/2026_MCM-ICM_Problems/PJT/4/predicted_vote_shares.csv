@@ -1,0 +1,2778 @@
+season,week,celebrity_name,industry,judge_score_total,vote_share,vote_share_hat,uncertainty,is_eliminated,eliminated_week
+29,1,AJ McLean,Singer/Rapper,18.0,0.0736,0.07395937,0.05,0,9
+29,2,AJ McLean,Singer/Rapper,19.0,0.0758,0.07458077,0.05,0,9
+29,3,AJ McLean,Singer/Rapper,21.0,0.0805,0.08011549,0.05,0,9
+29,4,AJ McLean,Singer/Rapper,24.0,0.0809,0.08604673,0.05,0,9
+29,5,AJ McLean,Singer/Rapper,24.0,0.0878,0.09068877,0.05,0,9
+29,6,AJ McLean,Singer/Rapper,27.0,0.1014,0.10054739,0.05,0,9
+29,7,AJ McLean,Singer/Rapper,26.0,0.1156,0.10916772,0.05,0,9
+29,8,AJ McLean,Singer/Rapper,27.0,0.1388,0.13706295,0.05,0,9
+29,9,AJ McLean,Singer/Rapper,24.9998,0.0847,0.081123866,0.08,1,9
+9,1,Aaron Carter,Singer/Rapper,31.999899999999997,0.0698,0.0665028,0.05,0,8
+9,2,Aaron Carter,Singer/Rapper,27.0,0.0767,0.07971988,0.05,0,8
+9,3,Aaron Carter,Singer/Rapper,21.0,0.0839,0.083746515,0.05,0,8
+9,4,Aaron Carter,Singer/Rapper,18.0,0.0972,0.09935888,0.05,0,8
+9,5,Aaron Carter,Singer/Rapper,24.0,0.105,0.10804804,0.05,0,8
+9,6,Aaron Carter,Singer/Rapper,32.9998,0.1232,0.1224844,0.05,0,8
+9,7,Aaron Carter,Singer/Rapper,26.5,0.152,0.15446915,0.05,0,8
+9,8,Aaron Carter,Singer/Rapper,25.0,0.1656,0.17091154,0.08,1,8
+6,1,Adam Carolla,Radio Personality,15.0,0.0706,0.07119654,0.05,0,4
+6,2,Adam Carolla,Radio Personality,19.0,0.0802,0.07843298,0.05,0,4
+6,3,Adam Carolla,Radio Personality,21.0,0.0962,0.09348839,0.05,0,4
+6,4,Adam Carolla,Radio Personality,19.0,0.0793,0.07960112,0.08,1,4
+26,1,Adam Rippon,Athlete,24.0,0.1039,0.10294976,0.05,0,99
+26,2,Adam Rippon,Athlete,37.0,0.1321,0.13833793,0.05,0,99
+26,3,Adam Rippon,Athlete,41.0,0.1821,0.18806851,0.05,0,99
+26,4,Adam Rippon,Athlete,29.0,0.2873,0.29922748,0.05,0,99
+32,1,Adrian Peterson,Athlete,18.0,0.0735,0.07639436,0.05,0,4
+32,2,Adrian Peterson,Athlete,15.0,0.0803,0.082080014,0.05,0,4
+32,3,Adrian Peterson,Athlete,22.0,0.087,0.085950896,0.05,0,4
+32,4,Adrian Peterson,Athlete,21.0,0.0368,0.03691227,0.08,1,4
+10,1,Aiden Turner,Actor/Actress,15.0,0.1008,0.09433314,0.05,0,4
+10,2,Aiden Turner,Actor/Actress,19.0,0.1028,0.09545135,0.05,0,4
+10,3,Aiden Turner,Actor/Actress,20.0,0.1158,0.108473904,0.05,0,4
+10,4,Aiden Turner,Actor/Actress,16.5,0.0874,0.09119145,0.08,1,4
+5,1,Albert Reed,Model,21.0,0.0718,0.07351877,0.05,0,2
+5,2,Albert Reed,Model,21.0,0.0617,0.06300477,0.08,1,2
+21,1,Alek Skarlatos,Military,22.0,0.0524,0.058161363,0.05,0,99
+21,2,Alek Skarlatos,Military,22.5,0.0727,0.06589785,0.05,0,99
+21,3,Alek Skarlatos,Military,33.0,0.0866,0.090662666,0.05,0,99
+21,4,Alek Skarlatos,Military,24.0,0.0933,0.08917756,0.05,0,99
+21,5,Alek Skarlatos,Military,29.0,0.0982,0.098627925,0.05,0,99
+21,6,Alek Skarlatos,Military,30.0,0.0975,0.096241765,0.05,0,99
+21,7,Alek Skarlatos,Military,26.5,0.1056,0.110068075,0.05,0,99
+21,8,Alek Skarlatos,Military,25.0,0.1371,0.13479292,0.05,0,99
+21,9,Alek Skarlatos,Military,25.5,0.1562,0.1727618,0.05,0,99
+21,10,Alek Skarlatos,Military,28.5,0.1869,0.23878995,0.05,0,99
+21,11,Alek Skarlatos,Military,27.999899999999997,0.2454,0.27161393,0.05,0,99
+21,1,Alexa PenaVega,Actor/Actress,22.0,0.0809,0.08025045,0.05,0,9
+21,2,Alexa PenaVega,Actor/Actress,23.0,0.0794,0.08310635,0.05,0,9
+21,3,Alexa PenaVega,Actor/Actress,36.0,0.101,0.11015494,0.05,0,9
+21,4,Alexa PenaVega,Actor/Actress,21.0,0.1057,0.1116841,0.05,0,9
+21,5,Alexa PenaVega,Actor/Actress,40.0,0.1196,0.12126064,0.05,0,9
+21,6,Alexa PenaVega,Actor/Actress,30.0,0.1205,0.12472703,0.05,0,9
+21,7,Alexa PenaVega,Actor/Actress,27.5,0.1362,0.13395241,0.05,0,9
+21,8,Alexa PenaVega,Actor/Actress,26.9998,0.1545,0.15518193,0.05,0,9
+21,9,Alexa PenaVega,Actor/Actress,30.0,0.1301,0.12685801,0.08,1,9
+16,1,Alexandra Raisman,Athlete,21.0,0.0842,0.08348922,0.05,0,10
+16,2,Alexandra Raisman,Athlete,24.0,0.0835,0.08189726,0.05,0,10
+16,3,Alexandra Raisman,Athlete,23.0,0.0959,0.09130873,0.05,0,10
+16,4,Alexandra Raisman,Athlete,27.0,0.1046,0.102782056,0.05,0,10
+16,5,Alexandra Raisman,Athlete,25.0,0.1106,0.11185118,0.05,0,10
+16,6,Alexandra Raisman,Athlete,26.0,0.1261,0.1252812,0.05,0,10
+16,7,Alexandra Raisman,Athlete,32.0,0.1397,0.14381206,0.05,0,10
+16,8,Alexandra Raisman,Athlete,28.0,0.166,0.16536929,0.05,0,10
+16,9,Alexandra Raisman,Athlete,29.5,0.2025,0.20176147,0.05,0,10
+16,10,Alexandra Raisman,Athlete,29.0,0.2049,0.2015385,0.08,1,10
+27,1,Alexis Ren,Social Media Personality,22.0,0.0667,0.07048974,0.05,0,99
+27,2,Alexis Ren,Social Media Personality,24.5,0.0758,0.07733024,0.05,0,99
+27,3,Alexis Ren,Social Media Personality,26.0,0.0825,0.08605573,0.05,0,99
+27,4,Alexis Ren,Social Media Personality,25.0,0.0968,0.096304916,0.05,0,99
+27,5,Alexis Ren,Social Media Personality,29.0,0.1015,0.10288616,0.05,0,99
+27,6,Alexis Ren,Social Media Personality,27.0,0.1006,0.111506484,0.05,0,99
+27,7,Alexis Ren,Social Media Personality,27.5,0.1216,0.12400665,0.05,0,99
+27,8,Alexis Ren,Social Media Personality,29.0,0.1665,0.17489289,0.05,0,99
+27,9,Alexis Ren,Social Media Personality,28.5,0.1842,0.23205994,0.05,0,99
+19,1,Alfonso Ribeiro,Actor/Actress,36.0,0.0868,0.08956578,0.05,0,99
+19,2,Alfonso Ribeiro,Actor/Actress,32.0,0.0959,0.09791809,0.05,0,99
+19,3,Alfonso Ribeiro,Actor/Actress,32.0,0.102,0.09840355,0.05,0,99
+19,4,Alfonso Ribeiro,Actor/Actress,40.0,0.1065,0.1068497,0.05,0,99
+19,5,Alfonso Ribeiro,Actor/Actress,34.0,0.1278,0.12568562,0.05,0,99
+19,6,Alfonso Ribeiro,Actor/Actress,39.0,0.1222,0.12202096,0.05,0,99
+19,7,Alfonso Ribeiro,Actor/Actress,34.0,0.1362,0.14179012,0.05,0,99
+19,8,Alfonso Ribeiro,Actor/Actress,41.0,0.162,0.15948085,0.05,0,99
+19,9,Alfonso Ribeiro,Actor/Actress,38.5,0.1813,0.18286891,0.05,0,99
+19,10,Alfonso Ribeiro,Actor/Actress,37.5,0.2217,0.22317801,0.05,0,99
+19,11,Alfonso Ribeiro,Actor/Actress,40.0,0.2858,0.2859398,0.05,0,99
+34,1,Alix Earle,Social media personality,13.0,0.0723,0.06772097,0.05,0,99
+34,2,Alix Earle,Social media personality,21.0,0.0783,0.076652296,0.05,0,99
+34,3,Alix Earle,Social media personality,23.0,0.0867,0.08580025,0.05,0,99
+34,4,Alix Earle,Social media personality,24.0,0.0934,0.09414144,0.05,0,99
+34,5,Alix Earle,Social media personality,35.0,0.1026,0.10001755,0.05,0,99
+34,6,Alix Earle,Social media personality,35.0,0.1046,0.1047901,0.05,0,99
+34,7,Alix Earle,Social media personality,43.0,0.1169,0.114316955,0.05,0,99
+34,8,Alix Earle,Social media personality,38.5,0.1314,0.1321469,0.05,0,99
+34,9,Alix Earle,Social media personality,40.0,0.1495,0.15308975,0.05,0,99
+34,10,Alix Earle,Social media personality,29.0,0.1757,0.16665968,0.05,0,99
+34,11,Alix Earle,Social media personality,30.0,0.1358,0.15168191,0.05,0,99
+28,1,Ally Brooke,Singer/Rapper,16.0,0.0932,0.09218736,0.05,0,99
+28,2,Ally Brooke,Singer/Rapper,20.0,0.0911,0.09369961,0.05,0,99
+28,3,Ally Brooke,Singer/Rapper,24.0,0.1121,0.10791235,0.05,0,99
+28,4,Ally Brooke,Singer/Rapper,32.0,0.1113,0.11395664,0.05,0,99
+28,5,Ally Brooke,Singer/Rapper,27.0,0.1201,0.12558594,0.05,0,99
+28,6,Ally Brooke,Singer/Rapper,25.0,0.1229,0.12448408,0.05,0,99
+28,7,Ally Brooke,Singer/Rapper,27.0,0.1363,0.1361139,0.05,0,99
+28,8,Ally Brooke,Singer/Rapper,30.0,0.1533,0.1546246,0.05,0,99
+28,9,Ally Brooke,Singer/Rapper,40.0,0.1824,0.18175928,0.05,0,99
+28,10,Ally Brooke,Singer/Rapper,29.5,0.2158,0.21897249,0.05,0,99
+28,11,Ally Brooke,Singer/Rapper,30.0,0.2743,0.2775247,0.05,0,99
+32,1,Alyson Hannigan,Actor/Actress,13.0,0.0761,0.077049516,0.05,0,99
+32,2,Alyson Hannigan,Actor/Actress,19.0,0.0803,0.08208895,0.05,0,99
+32,3,Alyson Hannigan,Actor/Actress,24.0,0.087,0.08825923,0.05,0,99
+32,4,Alyson Hannigan,Actor/Actress,18.0,0.0972,0.0966518,0.05,0,99
+32,5,Alyson Hannigan,Actor/Actress,21.0,0.1093,0.10902944,0.05,0,99
+32,6,Alyson Hannigan,Actor/Actress,31.0,0.1156,0.12084921,0.05,0,99
+32,7,Alyson Hannigan,Actor/Actress,35.0,0.1316,0.1319084,0.05,0,99
+32,8,Alyson Hannigan,Actor/Actress,36.0,0.1512,0.15252034,0.05,0,99
+32,9,Alyson Hannigan,Actor/Actress,32.0,0.1756,0.17467748,0.05,0,99
+32,10,Alyson Hannigan,Actor/Actress,25.5,0.2132,0.21087995,0.05,0,99
+32,11,Alyson Hannigan,Actor/Actress,26.5,0.2125,0.20533422,0.05,0,99
+30,1,Amanda Kloots,TV Personality,28.0,0.0678,0.06544546,0.05,0,99
+30,2,Amanda Kloots,TV Personality,32.0,0.0686,0.06875038,0.05,0,99
+30,3,Amanda Kloots,TV Personality,24.0,0.0722,0.07144541,0.05,0,99
+30,4,Amanda Kloots,TV Personality,34.0,0.0851,0.08245796,0.05,0,99
+30,5,Amanda Kloots,TV Personality,39.0,0.0956,0.09174418,0.05,0,99
+30,6,Amanda Kloots,TV Personality,38.0,0.1035,0.10819123,0.05,0,99
+30,7,Amanda Kloots,TV Personality,34.0,0.1154,0.11842401,0.05,0,99
+30,8,Amanda Kloots,TV Personality,42.0,0.1413,0.13453253,0.05,0,99
+30,9,Amanda Kloots,TV Personality,39.5,0.1919,0.19616424,0.05,0,99
+30,10,Amanda Kloots,TV Personality,39.0,0.2677,0.2668456,0.05,0,99
+17,1,Amber Riley,Actor/Actress,27.0,0.0875,0.087139934,0.05,0,99
+17,2,Amber Riley,Actor/Actress,24.0,0.0873,0.0876809,0.05,0,99
+17,3,Amber Riley,Actor/Actress,24.0,0.0979,0.09468356,0.05,0,99
+17,4,Amber Riley,Actor/Actress,27.0,0.105,0.10665261,0.05,0,99
+17,5,Amber Riley,Actor/Actress,26.0,0.1237,0.11816876,0.05,0,99
+17,6,Amber Riley,Actor/Actress,31.999899999999997,0.1347,0.13386476,0.05,0,99
+17,7,Amber Riley,Actor/Actress,29.5,0.1309,0.13638406,0.05,0,99
+17,8,Amber Riley,Actor/Actress,28.0,0.1491,0.15530054,0.05,0,99
+17,9,Amber Riley,Actor/Actress,25.5,0.1791,0.18126374,0.05,0,99
+17,10,Amber Riley,Actor/Actress,39.5,0.2125,0.2114593,0.05,0,99
+17,11,Amber Riley,Actor/Actress,31.333199999999998,0.2743,0.2730867,0.05,0,99
+23,1,Amber Rose,Model,24.0,0.0699,0.06779488,0.05,0,6
+23,2,Amber Rose,Model,24.0,0.0708,0.06926421,0.05,0,6
+23,3,Amber Rose,Model,25.0,0.0757,0.0777328,0.05,0,6
+23,4,Amber Rose,Model,24.0,0.0912,0.08646381,0.05,0,6
+23,5,Amber Rose,Model,24.0,0.0826,0.098330714,0.05,0,6
+23,6,Amber Rose,Model,28.0,0.0795,0.08231194,0.08,1,6
+18,1,Amy Purdy,Athlete,24.0,0.0836,0.08128526,0.05,0,99
+18,2,Amy Purdy,Athlete,24.0,0.0938,0.08916312,0.05,0,99
+18,3,Amy Purdy,Athlete,36.0,0.1083,0.11368976,0.05,0,99
+18,4,Amy Purdy,Athlete,34.0,0.1141,0.11323568,0.05,0,99
+18,5,Amy Purdy,Athlete,37.0,0.113,0.11274129,0.05,0,99
+18,6,Amy Purdy,Athlete,38.0,0.1273,0.1273372,0.05,0,99
+18,7,Amy Purdy,Athlete,37.5,0.1507,0.1461764,0.05,0,99
+18,8,Amy Purdy,Athlete,40.0,0.167,0.17141396,0.05,0,99
+18,9,Amy Purdy,Athlete,39.0,0.2008,0.20621896,0.05,0,99
+18,10,Amy Purdy,Athlete,29.666600000000003,0.2596,0.2603405,0.05,0,99
+16,1,Andy Dick,Comedian,17.0,0.0643,0.07115709,0.05,0,7
+16,2,Andy Dick,Comedian,20.0,0.063,0.07400216,0.05,0,7
+16,3,Andy Dick,Comedian,18.0,0.0877,0.08400052,0.05,0,7
+16,4,Andy Dick,Comedian,21.0,0.0936,0.09409549,0.05,0,7
+16,5,Andy Dick,Comedian,18.0,0.1048,0.10449494,0.05,0,7
+16,6,Andy Dick,Comedian,21.5,0.122,0.118919075,0.05,0,7
+16,7,Andy Dick,Comedian,17.0,0.1164,0.11548919,0.08,1,7
+21,1,Andy Grammer,Singer/Rapper,21.0,0.0869,0.08640054,0.05,0,8
+21,2,Andy Grammer,Singer/Rapper,22.0,0.0866,0.08875049,0.05,0,8
+21,3,Andy Grammer,Singer/Rapper,29.0,0.1078,0.10775899,0.05,0,8
+21,4,Andy Grammer,Singer/Rapper,23.0,0.1105,0.109754585,0.05,0,8
+21,5,Andy Grammer,Singer/Rapper,36.0,0.1234,0.12446935,0.05,0,8
+21,6,Andy Grammer,Singer/Rapper,40.0,0.1289,0.12409359,0.05,0,8
+21,7,Andy Grammer,Singer/Rapper,28.0,0.1395,0.13925228,0.05,0,8
+21,8,Andy Grammer,Singer/Rapper,23.9998,0.1142,0.112734534,0.08,1,8
+34,1,Andy Richter,Comedian,9.0,0.0723,0.06733784,0.05,0,9
+34,2,Andy Richter,Comedian,16.0,0.0783,0.07658343,0.05,0,9
+34,3,Andy Richter,Comedian,18.0,0.0867,0.08616873,0.05,0,9
+34,4,Andy Richter,Comedian,18.0,0.0934,0.09144889,0.05,0,9
+34,5,Andy Richter,Comedian,24.0,0.1026,0.10157035,0.05,0,9
+34,6,Andy Richter,Comedian,27.0,0.1046,0.10451741,0.05,0,9
+34,7,Andy Richter,Comedian,29.0,0.1169,0.11692271,0.05,0,9
+34,8,Andy Richter,Comedian,34.0,0.1314,0.12961134,0.05,0,9
+34,9,Andy Richter,Comedian,29.0,0.0821,0.09741398,0.08,1,9
+33,1,Anna Delvey,Con artist,18.0,0.0248,0.033445537,0.05,0,2
+33,2,Anna Delvey,Con artist,17.0,0.0286,0.020406734,0.08,1,2
+29,1,Anne Heche,Actor/Actress,18.0,0.0694,0.069473736,0.05,0,4
+29,2,Anne Heche,Actor/Actress,18.0,0.0726,0.07057721,0.05,0,4
+29,3,Anne Heche,Actor/Actress,15.0,0.0758,0.07609132,0.05,0,4
+29,4,Anne Heche,Actor/Actress,21.0,0.0254,0.024496164,0.08,1,4
+22,1,Antonio Brown,Athlete,21.0,0.0859,0.08497341,0.05,0,9
+22,2,Antonio Brown,Athlete,19.0,0.0869,0.08590604,0.05,0,9
+22,3,Antonio Brown,Athlete,20.0,0.0911,0.09347652,0.05,0,9
+22,4,Antonio Brown,Athlete,35.0,0.1012,0.105098315,0.05,0,9
+22,5,Antonio Brown,Athlete,26.0,0.1137,0.11802261,0.05,0,9
+22,6,Antonio Brown,Athlete,27.0,0.1167,0.115954496,0.05,0,9
+22,7,Antonio Brown,Athlete,26.0,0.1272,0.13330409,0.05,0,9
+22,8,Antonio Brown,Athlete,27.0,0.1679,0.1691993,0.05,0,9
+22,9,Antonio Brown,Athlete,27.5,0.1778,0.18522999,0.08,1,9
+19,1,Antonio Sabato Jr.,Actor/Actress,25.0,0.0848,0.084054925,0.05,0,7
+19,2,Antonio Sabato Jr.,Actor/Actress,31.0,0.0936,0.090642124,0.05,0,7
+19,3,Antonio Sabato Jr.,Actor/Actress,29.0,0.0957,0.09515802,0.05,0,7
+19,4,Antonio Sabato Jr.,Actor/Actress,29.0,0.1066,0.104537256,0.05,0,7
+19,5,Antonio Sabato Jr.,Actor/Actress,28.0,0.1178,0.11569156,0.05,0,7
+19,6,Antonio Sabato Jr.,Actor/Actress,28.0,0.124,0.11977154,0.05,0,7
+19,7,Antonio Sabato Jr.,Actor/Actress,29.5,0.1008,0.10200112,0.08,1,7
+4,1,Apolo Anton Ohno,Athlete,21.0,0.0922,0.091095656,0.05,0,99
+15,1,Apolo Anton Ohno,Athlete,22.0,0.0771,0.07796226,0.05,0,9
+4,2,Apolo Anton Ohno,Athlete,26.0,0.0971,0.09285137,0.05,0,99
+15,2,Apolo Anton Ohno,Athlete,24.5,0.0869,0.086094275,0.05,0,9
+4,3,Apolo Anton Ohno,Athlete,23.0,0.1007,0.1011575,0.05,0,99
+15,3,Apolo Anton Ohno,Athlete,25.5,0.096,0.09611134,0.05,0,9
+4,4,Apolo Anton Ohno,Athlete,26.0,0.1089,0.11222927,0.05,0,99
+15,4,Apolo Anton Ohno,Athlete,34.5,0.1122,0.11303809,0.05,0,9
+4,5,Apolo Anton Ohno,Athlete,30.0,0.1244,0.12565836,0.05,0,99
+15,5,Apolo Anton Ohno,Athlete,28.25,0.0969,0.1249705,0.05,0,9
+4,6,Apolo Anton Ohno,Athlete,28.0,0.1436,0.14556554,0.05,0,99
+15,6,Apolo Anton Ohno,Athlete,30.0,0.1222,0.12748717,0.05,0,9
+4,7,Apolo Anton Ohno,Athlete,27.0,0.1634,0.16557354,0.05,0,99
+15,7,Apolo Anton Ohno,Athlete,33.0,0.1456,0.14571205,0.05,0,9
+4,8,Apolo Anton Ohno,Athlete,29.0,0.2022,0.19235054,0.05,0,99
+15,8,Apolo Anton Ohno,Athlete,29.2777,0.1527,0.15368764,0.05,0,9
+4,9,Apolo Anton Ohno,Athlete,29.5,0.253,0.24961968,0.05,0,99
+15,9,Apolo Anton Ohno,Athlete,28.611,0.1769,0.173524,0.08,1,9
+4,10,Apolo Anton Ohno,Athlete,29.3332,0.3442,0.33575332,0.05,0,99
+32,1,Ariana Madix,TV Personality,21.0,0.0735,0.073520124,0.05,0,99
+32,2,Ariana Madix,TV Personality,20.0,0.0803,0.079531804,0.05,0,99
+32,3,Ariana Madix,TV Personality,34.0,0.087,0.08735899,0.05,0,99
+32,4,Ariana Madix,TV Personality,25.0,0.0946,0.09409378,0.05,0,99
+32,5,Ariana Madix,TV Personality,24.0,0.1052,0.10056529,0.05,0,99
+32,6,Ariana Madix,TV Personality,41.0,0.1148,0.1144965,0.05,0,99
+32,7,Ariana Madix,TV Personality,37.0,0.1307,0.1312609,0.05,0,99
+32,8,Ariana Madix,TV Personality,42.0,0.1512,0.14866342,0.05,0,99
+32,9,Ariana Madix,TV Personality,37.0,0.1756,0.17333817,0.05,0,99
+32,10,Ariana Madix,TV Personality,29.0,0.1348,0.14854775,0.05,0,99
+32,11,Ariana Madix,TV Personality,29.5,0.1324,0.14421295,0.05,0,99
+26,1,Arike Ogunbowale,Athlete,20.0,0.1035,0.09931403,0.05,0,2
+26,2,Arike Ogunbowale,Athlete,35.0,0.1039,0.11051376,0.08,1,2
+9,1,Ashley Hamiliton,Actor/Actress,18.9999,0.0499,0.051507857,0.08,1,1
+11,1,Audrina Patridge,TV Personality,19.0,0.0805,0.080313265,0.05,0,6
+11,2,Audrina Patridge,TV Personality,23.0,0.0877,0.08925388,0.05,0,6
+11,3,Audrina Patridge,TV Personality,26.0,0.0947,0.09882046,0.05,0,6
+11,4,Audrina Patridge,TV Personality,23.0,0.1075,0.10935469,0.05,0,6
+11,5,Audrina Patridge,TV Personality,23.0,0.1226,0.12266203,0.05,0,6
+11,6,Audrina Patridge,TV Personality,31.9998,0.1155,0.11118228,0.08,1,6
+23,1,Babyface,Singer/Rapper,26.0,0.0868,0.08562538,0.05,0,4
+23,2,Babyface,Singer/Rapper,30.0,0.0848,0.084844984,0.05,0,4
+23,3,Babyface,Singer/Rapper,25.0,0.0901,0.08967692,0.05,0,4
+23,4,Babyface,Singer/Rapper,18.0,0.0759,0.073634766,0.08,1,4
+25,1,Barbara Corcoran,Entrepreneur,14.0,0.0528,0.06076518,0.05,0,2
+25,2,Barbara Corcoran,Entrepreneur,17.0,0.0487,0.04988189,0.08,1,2
+34,1,Baron Davis,Athlete,10.0,0.0749,0.073768705,0.05,0,2
+34,2,Baron Davis,Athlete,18.0,0.0231,0.027293995,0.08,1,2
+32,1,Barry Williams,Actor/Actress,16.0,0.0772,0.077757284,0.05,0,8
+32,2,Barry Williams,Actor/Actress,15.0,0.0856,0.08405311,0.05,0,8
+32,3,Barry Williams,Actor/Actress,25.0,0.0915,0.09059653,0.05,0,8
+32,4,Barry Williams,Actor/Actress,18.0,0.0994,0.099723816,0.05,0,8
+32,5,Barry Williams,Actor/Actress,24.0,0.1066,0.11041945,0.05,0,8
+32,6,Barry Williams,Actor/Actress,32.0,0.1202,0.119922146,0.05,0,8
+32,7,Barry Williams,Actor/Actress,32.5,0.1366,0.13512239,0.05,0,8
+32,8,Barry Williams,Actor/Actress,35.0,0.0836,0.084956415,0.08,1,8
+8,1,Belinda Carlisle,Singer/Rapper,17.0,0.087,0.086429216,0.05,0,2
+8,2,Belinda Carlisle,Singer/Rapper,18.0,0.0606,0.06266041,0.08,1,2
+19,1,Bethany Mota,Social Media Personality,32.0,0.0699,0.06861364,0.05,0,11
+19,2,Bethany Mota,Social Media Personality,33.0,0.0732,0.07489646,0.05,0,11
+19,3,Bethany Mota,Social Media Personality,40.0,0.0833,0.085905194,0.05,0,11
+19,4,Bethany Mota,Social Media Personality,33.0,0.0891,0.09194763,0.05,0,11
+19,5,Bethany Mota,Social Media Personality,32.0,0.0981,0.09857637,0.05,0,11
+19,6,Bethany Mota,Social Media Personality,36.0,0.1029,0.10105647,0.05,0,11
+19,7,Bethany Mota,Social Media Personality,37.5,0.1211,0.11901349,0.05,0,11
+19,8,Bethany Mota,Social Media Personality,40.0,0.1268,0.13573769,0.05,0,11
+19,9,Bethany Mota,Social Media Personality,37.0,0.161,0.15860943,0.05,0,11
+19,10,Bethany Mota,Social Media Personality,38.0,0.1893,0.18337639,0.05,0,11
+19,11,Bethany Mota,Social Media Personality,38.0,0.1812,0.18262558,0.08,1,11
+19,1,Betsey Johnson,Fashion Designer,20.0,0.0699,0.071689434,0.05,0,4
+19,2,Betsey Johnson,Fashion Designer,28.0,0.0723,0.08273248,0.05,0,4
+19,3,Betsey Johnson,Fashion Designer,29.0,0.083,0.08521555,0.05,0,4
+19,4,Betsey Johnson,Fashion Designer,29.0,0.0742,0.07474456,0.08,1,4
+17,1,Bill Engvall,Comedian,18.0,0.0635,0.07090596,0.05,0,11
+17,2,Bill Engvall,Comedian,21.0,0.0797,0.07594375,0.05,0,11
+17,3,Bill Engvall,Comedian,24.0,0.0825,0.0824801,0.05,0,11
+17,4,Bill Engvall,Comedian,21.0,0.0932,0.09228626,0.05,0,11
+17,5,Bill Engvall,Comedian,24.0,0.1069,0.10107251,0.05,0,11
+17,6,Bill Engvall,Comedian,23.9999,0.0905,0.10567748,0.05,0,11
+17,7,Bill Engvall,Comedian,25.0,0.1174,0.11298166,0.05,0,11
+17,8,Bill Engvall,Comedian,24.0,0.1387,0.13447142,0.05,0,11
+17,9,Bill Engvall,Comedian,21.0,0.165,0.15765263,0.05,0,11
+17,10,Bill Engvall,Comedian,30.0,0.2015,0.209844,0.05,0,11
+17,11,Bill Engvall,Comedian,25.499899999999997,0.2053,0.2047239,0.08,1,11
+17,1,Bill Nye,TV Personality,14.0,0.0783,0.07748219,0.05,0,3
+17,2,Bill Nye,TV Personality,17.0,0.0797,0.07933647,0.05,0,3
+17,3,Bill Nye,TV Personality,16.0,0.0687,0.06831233,0.08,1,3
+18,1,Billy Dee Williams,Actor/Actress,15.0,0.0865,0.08703384,0.05,0,98
+18,2,Billy Dee Williams,Actor/Actress,15.0,0.0954,0.09684503,0.05,0,98
+4,1,Billy Ray Cyrus,Singer/Rapper,13.0,0.1059,0.10387297,0.05,0,8
+4,2,Billy Ray Cyrus,Singer/Rapper,21.0,0.1054,0.1063182,0.05,0,8
+4,3,Billy Ray Cyrus,Singer/Rapper,21.0,0.1203,0.114239626,0.05,0,8
+4,4,Billy Ray Cyrus,Singer/Rapper,21.0,0.1289,0.12426541,0.05,0,8
+4,5,Billy Ray Cyrus,Singer/Rapper,17.0,0.136,0.1385943,0.05,0,8
+4,6,Billy Ray Cyrus,Singer/Rapper,21.0,0.1568,0.15527962,0.05,0,8
+4,7,Billy Ray Cyrus,Singer/Rapper,19.0,0.1786,0.17752141,0.05,0,8
+4,8,Billy Ray Cyrus,Singer/Rapper,19.0,0.1684,0.17255566,0.08,1,8
+21,1,Bindi Irwin,TV Personality,24.0,0.0725,0.07148881,0.05,0,99
+21,2,Bindi Irwin,TV Personality,24.0,0.0727,0.074521884,0.05,0,99
+21,3,Bindi Irwin,TV Personality,32.0,0.0909,0.091148555,0.05,0,99
+21,4,Bindi Irwin,TV Personality,28.0,0.0967,0.09614623,0.05,0,99
+21,5,Bindi Irwin,TV Personality,37.0,0.1041,0.10286203,0.05,0,99
+21,6,Bindi Irwin,TV Personality,40.0,0.1096,0.108819366,0.05,0,99
+21,7,Bindi Irwin,TV Personality,29.0,0.1236,0.12034505,0.05,0,99
+21,8,Bindi Irwin,TV Personality,28.0,0.1371,0.13737671,0.05,0,99
+21,9,Bindi Irwin,TV Personality,30.0,0.1628,0.16553174,0.05,0,99
+21,10,Bindi Irwin,TV Personality,31.5,0.2463,0.2393207,0.05,0,99
+21,11,Bindi Irwin,TV Personality,30.0,0.259,0.2554389,0.05,0,99
+27,1,Bobby Bones,Radio Personality,20.0,0.0667,0.064627305,0.05,0,99
+27,2,Bobby Bones,Radio Personality,19.5,0.0758,0.07267446,0.05,0,99
+27,3,Bobby Bones,Radio Personality,23.0,0.0825,0.08155839,0.05,0,99
+27,4,Bobby Bones,Radio Personality,20.0,0.0968,0.09580298,0.05,0,99
+27,5,Bobby Bones,Radio Personality,21.0,0.0776,0.09131147,0.05,0,99
+27,6,Bobby Bones,Radio Personality,22.0,0.1006,0.09908513,0.05,0,99
+27,7,Bobby Bones,Radio Personality,26.5,0.1216,0.12376027,0.05,0,99
+27,8,Bobby Bones,Radio Personality,22.5,0.1665,0.16630208,0.05,0,99
+27,9,Bobby Bones,Radio Personality,27.0,0.2309,0.22321498,0.05,0,99
+24,1,Bonner Bolton,Athlete,22.0,0.0817,0.08127729,0.05,0,8
+24,2,Bonner Bolton,Athlete,28.0,0.0827,0.08448551,0.05,0,8
+24,3,Bonner Bolton,Athlete,24.0,0.0916,0.08954525,0.05,0,8
+24,4,Bonner Bolton,Athlete,32.0,0.0997,0.099611744,0.05,0,8
+24,5,Bonner Bolton,Athlete,30.0,0.1095,0.10926092,0.05,0,8
+24,6,Bonner Bolton,Athlete,31.5,0.1293,0.116611466,0.05,0,8
+24,7,Bonner Bolton,Athlete,31.0,0.1487,0.15080848,0.05,0,8
+24,8,Bonner Bolton,Athlete,29.0,0.1673,0.14768435,0.08,1,8
+11,1,Brandy,Singer/Rapper,23.0,0.0923,0.09530751,0.05,0,9
+11,2,Brandy,Singer/Rapper,21.0,0.1023,0.10155818,0.05,0,9
+11,3,Brandy,Singer/Rapper,24.0,0.1094,0.11132527,0.05,0,9
+11,4,Brandy,Singer/Rapper,24.0,0.1256,0.12272165,0.05,0,9
+11,5,Brandy,Singer/Rapper,27.0,0.137,0.13927108,0.05,0,9
+11,6,Brandy,Singer/Rapper,35.9999,0.1617,0.16211389,0.05,0,9
+11,7,Brandy,Singer/Rapper,36.5,0.189,0.17815433,0.05,0,9
+11,8,Brandy,Singer/Rapper,28.5,0.2245,0.21690145,0.05,0,9
+11,9,Brandy,Singer/Rapper,28.5,0.2138,0.21694902,0.08,1,9
+17,1,Brant Daugherty,Actor/Actress,22.0,0.0864,0.0866365,0.05,0,8
+17,2,Brant Daugherty,Actor/Actress,23.0,0.0851,0.087225825,0.05,0,8
+17,3,Brant Daugherty,Actor/Actress,27.0,0.0975,0.0966655,0.05,0,8
+17,4,Brant Daugherty,Actor/Actress,21.0,0.1092,0.1048486,0.05,0,8
+17,5,Brant Daugherty,Actor/Actress,27.0,0.1176,0.12114914,0.05,0,8
+17,6,Brant Daugherty,Actor/Actress,31.0,0.1308,0.13155417,0.05,0,8
+17,7,Brant Daugherty,Actor/Actress,28.5,0.1306,0.13270092,0.05,0,8
+17,8,Brant Daugherty,Actor/Actress,27.0,0.1155,0.11454687,0.08,1,8
+30,1,Brian Austin Green,Actor/Actress,24.0,0.0725,0.06979379,0.05,0,4
+30,2,Brian Austin Green,Actor/Actress,23.0,0.0739,0.0721037,0.05,0,4
+30,3,Brian Austin Green,Actor/Actress,19.0,0.0801,0.077241845,0.05,0,4
+30,4,Brian Austin Green,Actor/Actress,26.0,0.0287,0.025887389,0.08,1,4
+11,1,Bristol Palin,TV Personality,18.0,0.0805,0.08038978,0.05,0,99
+15,1,Bristol Palin,TV Personality,19.5,0.0723,0.074079745,0.05,0,4
+11,2,Bristol Palin,TV Personality,22.0,0.0891,0.089387365,0.05,0,99
+15,2,Bristol Palin,TV Personality,18.0,0.079,0.080727495,0.05,0,4
+11,3,Bristol Palin,TV Personality,19.0,0.096,0.09597322,0.05,0,99
+15,3,Bristol Palin,TV Personality,22.5,0.0932,0.08967832,0.05,0,4
+11,4,Bristol Palin,TV Personality,16.0,0.1039,0.10616133,0.05,0,99
+15,4,Bristol Palin,TV Personality,32.0,0.088,0.0862566,0.08,1,4
+11,5,Bristol Palin,TV Personality,18.0,0.1226,0.12101461,0.05,0,99
+11,6,Bristol Palin,TV Personality,27.9998,0.1387,0.14026782,0.05,0,99
+11,7,Bristol Palin,TV Personality,32.5,0.1658,0.16391917,0.05,0,99
+11,8,Bristol Palin,TV Personality,23.5,0.1949,0.1968544,0.05,0,99
+11,9,Bristol Palin,TV Personality,26.5,0.2566,0.23861274,0.05,0,99
+11,10,Bristol Palin,TV Personality,25.666600000000003,0.2794,0.284768,0.05,0,99
+7,1,Brooke Burke,TV Personality,24.5,0.0749,0.07506107,0.05,0,99
+7,2,Brooke Burke,TV Personality,24.0,0.0878,0.08522518,0.05,0,99
+7,3,Brooke Burke,TV Personality,28.0,0.1043,0.10613448,0.05,0,99
+7,4,Brooke Burke,TV Personality,26.0,0.1069,0.11042717,0.05,0,99
+7,5,Brooke Burke,TV Personality,29.0,0.1229,0.12080585,0.05,0,99
+7,6,Brooke Burke,TV Personality,26.0,0.1397,0.13904898,0.05,0,99
+7,7,Brooke Burke,TV Personality,30.0,0.1657,0.16486083,0.05,0,99
+7,8,Brooke Burke,TV Personality,27.5,0.1919,0.20189099,0.05,0,99
+7,9,Brooke Burke,TV Personality,24.5,0.2548,0.24532418,0.05,0,99
+7,10,Brooke Burke,TV Personality,30.0,0.2581,0.27813768,0.05,0,99
+33,1,Brooks Nader,Model,18.0,0.0801,0.075149655,0.05,0,4
+33,2,Brooks Nader,Model,20.0,0.0849,0.082934864,0.05,0,4
+33,3,Brooks Nader,Model,30.5,0.1017,0.09900567,0.05,0,4
+33,4,Brooks Nader,Model,32.0,0.0559,0.056195494,0.08,1,4
+10,1,Buzz Aldrin,Astronaut,14.0,0.0789,0.08083992,0.05,0,3
+10,2,Buzz Aldrin,Astronaut,12.0,0.0828,0.08428035,0.05,0,3
+10,3,Buzz Aldrin,Astronaut,13.0,0.0705,0.07279762,0.08,1,3
+23,1,Calvin Johnson Jr.,Athlete,26.0,0.0776,0.080865376,0.05,0,99
+23,2,Calvin Johnson Jr.,Athlete,28.0,0.0754,0.08032536,0.05,0,99
+23,3,Calvin Johnson Jr.,Athlete,32.0,0.0845,0.08631875,0.05,0,99
+23,4,Calvin Johnson Jr.,Athlete,23.0,0.0912,0.09559373,0.05,0,99
+23,5,Calvin Johnson Jr.,Athlete,24.0,0.1182,0.11175354,0.05,0,99
+23,6,Calvin Johnson Jr.,Athlete,37.0,0.1215,0.11713553,0.05,0,99
+23,7,Calvin Johnson Jr.,Athlete,37.0,0.1237,0.13009822,0.05,0,99
+23,8,Calvin Johnson Jr.,Athlete,30.0,0.1404,0.14430502,0.05,0,99
+23,9,Calvin Johnson Jr.,Athlete,37.0,0.1706,0.17249551,0.05,0,99
+23,10,Calvin Johnson Jr.,Athlete,28.0,0.2157,0.20103018,0.05,0,99
+23,11,Calvin Johnson Jr.,Athlete,38.3331,0.2609,0.2623291,0.05,0,99
+5,1,Cameron Mathison,Actor/Actress,21.0,0.0878,0.08712185,0.05,0,8
+5,2,Cameron Mathison,Actor/Actress,21.0,0.0925,0.093482286,0.05,0,8
+5,3,Cameron Mathison,Actor/Actress,23.0,0.1094,0.10275022,0.05,0,8
+5,4,Cameron Mathison,Actor/Actress,27.0,0.1113,0.112678,0.05,0,8
+5,5,Cameron Mathison,Actor/Actress,26.0,0.1297,0.12996154,0.05,0,8
+5,6,Cameron Mathison,Actor/Actress,25.0,0.1494,0.15042587,0.05,0,8
+5,7,Cameron Mathison,Actor/Actress,25.5,0.1712,0.17283331,0.05,0,8
+5,8,Cameron Mathison,Actor/Actress,25.5,0.1603,0.16424698,0.08,1,8
+18,1,Candace Cameron Bure,Actor/Actress,25.0,0.0872,0.08719576,0.05,0,99
+18,2,Candace Cameron Bure,Actor/Actress,21.0,0.0982,0.09538543,0.05,0,99
+18,3,Candace Cameron Bure,Actor/Actress,32.0,0.1116,0.11096707,0.05,0,99
+18,4,Candace Cameron Bure,Actor/Actress,28.0,0.1186,0.10962444,0.05,0,99
+18,5,Candace Cameron Bure,Actor/Actress,35.0,0.1149,0.115980364,0.05,0,99
+18,6,Candace Cameron Bure,Actor/Actress,32.0,0.139,0.13503668,0.05,0,99
+18,7,Candace Cameron Bure,Actor/Actress,37.0,0.151,0.14852975,0.05,0,99
+18,8,Candace Cameron Bure,Actor/Actress,36.0,0.1831,0.17541064,0.05,0,99
+18,9,Candace Cameron Bure,Actor/Actress,36.0,0.223,0.2138211,0.05,0,99
+18,10,Candace Cameron Bure,Actor/Actress,25.9998,0.2647,0.2639118,0.05,0,99
+21,1,Carlos PenaVega,Actor/Actress,23.0,0.0811,0.08026976,0.05,0,11
+21,2,Carlos PenaVega,Actor/Actress,22.5,0.0854,0.08322391,0.05,0,11
+21,3,Carlos PenaVega,Actor/Actress,31.0,0.109,0.099715434,0.05,0,11
+21,4,Carlos PenaVega,Actor/Actress,25.0,0.101,0.10280668,0.05,0,11
+21,5,Carlos PenaVega,Actor/Actress,39.0,0.1188,0.11779805,0.05,0,11
+21,6,Carlos PenaVega,Actor/Actress,38.0,0.12,0.12628837,0.05,0,11
+21,7,Carlos PenaVega,Actor/Actress,28.0,0.1308,0.13374183,0.05,0,11
+21,8,Carlos PenaVega,Actor/Actress,28.9998,0.151,0.15038092,0.05,0,11
+21,9,Carlos PenaVega,Actor/Actress,27.0,0.1797,0.18086438,0.05,0,11
+21,10,Carlos PenaVega,Actor/Actress,31.5,0.2897,0.2462357,0.05,0,11
+21,11,Carlos PenaVega,Actor/Actress,30.0,0.2044,0.20781364,0.08,1,11
+29,1,Carole Baskin,TV Personality,11.0,0.0693,0.06690565,0.05,0,3
+29,2,Carole Baskin,TV Personality,16.0,0.069,0.06908255,0.05,0,3
+29,3,Carole Baskin,TV Personality,12.0,0.0201,0.020616261,0.08,1,3
+13,1,Carson Kressley,TV Personality,17.0,0.0799,0.07984544,0.05,0,5
+13,2,Carson Kressley,TV Personality,18.0,0.0877,0.087488845,0.05,0,5
+13,3,Carson Kressley,TV Personality,23.0,0.0961,0.09729024,0.05,0,5
+13,4,Carson Kressley,TV Personality,20.0,0.1095,0.10863552,0.05,0,5
+13,5,Carson Kressley,TV Personality,19.0,0.103,0.10206831,0.08,1,5
+10,1,Chad Ochocinco,Athlete,18.0,0.0936,0.09271715,0.05,0,9
+10,2,Chad Ochocinco,Athlete,16.0,0.0943,0.09292498,0.05,0,9
+10,3,Chad Ochocinco,Athlete,20.0,0.1065,0.10251861,0.05,0,9
+10,4,Chad Ochocinco,Athlete,22.0,0.1182,0.11387688,0.05,0,9
+10,5,Chad Ochocinco,Athlete,18.0,0.1318,0.12634024,0.05,0,9
+10,6,Chad Ochocinco,Athlete,30.999899999999997,0.151,0.1454879,0.05,0,9
+10,7,Chad Ochocinco,Athlete,26.0,0.1808,0.17779242,0.05,0,9
+10,8,Chad Ochocinco,Athlete,22.5,0.2054,0.20081511,0.05,0,9
+10,9,Chad Ochocinco,Athlete,26.0,0.2002,0.21000731,0.08,1,9
+21,1,Chaka Khan,Singer/Rapper,13.0,0.0843,0.0827418,0.05,0,2
+21,2,Chaka Khan,Singer/Rapper,15.0,0.0605,0.058403656,0.08,1,2
+33,1,Chandler Kinney,Actor/Actress,23.0,0.0829,0.08269684,0.05,0,99
+33,2,Chandler Kinney,Actor/Actress,24.0,0.0849,0.088287316,0.05,0,99
+33,3,Chandler Kinney,Actor/Actress,34.5,0.1017,0.10724658,0.05,0,99
+33,4,Chandler Kinney,Actor/Actress,32.0,0.1188,0.1470067,0.05,0,99
+33,5,Chandler Kinney,Actor/Actress,27.0,0.1376,0.13602763,0.05,0,99
+33,6,Chandler Kinney,Actor/Actress,32.0,0.1571,0.15775819,0.05,0,99
+33,7,Chandler Kinney,Actor/Actress,30.0,0.179,0.1823157,0.05,0,99
+33,8,Chandler Kinney,Actor/Actress,29.0,0.2158,0.19660275,0.05,0,99
+33,9,Chandler Kinney,Actor/Actress,30.0,0.2202,0.22126487,0.05,0,99
+32,1,Charity Lawson,TV Personality,22.0,0.0735,0.07442588,0.05,0,99
+32,2,Charity Lawson,TV Personality,21.0,0.0803,0.08072508,0.05,0,99
+32,3,Charity Lawson,TV Personality,32.0,0.087,0.08954355,0.05,0,99
+32,4,Charity Lawson,TV Personality,24.0,0.0946,0.09504829,0.05,0,99
+32,5,Charity Lawson,TV Personality,28.0,0.1052,0.10580934,0.05,0,99
+32,6,Charity Lawson,TV Personality,38.0,0.1148,0.112361856,0.05,0,99
+32,7,Charity Lawson,TV Personality,36.0,0.1307,0.13291208,0.05,0,99
+32,8,Charity Lawson,TV Personality,39.0,0.1512,0.15191238,0.05,0,99
+32,9,Charity Lawson,TV Personality,38.0,0.1756,0.17761631,0.05,0,99
+32,10,Charity Lawson,TV Personality,29.5,0.2132,0.20341152,0.05,0,99
+32,11,Charity Lawson,TV Personality,29.5,0.2103,0.20152971,0.05,0,99
+29,1,Charles Oakley,Athlete,12.0,0.0693,0.07234851,0.05,0,2
+29,2,Charles Oakley,Athlete,15.0,0.0156,0.02026823,0.08,1,2
+31,1,Charli D'Amelio,Social Media Personality,32.0,0.0636,0.061667755,0.05,0,99
+31,2,Charli D'Amelio,Social Media Personality,32.0,0.0682,0.06625014,0.05,0,99
+31,3,Charli D'Amelio,Social Media Personality,33.0,0.0732,0.072905034,0.05,0,99
+31,4,Charli D'Amelio,Social Media Personality,36.0,0.0787,0.07817492,0.05,0,99
+31,5,Charli D'Amelio,Social Media Personality,42.0,0.0861,0.088631645,0.05,0,99
+31,6,Charli D'Amelio,Social Media Personality,40.0,0.1045,0.108244985,0.05,0,99
+31,7,Charli D'Amelio,Social Media Personality,39.0,0.1158,0.11926008,0.05,0,99
+31,8,Charli D'Amelio,Social Media Personality,45.0,0.1417,0.1386533,0.05,0,99
+31,9,Charli D'Amelio,Social Media Personality,40.0,0.1919,0.18933362,0.05,0,99
+31,10,Charli D'Amelio,Social Media Personality,40.0,0.1835,0.18892805,0.05,0,99
+18,1,Charlie White,Athlete,27.0,0.0841,0.08277976,0.05,0,9
+18,2,Charlie White,Athlete,25.0,0.0899,0.09222199,0.05,0,9
+18,3,Charlie White,Athlete,36.0,0.1184,0.114378296,0.05,0,9
+18,4,Charlie White,Athlete,33.0,0.1097,0.11457889,0.05,0,9
+18,5,Charlie White,Athlete,37.0,0.1098,0.112053186,0.05,0,9
+18,6,Charlie White,Athlete,36.0,0.1275,0.12571076,0.05,0,9
+18,7,Charlie White,Athlete,35.5,0.1463,0.14386086,0.05,0,9
+18,8,Charlie White,Athlete,40.0,0.167,0.17083727,0.05,0,9
+18,9,Charlie White,Athlete,38.0,0.1646,0.16555335,0.08,1,9
+20,1,Charlotte McKinney,Model,22.0,0.0745,0.073113866,0.05,0,3
+20,2,Charlotte McKinney,Model,26.0,0.0773,0.07891342,0.05,0,3
+20,3,Charlotte McKinney,Model,22.0,0.0663,0.06395618,0.08,1,3
+24,1,Charo,Actor/Actress,21.0,0.0876,0.08627051,0.05,0,3
+24,2,Charo,Actor/Actress,25.0,0.0885,0.08677548,0.05,0,3
+24,3,Charo,Actor/Actress,24.0,0.0727,0.06844798,0.08,1,3
+13,1,Chaz Bono,TV Personality,17.0,0.0798,0.07966411,0.05,0,6
+13,2,Chaz Bono,TV Personality,17.0,0.0877,0.08740104,0.05,0,6
+13,3,Chaz Bono,TV Personality,18.0,0.0947,0.09532286,0.05,0,6
+13,4,Chaz Bono,TV Personality,21.0,0.1097,0.107327335,0.05,0,6
+13,5,Chaz Bono,TV Personality,21.0,0.1237,0.12192043,0.05,0,6
+13,6,Chaz Bono,TV Personality,19.0,0.1129,0.11620597,0.08,1,6
+12,1,Chelsea Kane,Actor/Actress,21.0,0.0994,0.09817385,0.05,0,99
+12,2,Chelsea Kane,Actor/Actress,18.0,0.0978,0.09740662,0.05,0,99
+12,3,Chelsea Kane,Actor/Actress,23.0,0.1072,0.10561778,0.05,0,99
+12,4,Chelsea Kane,Actor/Actress,26.0,0.1195,0.11620816,0.05,0,99
+12,5,Chelsea Kane,Actor/Actress,26.0,0.1354,0.13306041,0.05,0,99
+12,6,Chelsea Kane,Actor/Actress,28.0,0.1498,0.15045005,0.05,0,99
+12,7,Chelsea Kane,Actor/Actress,32.0,0.1761,0.17276229,0.05,0,99
+12,8,Chelsea Kane,Actor/Actress,27.5,0.2055,0.211319,0.05,0,99
+12,9,Chelsea Kane,Actor/Actress,36.5,0.2593,0.2608919,0.05,0,99
+12,10,Chelsea Kane,Actor/Actress,29.666600000000003,0.3556,0.32437187,0.05,0,99
+31,1,Cheryl Ladd,Actor/Actress,21.0,0.068,0.06895893,0.05,0,3
+31,2,Cheryl Ladd,Actor/Actress,21.0,0.0685,0.07286807,0.05,0,3
+31,3,Cheryl Ladd,Actor/Actress,24.0,0.019,0.021216726,0.08,1,3
+12,1,Chris Jericho,Athlete,19.0,0.0935,0.09185343,0.05,0,6
+12,2,Chris Jericho,Athlete,23.0,0.0924,0.09406834,0.05,0,6
+12,3,Chris Jericho,Athlete,21.0,0.1012,0.101087965,0.05,0,6
+12,4,Chris Jericho,Athlete,23.0,0.108,0.11174862,0.05,0,6
+12,5,Chris Jericho,Athlete,26.0,0.124,0.12654595,0.05,0,6
+12,6,Chris Jericho,Athlete,22.0,0.1143,0.11305187,0.08,1,6
+24,1,Chris Kattan,Comedian,17.0,0.0633,0.06949684,0.05,0,2
+24,2,Chris Kattan,Comedian,22.0,0.0602,0.058921624,0.08,1,2
+26,1,Chris Mazdzer,Athlete,21.0,0.1035,0.10332068,0.05,0,3
+26,2,Chris Mazdzer,Athlete,33.0,0.1308,0.12810208,0.05,0,3
+26,3,Chris Mazdzer,Athlete,33.0,0.1517,0.15302117,0.08,1,3
+20,1,Chris Soules,TV Personality,26.0,0.0785,0.07938813,0.05,0,8
+20,2,Chris Soules,TV Personality,21.0,0.0792,0.079618104,0.05,0,8
+20,3,Chris Soules,TV Personality,28.0,0.0906,0.087888144,0.05,0,8
+20,4,Chris Soules,TV Personality,27.0,0.0958,0.09500421,0.05,0,8
+20,5,Chris Soules,TV Personality,27.0,0.1042,0.10430102,0.05,0,8
+20,6,Chris Soules,TV Personality,35.0,0.1212,0.11943516,0.05,0,8
+20,7,Chris Soules,TV Personality,31.0,0.1472,0.14052092,0.05,0,8
+20,8,Chris Soules,TV Personality,32.0,0.1369,0.13923587,0.08,1,8
+29,1,Chrishell Stause,Actor/Actress,13.0,0.0711,0.06911568,0.05,0,8
+29,2,Chrishell Stause,Actor/Actress,18.0,0.0716,0.06994693,0.05,0,8
+29,3,Chrishell Stause,Actor/Actress,22.0,0.0754,0.07464747,0.05,0,8
+29,4,Chrishell Stause,Actor/Actress,22.0,0.0809,0.08105101,0.05,0,8
+29,5,Chrishell Stause,Actor/Actress,19.0,0.0878,0.088211775,0.05,0,8
+29,6,Chrishell Stause,Actor/Actress,24.0,0.0946,0.09734398,0.05,0,8
+29,7,Chrishell Stause,Actor/Actress,26.0,0.1041,0.10518989,0.05,0,8
+29,8,Chrishell Stause,Actor/Actress,27.0,0.0675,0.073713124,0.08,1,8
+17,1,Christina Milian,Singer/Rapper,22.0,0.0919,0.0918886,0.05,0,5
+17,2,Christina Milian,Singer/Rapper,25.0,0.092,0.09188861,0.05,0,5
+17,3,Christina Milian,Singer/Rapper,26.0,0.1013,0.10251665,0.05,0,5
+17,4,Christina Milian,Singer/Rapper,24.0,0.108,0.11010996,0.05,0,5
+17,5,Christina Milian,Singer/Rapper,28.0,0.089,0.09131132,0.08,1,5
+30,1,Christine Chiu,TV Personality,25.0,0.0678,0.065853626,0.05,0,3
+30,2,Christine Chiu,TV Personality,24.0,0.0686,0.06790766,0.05,0,3
+30,3,Christine Chiu,TV Personality,21.0,0.0183,0.02069935,0.08,1,3
+9,1,Chuck Liddell,Athlete,22.0,0.063,0.062292676,0.05,0,4
+9,2,Chuck Liddell,Athlete,19.0,0.0693,0.07119246,0.05,0,4
+9,3,Chuck Liddell,Athlete,17.0,0.076,0.07560538,0.05,0,4
+9,4,Chuck Liddell,Athlete,17.0,0.0685,0.06682594,0.08,1,4
+8,1,Chuck Wicks,Singer/Rapper,20.0,0.0858,0.0874981,0.05,0,8
+8,2,Chuck Wicks,Singer/Rapper,20.0,0.0861,0.087877914,0.05,0,8
+8,3,Chuck Wicks,Singer/Rapper,23.0,0.0961,0.09527096,0.05,0,8
+8,4,Chuck Wicks,Singer/Rapper,22.0,0.1051,0.10786555,0.05,0,8
+8,5,Chuck Wicks,Singer/Rapper,23.0,0.1273,0.124162585,0.05,0,8
+8,6,Chuck Wicks,Singer/Rapper,23.0,0.1401,0.14120007,0.05,0,8
+8,7,Chuck Wicks,Singer/Rapper,27.0,0.1604,0.15923823,0.05,0,8
+8,8,Chuck Wicks,Singer/Rapper,25.5,0.1369,0.14071721,0.08,1,8
+13,1,Chynna Phillips,Singer/Rapper,22.0,0.0926,0.09263634,0.05,0,4
+13,2,Chynna Phillips,Singer/Rapper,21.0,0.102,0.10001818,0.05,0,4
+13,3,Chynna Phillips,Singer/Rapper,26.0,0.1124,0.112508975,0.05,0,4
+13,4,Chynna Phillips,Singer/Rapper,21.0,0.0912,0.094212525,0.08,1,4
+7,1,Cloris Leachman,Actor/Actress,16.0,0.0822,0.08357979,0.05,0,6
+7,2,Cloris Leachman,Actor/Actress,15.0,0.0943,0.09840776,0.05,0,6
+7,3,Cloris Leachman,Actor/Actress,16.0,0.119,0.11606472,0.05,0,6
+7,4,Cloris Leachman,Actor/Actress,22.0,0.1197,0.11727274,0.05,0,6
+7,5,Cloris Leachman,Actor/Actress,21.0,0.1267,0.12873481,0.05,0,6
+7,6,Cloris Leachman,Actor/Actress,15.0,0.1164,0.118866205,0.08,1,6
+4,1,Clyde Drexler,Athlete,16.0,0.0932,0.09036096,0.05,0,5
+4,2,Clyde Drexler,Athlete,18.0,0.0903,0.09061469,0.05,0,5
+4,3,Clyde Drexler,Athlete,16.0,0.1001,0.099704124,0.05,0,5
+4,4,Clyde Drexler,Athlete,15.0,0.1099,0.11015882,0.05,0,5
+4,5,Clyde Drexler,Athlete,13.0,0.0983,0.09642202,0.08,1,5
+7,1,Cody Linley,Actor/Actress,20.5,0.0818,0.084402904,0.05,0,9
+7,2,Cody Linley,Actor/Actress,21.0,0.0939,0.095809706,0.05,0,9
+7,3,Cody Linley,Actor/Actress,21.0,0.1098,0.11106926,0.05,0,9
+7,4,Cody Linley,Actor/Actress,23.0,0.1143,0.11422581,0.05,0,9
+7,5,Cody Linley,Actor/Actress,28.0,0.1272,0.1302624,0.05,0,9
+7,6,Cody Linley,Actor/Actress,23.0,0.1491,0.15127836,0.05,0,9
+7,7,Cody Linley,Actor/Actress,22.0,0.1759,0.17408313,0.05,0,9
+7,8,Cody Linley,Actor/Actress,24.0,0.21,0.20861672,0.05,0,9
+7,9,Cody Linley,Actor/Actress,23.0,0.2071,0.2122215,0.08,1,9
+30,1,Cody Rigsby,Fitness Instructor,24.0,0.0146,0.033946108,0.05,0,99
+30,2,Cody Rigsby,Fitness Instructor,24.0,0.0686,0.062336013,0.05,0,99
+30,3,Cody Rigsby,Fitness Instructor,18.0,0.0722,0.07085888,0.05,0,99
+30,4,Cody Rigsby,Fitness Instructor,29.0,0.0851,0.08218811,0.05,0,99
+30,5,Cody Rigsby,Fitness Instructor,32.0,0.0956,0.09102199,0.05,0,99
+30,6,Cody Rigsby,Fitness Instructor,36.0,0.1035,0.10249014,0.05,0,99
+30,7,Cody Rigsby,Fitness Instructor,36.0,0.1154,0.114825845,0.05,0,99
+30,8,Cody Rigsby,Fitness Instructor,38.0,0.1413,0.1407209,0.05,0,99
+30,9,Cody Rigsby,Fitness Instructor,35.5,0.1919,0.17953137,0.05,0,99
+30,10,Cody Rigsby,Fitness Instructor,38.0,0.2677,0.26402876,0.05,0,99
+18,1,Cody Simpson,Singer/Rapper,22.0,0.0913,0.09397168,0.05,0,5
+18,2,Cody Simpson,Singer/Rapper,22.0,0.1015,0.103928074,0.05,0,5
+18,3,Cody Simpson,Singer/Rapper,35.0,0.1256,0.12339491,0.05,0,5
+18,4,Cody Simpson,Singer/Rapper,31.0,0.1265,0.1242991,0.05,0,5
+18,5,Cody Simpson,Singer/Rapper,34.0,0.0914,0.09133485,0.08,1,5
+17,1,Corbin Bleu,Actor/Actress,24.0,0.0877,0.08665657,0.05,0,99
+17,2,Corbin Bleu,Actor/Actress,26.0,0.0874,0.08900663,0.05,0,99
+17,3,Corbin Bleu,Actor/Actress,26.0,0.0993,0.09632671,0.05,0,99
+17,4,Corbin Bleu,Actor/Actress,27.0,0.1095,0.106327355,0.05,0,99
+17,5,Corbin Bleu,Actor/Actress,28.0,0.1187,0.11852731,0.05,0,99
+17,6,Corbin Bleu,Actor/Actress,26.999899999999997,0.1385,0.13039955,0.05,0,99
+17,7,Corbin Bleu,Actor/Actress,29.5,0.1439,0.13499233,0.05,0,99
+17,8,Corbin Bleu,Actor/Actress,30.0,0.1548,0.1533166,0.05,0,99
+17,9,Corbin Bleu,Actor/Actress,29.0,0.1787,0.1799453,0.05,0,99
+17,10,Corbin Bleu,Actor/Actress,37.5,0.2166,0.21559481,0.05,0,99
+17,11,Corbin Bleu,Actor/Actress,29.6664,0.2741,0.2737871,0.05,0,99
+34,1,Corey Feldman,Actor/Actress,9.0,0.0773,0.07420589,0.05,0,2
+34,2,Corey Feldman,Actor/Actress,15.0,0.0231,0.023369795,0.08,1,2
+6,1,Cristian de la Fuente,Actor/Actress,21.0,0.0884,0.087411076,0.05,0,99
+6,2,Cristian de la Fuente,Actor/Actress,20.0,0.0862,0.08975853,0.05,0,99
+6,3,Cristian de la Fuente,Actor/Actress,25.0,0.1047,0.10498182,0.05,0,99
+6,4,Cristian de la Fuente,Actor/Actress,26.0,0.1152,0.11689165,0.05,0,99
+6,5,Cristian de la Fuente,Actor/Actress,23.0,0.1306,0.1288449,0.05,0,99
+6,6,Cristian de la Fuente,Actor/Actress,27.0,0.1438,0.14921473,0.05,0,99
+6,7,Cristian de la Fuente,Actor/Actress,23.0,0.1768,0.17497757,0.05,0,99
+6,8,Cristian de la Fuente,Actor/Actress,28.5,0.2137,0.20945781,0.05,0,99
+6,9,Cristian de la Fuente,Actor/Actress,28.0,0.2751,0.27247512,0.05,0,99
+6,10,Cristian de la Fuente,Actor/Actress,26.0,0.3738,0.35495344,0.05,0,99
+16,1,D. L. Hughley,Comedian,12.0,0.078,0.073857725,0.05,0,5
+16,2,D. L. Hughley,Comedian,16.0,0.0757,0.07644905,0.05,0,5
+16,3,D. L. Hughley,Comedian,16.0,0.0877,0.08621388,0.05,0,5
+16,4,D. L. Hughley,Comedian,21.0,0.093,0.095172316,0.05,0,5
+16,5,D. L. Hughley,Comedian,18.0,0.0873,0.08764803,0.08,1,5
+27,1,Danelle Umstead,Athlete,18.0,0.0786,0.08005887,0.05,0,2
+27,2,Danelle Umstead,Athlete,18.5,0.0631,0.06314941,0.08,1,2
+18,1,Danica McKellar,Actor/Actress,24.0,0.0869,0.08552817,0.05,0,8
+18,2,Danica McKellar,Actor/Actress,24.0,0.092,0.09378234,0.05,0,8
+18,3,Danica McKellar,Actor/Actress,36.0,0.1182,0.116741836,0.05,0,8
+18,4,Danica McKellar,Actor/Actress,32.0,0.1183,0.11801131,0.05,0,8
+18,5,Danica McKellar,Actor/Actress,39.0,0.1187,0.11633933,0.05,0,8
+18,6,Danica McKellar,Actor/Actress,36.0,0.126,0.13375583,0.05,0,8
+18,7,Danica McKellar,Actor/Actress,36.0,0.1488,0.15028483,0.05,0,8
+18,8,Danica McKellar,Actor/Actress,38.0,0.1391,0.13962415,0.08,1,8
+31,1,Daniel Durant,Actor/Actress,27.0,0.0682,0.065594174,0.05,0,9
+31,2,Daniel Durant,Actor/Actress,29.0,0.0714,0.06833206,0.05,0,9
+31,3,Daniel Durant,Actor/Actress,31.0,0.0775,0.07732702,0.05,0,9
+31,4,Daniel Durant,Actor/Actress,29.0,0.0813,0.08300739,0.05,0,9
+31,5,Daniel Durant,Actor/Actress,33.5,0.0861,0.0883628,0.05,0,9
+31,6,Daniel Durant,Actor/Actress,34.0,0.1045,0.10484226,0.05,0,9
+31,7,Daniel Durant,Actor/Actress,36.5,0.1197,0.1213616,0.05,0,9
+31,8,Daniel Durant,Actor/Actress,39.0,0.1417,0.14287257,0.05,0,9
+31,9,Daniel Durant,Actor/Actress,34.5,0.1162,0.11537231,0.08,1,9
+34,1,Danielle Fishel,Actor/Actress,12.0,0.0791,0.07401285,0.05,0,8
+34,2,Danielle Fishel,Actor/Actress,19.0,0.0802,0.0808737,0.05,0,8
+34,3,Danielle Fishel,Actor/Actress,21.0,0.0922,0.092134856,0.05,0,8
+34,4,Danielle Fishel,Actor/Actress,21.0,0.0983,0.10043238,0.05,0,8
+34,5,Danielle Fishel,Actor/Actress,29.0,0.1144,0.11246978,0.05,0,8
+34,6,Danielle Fishel,Actor/Actress,36.0,0.1107,0.10912419,0.05,0,8
+34,7,Danielle Fishel,Actor/Actress,35.0,0.1169,0.11843997,0.05,0,8
+34,8,Danielle Fishel,Actor/Actress,37.0,0.0672,0.06969771,0.08,1,8
+33,1,Danny Amendola,Athlete,20.0,0.0801,0.08141194,0.05,0,99
+33,2,Danny Amendola,Athlete,21.0,0.0849,0.08675861,0.05,0,99
+33,3,Danny Amendola,Athlete,30.0,0.1017,0.10220505,0.05,0,99
+33,4,Danny Amendola,Athlete,36.0,0.1187,0.116322905,0.05,0,99
+33,5,Danny Amendola,Athlete,25.5,0.1322,0.13874881,0.05,0,99
+33,6,Danny Amendola,Athlete,28.0,0.1518,0.1573474,0.05,0,99
+33,7,Danny Amendola,Athlete,25.5,0.1787,0.17539467,0.05,0,99
+33,8,Danny Amendola,Athlete,27.0,0.2158,0.19699673,0.05,0,99
+33,9,Danny Amendola,Athlete,28.0,0.2146,0.19873105,0.05,0,99
+8,1,David Alan Grier,Actor/Actress,19.0,0.0806,0.08011693,0.05,0,5
+8,2,David Alan Grier,Actor/Actress,17.0,0.0788,0.081164405,0.05,0,5
+8,3,David Alan Grier,Actor/Actress,24.0,0.0892,0.08955145,0.05,0,5
+8,4,David Alan Grier,Actor/Actress,22.0,0.0982,0.10110721,0.05,0,5
+8,5,David Alan Grier,Actor/Actress,22.0,0.0893,0.08949724,0.08,1,5
+13,1,David Arquette,Actor/Actress,18.0,0.0902,0.09042056,0.05,0,7
+13,2,David Arquette,Actor/Actress,18.0,0.1,0.09782546,0.05,0,7
+13,3,David Arquette,Actor/Actress,24.0,0.1118,0.106702484,0.05,0,7
+13,4,David Arquette,Actor/Actress,23.0,0.1237,0.11890605,0.05,0,7
+13,5,David Arquette,Actor/Actress,25.0,0.1349,0.13347456,0.05,0,7
+13,6,David Arquette,Actor/Actress,23.0,0.1568,0.15141007,0.05,0,7
+13,7,David Arquette,Actor/Actress,23.5,0.1408,0.14200123,0.08,1,7
+11,1,David Hasselhoff,Actor/Actress,15.0,0.067,0.06457587,0.08,1,1
+24,1,David Ross,Athlete,28.0,0.0834,0.083165415,0.05,0,99
+24,2,David Ross,Athlete,27.0,0.0844,0.08343642,0.05,0,99
+24,3,David Ross,Athlete,31.0,0.0918,0.09152157,0.05,0,99
+24,4,David Ross,Athlete,31.0,0.103,0.09962503,0.05,0,99
+24,5,David Ross,Athlete,29.0,0.1095,0.108924486,0.05,0,99
+24,6,David Ross,Athlete,31.0,0.1251,0.11777572,0.05,0,99
+24,7,David Ross,Athlete,32.0,0.1518,0.14813273,0.05,0,99
+24,8,David Ross,Athlete,32.5,0.2038,0.20524314,0.05,0,99
+24,9,David Ross,Athlete,35.0,0.2632,0.26132166,0.05,0,99
+24,10,David Ross,Athlete,36.3333,0.3381,0.33045498,0.05,0,99
+27,1,DeMarcus Ware,Athlete,23.0,0.0779,0.07949479,0.05,0,7
+27,2,DeMarcus Ware,Athlete,23.5,0.0869,0.084542915,0.05,0,7
+27,3,DeMarcus Ware,Athlete,26.0,0.0935,0.094834775,0.05,0,7
+27,4,DeMarcus Ware,Athlete,22.0,0.0968,0.10304118,0.05,0,7
+27,5,DeMarcus Ware,Athlete,26.0,0.113,0.11346341,0.05,0,7
+27,6,DeMarcus Ware,Athlete,26.0,0.1178,0.11342656,0.05,0,7
+27,7,DeMarcus Ware,Athlete,26.5,0.1012,0.09976477,0.08,1,7
+25,1,Debbie Gibson,Singer/Rapper,17.0,0.0858,0.0838187,0.05,0,2
+25,2,Debbie Gibson,Singer/Rapper,20.5,0.0645,0.060886916,0.08,1,2
+9,1,Debi Mazar,Actor/Actress,22.0,0.0671,0.06780205,0.05,0,3
+9,2,Debi Mazar,Actor/Actress,21.0,0.0777,0.07833516,0.05,0,3
+9,3,Debi Mazar,Actor/Actress,17.0,0.0592,0.058133416,0.08,1,3
+8,1,Denise Richards,Actor/Actress,18.0,0.0799,0.0800739,0.05,0,3
+8,2,Denise Richards,Actor/Actress,21.0,0.0854,0.08133761,0.05,0,3
+8,3,Denise Richards,Actor/Actress,16.0,0.0648,0.06316291,0.08,1,3
+25,1,Derek Fisher,Athlete,18.0,0.0771,0.07687918,0.05,0,4
+25,2,Derek Fisher,Athlete,19.0,0.0806,0.079671055,0.05,0,4
+25,3,Derek Fisher,Athlete,21.0,0.0916,0.09001782,0.05,0,4
+25,4,Derek Fisher,Athlete,23.0,0.0723,0.070317715,0.08,1,4
+18,1,Diana Nyad,Athlete,18.0,0.0834,0.0824311,0.05,0,2
+14,1,Donald Driver,Athlete,21.0,0.0791,0.078426264,0.05,0,99
+14,2,Donald Driver,Athlete,24.0,0.0795,0.07945504,0.05,0,99
+14,3,Donald Driver,Athlete,26.0,0.084,0.088481724,0.05,0,99
+14,4,Donald Driver,Athlete,27.0,0.0947,0.09832307,0.05,0,99
+14,5,Donald Driver,Athlete,27.0,0.1113,0.10846453,0.05,0,99
+14,6,Donald Driver,Athlete,33.9999,0.1254,0.12459549,0.05,0,99
+14,7,Donald Driver,Athlete,26.5,0.1408,0.14528807,0.05,0,99
+14,8,Donald Driver,Athlete,27.5,0.171,0.17367011,0.05,0,99
+14,9,Donald Driver,Athlete,28.5,0.2521,0.25290054,0.05,0,99
+14,10,Donald Driver,Athlete,29.666600000000003,0.2704,0.28492245,0.05,0,99
+9,1,Donny Osmond,Singer/Rapper,29.999899999999997,0.0697,0.08006443,0.05,0,99
+9,2,Donny Osmond,Singer/Rapper,25.0,0.0797,0.07911837,0.05,0,99
+9,3,Donny Osmond,Singer/Rapper,21.0,0.0909,0.09575276,0.05,0,99
+9,4,Donny Osmond,Singer/Rapper,24.0,0.1073,0.1051215,0.05,0,99
+9,5,Donny Osmond,Singer/Rapper,29.0,0.1147,0.11379372,0.05,0,99
+9,6,Donny Osmond,Singer/Rapper,30.999899999999997,0.1229,0.12366001,0.05,0,99
+9,7,Donny Osmond,Singer/Rapper,26.0,0.1582,0.1591655,0.05,0,99
+9,8,Donny Osmond,Singer/Rapper,25.0,0.2162,0.22289613,0.05,0,99
+9,9,Donny Osmond,Singer/Rapper,24.666600000000003,0.2802,0.2766678,0.05,0,99
+9,10,Donny Osmond,Singer/Rapper,28.9998,0.363,0.3597239,0.05,0,99
+16,1,Dorothy Hamill,Athlete,21.0,0.0832,0.083905995,0.05,0,98
+16,2,Dorothy Hamill,Athlete,15.0,0.0822,0.08429687,0.05,0,98
+22,1,Doug Flutie,Athlete,15.0,0.0858,0.08514581,0.05,0,6
+22,2,Doug Flutie,Athlete,20.0,0.0885,0.08657896,0.05,0,6
+22,3,Doug Flutie,Athlete,20.0,0.0992,0.09366195,0.05,0,6
+22,4,Doug Flutie,Athlete,24.0,0.1058,0.09930914,0.05,0,6
+22,5,Doug Flutie,Athlete,28.0,0.1134,0.109747306,0.05,0,6
+22,6,Doug Flutie,Athlete,21.0,0.0834,0.08549272,0.08,1,6
+18,1,Drew Carey,Comedian,21.0,0.0628,0.0703666,0.05,0,6
+18,2,Drew Carey,Comedian,21.0,0.0838,0.08050541,0.05,0,6
+18,3,Drew Carey,Comedian,30.0,0.0845,0.090650775,0.05,0,6
+18,4,Drew Carey,Comedian,33.0,0.0837,0.09289222,0.05,0,6
+18,5,Drew Carey,Comedian,28.0,0.1098,0.10824724,0.05,0,6
+18,6,Drew Carey,Comedian,32.0,0.0958,0.09165264,0.08,1,6
+2,1,Drew Lachey,Singer/Rapper,24.0,0.1114,0.112595454,0.05,0,99
+15,1,Drew Lachey,Singer/Rapper,21.5,0.0867,0.08558153,0.05,0,3
+2,2,Drew Lachey,Singer/Rapper,27.0,0.1176,0.12099385,0.05,0,99
+15,2,Drew Lachey,Singer/Rapper,22.5,0.0932,0.0902009,0.05,0,3
+2,3,Drew Lachey,Singer/Rapper,27.0,0.1389,0.13636349,0.05,0,99
+15,3,Drew Lachey,Singer/Rapper,24.0,0.0776,0.07443288,0.08,1,3
+2,4,Drew Lachey,Singer/Rapper,28.0,0.1526,0.15378807,0.05,0,99
+2,5,Drew Lachey,Singer/Rapper,27.0,0.1787,0.1834066,0.05,0,99
+2,6,Drew Lachey,Singer/Rapper,30.0,0.2158,0.22178148,0.05,0,99
+2,7,Drew Lachey,Singer/Rapper,27.5,0.2742,0.29572818,0.05,0,99
+2,8,Drew Lachey,Singer/Rapper,28.9998,0.3685,0.3612346,0.05,0,99
+25,1,Drew Scott,TV Personality,16.0,0.0712,0.0731441,0.05,0,10
+25,2,Drew Scott,TV Personality,20.5,0.0776,0.07674093,0.05,0,10
+25,3,Drew Scott,TV Personality,23.0,0.0697,0.08382465,0.05,0,10
+25,4,Drew Scott,TV Personality,24.0,0.0868,0.08641656,0.05,0,10
+25,5,Drew Scott,TV Personality,25.0,0.0967,0.09558558,0.05,0,10
+25,6,Drew Scott,TV Personality,30.0,0.1097,0.10693062,0.05,0,10
+25,7,Drew Scott,TV Personality,28.5,0.123,0.121306345,0.05,0,10
+25,8,Drew Scott,TV Personality,23.5,0.1617,0.1617297,0.05,0,10
+25,9,Drew Scott,TV Personality,24.0,0.1972,0.19712149,0.05,0,10
+25,10,Drew Scott,TV Personality,37.5,0.1958,0.19511327,0.08,1,10
+33,1,Dwight Howard ,Athlete,22.0,0.0801,0.080870025,0.05,0,7
+33,2,Dwight Howard ,Athlete,22.0,0.0849,0.086067885,0.05,0,7
+33,3,Dwight Howard ,Athlete,26.0,0.1017,0.10035946,0.05,0,7
+33,4,Dwight Howard ,Athlete,29.0,0.1178,0.11318777,0.05,0,7
+33,5,Dwight Howard ,Athlete,24.0,0.1322,0.12708066,0.05,0,7
+33,6,Dwight Howard ,Athlete,31.0,0.1518,0.14536975,0.05,0,7
+33,7,Dwight Howard ,Athlete,24.0,0.1063,0.11136618,0.08,1,7
+34,1,Dylan Efron,TV Personality,10.0,0.0723,0.06912207,0.05,0,99
+34,2,Dylan Efron,TV Personality,20.0,0.0783,0.07762802,0.05,0,99
+34,3,Dylan Efron,TV Personality,23.0,0.0867,0.08684748,0.05,0,99
+34,4,Dylan Efron,TV Personality,23.0,0.0937,0.09408819,0.05,0,99
+34,5,Dylan Efron,TV Personality,36.0,0.1026,0.09100065,0.05,0,99
+34,6,Dylan Efron,TV Personality,32.0,0.1065,0.104996674,0.05,0,99
+34,7,Dylan Efron,TV Personality,38.0,0.1169,0.11676872,0.05,0,99
+34,8,Dylan Efron,TV Personality,38.0,0.1314,0.13230573,0.05,0,99
+34,9,Dylan Efron,TV Personality,42.0,0.1495,0.14860998,0.05,0,99
+34,10,Dylan Efron,TV Personality,27.5,0.1757,0.17289326,0.05,0,99
+34,11,Dylan Efron,TV Personality,29.3332,0.2144,0.18649594,0.05,0,99
+34,1,Elaine Hendrix,Actor/Actress,12.0,0.0781,0.07420589,0.05,0,99
+34,2,Elaine Hendrix,Actor/Actress,21.0,0.0783,0.08093394,0.05,0,99
+34,3,Elaine Hendrix,Actor/Actress,21.0,0.0892,0.092370436,0.05,0,99
+34,4,Elaine Hendrix,Actor/Actress,24.0,0.1012,0.10127742,0.05,0,99
+34,5,Elaine Hendrix,Actor/Actress,30.0,0.11,0.11003408,0.05,0,99
+34,6,Elaine Hendrix,Actor/Actress,36.0,0.1073,0.10904691,0.05,0,99
+34,7,Elaine Hendrix,Actor/Actress,32.0,0.1225,0.12255526,0.05,0,99
+34,8,Elaine Hendrix,Actor/Actress,37.5,0.1404,0.1387923,0.05,0,99
+34,9,Elaine Hendrix,Actor/Actress,36.0,0.1651,0.15666646,0.05,0,99
+34,10,Elaine Hendrix,Actor/Actress,28.5,0.1924,0.19067927,0.05,0,99
+34,11,Elaine Hendrix,Actor/Actress,28.9998,0.2198,0.22424194,0.05,0,99
+13,1,Elisabetta Canalis,Actor/Actress,15.0,0.09,0.08510445,0.05,0,2
+13,2,Elisabetta Canalis,Actor/Actress,21.0,0.073,0.0739545,0.08,1,2
+17,1,Elizabeth Berkley Lauren,Actor/Actress,24.0,0.0883,0.0856474,0.05,0,9
+17,2,Elizabeth Berkley Lauren,Actor/Actress,25.0,0.0889,0.086415954,0.05,0,9
+17,3,Elizabeth Berkley Lauren,Actor/Actress,25.0,0.097,0.09405136,0.05,0,9
+17,4,Elizabeth Berkley Lauren,Actor/Actress,27.0,0.1081,0.1050849,0.05,0,9
+17,5,Elizabeth Berkley Lauren,Actor/Actress,26.0,0.1115,0.116171174,0.05,0,9
+17,6,Elizabeth Berkley Lauren,Actor/Actress,31.9998,0.1267,0.1317853,0.05,0,9
+17,7,Elizabeth Berkley Lauren,Actor/Actress,27.0,0.1331,0.13178995,0.05,0,9
+17,8,Elizabeth Berkley Lauren,Actor/Actress,25.0,0.1457,0.15074237,0.05,0,9
+17,9,Elizabeth Berkley Lauren,Actor/Actress,28.0,0.1374,0.13914025,0.08,1,9
+3,1,Emmitt Smith,Athlete,24.0,0.0898,0.09144894,0.05,0,99
+15,1,Emmitt Smith,Athlete,24.5,0.0778,0.07808053,0.05,0,9
+3,2,Emmitt Smith,Athlete,24.0,0.0945,0.09716717,0.05,0,99
+15,2,Emmitt Smith,Athlete,22.5,0.0796,0.08245467,0.05,0,9
+3,3,Emmitt Smith,Athlete,19.0,0.1072,0.10823403,0.05,0,99
+15,3,Emmitt Smith,Athlete,25.0,0.0932,0.09331136,0.05,0,9
+3,4,Emmitt Smith,Athlete,24.0,0.1248,0.12625152,0.05,0,99
+15,4,Emmitt Smith,Athlete,36.0,0.111,0.1134341,0.05,0,9
+3,5,Emmitt Smith,Athlete,27.0,0.1414,0.13754667,0.05,0,99
+15,5,Emmitt Smith,Athlete,28.0,0.1218,0.12090314,0.05,0,9
+3,6,Emmitt Smith,Athlete,25.0,0.1641,0.18177038,0.05,0,99
+15,6,Emmitt Smith,Athlete,26.5,0.125,0.12397599,0.05,0,9
+3,7,Emmitt Smith,Athlete,28.5,0.1904,0.19214925,0.05,0,99
+15,7,Emmitt Smith,Athlete,34.4999,0.1439,0.14267023,0.05,0,9
+3,8,Emmitt Smith,Athlete,27.0,0.2525,0.248949,0.05,0,99
+15,8,Emmitt Smith,Athlete,29.0554,0.1465,0.15067734,0.05,0,9
+3,9,Emmitt Smith,Athlete,29.5,0.2904,0.29596734,0.05,0,99
+15,9,Emmitt Smith,Athlete,27.0,0.1708,0.16705461,0.08,1,9
+3,10,Emmitt Smith,Athlete,29.666600000000003,,0.46290043,0.05,0,99
+33,1,Eric Roberts,Actor/Actress,15.0,0.084,0.08215988,0.05,0,3
+33,2,Eric Roberts,Actor/Actress,15.0,0.0849,0.08772768,0.05,0,3
+33,3,Eric Roberts,Actor/Actress,23.0,0.0423,0.041166753,0.08,1,3
+24,1,Erika Jayne,Singer/Rapper,24.0,0.0912,0.089460015,0.05,0,5
+24,2,Erika Jayne,Singer/Rapper,28.0,0.0951,0.09078665,0.05,0,5
+24,3,Erika Jayne,Singer/Rapper,26.0,0.1003,0.09781837,0.05,0,5
+24,4,Erika Jayne,Singer/Rapper,30.0,0.1088,0.105530754,0.05,0,5
+24,5,Erika Jayne,Singer/Rapper,32.0,0.0912,0.08816685,0.08,1,5
+10,1,Erin Andrews,Sports Broadcaster,21.0,0.064,0.07158897,0.05,0,99
+10,2,Erin Andrews,Sports Broadcaster,23.0,0.0828,0.084216155,0.05,0,99
+10,3,Erin Andrews,Sports Broadcaster,23.0,0.0933,0.08923132,0.05,0,99
+10,4,Erin Andrews,Sports Broadcaster,19.5,0.1049,0.098645136,0.05,0,99
+10,5,Erin Andrews,Sports Broadcaster,22.0,0.1163,0.11818292,0.05,0,99
+10,6,Erin Andrews,Sports Broadcaster,34.0,0.1313,0.1351041,0.05,0,99
+10,7,Erin Andrews,Sports Broadcaster,25.5,0.156,0.15885545,0.05,0,99
+10,8,Erin Andrews,Sports Broadcaster,26.5,0.1958,0.19723181,0.05,0,99
+10,9,Erin Andrews,Sports Broadcaster,28.0,0.2403,0.24485716,0.05,0,99
+10,10,Erin Andrews,Sports Broadcaster,26.9998,0.2462,0.2554146,0.05,0,99
+10,1,Evan Lysacek,Athlete,23.0,0.0949,0.095598124,0.05,0,99
+10,2,Evan Lysacek,Athlete,24.0,0.0993,0.09622655,0.05,0,99
+10,3,Evan Lysacek,Athlete,26.0,0.1044,0.1058645,0.05,0,99
+10,4,Evan Lysacek,Athlete,26.0,0.1146,0.12033745,0.05,0,99
+10,5,Evan Lysacek,Athlete,27.0,0.135,0.13363586,0.05,0,99
+10,6,Evan Lysacek,Athlete,27.0,0.1541,0.14757706,0.05,0,99
+10,7,Evan Lysacek,Athlete,27.0,0.1711,0.17115612,0.05,0,99
+10,8,Evan Lysacek,Athlete,26.5,0.2103,0.20788531,0.05,0,99
+10,9,Evan Lysacek,Athlete,29.5,0.2708,0.2571854,0.05,0,99
+10,10,Evan Lysacek,Athlete,26.888699999999996,0.3528,0.34906566,0.05,0,99
+1,1,Evander Holyfield,Athlete,18.0,0.1763,0.17442614,0.05,0,3
+1,2,Evander Holyfield,Athlete,14.0,0.1724,0.17316692,0.05,0,3
+1,3,Evander Holyfield,Athlete,13.0,0.1359,0.13577077,0.08,1,3
+27,1,Evanna Lynch,Actor/Actress,18.0,0.0837,0.082901925,0.05,0,99
+27,2,Evanna Lynch,Actor/Actress,24.0,0.0929,0.08826616,0.05,0,99
+27,3,Evanna Lynch,Actor/Actress,27.0,0.1025,0.09715771,0.05,0,99
+27,4,Evanna Lynch,Actor/Actress,24.0,0.1064,0.106048085,0.05,0,99
+27,5,Evanna Lynch,Actor/Actress,24.0,0.1194,0.11619245,0.05,0,99
+27,6,Evanna Lynch,Actor/Actress,29.0,0.1192,0.11815568,0.05,0,99
+27,7,Evanna Lynch,Actor/Actress,29.5,0.1384,0.14493908,0.05,0,99
+27,8,Evanna Lynch,Actor/Actress,29.0,0.1908,0.18907271,0.05,0,99
+27,9,Evanna Lynch,Actor/Actress,30.0,0.2867,0.26882756,0.05,0,99
+11,1,Florence Henderson,Actor/Actress,18.0,0.0881,0.08956116,0.05,0,5
+11,2,Florence Henderson,Actor/Actress,19.0,0.0981,0.09840536,0.05,0,5
+11,3,Florence Henderson,Actor/Actress,20.0,0.1106,0.107236736,0.05,0,5
+11,4,Florence Henderson,Actor/Actress,17.5,0.1227,0.11706852,0.05,0,5
+11,5,Florence Henderson,Actor/Actress,21.0,0.1021,0.105044104,0.08,1,5
+5,1,Floyd Mayweather Jr. ,Athlete,18.0,0.0857,0.08166445,0.05,0,4
+5,2,Floyd Mayweather Jr. ,Athlete,21.0,0.0909,0.08863778,0.05,0,4
+5,3,Floyd Mayweather Jr. ,Athlete,21.0,0.1011,0.097267784,0.05,0,4
+5,4,Floyd Mayweather Jr. ,Athlete,23.0,0.0825,0.0829393,0.08,1,4
+25,1,Frankie Muniz,Actor/Actress,19.0,0.0813,0.08078122,0.05,0,99
+25,2,Frankie Muniz,Actor/Actress,24.0,0.084,0.08351962,0.05,0,99
+25,3,Frankie Muniz,Actor/Actress,21.0,0.0949,0.09367302,0.05,0,99
+25,4,Frankie Muniz,Actor/Actress,24.0,0.1018,0.09492896,0.05,0,99
+25,5,Frankie Muniz,Actor/Actress,29.0,0.107,0.10571009,0.05,0,99
+25,6,Frankie Muniz,Actor/Actress,31.0,0.1134,0.115264565,0.05,0,99
+25,7,Frankie Muniz,Actor/Actress,30.0,0.1328,0.1331271,0.05,0,99
+25,8,Frankie Muniz,Actor/Actress,26.5,0.1823,0.18210618,0.05,0,99
+25,9,Frankie Muniz,Actor/Actress,25.5,0.2145,0.209418,0.05,0,99
+25,10,Frankie Muniz,Actor/Actress,38.8887,0.2764,0.2721859,0.05,0,99
+31,1,Gabby Windey,TV Personality,28.0,0.0636,0.06407225,0.05,0,99
+31,2,Gabby Windey,TV Personality,32.0,0.0682,0.06793565,0.05,0,99
+31,3,Gabby Windey,TV Personality,33.0,0.0732,0.07568378,0.05,0,99
+31,4,Gabby Windey,TV Personality,36.0,0.0787,0.08046471,0.05,0,99
+31,5,Gabby Windey,TV Personality,41.0,0.0861,0.08793617,0.05,0,99
+31,6,Gabby Windey,TV Personality,37.0,0.1045,0.11019388,0.05,0,99
+31,7,Gabby Windey,TV Personality,35.5,0.1158,0.11802593,0.05,0,99
+31,8,Gabby Windey,TV Personality,40.0,0.1417,0.14180748,0.05,0,99
+31,9,Gabby Windey,TV Personality,40.0,0.1919,0.19617389,0.05,0,99
+31,10,Gabby Windey,TV Personality,40.0,0.2722,0.27152896,0.05,0,99
+21,1,Gary Busey,Actor/Actress,15.0,0.0821,0.08132086,0.05,0,4
+21,2,Gary Busey,Actor/Actress,16.5,0.0829,0.08405775,0.05,0,4
+21,3,Gary Busey,Actor/Actress,25.0,0.1094,0.09980208,0.05,0,4
+21,4,Gary Busey,Actor/Actress,16.0,0.0777,0.07707326,0.08,1,4
+14,1,Gavin DeGraw,Singer/Rapper,20.0,0.0901,0.087698095,0.05,0,5
+14,2,Gavin DeGraw,Singer/Rapper,21.0,0.0859,0.08861508,0.05,0,5
+14,3,Gavin DeGraw,Singer/Rapper,24.0,0.1006,0.09651064,0.05,0,5
+14,4,Gavin DeGraw,Singer/Rapper,23.0,0.1109,0.105929784,0.05,0,5
+14,5,Gavin DeGraw,Singer/Rapper,19.0,0.0892,0.08772043,0.08,1,5
+2,1,George Hamilton,Actor/Actress,18.0,0.1061,0.10675644,0.05,0,6
+2,2,George Hamilton,Actor/Actress,22.0,0.1176,0.11673173,0.05,0,6
+2,3,George Hamilton,Actor/Actress,22.0,0.1309,0.12851608,0.05,0,6
+2,4,George Hamilton,Actor/Actress,21.0,0.1526,0.14926226,0.05,0,6
+2,5,George Hamilton,Actor/Actress,24.0,0.1787,0.17829086,0.05,0,6
+2,6,George Hamilton,Actor/Actress,23.0,0.1369,0.14319623,0.08,1,6
+22,1,Geraldo Rivera,Journalist,13.0,0.0709,0.07507511,0.05,0,2
+22,2,Geraldo Rivera,Journalist,13.0,0.0572,0.057487182,0.08,1,2
+8,1,Gilles Marini,Actor/Actress,24.0,0.0805,0.08023467,0.05,0,99
+15,1,Gilles Marini,Actor/Actress,24.0,0.0809,0.08154205,0.05,0,8
+8,2,Gilles Marini,Actor/Actress,27.0,0.0816,0.080850214,0.05,0,99
+15,2,Gilles Marini,Actor/Actress,25.5,0.0902,0.09011206,0.05,0,8
+8,3,Gilles Marini,Actor/Actress,27.0,0.0892,0.08756912,0.05,0,99
+15,3,Gilles Marini,Actor/Actress,25.5,0.0996,0.098810405,0.05,0,8
+8,4,Gilles Marini,Actor/Actress,30.0,0.1033,0.098893285,0.05,0,99
+15,4,Gilles Marini,Actor/Actress,39.5,0.1178,0.11823416,0.05,0,8
+8,5,Gilles Marini,Actor/Actress,29.0,0.1191,0.11970225,0.05,0,99
+15,5,Gilles Marini,Actor/Actress,28.25,0.1324,0.13004418,0.05,0,8
+8,6,Gilles Marini,Actor/Actress,26.0,0.1291,0.1295882,0.05,0,99
+15,6,Gilles Marini,Actor/Actress,27.5,0.1261,0.13040465,0.05,0,8
+8,7,Gilles Marini,Actor/Actress,27.0,0.1507,0.1472036,0.05,0,99
+15,7,Gilles Marini,Actor/Actress,33.4998,0.1496,0.14818247,0.05,0,8
+8,8,Gilles Marini,Actor/Actress,27.5,0.1817,0.18029888,0.05,0,99
+15,8,Gilles Marini,Actor/Actress,29.2777,0.122,0.12080587,0.08,1,8
+8,9,Gilles Marini,Actor/Actress,28.0,0.206,0.21370225,0.05,0,99
+8,10,Gilles Marini,Actor/Actress,30.0,0.275,0.27089375,0.05,0,99
+8,11,Gilles Marini,Actor/Actress,29.0,0.3595,0.34231186,0.05,0,99
+22,1,Ginger Zee,News Anchor,23.0,0.0582,0.07087764,0.05,0,99
+22,2,Ginger Zee,News Anchor,21.0,0.0688,0.07507269,0.05,0,99
+22,3,Ginger Zee,News Anchor,21.0,0.0826,0.084523484,0.05,0,99
+22,4,Ginger Zee,News Anchor,36.0,0.0885,0.09755443,0.05,0,99
+22,5,Ginger Zee,News Anchor,32.0,0.0993,0.10453371,0.05,0,99
+22,6,Ginger Zee,News Anchor,24.0,0.1002,0.103144206,0.05,0,99
+22,7,Ginger Zee,News Anchor,27.5,0.1231,0.12580515,0.05,0,99
+22,8,Ginger Zee,News Anchor,30.0,0.1629,0.16641769,0.05,0,99
+22,9,Ginger Zee,News Anchor,28.0,0.2135,0.21577895,0.05,0,99
+22,10,Ginger Zee,News Anchor,28.333199999999998,0.2818,0.31687587,0.05,0,99
+2,1,Giselle Fernandez,News Anchor,23.0,0.1033,0.09918448,0.05,0,3
+2,2,Giselle Fernandez,News Anchor,24.0,0.1176,0.11093475,0.05,0,3
+2,3,Giselle Fernandez,News Anchor,22.0,0.0668,0.0688406,0.08,1,3
+14,1,Gladys Knight,Singer/Rapper,23.0,0.0883,0.08753482,0.05,0,6
+14,2,Gladys Knight,Singer/Rapper,19.0,0.09,0.088878796,0.05,0,6
+14,3,Gladys Knight,Singer/Rapper,24.0,0.0997,0.09813238,0.05,0,6
+14,4,Gladys Knight,Singer/Rapper,20.0,0.0996,0.10675377,0.05,0,6
+14,5,Gladys Knight,Singer/Rapper,22.0,0.1136,0.117073536,0.05,0,6
+14,6,Gladys Knight,Singer/Rapper,24.0,0.1027,0.09825793,0.08,1,6
+28,1,Hannah Brown,TV Personality,20.0,0.0855,0.08109046,0.05,0,99
+28,2,Hannah Brown,TV Personality,24.0,0.0865,0.083875135,0.05,0,99
+28,3,Hannah Brown,TV Personality,21.0,0.1038,0.096601166,0.05,0,99
+28,4,Hannah Brown,TV Personality,32.0,0.1032,0.103589855,0.05,0,99
+28,5,Hannah Brown,TV Personality,25.0,0.1146,0.11038591,0.05,0,99
+28,6,Hannah Brown,TV Personality,24.0,0.1158,0.11252089,0.05,0,99
+28,7,Hannah Brown,TV Personality,26.0,0.131,0.13031726,0.05,0,99
+28,8,Hannah Brown,TV Personality,30.9998,0.1524,0.15037245,0.05,0,99
+28,9,Hannah Brown,TV Personality,35.5,0.1776,0.17458159,0.05,0,99
+28,10,Hannah Brown,TV Personality,27.0,0.2158,0.2106014,0.05,0,99
+28,11,Hannah Brown,TV Personality,29.0,0.1829,0.19743349,0.05,0,99
+3,1,Harry Hamlin,Actor/Actress,17.0,0.0945,0.094543025,0.05,0,3
+3,2,Harry Hamlin,Actor/Actress,21.0,0.1034,0.102974534,0.05,0,3
+3,3,Harry Hamlin,Actor/Actress,22.0,0.0892,0.083076596,0.08,1,3
+32,1,Harry Jowsey,TV Personality,12.0,0.0735,0.07357804,0.05,0,9
+32,2,Harry Jowsey,TV Personality,15.0,0.0803,0.07963778,0.05,0,9
+32,3,Harry Jowsey,TV Personality,24.0,0.087,0.08402111,0.05,0,9
+32,4,Harry Jowsey,TV Personality,21.0,0.0946,0.092551365,0.05,0,9
+32,5,Harry Jowsey,TV Personality,18.0,0.1052,0.10391422,0.05,0,9
+32,6,Harry Jowsey,TV Personality,29.0,0.1148,0.115210496,0.05,0,9
+32,7,Harry Jowsey,TV Personality,32.0,0.1307,0.12952988,0.05,0,9
+32,8,Harry Jowsey,TV Personality,28.0,0.1512,0.15550315,0.05,0,9
+32,9,Harry Jowsey,TV Personality,30.0,0.1037,0.10404948,0.08,1,9
+21,1,Hayes Grier,Social Media Personality,21.0,0.0646,0.06618875,0.05,0,7
+21,2,Hayes Grier,Social Media Personality,22.5,0.0727,0.070375964,0.05,0,7
+21,3,Hayes Grier,Social Media Personality,30.0,0.072,0.07949626,0.05,0,7
+21,4,Hayes Grier,Social Media Personality,27.0,0.0933,0.089163795,0.05,0,7
+21,5,Hayes Grier,Social Media Personality,30.0,0.0803,0.08982931,0.05,0,7
+21,6,Hayes Grier,Social Media Personality,32.0,0.0975,0.094024196,0.05,0,7
+21,7,Hayes Grier,Social Media Personality,28.0,0.0879,0.094104156,0.08,1,7
+4,1,Heather Mills,Model,18.0,0.0812,0.07993699,0.05,0,6
+4,2,Heather Mills,Model,24.0,0.0803,0.08386447,0.05,0,6
+4,3,Heather Mills,Model,24.0,0.0872,0.090773046,0.05,0,6
+4,4,Heather Mills,Model,23.0,0.0999,0.10472464,0.05,0,6
+4,5,Heather Mills,Model,21.0,0.118,0.115514904,0.05,0,6
+4,6,Heather Mills,Model,23.0,0.1028,0.10314752,0.08,1,6
+24,1,Heather Morris,Actor/Actress,28.0,0.0878,0.086630166,0.05,0,6
+24,2,Heather Morris,Actor/Actress,30.0,0.0883,0.087121576,0.05,0,6
+24,3,Heather Morris,Actor/Actress,33.0,0.0933,0.094003305,0.05,0,6
+24,4,Heather Morris,Actor/Actress,35.0,0.1,0.103091255,0.05,0,6
+24,5,Heather Morris,Actor/Actress,34.0,0.1166,0.12289145,0.05,0,6
+24,6,Heather Morris,Actor/Actress,37.0,0.1041,0.10411792,0.08,1,6
+31,1,Heidi D'Amelio,Social Media Personality,24.0,0.0636,0.061825752,0.05,0,8
+31,2,Heidi D'Amelio,Social Media Personality,28.0,0.0682,0.068425156,0.05,0,8
+31,3,Heidi D'Amelio,Social Media Personality,32.0,0.0732,0.071406536,0.05,0,8
+31,4,Heidi D'Amelio,Social Media Personality,34.0,0.0787,0.07959288,0.05,0,8
+31,5,Heidi D'Amelio,Social Media Personality,39.0,0.0861,0.084388696,0.05,0,8
+31,6,Heidi D'Amelio,Social Media Personality,36.0,0.1045,0.10330967,0.05,0,8
+31,7,Heidi D'Amelio,Social Media Personality,35.0,0.1158,0.11605703,0.05,0,8
+31,8,Heidi D'Amelio,Social Media Personality,35.0,0.075,0.07310395,0.08,1,8
+5,1,Helio Castroneves,Racing Driver,25.0,0.0717,0.070739955,0.05,0,99
+15,1,Helio Castroneves,Racing Driver,21.5,0.0669,0.0649837,0.05,0,3
+5,2,Helio Castroneves,Racing Driver,27.0,0.0771,0.07933714,0.05,0,99
+15,2,Helio Castroneves,Racing Driver,23.0,0.079,0.07441488,0.05,0,3
+5,3,Helio Castroneves,Racing Driver,24.0,0.0896,0.08680243,0.05,0,99
+15,3,Helio Castroneves,Racing Driver,25.5,0.0666,0.06614719,0.08,1,3
+5,4,Helio Castroneves,Racing Driver,27.0,0.0991,0.09839782,0.05,0,99
+5,5,Helio Castroneves,Racing Driver,23.0,0.1077,0.1077094,0.05,0,99
+5,6,Helio Castroneves,Racing Driver,28.0,0.1315,0.1330237,0.05,0,99
+5,7,Helio Castroneves,Racing Driver,26.0,0.1556,0.15669656,0.05,0,99
+5,8,Helio Castroneves,Racing Driver,28.5,0.1924,0.1915958,0.05,0,99
+5,9,Helio Castroneves,Racing Driver,30.0,0.2403,0.23702194,0.05,0,99
+5,10,Helio Castroneves,Racing Driver,27.999900000000004,0.2561,0.2594443,0.05,0,99
+34,1,Hilaria Baldwin,Entrepreneur,14.0,0.0723,0.06589065,0.05,0,4
+34,2,Hilaria Baldwin,Entrepreneur,21.0,0.0783,0.077421136,0.05,0,4
+34,3,Hilaria Baldwin,Entrepreneur,22.0,0.0867,0.08562976,0.05,0,4
+34,4,Hilaria Baldwin,Entrepreneur,23.0,0.0358,0.037328314,0.08,1,4
+12,1,Hines Ward,Athlete,21.0,0.0931,0.09129691,0.05,0,99
+12,2,Hines Ward,Athlete,23.0,0.0908,0.092311986,0.05,0,99
+12,3,Hines Ward,Athlete,25.0,0.1005,0.10180942,0.05,0,99
+12,4,Hines Ward,Athlete,25.0,0.1111,0.112101555,0.05,0,99
+12,5,Hines Ward,Athlete,27.0,0.1246,0.12699784,0.05,0,99
+12,6,Hines Ward,Athlete,27.0,0.1392,0.14179039,0.05,0,99
+12,7,Hines Ward,Athlete,33.0,0.1619,0.16606961,0.05,0,99
+12,8,Hines Ward,Athlete,27.0,0.2055,0.20389885,0.05,0,99
+12,9,Hines Ward,Athlete,30.0,0.2593,0.25815046,0.05,0,99
+12,10,Hines Ward,Athlete,29.666600000000003,0.2923,0.31637824,0.05,0,99
+8,1,Holly Madison,TV Personality,18.0,0.0726,0.07187993,0.05,0,4
+8,2,Holly Madison,TV Personality,18.0,0.0728,0.073513106,0.05,0,4
+8,3,Holly Madison,TV Personality,17.0,0.0795,0.08036909,0.05,0,4
+8,4,Holly Madison,TV Personality,16.0,0.0729,0.071577154,0.08,1,4
+13,1,Hope Solo,Athlete,21.0,0.0845,0.08472421,0.05,0,9
+13,2,Hope Solo,Athlete,19.0,0.0914,0.091933124,0.05,0,9
+13,3,Hope Solo,Athlete,24.0,0.104,0.10087637,0.05,0,9
+13,4,Hope Solo,Athlete,24.0,0.113,0.11306508,0.05,0,9
+13,5,Hope Solo,Athlete,24.0,0.125,0.12716277,0.05,0,9
+13,6,Hope Solo,Athlete,20.0,0.1436,0.14254168,0.05,0,9
+13,7,Hope Solo,Athlete,25.0,0.1693,0.17018226,0.05,0,9
+13,8,Hope Solo,Athlete,26.0,0.2064,0.20591357,0.05,0,9
+13,9,Hope Solo,Athlete,24.4998,0.2083,0.21190357,0.08,1,9
+4,1,Ian Ziering,Actor/Actress,21.0,0.0987,0.09645895,0.05,0,9
+4,2,Ian Ziering,Actor/Actress,22.0,0.0969,0.09704724,0.05,0,9
+4,3,Ian Ziering,Actor/Actress,24.0,0.1064,0.10562024,0.05,0,9
+4,4,Ian Ziering,Actor/Actress,24.0,0.1164,0.11450136,0.05,0,9
+4,5,Ian Ziering,Actor/Actress,24.0,0.132,0.12831584,0.05,0,9
+4,6,Ian Ziering,Actor/Actress,24.0,0.1443,0.14743382,0.05,0,9
+4,7,Ian Ziering,Actor/Actress,27.0,0.181,0.1737521,0.05,0,9
+4,8,Ian Ziering,Actor/Actress,23.5,0.2073,0.2088589,0.05,0,9
+4,9,Ian Ziering,Actor/Actress,29.0,0.2107,0.21325126,0.08,1,9
+33,1,Ilona Maher,Athlete,18.0,0.0801,0.08180327,0.05,0,99
+33,2,Ilona Maher,Athlete,21.0,0.0849,0.08732005,0.05,0,99
+33,3,Ilona Maher,Athlete,28.0,0.1017,0.10473287,0.05,0,99
+33,4,Ilona Maher,Athlete,32.0,0.1178,0.11411525,0.05,0,99
+33,5,Ilona Maher,Athlete,26.0,0.1322,0.1335823,0.05,0,99
+33,6,Ilona Maher,Athlete,24.0,0.1518,0.14735392,0.05,0,99
+33,7,Ilona Maher,Athlete,26.0,0.1787,0.16841757,0.05,0,99
+33,8,Ilona Maher,Athlete,28.5,0.2158,0.21495454,0.05,0,99
+33,9,Ilona Maher,Athlete,28.5,0.2146,0.21571957,0.05,0,99
+30,1,Iman Shumpert,Athlete,21.0,0.0678,0.07049889,0.05,0,99
+30,2,Iman Shumpert,Athlete,25.0,0.0686,0.073218815,0.05,0,99
+30,3,Iman Shumpert,Athlete,19.0,0.0731,0.07743899,0.05,0,99
+30,4,Iman Shumpert,Athlete,31.5,0.0851,0.08692407,0.05,0,99
+30,5,Iman Shumpert,Athlete,28.0,0.097,0.099788144,0.05,0,99
+30,6,Iman Shumpert,Athlete,40.0,0.1055,0.10539174,0.05,0,99
+30,7,Iman Shumpert,Athlete,34.0,0.1157,0.120565586,0.05,0,99
+30,8,Iman Shumpert,Athlete,35.0,0.1413,0.14044297,0.05,0,99
+30,9,Iman Shumpert,Athlete,37.5,0.1919,0.19533183,0.05,0,99
+30,10,Iman Shumpert,Athlete,40.0,0.2848,0.28024518,0.05,0,99
+16,1,Ingo Rademacher,Actor/Actress,20.0,0.09,0.08858402,0.05,0,9
+16,2,Ingo Rademacher,Actor/Actress,20.0,0.0861,0.0875629,0.05,0,9
+16,3,Ingo Rademacher,Actor/Actress,21.0,0.0951,0.09714859,0.05,0,9
+16,4,Ingo Rademacher,Actor/Actress,23.0,0.1049,0.10553281,0.05,0,9
+16,5,Ingo Rademacher,Actor/Actress,21.0,0.1137,0.11744587,0.05,0,9
+16,6,Ingo Rademacher,Actor/Actress,23.0,0.1356,0.1339121,0.05,0,9
+16,7,Ingo Rademacher,Actor/Actress,25.0,0.1482,0.14690267,0.05,0,9
+16,8,Ingo Rademacher,Actor/Actress,24.0,0.1686,0.16509187,0.05,0,9
+16,9,Ingo Rademacher,Actor/Actress,25.5,0.1687,0.1553173,0.08,1,9
+13,1,J.R. Martinez,Actor/Actress,22.0,0.0877,0.089413226,0.05,0,99
+13,2,J.R. Martinez,Actor/Actress,22.0,0.0986,0.09732106,0.05,0,99
+13,3,J.R. Martinez,Actor/Actress,26.0,0.1091,0.10647357,0.05,0,99
+13,4,J.R. Martinez,Actor/Actress,26.0,0.1144,0.11951891,0.05,0,99
+13,5,J.R. Martinez,Actor/Actress,28.0,0.1316,0.1360116,0.05,0,99
+13,6,J.R. Martinez,Actor/Actress,29.0,0.1538,0.15717894,0.05,0,99
+13,7,J.R. Martinez,Actor/Actress,24.0,0.1764,0.17453952,0.05,0,99
+13,8,J.R. Martinez,Actor/Actress,30.0,0.2187,0.21269153,0.05,0,99
+13,9,J.R. Martinez,Actor/Actress,28.0,0.2744,0.26555037,0.05,0,99
+13,10,J.R. Martinez,Actor/Actress,28.1665,0.3628,0.35654423,0.05,0,99
+17,1,Jack Osbourne,TV Personality,23.0,0.0783,0.077941135,0.05,0,99
+17,2,Jack Osbourne,TV Personality,24.0,0.0814,0.07932,0.05,0,99
+17,3,Jack Osbourne,TV Personality,22.0,0.0886,0.08749655,0.05,0,99
+17,4,Jack Osbourne,TV Personality,24.0,0.0932,0.09602337,0.05,0,99
+17,5,Jack Osbourne,TV Personality,27.0,0.1069,0.10903448,0.05,0,99
+17,6,Jack Osbourne,TV Personality,26.9998,0.1224,0.119243324,0.05,0,99
+17,7,Jack Osbourne,TV Personality,28.5,0.1177,0.123534866,0.05,0,99
+17,8,Jack Osbourne,TV Personality,30.0,0.1387,0.14055017,0.05,0,99
+17,9,Jack Osbourne,TV Personality,27.0,0.165,0.16568807,0.05,0,99
+17,10,Jack Osbourne,TV Personality,35.5,0.2015,0.2003743,0.05,0,99
+17,11,Jack Osbourne,TV Personality,27.999899999999997,0.2464,0.24840227,0.05,0,99
+14,1,Jack Wagner,Actor/Actress,23.0,0.0837,0.08328615,0.05,0,3
+14,2,Jack Wagner,Actor/Actress,21.0,0.084,0.084893495,0.05,0,3
+14,3,Jack Wagner,Actor/Actress,24.0,0.07,0.06811269,0.08,1,3
+16,1,Jacoby Jones,Athlete,20.0,0.0839,0.08375768,0.05,0,99
+16,2,Jacoby Jones,Athlete,23.0,0.0876,0.082547836,0.05,0,99
+16,3,Jacoby Jones,Athlete,25.9998,0.0877,0.09459905,0.05,0,99
+16,4,Jacoby Jones,Athlete,24.0,0.1061,0.1015973,0.05,0,99
+16,5,Jacoby Jones,Athlete,26.0,0.1155,0.114513434,0.05,0,99
+16,6,Jacoby Jones,Athlete,22.5,0.1232,0.12627892,0.05,0,99
+16,7,Jacoby Jones,Athlete,27.0,0.1428,0.1472489,0.05,0,99
+16,8,Jacoby Jones,Athlete,26.0,0.1711,0.1674897,0.05,0,99
+16,9,Jacoby Jones,Athlete,29.5,0.2025,0.20371701,0.05,0,99
+16,10,Jacoby Jones,Athlete,27.999899999999997,0.246,0.25375864,0.05,0,99
+10,1,Jake Pavelka,TV Personality,20.0,0.0881,0.08789492,0.05,0,6
+10,2,Jake Pavelka,TV Personality,20.0,0.0864,0.08949332,0.05,0,6
+10,3,Jake Pavelka,TV Personality,21.0,0.0948,0.099428035,0.05,0,6
+10,4,Jake Pavelka,TV Personality,19.0,0.1049,0.110436596,0.05,0,6
+10,5,Jake Pavelka,TV Personality,23.0,0.1235,0.1230683,0.05,0,6
+10,6,Jake Pavelka,TV Personality,24.999899999999997,0.1093,0.11262646,0.08,1,6
+23,1,Jake T. Austin,Actor/Actress,22.0,0.0815,0.08116949,0.05,0,2
+23,2,Jake T. Austin,Actor/Actress,24.0,0.0589,0.05935095,0.08,1,2
+14,1,Jaleel White,Actor/Actress,26.0,0.0852,0.08463484,0.05,0,7
+14,2,Jaleel White,Actor/Actress,22.0,0.086,0.084702805,0.05,0,7
+14,3,Jaleel White,Actor/Actress,25.0,0.0948,0.09183946,0.05,0,7
+14,4,Jaleel White,Actor/Actress,22.0,0.1026,0.100779004,0.05,0,7
+14,5,Jaleel White,Actor/Actress,24.0,0.1142,0.11306044,0.05,0,7
+14,6,Jaleel White,Actor/Actress,36.9998,0.1233,0.132912,0.05,0,7
+14,7,Jaleel White,Actor/Actress,25.5,0.1152,0.115359165,0.08,1,7
+23,1,James Hinchcliffe,Racing Driver,31.0,0.053,0.057503335,0.05,0,99
+23,2,James Hinchcliffe,Racing Driver,29.0,0.0708,0.0644373,0.05,0,99
+23,3,James Hinchcliffe,Racing Driver,29.0,0.0673,0.06913031,0.05,0,99
+23,4,James Hinchcliffe,Racing Driver,28.0,0.0912,0.08698375,0.05,0,99
+23,5,James Hinchcliffe,Racing Driver,29.0,0.0999,0.09961039,0.05,0,99
+23,6,James Hinchcliffe,Racing Driver,38.0,0.0956,0.09901435,0.05,0,99
+23,7,James Hinchcliffe,Racing Driver,37.0,0.1165,0.11685466,0.05,0,99
+23,8,James Hinchcliffe,Racing Driver,34.9998,0.1369,0.13702074,0.05,0,99
+23,9,James Hinchcliffe,Racing Driver,36.0,0.1624,0.16548637,0.05,0,99
+23,10,James Hinchcliffe,Racing Driver,29.5,0.1869,0.20287664,0.05,0,99
+23,11,James Hinchcliffe,Racing Driver,38.9998,0.2609,0.25990692,0.05,0,99
+18,1,James Maslow,Actor/Actress,21.0,0.089,0.08722811,0.05,0,10
+18,2,James Maslow,Actor/Actress,25.0,0.0969,0.09580721,0.05,0,10
+18,3,James Maslow,Actor/Actress,36.0,0.1145,0.11584279,0.05,0,10
+18,4,James Maslow,Actor/Actress,35.0,0.1174,0.11754121,0.05,0,10
+18,5,James Maslow,Actor/Actress,40.0,0.1181,0.12207532,0.05,0,10
+18,6,James Maslow,Actor/Actress,35.0,0.1333,0.13922638,0.05,0,10
+18,7,James Maslow,Actor/Actress,35.0,0.1482,0.1513769,0.05,0,10
+18,8,James Maslow,Actor/Actress,36.0,0.1767,0.17409433,0.05,0,10
+18,9,James Maslow,Actor/Actress,38.0,0.2069,0.21084918,0.05,0,10
+18,10,James Maslow,Actor/Actress,29.0,0.2162,0.21875197,0.08,1,10
+28,1,James Van Der Beek,Actor/Actress,21.0,0.088,0.08844183,0.05,0,10
+28,2,James Van Der Beek,Actor/Actress,20.0,0.0909,0.09088287,0.05,0,10
+28,3,James Van Der Beek,Actor/Actress,23.0,0.1079,0.10266946,0.05,0,10
+28,4,James Van Der Beek,Actor/Actress,28.0,0.1046,0.10593059,0.05,0,10
+28,5,James Van Der Beek,Actor/Actress,26.0,0.1167,0.11800926,0.05,0,10
+28,6,James Van Der Beek,Actor/Actress,27.0,0.118,0.11888708,0.05,0,10
+28,7,James Van Der Beek,Actor/Actress,27.0,0.1351,0.13220946,0.05,0,10
+28,8,James Van Der Beek,Actor/Actress,31.9998,0.1524,0.15260442,0.05,0,10
+28,9,James Van Der Beek,Actor/Actress,36.0,0.1776,0.18160352,0.05,0,10
+28,10,James Van Der Beek,Actor/Actress,25.5,0.1369,0.13698041,0.08,1,10
+26,1,Jamie Anderson,Athlete,19.0,0.0862,0.08877165,0.08,1,1
+32,1,Jamie Lynn Spears,Actor/Actress,15.0,0.0772,0.076808386,0.05,0,2
+32,2,Jamie Lynn Spears,Actor/Actress,16.0,0.0249,0.024920814,0.08,1,2
+23,1,Jana Kramer,Singer/Rapper,27.0,0.0863,0.084178425,0.05,0,11
+23,2,Jana Kramer,Singer/Rapper,29.0,0.0829,0.08433056,0.05,0,11
+23,3,Jana Kramer,Singer/Rapper,26.0,0.0977,0.09243839,0.05,0,11
+23,4,Jana Kramer,Singer/Rapper,23.0,0.0998,0.10331826,0.05,0,11
+23,5,Jana Kramer,Singer/Rapper,26.0,0.1255,0.12166551,0.05,0,11
+23,6,Jana Kramer,Singer/Rapper,40.0,0.1304,0.12817398,0.05,0,11
+23,7,Jana Kramer,Singer/Rapper,34.5,0.1419,0.13865052,0.05,0,11
+23,8,Jana Kramer,Singer/Rapper,30.0,0.161,0.16064502,0.05,0,11
+23,9,Jana Kramer,Singer/Rapper,40.0,0.1958,0.19116277,0.05,0,11
+23,10,Jana Kramer,Singer/Rapper,29.0,0.237,0.2271765,0.05,0,11
+23,11,Jana Kramer,Singer/Rapper,35.5,0.2173,0.2163824,0.08,1,11
+5,1,Jane Seymour,Actor/Actress,24.0,0.0887,0.08882512,0.05,0,7
+5,2,Jane Seymour,Actor/Actress,21.0,0.0997,0.09660832,0.05,0,7
+5,3,Jane Seymour,Actor/Actress,27.0,0.1091,0.10643588,0.05,0,7
+5,4,Jane Seymour,Actor/Actress,26.0,0.1206,0.117050715,0.05,0,7
+5,5,Jane Seymour,Actor/Actress,26.0,0.1291,0.13207106,0.05,0,7
+5,6,Jane Seymour,Actor/Actress,22.0,0.1468,0.1509544,0.05,0,7
+5,7,Jane Seymour,Actor/Actress,25.0,0.1296,0.13749129,0.08,1,7
+19,1,Janel Parrish,Actor/Actress,29.0,0.0855,0.08541596,0.05,0,99
+19,2,Janel Parrish,Actor/Actress,34.0,0.0964,0.09166544,0.05,0,99
+19,3,Janel Parrish,Actor/Actress,40.0,0.104,0.10481765,0.05,0,99
+19,4,Janel Parrish,Actor/Actress,36.0,0.1157,0.116484545,0.05,0,99
+19,5,Janel Parrish,Actor/Actress,33.0,0.1305,0.12263188,0.05,0,99
+19,6,Janel Parrish,Actor/Actress,33.0,0.1226,0.123626694,0.05,0,99
+19,7,Janel Parrish,Actor/Actress,33.5,0.1391,0.13718612,0.05,0,99
+19,8,Janel Parrish,Actor/Actress,43.0,0.1603,0.15786,0.05,0,99
+19,9,Janel Parrish,Actor/Actress,38.5,0.1907,0.19011746,0.05,0,99
+19,10,Janel Parrish,Actor/Actress,39.0,0.2299,0.23547441,0.05,0,99
+19,11,Janel Parrish,Actor/Actress,38.99980000000001,0.2833,0.28189152,0.05,0,99
+31,1,Jason Lewis,Actor/Actress,18.0,0.0112,0.015710782,0.08,1,1
+32,1,Jason Mraz,Singer/Rapper,21.0,0.0816,0.08052139,0.05,0,99
+32,2,Jason Mraz,Singer/Rapper,24.0,0.0857,0.08537668,0.05,0,99
+32,3,Jason Mraz,Singer/Rapper,34.0,0.0924,0.09895104,0.05,0,99
+32,4,Jason Mraz,Singer/Rapper,24.0,0.1042,0.10439395,0.05,0,99
+32,5,Jason Mraz,Singer/Rapper,27.0,0.1072,0.110157564,0.05,0,99
+32,6,Jason Mraz,Singer/Rapper,39.0,0.1339,0.13030146,0.05,0,99
+32,7,Jason Mraz,Singer/Rapper,36.0,0.1421,0.13648778,0.05,0,99
+32,8,Jason Mraz,Singer/Rapper,33.0,0.1582,0.15190059,0.05,0,99
+32,9,Jason Mraz,Singer/Rapper,43.0,0.1884,0.18574832,0.05,0,99
+32,10,Jason Mraz,Singer/Rapper,28.5,0.2257,0.22475882,0.05,0,99
+32,11,Jason Mraz,Singer/Rapper,30.0,0.2264,0.22047587,0.05,0,99
+6,1,Jason Taylor,Athlete,22.0,0.0831,0.08189489,0.05,0,99
+6,2,Jason Taylor,Athlete,27.0,0.0892,0.08627848,0.05,0,99
+6,3,Jason Taylor,Athlete,23.0,0.0993,0.10020682,0.05,0,99
+6,4,Jason Taylor,Athlete,29.0,0.1137,0.111503,0.05,0,99
+6,5,Jason Taylor,Athlete,27.0,0.1227,0.12677091,0.05,0,99
+6,6,Jason Taylor,Athlete,24.0,0.1436,0.14229152,0.05,0,99
+6,7,Jason Taylor,Athlete,27.5,0.1638,0.167405,0.05,0,99
+6,8,Jason Taylor,Athlete,26.0,0.2049,0.20791379,0.05,0,99
+6,9,Jason Taylor,Athlete,27.5,0.2521,0.2518151,0.05,0,99
+6,10,Jason Taylor,Athlete,28.5,0.3488,0.34056994,0.05,0,99
+29,1,Jeannie Mai,TV Personality,18.0,0.0693,0.06685001,0.05,0,98
+29,2,Jeannie Mai,TV Personality,18.0,0.069,0.068647295,0.05,0,98
+29,3,Jeannie Mai,TV Personality,22.0,0.0744,0.07363516,0.05,0,98
+29,4,Jeannie Mai,TV Personality,21.0,0.0809,0.080326125,0.05,0,98
+29,5,Jeannie Mai,TV Personality,24.0,0.0878,0.08533301,0.05,0,98
+29,6,Jeannie Mai,TV Personality,25.0,0.0946,0.09256246,0.05,0,98
+29,7,Jeannie Mai,TV Personality,25.0,0.1036,0.10205029,0.05,0,98
+7,1,Jeffrey Ross,Comedian,12.0,0.0595,0.055082504,0.08,1,1
+34,1,Jen Affleck,TV Personality,12.0,0.0723,0.070319496,0.05,0,7
+34,2,Jen Affleck,TV Personality,22.0,0.0783,0.07871985,0.05,0,7
+34,3,Jen Affleck,TV Personality,19.0,0.0867,0.08812069,0.05,0,7
+34,4,Jen Affleck,TV Personality,23.0,0.0934,0.09588754,0.05,0,7
+34,5,Jen Affleck,TV Personality,29.0,0.1034,0.10445407,0.05,0,7
+34,6,Jen Affleck,TV Personality,32.0,0.1046,0.104388386,0.05,0,7
+34,7,Jen Affleck,TV Personality,34.0,0.0552,0.067350805,0.08,1,7
+33,1,Jenn Tran,TV Personality,19.0,0.0801,0.07874773,0.05,0,6
+33,2,Jenn Tran,TV Personality,19.0,0.0849,0.08467982,0.05,0,6
+33,3,Jenn Tran,TV Personality,31.0,0.1017,0.10035643,0.05,0,6
+33,4,Jenn Tran,TV Personality,32.0,0.1178,0.10921068,0.05,0,6
+33,5,Jenn Tran,TV Personality,25.5,0.1322,0.13008676,0.05,0,6
+33,6,Jenn Tran,TV Personality,31.0,0.084,0.09132319,0.08,1,6
+26,1,Jennie Finch Daigle,Athlete,21.0,0.1035,0.10260566,0.05,0,3
+26,2,Jennie Finch Daigle,Athlete,31.5,0.1308,0.12882832,0.05,0,3
+26,3,Jennie Finch Daigle,Athlete,29.0,0.146,0.13200013,0.08,1,3
+5,1,Jennie Garth,Actor/Actress,21.0,0.0879,0.08712663,0.05,0,9
+5,2,Jennie Garth,Actor/Actress,21.0,0.0938,0.093613654,0.05,0,9
+5,3,Jennie Garth,Actor/Actress,26.0,0.1053,0.10501983,0.05,0,9
+5,4,Jennie Garth,Actor/Actress,27.0,0.1141,0.11328374,0.05,0,9
+5,5,Jennie Garth,Actor/Actress,25.0,0.1283,0.12974484,0.05,0,9
+5,6,Jennie Garth,Actor/Actress,27.0,0.1458,0.14733689,0.05,0,9
+5,7,Jennie Garth,Actor/Actress,26.5,0.1761,0.17370269,0.05,0,9
+5,8,Jennie Garth,Actor/Actress,25.0,0.2066,0.20820652,0.05,0,9
+5,9,Jennie Garth,Actor/Actress,29.0,0.2002,0.21329743,0.08,1,9
+11,1,Jennifer Grey,Actor/Actress,24.0,0.0866,0.09108796,0.05,0,99
+11,2,Jennifer Grey,Actor/Actress,24.0,0.0973,0.098534614,0.05,0,99
+11,3,Jennifer Grey,Actor/Actress,24.0,0.1054,0.10647175,0.05,0,99
+11,4,Jennifer Grey,Actor/Actress,28.0,0.1201,0.12318327,0.05,0,99
+11,5,Jennifer Grey,Actor/Actress,25.0,0.1344,0.13403939,0.05,0,99
+11,6,Jennifer Grey,Actor/Actress,29.0,0.1493,0.15234618,0.05,0,99
+11,7,Jennifer Grey,Actor/Actress,36.5,0.1689,0.17135338,0.05,0,99
+11,8,Jennifer Grey,Actor/Actress,28.5,0.2088,0.2121095,0.05,0,99
+11,9,Jennifer Grey,Actor/Actress,30.0,0.2597,0.27100658,0.05,0,99
+11,10,Jennifer Grey,Actor/Actress,30.0,0.3512,0.3497396,0.05,0,99
+2,1,Jerry Rice,Athlete,21.0,0.1033,0.10427393,0.05,0,99
+2,2,Jerry Rice,Athlete,23.0,0.1176,0.116391785,0.05,0,99
+2,3,Jerry Rice,Athlete,19.0,0.1309,0.12709351,0.05,0,99
+2,4,Jerry Rice,Athlete,24.0,0.1526,0.14669955,0.05,0,99
+2,5,Jerry Rice,Athlete,23.0,0.1787,0.17455123,0.05,0,99
+2,6,Jerry Rice,Athlete,23.0,0.2158,0.19465761,0.05,0,99
+2,7,Jerry Rice,Athlete,20.5,0.2714,0.22139157,0.05,0,99
+2,8,Jerry Rice,Athlete,26.666600000000003,0.3685,0.36385998,0.05,0,99
+3,1,Jerry Springer,TV Personality,16.0,0.0849,0.086169064,0.05,0,7
+3,2,Jerry Springer,TV Personality,19.0,0.0927,0.09388756,0.05,0,7
+3,3,Jerry Springer,TV Personality,21.0,0.1072,0.10645837,0.05,0,7
+3,4,Jerry Springer,TV Personality,22.0,0.1193,0.120975815,0.05,0,7
+3,5,Jerry Springer,TV Personality,24.0,0.1414,0.13703834,0.05,0,7
+3,6,Jerry Springer,TV Personality,18.0,0.1971,0.19077551,0.05,0,7
+3,7,Jerry Springer,TV Personality,23.0,0.1586,0.15989229,0.08,1,7
+29,1,Jesse Metcalfe,Actor/Actress,18.0,0.0693,0.06945179,0.05,0,5
+29,2,Jesse Metcalfe,Actor/Actress,20.0,0.0693,0.07013574,0.05,0,5
+29,3,Jesse Metcalfe,Actor/Actress,20.0,0.0745,0.07567284,0.05,0,5
+29,4,Jesse Metcalfe,Actor/Actress,21.0,0.0809,0.08257262,0.05,0,5
+29,5,Jesse Metcalfe,Actor/Actress,19.0,0.0311,0.034520917,0.08,1,5
+31,1,Jessie James Decker,Singer/Rapper,20.0,0.0718,0.0730926,0.05,0,6
+31,2,Jessie James Decker,Singer/Rapper,25.0,0.0744,0.07632577,0.05,0,6
+31,3,Jessie James Decker,Singer/Rapper,26.0,0.0821,0.08285574,0.05,0,6
+31,4,Jessie James Decker,Singer/Rapper,31.0,0.0869,0.0860557,0.05,0,6
+31,5,Jessie James Decker,Singer/Rapper,36.0,0.0971,0.09343657,0.05,0,6
+31,6,Jessie James Decker,Singer/Rapper,32.0,0.045,0.043852124,0.08,1,6
+30,1,Jimmie Allen,Singer/Rapper,22.0,0.0765,0.07442332,0.05,0,8
+30,2,Jimmie Allen,Singer/Rapper,27.0,0.0771,0.07571801,0.05,0,8
+30,3,Jimmie Allen,Singer/Rapper,20.0,0.0833,0.081815496,0.05,0,8
+30,4,Jimmie Allen,Singer/Rapper,32.5,0.0881,0.094758816,0.05,0,8
+30,5,Jimmie Allen,Singer/Rapper,34.0,0.1006,0.0991333,0.05,0,8
+30,6,Jimmie Allen,Singer/Rapper,38.0,0.114,0.112961225,0.05,0,8
+30,7,Jimmie Allen,Singer/Rapper,38.0,0.1309,0.12765808,0.05,0,8
+30,8,Jimmie Allen,Singer/Rapper,32.0,0.0748,0.0737085,0.08,1,8
+30,1,JoJo Siwa,Social Media Personality,29.0,0.0678,0.06406977,0.05,0,99
+30,2,JoJo Siwa,Social Media Personality,31.0,0.0686,0.065289296,0.05,0,99
+30,3,JoJo Siwa,Social Media Personality,24.0,0.0722,0.064928964,0.05,0,99
+30,4,JoJo Siwa,Social Media Personality,35.0,0.0851,0.08165762,0.05,0,99
+30,5,JoJo Siwa,Social Media Personality,40.0,0.0956,0.09497868,0.05,0,99
+30,6,JoJo Siwa,Social Media Personality,40.0,0.1035,0.10191066,0.05,0,99
+30,7,JoJo Siwa,Social Media Personality,39.0,0.1154,0.11428372,0.05,0,99
+30,8,JoJo Siwa,Social Media Personality,41.0,0.1413,0.13565978,0.05,0,99
+30,9,JoJo Siwa,Social Media Personality,40.0,0.1919,0.18851462,0.05,0,99
+30,10,JoJo Siwa,Social Media Personality,40.0,0.1798,0.18888044,0.05,0,99
+9,1,Joanna Krupa,Model,33.9999,0.06,0.052713916,0.05,0,9
+9,2,Joanna Krupa,Model,20.0,0.065,0.06274553,0.05,0,9
+9,3,Joanna Krupa,Model,23.0,0.0711,0.06996665,0.05,0,9
+9,4,Joanna Krupa,Model,26.0,0.0823,0.08580263,0.05,0,9
+9,5,Joanna Krupa,Model,24.0,0.0927,0.09133811,0.05,0,9
+9,6,Joanna Krupa,Model,35.9999,0.1074,0.10637163,0.05,0,9
+9,7,Joanna Krupa,Model,27.5,0.1473,0.14546773,0.05,0,9
+9,8,Joanna Krupa,Model,26.0,0.1989,0.1998951,0.05,0,9
+9,9,Joanna Krupa,Model,27.0,0.1979,0.2006179,0.08,1,9
+22,1,Jodie Sweetin,Actor/Actress,20.0,0.0919,0.08861541,0.05,0,8
+22,2,Jodie Sweetin,Actor/Actress,21.0,0.0908,0.089858435,0.05,0,8
+22,3,Jodie Sweetin,Actor/Actress,23.0,0.0985,0.096363865,0.05,0,8
+22,4,Jodie Sweetin,Actor/Actress,27.0,0.1083,0.102223635,0.05,0,8
+22,5,Jodie Sweetin,Actor/Actress,35.0,0.1203,0.11501089,0.05,0,8
+22,6,Jodie Sweetin,Actor/Actress,25.0,0.122,0.12274587,0.05,0,8
+22,7,Jodie Sweetin,Actor/Actress,25.5,0.1389,0.1341713,0.05,0,8
+22,8,Jodie Sweetin,Actor/Actress,30.0,0.1357,0.1353937,0.08,1,8
+27,1,Joe Amabile,TV Personality,14.0,0.0726,0.074057244,0.05,0,8
+27,2,Joe Amabile,TV Personality,17.5,0.0817,0.0804778,0.05,0,8
+27,3,Joe Amabile,TV Personality,18.0,0.0848,0.08903915,0.05,0,8
+27,4,Joe Amabile,TV Personality,15.0,0.1007,0.09959747,0.05,0,8
+27,5,Joe Amabile,TV Personality,17.0,0.1016,0.10686351,0.05,0,8
+27,6,Joe Amabile,TV Personality,22.0,0.1124,0.110806614,0.05,0,8
+27,7,Joe Amabile,TV Personality,23.5,0.1336,0.1283439,0.05,0,8
+27,8,Joe Amabile,TV Personality,23.0,0.1387,0.13863824,0.08,1,8
+4,1,Joey Fatone,Singer/Rapper,24.0,0.1043,0.10386169,0.05,0,99
+15,1,Joey Fatone,Singer/Rapper,20.5,0.0873,0.08526467,0.05,0,2
+4,2,Joey Fatone,Singer/Rapper,24.0,0.1006,0.1035273,0.05,0,99
+15,2,Joey Fatone,Singer/Rapper,22.5,0.0658,0.06490483,0.08,1,2
+4,3,Joey Fatone,Singer/Rapper,24.0,0.1128,0.11314308,0.05,0,99
+4,4,Joey Fatone,Singer/Rapper,28.0,0.1224,0.12374513,0.05,0,99
+4,5,Joey Fatone,Singer/Rapper,25.0,0.1399,0.13874048,0.05,0,99
+4,6,Joey Fatone,Singer/Rapper,27.0,0.1577,0.15378927,0.05,0,99
+4,7,Joey Fatone,Singer/Rapper,29.5,0.1776,0.17973687,0.05,0,99
+4,8,Joey Fatone,Singer/Rapper,27.5,0.22,0.22003591,0.05,0,99
+4,9,Joey Fatone,Singer/Rapper,30.0,0.2781,0.28104,0.05,0,99
+4,10,Joey Fatone,Singer/Rapper,28.6665,0.3697,0.365771,0.05,0,99
+33,1,Joey Graziadei,TV Personality,21.0,0.0801,0.07875426,0.05,0,99
+33,2,Joey Graziadei,TV Personality,22.0,0.0849,0.084670454,0.05,0,99
+33,3,Joey Graziadei,TV Personality,35.0,0.1017,0.10301928,0.05,0,99
+33,4,Joey Graziadei,TV Personality,36.0,0.1178,0.12097956,0.05,0,99
+33,5,Joey Graziadei,TV Personality,26.0,0.1322,0.1332203,0.05,0,99
+33,6,Joey Graziadei,TV Personality,32.0,0.1518,0.1500758,0.05,0,99
+33,7,Joey Graziadei,TV Personality,27.5,0.1787,0.1814813,0.05,0,99
+33,8,Joey Graziadei,TV Personality,29.0,0.2158,0.22413164,0.05,0,99
+33,9,Joey Graziadei,TV Personality,29.5,0.2146,0.21050952,0.05,0,99
+3,1,Joey Lawrence,Actor/Actress,21.0,0.0959,0.095340855,0.05,0,99
+3,2,Joey Lawrence,Actor/Actress,29.0,0.1049,0.104516186,0.05,0,99
+3,3,Joey Lawrence,Actor/Actress,22.0,0.1152,0.11202896,0.05,0,99
+3,4,Joey Lawrence,Actor/Actress,27.0,0.1281,0.12759769,0.05,0,99
+3,5,Joey Lawrence,Actor/Actress,25.0,0.1501,0.14668562,0.05,0,99
+3,6,Joey Lawrence,Actor/Actress,24.0,0.2063,0.20805416,0.05,0,99
+3,7,Joey Lawrence,Actor/Actress,28.5,0.2136,0.21389464,0.05,0,99
+3,8,Joey Lawrence,Actor/Actress,27.0,0.265,0.26596433,0.05,0,99
+3,9,Joey Lawrence,Actor/Actress,29.5,0.3592,0.35623285,0.05,0,99
+1,1,Joey McIntyre,Singer/Rapper,20.0,0.1871,0.18234164,0.05,0,99
+1,2,Joey McIntyre,Singer/Rapper,21.0,0.1875,0.1890674,0.05,0,99
+1,3,Joey McIntyre,Singer/Rapper,22.0,0.2207,0.21911637,0.05,0,99
+1,4,Joey McIntyre,Singer/Rapper,20.0,0.2891,0.26172903,0.05,0,99
+1,5,Joey McIntyre,Singer/Rapper,22.5,0.3702,0.29736143,0.05,0,99
+1,1,John O'Hurley,Actor/Actress,20.0,0.1787,0.17836984,0.05,0,99
+1,2,John O'Hurley,Actor/Actress,26.0,0.1819,0.19276886,0.05,0,99
+1,3,John O'Hurley,Actor/Actress,24.0,0.2145,0.21934286,0.05,0,99
+1,4,John O'Hurley,Actor/Actress,21.0,0.2662,0.27180502,0.05,0,99
+1,5,John O'Hurley,Actor/Actress,27.0,0.3675,0.40489396,0.05,0,99
+1,6,John O'Hurley,Actor/Actress,27.0,,0.5120813,0.05,0,99
+4,1,John Ratzenberger,Actor/Actress,17.0,0.0989,0.09728057,0.05,0,7
+4,2,John Ratzenberger,Actor/Actress,21.0,0.101,0.09814515,0.05,0,7
+4,3,John Ratzenberger,Actor/Actress,20.0,0.106,0.10725934,0.05,0,7
+4,4,John Ratzenberger,Actor/Actress,16.0,0.117,0.11717949,0.05,0,7
+4,5,John Ratzenberger,Actor/Actress,18.0,0.1296,0.13183422,0.05,0,7
+4,6,John Ratzenberger,Actor/Actress,19.0,0.1499,0.15154159,0.05,0,7
+4,7,John Ratzenberger,Actor/Actress,22.5,0.1361,0.1365989,0.08,1,7
+27,1,John Schneider,Actor/Actress,18.0,0.0832,0.08257689,0.05,0,7
+27,2,John Schneider,Actor/Actress,21.5,0.0922,0.08870044,0.05,0,7
+27,3,John Schneider,Actor/Actress,21.0,0.1042,0.09645949,0.05,0,7
+27,4,John Schneider,Actor/Actress,21.0,0.112,0.10667677,0.05,0,7
+27,5,John Schneider,Actor/Actress,24.0,0.1257,0.11810912,0.05,0,7
+27,6,John Schneider,Actor/Actress,19.0,0.1269,0.118832,0.05,0,7
+27,7,John Schneider,Actor/Actress,27.0,0.1012,0.09967057,0.08,1,7
+26,1,Johnny Damon,Athlete,18.0,0.0843,0.08801634,0.08,1,1
+29,1,Johnny Weir,Athlete,18.0,0.0693,0.06981105,0.05,0,10
+29,2,Johnny Weir,Athlete,18.0,0.069,0.070900165,0.05,0,10
+29,3,Johnny Weir,Athlete,24.0,0.0744,0.07572392,0.05,0,10
+29,4,Johnny Weir,Athlete,24.0,0.0814,0.08159596,0.05,0,10
+29,5,Johnny Weir,Athlete,29.0,0.0878,0.089358754,0.05,0,10
+29,6,Johnny Weir,Athlete,22.0,0.0946,0.09579223,0.05,0,10
+29,7,Johnny Weir,Athlete,27.0,0.1036,0.10657685,0.05,0,10
+29,8,Johnny Weir,Athlete,30.0,0.1318,0.13044111,0.05,0,10
+29,9,Johnny Weir,Athlete,30.0,0.1526,0.15806648,0.05,0,10
+29,10,Johnny Weir,Athlete,28.5,0.1162,0.10766731,0.08,1,10
+19,1,Jonathan Bennett,Actor/Actress,30.0,0.0877,0.08531739,0.05,0,6
+19,2,Jonathan Bennett,Actor/Actress,30.0,0.0973,0.09007129,0.05,0,6
+19,3,Jonathan Bennett,Actor/Actress,32.0,0.0975,0.094782375,0.05,0,6
+19,4,Jonathan Bennett,Actor/Actress,24.0,0.1078,0.1057188,0.05,0,6
+19,5,Jonathan Bennett,Actor/Actress,24.0,0.1121,0.11312735,0.05,0,6
+19,6,Jonathan Bennett,Actor/Actress,32.0,0.0857,0.09003202,0.08,1,6
+34,1,Jordan Chiles,Athlete,10.0,0.073,0.07434215,0.05,0,99
+34,2,Jordan Chiles,Athlete,22.0,0.0783,0.080146305,0.05,0,99
+34,3,Jordan Chiles,Athlete,24.0,0.0867,0.09175752,0.05,0,99
+34,4,Jordan Chiles,Athlete,24.0,0.0977,0.10033201,0.05,0,99
+34,5,Jordan Chiles,Athlete,32.0,0.1055,0.10760604,0.05,0,99
+34,6,Jordan Chiles,Athlete,39.0,0.1072,0.10978564,0.05,0,99
+34,7,Jordan Chiles,Athlete,38.0,0.1211,0.119762406,0.05,0,99
+34,8,Jordan Chiles,Athlete,39.0,0.1354,0.13500121,0.05,0,99
+34,9,Jordan Chiles,Athlete,39.0,0.1495,0.14805125,0.05,0,99
+34,10,Jordan Chiles,Athlete,28.5,0.1768,0.19148648,0.05,0,99
+34,11,Jordan Chiles,Athlete,29.666600000000003,0.2155,0.21758135,0.05,0,99
+25,1,Jordan Fisher,Actor/Actress,22.0,0.0811,0.08003981,0.05,0,99
+25,2,Jordan Fisher,Actor/Actress,24.0,0.0796,0.08264572,0.05,0,99
+25,3,Jordan Fisher,Actor/Actress,25.0,0.0968,0.0925653,0.05,0,99
+25,4,Jordan Fisher,Actor/Actress,29.0,0.0976,0.0953406,0.05,0,99
+25,5,Jordan Fisher,Actor/Actress,30.0,0.1086,0.10897377,0.05,0,99
+25,6,Jordan Fisher,Actor/Actress,39.0,0.1165,0.11566748,0.05,0,99
+25,7,Jordan Fisher,Actor/Actress,27.0,0.1373,0.1463313,0.05,0,99
+25,8,Jordan Fisher,Actor/Actress,30.0,0.1723,0.17482942,0.05,0,99
+25,9,Jordan Fisher,Actor/Actress,29.0,0.2053,0.21221201,0.05,0,99
+25,10,Jordan Fisher,Actor/Actress,40.0,0.2597,0.26398525,0.05,0,99
+31,1,Jordin Sparks,Singer/Rapper,26.0,0.0708,0.07174993,0.05,0,7
+31,2,Jordin Sparks,Singer/Rapper,27.0,0.0761,0.07521343,0.05,0,7
+31,3,Jordin Sparks,Singer/Rapper,29.0,0.0802,0.07890043,0.05,0,7
+31,4,Jordin Sparks,Singer/Rapper,34.0,0.0885,0.08673334,0.05,0,7
+31,5,Jordin Sparks,Singer/Rapper,35.5,0.0922,0.09267214,0.05,0,7
+31,6,Jordin Sparks,Singer/Rapper,34.0,0.1129,0.11152393,0.05,0,7
+31,7,Jordin Sparks,Singer/Rapper,34.5,0.0543,0.055476855,0.08,1,7
+31,1,Joseph Baena,Actor/Actress,23.0,0.0679,0.068715446,0.05,0,5
+31,2,Joseph Baena,Actor/Actress,24.0,0.0746,0.07241971,0.05,0,5
+31,3,Joseph Baena,Actor/Actress,29.0,0.0763,0.07718417,0.05,0,5
+31,4,Joseph Baena,Actor/Actress,28.0,0.0813,0.084926784,0.05,0,5
+31,5,Joseph Baena,Actor/Actress,35.0,0.0298,0.033222128,0.08,1,5
+26,1,Josh Norman,Athlete,24.0,0.1035,0.10493766,0.05,0,99
+26,2,Josh Norman,Athlete,31.5,0.1308,0.11960545,0.05,0,99
+26,3,Josh Norman,Athlete,38.0,0.1821,0.18015204,0.05,0,99
+26,4,Josh Norman,Athlete,28.5,0.3564,0.35970888,0.05,0,99
+5,1,Josie Maran,Model,16.0,0.0597,0.05811505,0.08,1,1
+27,1,Juan Pablo Di Pace,Actor/Actress,22.0,0.0839,0.08133831,0.05,0,8
+27,2,Juan Pablo Di Pace,Actor/Actress,26.0,0.085,0.08877468,0.05,0,8
+27,3,Juan Pablo Di Pace,Actor/Actress,30.0,0.0907,0.09803436,0.05,0,8
+27,4,Juan Pablo Di Pace,Actor/Actress,24.0,0.0968,0.10238085,0.05,0,8
+27,5,Juan Pablo Di Pace,Actor/Actress,29.0,0.1166,0.11389166,0.05,0,8
+27,6,Juan Pablo Di Pace,Actor/Actress,30.0,0.1185,0.122481674,0.05,0,8
+27,7,Juan Pablo Di Pace,Actor/Actress,28.0,0.1362,0.13925795,0.05,0,8
+27,8,Juan Pablo Di Pace,Actor/Actress,30.0,0.1387,0.13761204,0.08,1,8
+29,1,Justina Machado,Actor/Actress,21.0,0.0693,0.06825914,0.05,0,99
+29,2,Justina Machado,Actor/Actress,21.0,0.07,0.069989204,0.05,0,99
+29,3,Justina Machado,Actor/Actress,19.0,0.0744,0.075663805,0.05,0,99
+29,4,Justina Machado,Actor/Actress,24.0,0.0809,0.08153569,0.05,0,99
+29,5,Justina Machado,Actor/Actress,24.0,0.0878,0.089472614,0.05,0,99
+29,6,Justina Machado,Actor/Actress,27.0,0.0946,0.09832372,0.05,0,99
+29,7,Justina Machado,Actor/Actress,26.0,0.1036,0.10760904,0.05,0,99
+29,8,Justina Machado,Actor/Actress,28.9998,0.1318,0.13233013,0.05,0,99
+29,9,Justina Machado,Actor/Actress,25.9998,0.1526,0.15424898,0.05,0,99
+29,10,Justina Machado,Actor/Actress,29.0,0.1919,0.1911975,0.05,0,99
+29,11,Justina Machado,Actor/Actress,30.0,0.2714,0.25996637,0.05,0,99
+29,1,Kaitlyn Bristowe,TV Personality,20.0,0.0693,0.064389475,0.05,0,99
+29,2,Kaitlyn Bristowe,TV Personality,22.0,0.069,0.06708148,0.05,0,99
+29,3,Kaitlyn Bristowe,TV Personality,23.0,0.0744,0.071210735,0.05,0,99
+29,4,Kaitlyn Bristowe,TV Personality,25.0,0.0809,0.07797279,0.05,0,99
+29,5,Kaitlyn Bristowe,TV Personality,27.0,0.0878,0.08533575,0.05,0,99
+29,6,Kaitlyn Bristowe,TV Personality,27.0,0.0946,0.09358131,0.05,0,99
+29,7,Kaitlyn Bristowe,TV Personality,24.0,0.1036,0.103171356,0.05,0,99
+29,8,Kaitlyn Bristowe,TV Personality,28.0,0.1318,0.13119712,0.05,0,99
+29,9,Kaitlyn Bristowe,TV Personality,30.0,0.1526,0.1522408,0.05,0,99
+29,10,Kaitlyn Bristowe,TV Personality,30.0,0.1919,0.20441157,0.05,0,99
+29,11,Kaitlyn Bristowe,TV Personality,30.0,0.2693,0.240205,0.05,0,99
+28,1,Karamo Brown,TV Personality,17.0,0.0855,0.08118985,0.05,0,7
+28,2,Karamo Brown,TV Personality,19.0,0.0865,0.08351072,0.05,0,7
+28,3,Karamo Brown,TV Personality,16.0,0.1038,0.09627156,0.05,0,7
+28,4,Karamo Brown,TV Personality,28.0,0.1032,0.102068365,0.05,0,7
+28,5,Karamo Brown,TV Personality,21.0,0.1146,0.10355205,0.05,0,7
+28,6,Karamo Brown,TV Personality,25.0,0.1158,0.112438224,0.05,0,7
+28,7,Karamo Brown,TV Personality,24.5,0.0668,0.06993786,0.08,1,7
+26,1,Kareem Abdul-Jabbar,Athlete,17.0,0.1035,0.103168294,0.05,0,2
+26,2,Kareem Abdul-Jabbar,Athlete,29.5,0.1089,0.10450691,0.08,1,2
+28,1,Kate Flannery,Actor/Actress,15.0,0.0877,0.08723667,0.05,0,8
+28,2,Kate Flannery,Actor/Actress,21.0,0.0865,0.08983073,0.05,0,8
+28,3,Kate Flannery,Actor/Actress,24.0,0.1056,0.10253189,0.05,0,8
+28,4,Kate Flannery,Actor/Actress,26.0,0.1056,0.10580016,0.05,0,8
+28,5,Kate Flannery,Actor/Actress,24.0,0.1249,0.11538265,0.05,0,8
+28,6,Kate Flannery,Actor/Actress,27.0,0.1181,0.11940769,0.05,0,8
+28,7,Kate Flannery,Actor/Actress,24.0,0.131,0.13111843,0.05,0,8
+28,8,Kate Flannery,Actor/Actress,25.9998,0.0846,0.08474094,0.08,1,8
+10,1,Kate Gosselin,TV Personality,16.0,0.0884,0.08687321,0.05,0,5
+10,2,Kate Gosselin,TV Personality,15.0,0.0921,0.08869301,0.05,0,5
+10,3,Kate Gosselin,TV Personality,15.0,0.1002,0.09772808,0.05,0,5
+10,4,Kate Gosselin,TV Personality,16.0,0.1116,0.108905345,0.05,0,5
+10,5,Kate Gosselin,TV Personality,15.0,0.0968,0.10066338,0.08,1,5
+14,1,Katherine Jenkins,Singer/Rapper,26.0,0.0899,0.08954885,0.05,0,99
+14,2,Katherine Jenkins,Singer/Rapper,26.0,0.0924,0.09057616,0.05,0,99
+14,3,Katherine Jenkins,Singer/Rapper,29.0,0.0991,0.09928814,0.05,0,99
+14,4,Katherine Jenkins,Singer/Rapper,24.0,0.1117,0.11033437,0.05,0,99
+14,5,Katherine Jenkins,Singer/Rapper,29.0,0.1207,0.12050161,0.05,0,99
+14,6,Katherine Jenkins,Singer/Rapper,38.9999,0.1344,0.1336626,0.05,0,99
+14,7,Katherine Jenkins,Singer/Rapper,27.0,0.1527,0.15213603,0.05,0,99
+14,8,Katherine Jenkins,Singer/Rapper,27.5,0.1883,0.18822403,0.05,0,99
+14,9,Katherine Jenkins,Singer/Rapper,28.0,0.2762,0.28201166,0.05,0,99
+14,10,Katherine Jenkins,Singer/Rapper,30.0,0.3693,0.36375958,0.05,0,99
+9,1,Kathy Ireland,Model,19.9999,0.06,0.05590289,0.05,0,2
+9,2,Kathy Ireland,Model,18.0,0.0516,0.050044063,0.08,1,2
+28,1,Kel Mitchell,Actor/Actress,16.0,0.0884,0.08780714,0.05,0,99
+28,2,Kel Mitchell,Actor/Actress,20.0,0.0906,0.08989173,0.05,0,99
+28,3,Kel Mitchell,Actor/Actress,20.0,0.1069,0.10252691,0.05,0,99
+28,4,Kel Mitchell,Actor/Actress,32.0,0.1067,0.10824801,0.05,0,99
+28,5,Kel Mitchell,Actor/Actress,26.0,0.119,0.12320868,0.05,0,99
+28,6,Kel Mitchell,Actor/Actress,26.0,0.1167,0.119176455,0.05,0,99
+28,7,Kel Mitchell,Actor/Actress,25.5,0.136,0.1341598,0.05,0,99
+28,8,Kel Mitchell,Actor/Actress,29.9998,0.1524,0.15156771,0.05,0,99
+28,9,Kel Mitchell,Actor/Actress,37.0,0.1776,0.17838745,0.05,0,99
+28,10,Kel Mitchell,Actor/Actress,28.5,0.2158,0.2181036,0.05,0,99
+28,11,Kel Mitchell,Actor/Actress,29.5,0.2714,0.25544873,0.05,0,99
+16,1,Kellie Pickler,Singer/Rapper,21.0,0.094,0.093470365,0.05,0,99
+16,2,Kellie Pickler,Singer/Rapper,26.0,0.1,0.09316714,0.05,0,99
+16,3,Kellie Pickler,Singer/Rapper,25.0,0.1042,0.104334526,0.05,0,99
+16,4,Kellie Pickler,Singer/Rapper,26.0,0.1123,0.11299563,0.05,0,99
+16,5,Kellie Pickler,Singer/Rapper,27.0,0.1265,0.12296818,0.05,0,99
+16,6,Kellie Pickler,Singer/Rapper,27.0,0.1421,0.13467619,0.05,0,99
+16,7,Kellie Pickler,Singer/Rapper,29.0,0.1592,0.15401892,0.05,0,99
+16,8,Kellie Pickler,Singer/Rapper,27.5,0.1855,0.19172129,0.05,0,99
+16,9,Kellie Pickler,Singer/Rapper,29.0,0.2228,0.23057865,0.05,0,99
+16,10,Kellie Pickler,Singer/Rapper,30.0,0.288,0.2873905,0.05,0,99
+1,1,Kelly Monaco,Actor/Actress,13.0,0.1774,0.17771636,0.05,0,99
+15,1,Kelly Monaco,Actor/Actress,21.5,0.0828,0.08170159,0.05,0,99
+1,2,Kelly Monaco,Actor/Actress,17.0,0.1848,0.19185993,0.05,0,99
+15,2,Kelly Monaco,Actor/Actress,22.0,0.0845,0.08782271,0.05,0,99
+1,3,Kelly Monaco,Actor/Actress,21.0,0.2145,0.21593687,0.05,0,99
+15,3,Kelly Monaco,Actor/Actress,27.0,0.0941,0.09914203,0.05,0,99
+1,4,Kelly Monaco,Actor/Actress,26.0,0.2662,0.25459194,0.05,0,99
+15,4,Kelly Monaco,Actor/Actress,37.5,0.1258,0.12418804,0.05,0,99
+1,5,Kelly Monaco,Actor/Actress,23.5,0.2623,0.2977446,0.05,0,99
+15,5,Kelly Monaco,Actor/Actress,25.75,0.1396,0.12576076,0.05,0,99
+1,6,Kelly Monaco,Actor/Actress,27.5,,0.48791873,0.05,0,99
+15,6,Kelly Monaco,Actor/Actress,27.0,0.1417,0.13513614,0.05,0,99
+15,7,Kelly Monaco,Actor/Actress,36.0,0.1545,0.14786218,0.05,0,99
+15,8,Kelly Monaco,Actor/Actress,28.3333,0.1636,0.15616107,0.05,0,99
+15,9,Kelly Monaco,Actor/Actress,27.110999999999997,0.2257,0.22513387,0.05,0,99
+15,10,Kelly Monaco,Actor/Actress,29.1109,0.3749,0.33420137,0.05,0,99
+9,1,Kelly Osbourne,TV Personality,30.9998,0.06,0.055459935,0.05,0,99
+9,2,Kelly Osbourne,TV Personality,19.0,0.0673,0.067060895,0.05,0,99
+9,3,Kelly Osbourne,TV Personality,20.0,0.0726,0.07290795,0.05,0,99
+9,4,Kelly Osbourne,TV Personality,23.0,0.0847,0.084399536,0.05,0,99
+9,5,Kelly Osbourne,TV Personality,24.0,0.0927,0.09469024,0.05,0,99
+9,6,Kelly Osbourne,TV Personality,24.9998,0.1074,0.109842554,0.05,0,99
+9,7,Kelly Osbourne,TV Personality,26.0,0.1473,0.14757363,0.05,0,99
+9,8,Kelly Osbourne,TV Personality,25.5,0.2027,0.2007524,0.05,0,99
+9,9,Kelly Osbourne,TV Personality,25.9998,0.2459,0.24233502,0.05,0,99
+9,10,Kelly Osbourne,TV Personality,25.2222,0.262,0.2646655,0.05,0,99
+12,1,Kendra Wilkinson,TV Personality,18.0,0.0855,0.08774373,0.05,0,7
+12,2,Kendra Wilkinson,TV Personality,19.0,0.0895,0.08863921,0.05,0,7
+12,3,Kendra Wilkinson,TV Personality,23.0,0.0972,0.09784113,0.05,0,7
+12,4,Kendra Wilkinson,TV Personality,18.0,0.1066,0.109054394,0.05,0,7
+12,5,Kendra Wilkinson,TV Personality,22.0,0.1233,0.12028411,0.05,0,7
+12,6,Kendra Wilkinson,TV Personality,25.0,0.1372,0.13962689,0.05,0,7
+12,7,Kendra Wilkinson,TV Personality,30.5,0.1308,0.13206744,0.08,1,7
+2,1,Kenny Mayne,Sports Broadcaster,13.0,0.044,0.045072697,0.08,1,1
+30,1,Kenya Moore,TV Personality,26.0,0.0678,0.067709565,0.05,0,6
+30,2,Kenya Moore,TV Personality,24.0,0.0686,0.06861471,0.05,0,6
+30,3,Kenya Moore,TV Personality,21.0,0.0722,0.074408434,0.05,0,6
+30,4,Kenya Moore,TV Personality,29.5,0.0851,0.08183731,0.05,0,6
+30,5,Kenya Moore,TV Personality,36.0,0.0956,0.09178263,0.05,0,6
+30,6,Kenya Moore,TV Personality,32.0,0.0441,0.046188667,0.08,1,6
+17,1,Keyshawn Johnson,Athlete,17.0,0.0822,0.08250297,0.05,0,2
+17,2,Keyshawn Johnson,Athlete,18.0,0.0664,0.06678121,0.08,1,2
+22,1,Kim Fields,Actor/Actress,20.0,0.091,0.08892399,0.05,0,7
+22,2,Kim Fields,Actor/Actress,19.0,0.09,0.08996243,0.05,0,7
+22,3,Kim Fields,Actor/Actress,22.0,0.1015,0.09728772,0.05,0,7
+22,4,Kim Fields,Actor/Actress,32.0,0.1137,0.106083244,0.05,0,7
+22,5,Kim Fields,Actor/Actress,28.0,0.1209,0.11517219,0.05,0,7
+22,6,Kim Fields,Actor/Actress,24.0,0.1215,0.11814377,0.05,0,7
+22,7,Kim Fields,Actor/Actress,26.0,0.1025,0.10242758,0.08,1,7
+7,1,Kim Kardashian,TV Personality,18.5,0.0749,0.07389408,0.05,0,2
+7,2,Kim Kardashian,TV Personality,17.0,0.0672,0.06683237,0.08,1,2
+21,1,Kim Zolciak-Biermann,TV Personality,12.0,0.0737,0.072066106,0.05,0,98
+21,2,Kim Zolciak-Biermann,TV Personality,18.5,0.0739,0.07682984,0.05,0,98
+12,1,Kirstie Alley,Actor/Actress,23.0,0.0974,0.09835781,0.05,0,99
+15,1,Kirstie Alley,Actor/Actress,19.0,0.0812,0.082108065,0.05,0,8
+12,2,Kirstie Alley,Actor/Actress,20.0,0.1027,0.098381765,0.05,0,99
+15,2,Kirstie Alley,Actor/Actress,21.0,0.089,0.08886119,0.05,0,8
+12,3,Kirstie Alley,Actor/Actress,21.0,0.1076,0.10623426,0.05,0,99
+15,3,Kirstie Alley,Actor/Actress,24.0,0.0932,0.097648114,0.05,0,8
+12,4,Kirstie Alley,Actor/Actress,22.0,0.1168,0.118021905,0.05,0,99
+15,4,Kirstie Alley,Actor/Actress,30.0,0.1148,0.11200886,0.05,0,8
+12,5,Kirstie Alley,Actor/Actress,23.0,0.126,0.13137776,0.05,0,99
+15,5,Kirstie Alley,Actor/Actress,26.25,0.135,0.12816758,0.05,0,8
+12,6,Kirstie Alley,Actor/Actress,26.0,0.1525,0.1541398,0.05,0,99
+15,6,Kirstie Alley,Actor/Actress,27.5,0.1354,0.13221844,0.05,0,8
+12,7,Kirstie Alley,Actor/Actress,30.0,0.1742,0.17948292,0.05,0,99
+15,7,Kirstie Alley,Actor/Actress,27.999899999999997,0.1551,0.15196575,0.05,0,8
+12,8,Kirstie Alley,Actor/Actress,26.5,0.2055,0.2055003,0.05,0,99
+15,8,Kirstie Alley,Actor/Actress,25.5,0.122,0.11938845,0.08,1,8
+12,9,Kirstie Alley,Actor/Actress,27.0,0.2653,0.26426506,0.05,0,99
+12,10,Kirstie Alley,Actor/Actress,27.999899999999997,0.3522,0.35924986,0.05,0,99
+6,1,Kristi Yamaguchi,Athlete,27.0,0.0833,0.08048477,0.05,0,99
+6,2,Kristi Yamaguchi,Athlete,27.0,0.0836,0.08127451,0.05,0,99
+6,3,Kristi Yamaguchi,Athlete,27.0,0.0997,0.09491419,0.05,0,99
+6,4,Kristi Yamaguchi,Athlete,29.0,0.1121,0.112833075,0.05,0,99
+6,5,Kristi Yamaguchi,Athlete,29.0,0.1227,0.12678123,0.05,0,99
+6,6,Kristi Yamaguchi,Athlete,30.0,0.1436,0.14192691,0.05,0,99
+6,7,Kristi Yamaguchi,Athlete,27.0,0.1667,0.16349548,0.05,0,99
+6,8,Kristi Yamaguchi,Athlete,27.5,0.2049,0.20182304,0.05,0,99
+6,9,Kristi Yamaguchi,Athlete,28.5,0.2627,0.26408714,0.05,0,99
+6,10,Kristi Yamaguchi,Athlete,30.0,0.2774,0.30447662,0.05,0,99
+13,1,Kristin Cavallari,TV Personality,19.0,0.0806,0.08048263,0.05,0,3
+13,2,Kristin Cavallari,TV Personality,22.0,0.0877,0.08979638,0.05,0,3
+13,3,Kristin Cavallari,TV Personality,24.0,0.0769,0.07855492,0.08,1,3
+11,1,Kurt Warner,Athlete,19.0,0.0811,0.08265121,0.05,0,8
+11,2,Kurt Warner,Athlete,21.0,0.0877,0.09051295,0.05,0,8
+11,3,Kurt Warner,Athlete,23.0,0.0955,0.09934359,0.05,0,8
+11,4,Kurt Warner,Athlete,17.0,0.1101,0.10881967,0.05,0,8
+11,5,Kurt Warner,Athlete,24.0,0.1226,0.12217958,0.05,0,8
+11,6,Kurt Warner,Athlete,21.9999,0.1436,0.14145224,0.05,0,8
+11,7,Kurt Warner,Athlete,35.0,0.1658,0.16679971,0.05,0,8
+11,8,Kurt Warner,Athlete,24.0,0.1623,0.16077308,0.08,1,8
+11,1,Kyle Massey,Actor/Actress,23.0,0.0882,0.09024477,0.05,0,99
+11,2,Kyle Massey,Actor/Actress,22.0,0.0987,0.09829915,0.05,0,99
+11,3,Kyle Massey,Actor/Actress,23.0,0.1069,0.10560821,0.05,0,99
+11,4,Kyle Massey,Actor/Actress,20.0,0.1176,0.11472324,0.05,0,99
+11,5,Kyle Massey,Actor/Actress,20.0,0.136,0.13175328,0.05,0,99
+11,6,Kyle Massey,Actor/Actress,29.999899999999997,0.1507,0.15130883,0.05,0,99
+11,7,Kyle Massey,Actor/Actress,33.5,0.1724,0.17583998,0.05,0,99
+11,8,Kyle Massey,Actor/Actress,28.0,0.2095,0.21336159,0.05,0,99
+11,9,Kyle Massey,Actor/Actress,29.0,0.2699,0.27343163,0.05,0,99
+11,10,Kyle Massey,Actor/Actress,27.333199999999998,0.3694,0.36549243,0.05,0,99
+4,1,Laila Ali,Athlete,23.0,0.0933,0.09199077,0.05,0,99
+4,2,Laila Ali,Athlete,27.0,0.0958,0.09199459,0.05,0,99
+4,3,Laila Ali,Athlete,21.0,0.103,0.1005917,0.05,0,99
+4,4,Laila Ali,Athlete,21.0,0.1135,0.10964984,0.05,0,99
+4,5,Laila Ali,Athlete,28.0,0.1217,0.12491988,0.05,0,99
+4,6,Laila Ali,Athlete,28.0,0.1448,0.1432426,0.05,0,99
+4,7,Laila Ali,Athlete,29.5,0.1634,0.16681716,0.05,0,99
+4,8,Laila Ali,Athlete,26.5,0.2022,0.20619904,0.05,0,99
+4,9,Laila Ali,Athlete,30.0,0.2582,0.2560891,0.05,0,99
+4,10,Laila Ali,Athlete,28.333200000000005,0.2861,0.29847574,0.05,0,99
+28,1,Lamar Odom,Athlete,11.0,0.0855,0.08374099,0.05,0,4
+28,2,Lamar Odom,Athlete,12.0,0.0865,0.08643483,0.05,0,4
+28,3,Lamar Odom,Athlete,12.0,0.1038,0.099341646,0.05,0,4
+28,4,Lamar Odom,Athlete,20.0,0.0439,0.04892986,0.08,1,4
+7,1,Lance Bass,Singer/Rapper,21.5,0.0875,0.09041815,0.05,0,99
+7,2,Lance Bass,Singer/Rapper,20.0,0.0994,0.10307531,0.05,0,99
+7,3,Lance Bass,Singer/Rapper,22.0,0.1248,0.12093534,0.05,0,99
+7,4,Lance Bass,Singer/Rapper,26.0,0.1227,0.1233222,0.05,0,99
+7,5,Lance Bass,Singer/Rapper,21.0,0.1421,0.13981701,0.05,0,99
+7,6,Lance Bass,Singer/Rapper,27.0,0.1624,0.15766594,0.05,0,99
+7,7,Lance Bass,Singer/Rapper,25.0,0.1892,0.1878096,0.05,0,99
+7,8,Lance Bass,Singer/Rapper,25.0,0.2244,0.21762976,0.05,0,99
+7,9,Lance Bass,Singer/Rapper,28.5,0.28,0.28572524,0.05,0,99
+7,10,Lance Bass,Singer/Rapper,27.5,0.3903,0.41311395,0.05,0,99
+28,1,Lauren Alaina,Singer/Rapper,19.0,0.0928,0.09297012,0.05,0,99
+28,2,Lauren Alaina,Singer/Rapper,19.0,0.0915,0.09461884,0.05,0,99
+28,3,Lauren Alaina,Singer/Rapper,20.0,0.1079,0.10829642,0.05,0,99
+28,4,Lauren Alaina,Singer/Rapper,32.0,0.115,0.11442515,0.05,0,99
+28,5,Lauren Alaina,Singer/Rapper,23.0,0.1221,0.12133399,0.05,0,99
+28,6,Lauren Alaina,Singer/Rapper,26.0,0.1226,0.12455624,0.05,0,99
+28,7,Lauren Alaina,Singer/Rapper,27.0,0.1328,0.13624373,0.05,0,99
+28,8,Lauren Alaina,Singer/Rapper,24.0,0.1524,0.15371539,0.05,0,99
+28,9,Lauren Alaina,Singer/Rapper,35.0,0.1796,0.17808633,0.05,0,99
+28,10,Lauren Alaina,Singer/Rapper,27.0,0.2158,0.21534207,0.05,0,99
+28,11,Lauren Alaina,Singer/Rapper,28.5,0.2714,0.26959306,0.05,0,99
+34,1,Lauren Jauregui,Singer/Rapper,13.0,0.0817,0.07701006,0.05,0,3
+34,2,Lauren Jauregui,Singer/Rapper,21.0,0.084,0.084666245,0.05,0,3
+34,3,Lauren Jauregui,Singer/Rapper,18.0,0.0302,0.031204643,0.08,1,3
+23,1,Laurie Hernandez,Athlete,31.0,0.0786,0.07721203,0.05,0,99
+23,2,Laurie Hernandez,Athlete,32.0,0.0785,0.07821733,0.05,0,99
+23,3,Laurie Hernandez,Athlete,31.0,0.0838,0.08672863,0.05,0,99
+23,4,Laurie Hernandez,Athlete,30.0,0.0912,0.09423872,0.05,0,99
+23,5,Laurie Hernandez,Athlete,25.0,0.1213,0.11339753,0.05,0,99
+23,6,Laurie Hernandez,Athlete,37.0,0.1149,0.11386947,0.05,0,99
+23,7,Laurie Hernandez,Athlete,34.5,0.1336,0.12884825,0.05,0,99
+23,8,Laurie Hernandez,Athlete,33.0,0.1494,0.14853385,0.05,0,99
+23,9,Laurie Hernandez,Athlete,40.0,0.1734,0.17230302,0.05,0,99
+23,10,Laurie Hernandez,Athlete,30.0,0.2047,0.19225146,0.05,0,99
+23,11,Laurie Hernandez,Athlete,39.333200000000005,0.2609,0.26138157,0.05,0,99
+8,1,Lawrence Taylor,Athlete,16.0,0.0757,0.075639464,0.05,0,7
+8,2,Lawrence Taylor,Athlete,20.0,0.0728,0.07675182,0.05,0,7
+8,3,Lawrence Taylor,Athlete,20.0,0.0832,0.085465334,0.05,0,7
+8,4,Lawrence Taylor,Athlete,19.0,0.093,0.09263364,0.05,0,7
+8,5,Lawrence Taylor,Athlete,20.0,0.1107,0.109697975,0.05,0,7
+8,6,Lawrence Taylor,Athlete,22.0,0.133,0.12826091,0.05,0,7
+8,7,Lawrence Taylor,Athlete,21.0,0.1157,0.116911456,0.08,1,7
+19,1,Lea Thompson,Actor/Actress,32.0,0.0848,0.085987456,0.05,0,9
+19,2,Lea Thompson,Actor/Actress,35.0,0.0917,0.09310896,0.05,0,9
+19,3,Lea Thompson,Actor/Actress,31.0,0.1049,0.106586106,0.05,0,9
+19,4,Lea Thompson,Actor/Actress,39.0,0.1116,0.10559781,0.05,0,9
+19,5,Lea Thompson,Actor/Actress,34.0,0.1231,0.12417524,0.05,0,9
+19,6,Lea Thompson,Actor/Actress,32.0,0.1246,0.12275589,0.05,0,9
+19,7,Lea Thompson,Actor/Actress,35.0,0.1387,0.13539664,0.05,0,9
+19,8,Lea Thompson,Actor/Actress,32.0,0.1608,0.15922707,0.05,0,9
+19,9,Lea Thompson,Actor/Actress,35.0,0.1341,0.13403809,0.08,1,9
+17,1,Leah Remini,Actor/Actress,21.0,0.0875,0.08724083,0.05,0,10
+17,2,Leah Remini,Actor/Actress,24.0,0.0849,0.087447375,0.05,0,10
+17,3,Leah Remini,Actor/Actress,24.0,0.0944,0.0942482,0.05,0,10
+17,4,Leah Remini,Actor/Actress,24.0,0.1031,0.104074314,0.05,0,10
+17,5,Leah Remini,Actor/Actress,22.0,0.1186,0.11547365,0.05,0,10
+17,6,Leah Remini,Actor/Actress,27.999899999999997,0.1376,0.12934649,0.05,0,10
+17,7,Leah Remini,Actor/Actress,26.5,0.1288,0.12768517,0.05,0,10
+17,8,Leah Remini,Actor/Actress,28.0,0.1574,0.1510721,0.05,0,10
+17,9,Leah Remini,Actor/Actress,27.0,0.1749,0.17631005,0.05,0,10
+17,10,Leah Remini,Actor/Actress,32.5,0.1678,0.16272764,0.08,1,10
+4,1,Leeza Gibbons,TV Personality,15.0,0.0861,0.08700327,0.05,0,4
+4,2,Leeza Gibbons,TV Personality,21.0,0.0855,0.08808288,0.05,0,4
+4,3,Leeza Gibbons,TV Personality,24.0,0.0908,0.096489154,0.05,0,4
+4,4,Leeza Gibbons,TV Personality,16.0,0.0831,0.0835461,0.08,1,4
+32,1,Lele Pons,Social Media Personality,19.0,0.0735,0.07230274,0.05,0,7
+32,2,Lele Pons,Social Media Personality,21.0,0.0803,0.07902029,0.05,0,7
+32,3,Lele Pons,Social Media Personality,27.0,0.087,0.08456093,0.05,0,7
+32,4,Lele Pons,Social Media Personality,22.0,0.0946,0.091286935,0.05,0,7
+32,5,Lele Pons,Social Media Personality,24.0,0.1052,0.10186632,0.05,0,7
+32,6,Lele Pons,Social Media Personality,37.0,0.1148,0.112274304,0.05,0,7
+32,7,Lele Pons,Social Media Personality,36.5,0.0666,0.0686115,0.08,1,7
+8,1,Lil' Kim,Singer/Rapper,21.0,0.0849,0.085997276,0.05,0,9
+8,2,Lil' Kim,Singer/Rapper,23.0,0.0854,0.087877564,0.05,0,9
+8,3,Lil' Kim,Singer/Rapper,25.0,0.0952,0.09714784,0.05,0,9
+8,4,Lil' Kim,Singer/Rapper,27.0,0.1054,0.10548485,0.05,0,9
+8,5,Lil' Kim,Singer/Rapper,26.0,0.1219,0.12199771,0.05,0,9
+8,6,Lil' Kim,Singer/Rapper,28.0,0.1384,0.13884456,0.05,0,9
+8,7,Lil' Kim,Singer/Rapper,26.0,0.1565,0.15461816,0.05,0,9
+8,8,Lil' Kim,Singer/Rapper,28.0,0.1869,0.18582812,0.05,0,9
+8,9,Lil' Kim,Singer/Rapper,26.0,0.1715,0.16836451,0.08,1,9
+25,1,Lindsey Stirling,Musician,22.0,0.082,0.07773721,0.05,0,99
+25,2,Lindsey Stirling,Musician,22.5,0.0862,0.08326213,0.05,0,99
+25,3,Lindsey Stirling,Musician,27.0,0.0997,0.09738767,0.05,0,99
+25,4,Lindsey Stirling,Musician,26.0,0.0943,0.09722598,0.05,0,99
+25,5,Lindsey Stirling,Musician,28.0,0.1097,0.10573966,0.05,0,99
+25,6,Lindsey Stirling,Musician,40.0,0.1274,0.115159884,0.05,0,99
+25,7,Lindsey Stirling,Musician,25.5,0.1425,0.14256619,0.05,0,99
+25,8,Lindsey Stirling,Musician,27.0,0.1831,0.17973216,0.05,0,99
+25,9,Lindsey Stirling,Musician,28.5,0.2187,0.21652488,0.05,0,99
+25,10,Lindsey Stirling,Musician,40.0,0.2681,0.2687156,0.05,0,99
+2,1,Lisa Rinna,Actor/Actress,19.0,0.105,0.105816595,0.05,0,7
+2,2,Lisa Rinna,Actor/Actress,20.0,0.1176,0.116645515,0.05,0,7
+2,3,Lisa Rinna,Actor/Actress,25.0,0.1309,0.13113812,0.05,0,7
+2,4,Lisa Rinna,Actor/Actress,26.0,0.1526,0.15394038,0.05,0,7
+2,5,Lisa Rinna,Actor/Actress,25.0,0.1787,0.17878135,0.05,0,7
+2,6,Lisa Rinna,Actor/Actress,27.0,0.2158,0.21712346,0.05,0,7
+2,7,Lisa Rinna,Actor/Actress,26.5,0.1829,0.19678247,0.08,1,7
+16,1,Lisa Vanderpump,TV Personality,18.0,0.0793,0.07930484,0.05,0,4
+16,2,Lisa Vanderpump,TV Personality,18.0,0.0762,0.07923084,0.05,0,4
+16,3,Lisa Vanderpump,TV Personality,21.0,0.0877,0.08903464,0.05,0,4
+16,4,Lisa Vanderpump,TV Personality,18.0,0.0774,0.078474276,0.08,1,4
+19,1,Lolo Jones,Athlete,22.0,0.0582,0.0666944,0.08,1,1
+9,1,Louie Vito,Athlete,26.9998,0.0621,0.060066827,0.05,0,6
+9,2,Louie Vito,Athlete,19.0,0.0667,0.06638304,0.05,0,6
+9,3,Louie Vito,Athlete,20.0,0.0716,0.07428618,0.05,0,6
+9,4,Louie Vito,Athlete,16.0,0.0921,0.08700376,0.05,0,6
+9,5,Louie Vito,Athlete,22.0,0.1028,0.09760088,0.05,0,6
+9,6,Louie Vito,Athlete,24.0,0.0894,0.08813689,0.08,1,6
+9,1,Macy Gray,Singer/Rapper,18.9999,0.0499,0.05775194,0.08,1,1
+11,1,Margaret Cho,Comedian,15.0,0.0805,0.07411785,0.05,0,3
+11,2,Margaret Cho,Comedian,18.0,0.0877,0.08556264,0.05,0,3
+11,3,Margaret Cho,Comedian,18.0,0.0788,0.0769205,0.08,1,3
+14,1,Maria Menounos,TV Personality,21.0,0.0623,0.07442873,0.05,0,9
+14,2,Maria Menounos,TV Personality,25.0,0.0795,0.07733721,0.05,0,9
+14,3,Maria Menounos,TV Personality,27.0,0.084,0.08551701,0.05,0,9
+14,4,Maria Menounos,TV Personality,26.0,0.0928,0.09650647,0.05,0,9
+14,5,Maria Menounos,TV Personality,27.0,0.1071,0.107723095,0.05,0,9
+14,6,Maria Menounos,TV Personality,29.999899999999997,0.1233,0.12072705,0.05,0,9
+14,7,Maria Menounos,TV Personality,28.5,0.1384,0.13975865,0.05,0,9
+14,8,Maria Menounos,TV Personality,26.5,0.171,0.17399809,0.05,0,9
+14,9,Maria Menounos,TV Personality,29.5,0.2053,0.20481676,0.08,1,9
+5,1,Marie Osmond,Singer/Rapper,21.0,0.0926,0.094285145,0.05,0,99
+5,2,Marie Osmond,Singer/Rapper,24.0,0.1047,0.102005385,0.05,0,99
+5,3,Marie Osmond,Singer/Rapper,26.0,0.1078,0.11524424,0.05,0,99
+5,4,Marie Osmond,Singer/Rapper,26.0,0.1215,0.1283124,0.05,0,99
+5,5,Marie Osmond,Singer/Rapper,21.0,0.143,0.13937873,0.05,0,99
+5,6,Marie Osmond,Singer/Rapper,23.0,0.1601,0.15220614,0.05,0,99
+5,7,Marie Osmond,Singer/Rapper,26.0,0.1879,0.1805632,0.05,0,99
+5,8,Marie Osmond,Singer/Rapper,24.5,0.2186,0.22221453,0.05,0,99
+5,9,Marie Osmond,Singer/Rapper,28.0,0.2731,0.27245772,0.05,0,99
+5,10,Marie Osmond,Singer/Rapper,23.0,0.3684,0.36949947,0.05,0,99
+23,1,Marilu Henner,Actor/Actress,27.0,0.0814,0.08105191,0.05,0,9
+23,2,Marilu Henner,Actor/Actress,27.0,0.0816,0.08116349,0.05,0,9
+23,3,Marilu Henner,Actor/Actress,28.0,0.0878,0.08923427,0.05,0,9
+23,4,Marilu Henner,Actor/Actress,21.0,0.1023,0.10083675,0.05,0,9
+23,5,Marilu Henner,Actor/Actress,27.0,0.1133,0.12181075,0.05,0,9
+23,6,Marilu Henner,Actor/Actress,34.0,0.1202,0.11943123,0.05,0,9
+23,7,Marilu Henner,Actor/Actress,32.0,0.1402,0.13397853,0.05,0,9
+23,8,Marilu Henner,Actor/Actress,23.0,0.1583,0.15324916,0.05,0,9
+23,9,Marilu Henner,Actor/Actress,36.0,0.1353,0.13219932,0.08,1,9
+6,1,Mario,Singer/Rapper,24.0,0.092,0.094739325,0.05,0,8
+6,2,Mario,Singer/Rapper,26.0,0.093,0.09457067,0.05,0,8
+6,3,Mario,Singer/Rapper,21.0,0.113,0.11341735,0.05,0,8
+6,4,Mario,Singer/Rapper,24.0,0.123,0.120380744,0.05,0,8
+6,5,Mario,Singer/Rapper,27.0,0.1374,0.13373385,0.05,0,8
+6,6,Mario,Singer/Rapper,28.0,0.1477,0.1546273,0.05,0,8
+6,7,Mario,Singer/Rapper,25.5,0.1829,0.18406314,0.05,0,8
+6,8,Mario,Singer/Rapper,26.5,0.1707,0.17163266,0.08,1,8
+3,1,Mario Lopez,Actor/Actress,26.0,0.095,0.099615976,0.05,0,99
+3,2,Mario Lopez,Actor/Actress,21.0,0.104,0.10538547,0.05,0,99
+3,3,Mario Lopez,Actor/Actress,22.0,0.1094,0.113116965,0.05,0,99
+3,4,Mario Lopez,Actor/Actress,29.0,0.1225,0.12819488,0.05,0,99
+3,5,Mario Lopez,Actor/Actress,27.0,0.1414,0.15857759,0.05,0,99
+3,6,Mario Lopez,Actor/Actress,28.0,0.212,0.20629783,0.05,0,99
+3,7,Mario Lopez,Actor/Actress,28.0,0.2146,0.21761274,0.05,0,99
+3,8,Mario Lopez,Actor/Actress,28.5,0.2722,0.27637264,0.05,0,99
+3,9,Mario Lopez,Actor/Actress,29.5,0.3504,0.34779984,0.05,0,99
+3,10,Mario Lopez,Actor/Actress,29.666600000000003,,0.5370996,0.05,0,99
+6,1,Marissa Jaret Winokur,Actor/Actress,18.0,0.0884,0.086838014,0.05,0,9
+6,2,Marissa Jaret Winokur,Actor/Actress,21.0,0.0838,0.08974926,0.05,0,9
+6,3,Marissa Jaret Winokur,Actor/Actress,19.0,0.1012,0.101864815,0.05,0,9
+6,4,Marissa Jaret Winokur,Actor/Actress,24.0,0.1148,0.11167624,0.05,0,9
+6,5,Marissa Jaret Winokur,Actor/Actress,24.0,0.1283,0.1262876,0.05,0,9
+6,6,Marissa Jaret Winokur,Actor/Actress,26.0,0.1523,0.148824,0.05,0,9
+6,7,Marissa Jaret Winokur,Actor/Actress,26.0,0.1734,0.17237513,0.05,0,9
+6,8,Marissa Jaret Winokur,Actor/Actress,25.0,0.2057,0.20917265,0.05,0,9
+6,9,Marissa Jaret Winokur,Actor/Actress,26.0,0.21,0.2116226,0.08,1,9
+5,1,Mark Cuban,TV Personality,21.0,0.0786,0.07918178,0.05,0,5
+5,2,Mark Cuban,TV Personality,18.0,0.0805,0.08516921,0.05,0,5
+5,3,Mark Cuban,TV Personality,20.0,0.091,0.094036676,0.05,0,5
+5,4,Mark Cuban,TV Personality,22.0,0.1042,0.10439179,0.05,0,5
+5,5,Mark Cuban,TV Personality,21.0,0.0897,0.09262965,0.08,1,5
+9,1,Mark Dacascos,Actor/Actress,28.9998,0.0661,0.07876093,0.05,0,7
+9,2,Mark Dacascos,Actor/Actress,21.0,0.0797,0.0792627,0.05,0,7
+9,3,Mark Dacascos,Actor/Actress,18.0,0.082,0.08101629,0.05,0,7
+9,4,Mark Dacascos,Actor/Actress,22.0,0.0949,0.0932552,0.05,0,7
+9,5,Mark Dacascos,Actor/Actress,26.0,0.1056,0.10743011,0.05,0,7
+9,6,Mark Dacascos,Actor/Actress,32.0,0.1264,0.12184799,0.05,0,7
+9,7,Mark Dacascos,Actor/Actress,21.5,0.1226,0.118567936,0.08,1,7
+22,1,Marla Maples,TV Personality,21.0,0.0799,0.07981148,0.05,0,4
+22,2,Marla Maples,TV Personality,20.0,0.0779,0.08168549,0.05,0,4
+22,3,Marla Maples,TV Personality,21.0,0.0885,0.089090124,0.05,0,4
+22,4,Marla Maples,TV Personality,28.0,0.0736,0.074841045,0.08,1,4
+6,1,Marlee Matlin,Actor/Actress,22.0,0.0888,0.08762498,0.05,0,6
+6,2,Marlee Matlin,Actor/Actress,24.0,0.0876,0.09122588,0.05,0,6
+6,3,Marlee Matlin,Actor/Actress,21.0,0.0998,0.10512449,0.05,0,6
+6,4,Marlee Matlin,Actor/Actress,24.0,0.1146,0.11507367,0.05,0,6
+6,5,Marlee Matlin,Actor/Actress,22.0,0.1288,0.12853248,0.05,0,6
+6,6,Marlee Matlin,Actor/Actress,21.0,0.1196,0.11413055,0.08,1,6
+30,1,Martin Kove,Actor/Actress,13.0,0.0741,0.07081037,0.05,0,2
+30,2,Martin Kove,Actor/Actress,15.0,0.0153,0.017536948,0.08,1,2
+14,1,Martina Navratilova,Athlete,20.0,0.0799,0.08004465,0.05,0,2
+14,2,Martina Navratilova,Athlete,17.0,0.0662,0.06305132,0.08,1,2
+27,1,Mary Lou Retton,Athlete,20.0,0.0782,0.08053465,0.05,0,6
+27,2,Mary Lou Retton,Athlete,23.0,0.0816,0.086285785,0.05,0,6
+27,3,Mary Lou Retton,Athlete,24.0,0.0929,0.09349445,0.05,0,6
+27,4,Mary Lou Retton,Athlete,26.0,0.1021,0.106243856,0.05,0,6
+27,5,Mary Lou Retton,Athlete,25.0,0.1201,0.11420594,0.05,0,6
+27,6,Mary Lou Retton,Athlete,24.0,0.0837,0.08351342,0.08,1,6
+28,1,Mary Wilson,Singer/Rapper,17.0,0.093,0.09217324,0.05,0,2
+28,2,Mary Wilson,Singer/Rapper,15.0,0.0301,0.03727228,0.08,1,2
+2,1,Master P,Singer/Rapper,12.0,0.1116,0.1105063,0.05,0,4
+2,2,Master P,Singer/Rapper,16.0,0.1214,0.12096775,0.05,0,4
+2,3,Master P,Singer/Rapper,14.0,0.1398,0.13689025,0.05,0,4
+2,4,Master P,Singer/Rapper,8.0,0.0847,0.0947312,0.08,1,4
+30,1,Matt James,Athlete,24.0,0.0678,0.07110196,0.05,0,4
+30,2,Matt James,Athlete,22.0,0.0686,0.072448224,0.05,0,4
+30,3,Matt James,Athlete,20.0,0.0728,0.07835661,0.05,0,4
+30,4,Matt James,Athlete,28.5,0.0287,0.02985383,0.08,1,4
+32,1,Matt Walsh,Comedian,12.0,0.0194,0.019032309,0.08,1,1
+23,1,Maureen McCormick,Actor/Actress,22.0,0.0821,0.08246635,0.05,0,7
+23,2,Maureen McCormick,Actor/Actress,26.0,0.0877,0.08422606,0.05,0,7
+23,3,Maureen McCormick,Actor/Actress,28.0,0.0918,0.08868414,0.05,0,7
+23,4,Maureen McCormick,Actor/Actress,24.0,0.0988,0.0998703,0.05,0,7
+23,5,Maureen McCormick,Actor/Actress,24.0,0.1176,0.11640187,0.05,0,7
+23,6,Maureen McCormick,Actor/Actress,31.0,0.1152,0.11852062,0.05,0,7
+23,7,Maureen McCormick,Actor/Actress,33.0,0.097,0.100520626,0.08,1,7
+7,1,Maurice Greene,Athlete,19.5,0.0767,0.07610443,0.05,0,8
+7,2,Maurice Greene,Athlete,19.0,0.0887,0.08662841,0.05,0,8
+7,3,Maurice Greene,Athlete,24.0,0.1053,0.105974175,0.05,0,8
+7,4,Maurice Greene,Athlete,20.0,0.111,0.10756493,0.05,0,8
+7,5,Maurice Greene,Athlete,27.0,0.1229,0.12533596,0.05,0,8
+7,6,Maurice Greene,Athlete,21.0,0.1397,0.14127405,0.05,0,8
+7,7,Maurice Greene,Athlete,25.0,0.1657,0.16758862,0.05,0,8
+7,8,Maurice Greene,Athlete,24.0,0.1598,0.16091247,0.08,1,8
+32,1,Mauricio Umansky,TV Personality,15.0,0.0735,0.073858246,0.05,0,6
+32,2,Mauricio Umansky,TV Personality,12.0,0.0803,0.07921231,0.05,0,6
+32,3,Mauricio Umansky,TV Personality,23.0,0.087,0.08423568,0.05,0,6
+32,4,Mauricio Umansky,TV Personality,19.0,0.0946,0.09216895,0.05,0,6
+32,5,Mauricio Umansky,TV Personality,24.0,0.1052,0.102168806,0.05,0,6
+32,6,Mauricio Umansky,TV Personality,33.0,0.0534,0.05627535,0.08,1,6
+5,1,Mel B,Singer/Rapper,24.0,0.0928,0.09578232,0.05,0,99
+5,2,Mel B,Singer/Rapper,23.0,0.1036,0.103417106,0.05,0,99
+5,3,Mel B,Singer/Rapper,27.0,0.1105,0.11291141,0.05,0,99
+5,4,Mel B,Singer/Rapper,26.0,0.1286,0.12478024,0.05,0,99
+5,5,Mel B,Singer/Rapper,29.0,0.1415,0.13434877,0.05,0,99
+5,6,Mel B,Singer/Rapper,30.0,0.1569,0.15706879,0.05,0,99
+5,7,Mel B,Singer/Rapper,27.0,0.1795,0.17871301,0.05,0,99
+5,8,Mel B,Singer/Rapper,28.0,0.2222,0.21373625,0.05,0,99
+5,9,Mel B,Singer/Rapper,30.0,0.2865,0.27722296,0.05,0,99
+5,10,Mel B,Singer/Rapper,28.333199999999998,0.3755,0.37105623,0.05,0,99
+30,1,Melanie C,Singer/Rapper,27.0,0.0777,0.07282958,0.05,0,5
+30,2,Melanie C,Singer/Rapper,30.0,0.0746,0.07323312,0.05,0,5
+30,3,Melanie C,Singer/Rapper,22.0,0.0832,0.08271508,0.05,0,5
+30,4,Melanie C,Singer/Rapper,33.0,0.0871,0.09393923,0.05,0,5
+30,5,Melanie C,Singer/Rapper,36.0,0.0376,0.039420668,0.08,1,5
+14,1,Melissa Gilbert,Actor/Actress,20.0,0.0874,0.084529094,0.05,0,8
+14,2,Melissa Gilbert,Actor/Actress,20.0,0.0841,0.08604188,0.05,0,8
+14,3,Melissa Gilbert,Actor/Actress,24.0,0.0937,0.09290376,0.05,0,8
+14,4,Melissa Gilbert,Actor/Actress,22.0,0.1041,0.10157882,0.05,0,8
+14,5,Melissa Gilbert,Actor/Actress,21.0,0.1107,0.113667175,0.05,0,8
+14,6,Melissa Gilbert,Actor/Actress,30.0,0.1331,0.1307175,0.05,0,8
+14,7,Melissa Gilbert,Actor/Actress,23.5,0.1464,0.14487667,0.05,0,8
+14,8,Melissa Gilbert,Actor/Actress,25.5,0.1424,0.14024366,0.08,1,8
+9,1,Melissa Joan Hart,Actor/Actress,24.0,0.0665,0.06791101,0.05,0,6
+9,2,Melissa Joan Hart,Actor/Actress,19.0,0.0762,0.07610154,0.05,0,6
+9,3,Melissa Joan Hart,Actor/Actress,19.0,0.0808,0.079382166,0.05,0,6
+9,4,Melissa Joan Hart,Actor/Actress,28.0,0.0955,0.094611205,0.05,0,6
+9,5,Melissa Joan Hart,Actor/Actress,23.0,0.101,0.10351036,0.05,0,6
+9,6,Melissa Joan Hart,Actor/Actress,23.9999,0.0894,0.09291827,0.08,1,6
+8,1,Melissa Rycroft,TV Personality,23.0,0.0712,0.071915045,0.05,0,99
+15,1,Melissa Rycroft,TV Personality,21.0,0.0728,0.07357349,0.05,0,99
+8,2,Melissa Rycroft,TV Personality,26.0,0.0728,0.07313231,0.05,0,99
+15,2,Melissa Rycroft,TV Personality,23.5,0.079,0.080740005,0.05,0,99
+8,3,Melissa Rycroft,TV Personality,27.0,0.0813,0.0807208,0.05,0,99
+15,3,Melissa Rycroft,TV Personality,27.0,0.0932,0.09049498,0.05,0,99
+8,4,Melissa Rycroft,TV Personality,29.0,0.0876,0.0869577,0.05,0,99
+15,4,Melissa Rycroft,TV Personality,37.0,0.1057,0.10509082,0.05,0,99
+8,5,Melissa Rycroft,TV Personality,25.0,0.1073,0.108543366,0.05,0,99
+15,5,Melissa Rycroft,TV Personality,28.25,0.1216,0.117557876,0.05,0,99
+8,6,Melissa Rycroft,TV Personality,27.0,0.1234,0.11889323,0.05,0,99
+15,6,Melissa Rycroft,TV Personality,29.5,0.1222,0.12526292,0.05,0,99
+8,7,Melissa Rycroft,TV Personality,29.0,0.1389,0.14098182,0.05,0,99
+15,7,Melissa Rycroft,TV Personality,38.9999,0.1111,0.12496061,0.05,0,99
+8,8,Melissa Rycroft,TV Personality,23.0,0.1643,0.1593434,0.05,0,99
+15,8,Melissa Rycroft,TV Personality,30.0,0.1465,0.14504476,0.05,0,99
+8,9,Melissa Rycroft,TV Personality,28.5,0.206,0.20078197,0.05,0,99
+15,9,Melissa Rycroft,TV Personality,28.7777,0.2127,0.21520619,0.05,0,99
+8,10,Melissa Rycroft,TV Personality,27.5,0.2559,0.24661937,0.05,0,99
+15,10,Melissa Rycroft,TV Personality,29.333099999999998,0.3427,0.3477087,0.05,0,99
+8,11,Melissa Rycroft,TV Personality,28.5,0.2827,0.29306477,0.05,0,99
+30,1,Melora Hardin,Actor/Actress,26.0,0.0711,0.070241034,0.05,0,9
+30,2,Melora Hardin,Actor/Actress,27.0,0.071,0.07212042,0.05,0,9
+30,3,Melora Hardin,Actor/Actress,23.0,0.0785,0.076939,0.05,0,9
+30,4,Melora Hardin,Actor/Actress,36.5,0.0866,0.08721861,0.05,0,9
+30,5,Melora Hardin,Actor/Actress,36.0,0.0956,0.10036595,0.05,0,9
+30,6,Melora Hardin,Actor/Actress,34.0,0.1124,0.108907595,0.05,0,9
+30,7,Melora Hardin,Actor/Actress,38.0,0.1225,0.11786389,0.05,0,9
+30,8,Melora Hardin,Actor/Actress,42.0,0.1437,0.14106514,0.05,0,9
+30,9,Melora Hardin,Actor/Actress,36.0,0.1162,0.11967668,0.08,1,9
+18,1,Meryl Davis,Athlete,24.0,0.0839,0.08256511,0.05,0,99
+18,2,Meryl Davis,Athlete,25.0,0.0949,0.0912944,0.05,0,99
+18,3,Meryl Davis,Athlete,39.0,0.1116,0.114300355,0.05,0,99
+18,4,Meryl Davis,Athlete,39.0,0.1104,0.110936016,0.05,0,99
+18,5,Meryl Davis,Athlete,36.0,0.1143,0.114257276,0.05,0,99
+18,6,Meryl Davis,Athlete,40.0,0.1298,0.12670183,0.05,0,99
+18,7,Meryl Davis,Athlete,39.0,0.1461,0.14794804,0.05,0,99
+18,8,Meryl Davis,Athlete,36.0,0.167,0.1686197,0.05,0,99
+18,9,Meryl Davis,Athlete,40.0,0.2046,0.20355737,0.05,0,99
+18,10,Meryl Davis,Athlete,30.0,0.2596,0.2569957,0.05,0,99
+13,1,Metta World Peace (Ron),Athlete,14.0,0.0664,0.069883816,0.08,1,1
+11,1,Michael Bolton,Singer/Rapper,16.0,0.0912,0.08901783,0.05,0,2
+11,2,Michael Bolton,Singer/Rapper,12.0,0.073,0.069794476,0.08,1,2
+9,1,Michael Irvin,Athlete,19.0,0.0639,0.063138,0.05,0,7
+9,2,Michael Irvin,Athlete,20.0,0.0748,0.072601,0.05,0,7
+9,3,Michael Irvin,Athlete,14.0,0.081,0.07621475,0.05,0,7
+9,4,Michael Irvin,Athlete,16.0,0.0918,0.08932204,0.05,0,7
+9,5,Michael Irvin,Athlete,21.0,0.0997,0.0988308,0.05,0,7
+9,6,Michael Irvin,Athlete,21.9998,0.1111,0.1120896,0.05,0,7
+9,7,Michael Irvin,Athlete,23.5,0.1182,0.11850786,0.08,1,7
+20,1,Michael Sam,Athlete,26.0,0.0837,0.08479389,0.05,0,4
+20,2,Michael Sam,Athlete,28.0,0.0828,0.084718026,0.05,0,4
+20,3,Michael Sam,Athlete,24.0,0.0905,0.091050714,0.05,0,4
+20,4,Michael Sam,Athlete,30.0,0.0765,0.07774786,0.08,1,4
+19,1,Michael Waltrip,Racing Driver,25.0,0.0699,0.06657202,0.05,0,8
+19,2,Michael Waltrip,Racing Driver,24.0,0.0712,0.07167236,0.05,0,8
+19,3,Michael Waltrip,Racing Driver,28.0,0.083,0.081818074,0.05,0,8
+19,4,Michael Waltrip,Racing Driver,25.0,0.0891,0.087964155,0.05,0,8
+19,5,Michael Waltrip,Racing Driver,20.0,0.0786,0.0909004,0.05,0,8
+19,6,Michael Waltrip,Racing Driver,30.0,0.1029,0.103149146,0.05,0,8
+19,7,Michael Waltrip,Racing Driver,28.0,0.1211,0.11825828,0.05,0,8
+19,8,Michael Waltrip,Racing Driver,25.0,0.1056,0.104896456,0.08,1,8
+30,1,"Mike ""The Miz"" Mizanin",Athlete,24.0,0.069,0.06973053,0.05,0,7
+30,2,"Mike ""The Miz"" Mizanin",Athlete,26.0,0.0686,0.071995236,0.05,0,7
+30,3,"Mike ""The Miz"" Mizanin",Athlete,22.0,0.0764,0.076988496,0.05,0,7
+30,4,"Mike ""The Miz"" Mizanin",Athlete,32.5,0.0851,0.086686246,0.05,0,7
+30,5,"Mike ""The Miz"" Mizanin",Athlete,32.0,0.0956,0.099710785,0.05,0,7
+30,6,"Mike ""The Miz"" Mizanin",Athlete,34.0,0.1045,0.10802303,0.05,0,7
+30,7,"Mike ""The Miz"" Mizanin",Athlete,32.0,0.054,0.05794013,0.08,1,7
+12,1,Mike Catherwood,Radio Personality,13.0,0.0647,0.072335035,0.05,0,2
+12,2,Mike Catherwood,Radio Personality,17.0,0.0674,0.06619079,0.08,1,2
+27,1,Milo Manheim,Actor/Actress,20.0,0.0825,0.08206374,0.05,0,99
+27,2,Milo Manheim,Actor/Actress,26.0,0.0845,0.088761546,0.05,0,99
+27,3,Milo Manheim,Actor/Actress,27.0,0.0927,0.094589114,0.05,0,99
+27,4,Milo Manheim,Actor/Actress,29.0,0.1111,0.10619532,0.05,0,99
+27,5,Milo Manheim,Actor/Actress,27.0,0.1244,0.12307627,0.05,0,99
+27,6,Milo Manheim,Actor/Actress,30.0,0.1202,0.12219249,0.05,0,99
+27,7,Milo Manheim,Actor/Actress,29.0,0.1463,0.14025672,0.05,0,99
+27,8,Milo Manheim,Actor/Actress,27.5,0.1987,0.19348197,0.05,0,99
+27,9,Milo Manheim,Actor/Actress,30.0,0.2982,0.27589744,0.05,0,99
+32,1,Mira Sorvino,Actor/Actress,17.0,0.0767,0.07759723,0.05,0,5
+32,2,Mira Sorvino,Actor/Actress,18.0,0.0805,0.08248375,0.05,0,5
+32,3,Mira Sorvino,Actor/Actress,26.0,0.087,0.089877784,0.05,0,5
+32,4,Mira Sorvino,Actor/Actress,21.0,0.0946,0.096654184,0.05,0,5
+32,5,Mira Sorvino,Actor/Actress,22.0,0.0455,0.048212904,0.08,1,5
+26,1,Mirai Nagasu,Athlete,23.0,0.104,0.102199465,0.05,0,3
+26,2,Mirai Nagasu,Athlete,37.0,0.1319,0.13587286,0.05,0,3
+26,3,Mirai Nagasu,Athlete,35.0,0.1517,0.1640489,0.08,1,3
+22,1,Mischa Barton,Actor/Actress,16.0,0.0923,0.08896894,0.05,0,3
+22,2,Mischa Barton,Actor/Actress,15.0,0.0929,0.090159215,0.05,0,3
+22,3,Mischa Barton,Actor/Actress,18.0,0.0688,0.07240814,0.08,1,3
+7,1,Misty May-Treanor,Athlete,21.0,0.0782,0.07880886,0.05,0,98
+7,2,Misty May-Treanor,Athlete,21.0,0.093,0.089326195,0.05,0,98
+29,1,Monica Aldama,TV Personality,19.0,0.0693,0.06690293,0.05,0,7
+29,2,Monica Aldama,TV Personality,16.0,0.069,0.06861872,0.05,0,7
+29,3,Monica Aldama,TV Personality,21.0,0.0744,0.073887445,0.05,0,7
+29,4,Monica Aldama,TV Personality,24.0,0.0809,0.07910326,0.05,0,7
+29,5,Monica Aldama,TV Personality,26.0,0.0878,0.08419426,0.05,0,7
+29,6,Monica Aldama,TV Personality,27.0,0.0946,0.094853446,0.05,0,7
+29,7,Monica Aldama,TV Personality,22.0,0.0442,0.051943988,0.08,1,7
+6,1,Monica Seles,Athlete,15.0,0.0838,0.081070006,0.05,0,2
+6,2,Monica Seles,Athlete,15.0,0.0667,0.06418069,0.08,1,2
+3,1,Monique Coleman,Actor/Actress,19.0,0.0952,0.09415629,0.05,0,8
+3,2,Monique Coleman,Actor/Actress,26.0,0.1056,0.10517376,0.05,0,8
+3,3,Monique Coleman,Actor/Actress,27.0,0.1201,0.11795088,0.05,0,8
+3,4,Monique Coleman,Actor/Actress,24.0,0.1306,0.12981763,0.05,0,8
+3,5,Monique Coleman,Actor/Actress,27.0,0.1509,0.1493843,0.05,0,8
+3,6,Monique Coleman,Actor/Actress,23.0,0.2205,0.2131021,0.05,0,8
+3,7,Monique Coleman,Actor/Actress,27.0,0.2228,0.21645114,0.05,0,8
+3,8,Monique Coleman,Actor/Actress,26.5,0.2103,0.20871396,0.08,1,8
+24,1,Mr. T,Actor/Actress,20.0,0.0876,0.08627051,0.05,0,4
+24,2,Mr. T,Actor/Actress,22.0,0.0868,0.08641955,0.05,0,4
+24,3,Mr. T,Actor/Actress,24.0,0.0973,0.0924206,0.05,0,4
+24,4,Mr. T,Actor/Actress,28.0,0.0802,0.074595466,0.08,1,4
+9,1,Mya,Singer/Rapper,30.999899999999997,0.0698,0.067167416,0.05,0,99
+9,2,Mya,Singer/Rapper,27.0,0.0852,0.08319327,0.05,0,99
+9,3,Mya,Singer/Rapper,27.0,0.0875,0.08595878,0.05,0,99
+9,4,Mya,Singer/Rapper,28.0,0.1008,0.1079366,0.05,0,99
+9,5,Mya,Singer/Rapper,27.0,0.1084,0.10862673,0.05,0,99
+9,6,Mya,Singer/Rapper,33.0,0.1229,0.12264862,0.05,0,99
+9,7,Mya,Singer/Rapper,24.5,0.1545,0.15624815,0.05,0,99
+9,8,Mya,Singer/Rapper,29.5,0.2166,0.20554484,0.05,0,99
+9,9,Mya,Singer/Rapper,28.9999,0.276,0.2803793,0.05,0,99
+9,10,Mya,Singer/Rapper,28.333199999999998,0.375,0.3756106,0.05,0,99
+13,1,Nancy Grace,TV Personality,16.0,0.0798,0.0788116,0.05,0,8
+13,2,Nancy Grace,TV Personality,21.0,0.089,0.08806871,0.05,0,8
+13,3,Nancy Grace,TV Personality,21.0,0.0974,0.09746884,0.05,0,8
+13,4,Nancy Grace,TV Personality,21.0,0.1104,0.10792892,0.05,0,8
+13,5,Nancy Grace,TV Personality,22.0,0.1237,0.12195635,0.05,0,8
+13,6,Nancy Grace,TV Personality,24.0,0.1385,0.13970271,0.05,0,8
+13,7,Nancy Grace,TV Personality,22.0,0.169,0.1669416,0.05,0,8
+13,8,Nancy Grace,TV Personality,22.0,0.1637,0.16579656,0.08,1,8
+24,1,Nancy Kerrigan,Athlete,28.0,0.0827,0.08268293,0.05,0,7
+24,2,Nancy Kerrigan,Athlete,28.0,0.0816,0.0825352,0.05,0,7
+24,3,Nancy Kerrigan,Athlete,33.0,0.089,0.09125188,0.05,0,7
+24,4,Nancy Kerrigan,Athlete,33.0,0.0963,0.10720385,0.05,0,7
+24,5,Nancy Kerrigan,Athlete,36.0,0.1145,0.11651813,0.05,0,7
+24,6,Nancy Kerrigan,Athlete,33.5,0.125,0.14219902,0.05,0,7
+24,7,Nancy Kerrigan,Athlete,36.0,0.1207,0.12879017,0.08,1,7
+27,1,Nancy McKeon,Actor/Actress,19.5,0.084,0.0825856,0.05,0,3
+27,2,Nancy McKeon,Actor/Actress,20.5,0.0883,0.08808841,0.05,0,3
+27,3,Nancy McKeon,Actor/Actress,22.0,0.0687,0.06853266,0.08,1,3
+20,1,Nastia Liukin,Athlete,30.0,0.0844,0.08396118,0.05,0,9
+20,2,Nastia Liukin,Athlete,34.0,0.0833,0.08575115,0.05,0,9
+20,3,Nastia Liukin,Athlete,34.0,0.0926,0.1037926,0.05,0,9
+20,4,Nastia Liukin,Athlete,36.0,0.0987,0.10185665,0.05,0,9
+20,5,Nastia Liukin,Athlete,38.0,0.1104,0.1135447,0.05,0,9
+20,6,Nastia Liukin,Athlete,36.5,0.1228,0.12791695,0.05,0,9
+20,7,Nastia Liukin,Athlete,41.0,0.1454,0.14970359,0.05,0,9
+20,8,Nastia Liukin,Athlete,38.0,0.1791,0.19562677,0.05,0,9
+20,9,Nastia Liukin,Athlete,40.0,0.1967,0.20276557,0.08,1,9
+9,1,Natalie Coughlin,Athlete,26.9998,0.0619,0.061094586,0.05,0,5
+9,2,Natalie Coughlin,Athlete,21.0,0.068,0.070193745,0.05,0,5
+9,3,Natalie Coughlin,Athlete,26.0,0.0723,0.078673325,0.05,0,5
+9,4,Natalie Coughlin,Athlete,24.0,0.0849,0.08636275,0.05,0,5
+9,5,Natalie Coughlin,Athlete,22.0,0.0772,0.076130964,0.08,1,5
+18,1,NeNe Leakes,TV Personality,21.0,0.0795,0.07788581,0.05,0,7
+18,2,NeNe Leakes,TV Personality,21.0,0.0838,0.08662012,0.05,0,7
+18,3,NeNe Leakes,TV Personality,31.0,0.1073,0.10003427,0.05,0,7
+18,4,NeNe Leakes,TV Personality,32.0,0.1014,0.09888111,0.05,0,7
+18,5,NeNe Leakes,TV Personality,36.0,0.1098,0.106971204,0.05,0,7
+18,6,NeNe Leakes,TV Personality,33.0,0.1213,0.12057872,0.05,0,7
+18,7,NeNe Leakes,TV Personality,33.0,0.1089,0.11182312,0.08,1,7
+29,1,Nelly,Singer/Rapper,16.0,0.0756,0.074093394,0.05,0,99
+29,2,Nelly,Singer/Rapper,18.0,0.0734,0.07447217,0.05,0,99
+29,3,Nelly,Singer/Rapper,18.0,0.0787,0.08105538,0.05,0,99
+29,4,Nelly,Singer/Rapper,21.0,0.0844,0.08645419,0.05,0,99
+29,5,Nelly,Singer/Rapper,24.0,0.0912,0.091443524,0.05,0,99
+29,6,Nelly,Singer/Rapper,24.0,0.1008,0.09870908,0.05,0,99
+29,7,Nelly,Singer/Rapper,27.0,0.1106,0.107656,0.05,0,99
+29,8,Nelly,Singer/Rapper,24.0,0.135,0.1338904,0.05,0,99
+29,9,Nelly,Singer/Rapper,24.0,0.1526,0.15277739,0.05,0,99
+29,10,Nelly,Singer/Rapper,28.0,0.1919,0.1928445,0.05,0,99
+29,11,Nelly,Singer/Rapper,28.5,0.2782,0.2682142,0.05,0,99
+29,1,Nev Schulman,Producer,20.0,0.0159,0.030359825,0.05,0,99
+29,2,Nev Schulman,Producer,21.0,0.069,0.065079845,0.05,0,99
+29,3,Nev Schulman,Producer,24.0,0.0744,0.07084822,0.05,0,99
+29,4,Nev Schulman,Producer,24.0,0.0809,0.07604339,0.05,0,99
+29,5,Nev Schulman,Producer,26.0,0.0878,0.08325604,0.05,0,99
+29,6,Nev Schulman,Producer,26.0,0.0946,0.09247369,0.05,0,99
+29,7,Nev Schulman,Producer,30.0,0.1036,0.10159147,0.05,0,99
+29,8,Nev Schulman,Producer,30.0,0.1318,0.1279911,0.05,0,99
+29,9,Nev Schulman,Producer,28.9998,0.1526,0.1504604,0.05,0,99
+29,10,Nev Schulman,Producer,30.0,0.1919,0.1892037,0.05,0,99
+29,11,Nev Schulman,Producer,30.0,0.1812,0.2316144,0.05,0,99
+21,1,Nick Carter,Singer/Rapper,24.0,0.0848,0.08534105,0.05,0,99
+21,2,Nick Carter,Singer/Rapper,22.5,0.0856,0.08724629,0.05,0,99
+21,3,Nick Carter,Singer/Rapper,36.0,0.1124,0.11879462,0.05,0,99
+21,4,Nick Carter,Singer/Rapper,27.0,0.1142,0.1180365,0.05,0,99
+21,5,Nick Carter,Singer/Rapper,35.0,0.1248,0.12290809,0.05,0,99
+21,6,Nick Carter,Singer/Rapper,39.0,0.123,0.1253939,0.05,0,99
+21,7,Nick Carter,Singer/Rapper,27.0,0.1398,0.13439606,0.05,0,99
+21,8,Nick Carter,Singer/Rapper,33.0,0.1605,0.15489367,0.05,0,99
+21,9,Nick Carter,Singer/Rapper,27.5,0.1805,0.1758162,0.05,0,99
+21,10,Nick Carter,Singer/Rapper,27.0,0.2771,0.2756537,0.05,0,99
+21,11,Nick Carter,Singer/Rapper,30.0,0.2912,0.2651335,0.05,0,99
+25,1,Nick Lachey,Singer/Rapper,18.0,0.0848,0.08361927,0.05,0,6
+25,2,Nick Lachey,Singer/Rapper,19.0,0.0846,0.08618625,0.05,0,6
+25,3,Nick Lachey,Singer/Rapper,21.0,0.0972,0.09736711,0.05,0,6
+25,4,Nick Lachey,Singer/Rapper,22.0,0.1028,0.099391714,0.05,0,6
+25,5,Nick Lachey,Singer/Rapper,22.0,0.1071,0.10685762,0.05,0,6
+25,6,Nick Lachey,Singer/Rapper,26.0,0.0913,0.08717653,0.08,1,6
+24,1,Nick Viall,TV Personality,24.0,0.0766,0.07594153,0.05,0,7
+24,2,Nick Viall,TV Personality,25.0,0.0742,0.077244885,0.05,0,7
+24,3,Nick Viall,TV Personality,26.0,0.0874,0.08672481,0.05,0,7
+24,4,Nick Viall,TV Personality,30.0,0.0963,0.09328297,0.05,0,7
+24,5,Nick Viall,TV Personality,34.0,0.1095,0.1036308,0.05,0,7
+24,6,Nick Viall,TV Personality,30.5,0.125,0.11979721,0.05,0,7
+24,7,Nick Viall,TV Personality,34.0,0.116,0.11712768,0.08,1,7
+17,1,"Nicole ""Snooki"" Polizzi",TV Personality,23.0,0.0789,0.077941135,0.05,0,7
+17,2,"Nicole ""Snooki"" Polizzi",TV Personality,20.0,0.08,0.080183476,0.05,0,7
+17,3,"Nicole ""Snooki"" Polizzi",TV Personality,25.0,0.0825,0.08721128,0.05,0,7
+17,4,"Nicole ""Snooki"" Polizzi",TV Personality,24.0,0.0932,0.09632896,0.05,0,7
+17,5,"Nicole ""Snooki"" Polizzi",TV Personality,27.0,0.1069,0.10909167,0.05,0,7
+17,6,"Nicole ""Snooki"" Polizzi",TV Personality,30.0,0.1188,0.1181289,0.05,0,7
+17,7,"Nicole ""Snooki"" Polizzi",TV Personality,27.0,0.0977,0.099931024,0.08,1,7
+10,1,Nicole Scherzinger,Singer/Rapper,25.0,0.1076,0.1090936,0.05,0,99
+10,2,Nicole Scherzinger,Singer/Rapper,28.0,0.1036,0.1087565,0.05,0,99
+10,3,Nicole Scherzinger,Singer/Rapper,23.0,0.1195,0.11917862,0.05,0,99
+10,4,Nicole Scherzinger,Singer/Rapper,25.0,0.1316,0.12780857,0.05,0,99
+10,5,Nicole Scherzinger,Singer/Rapper,29.0,0.141,0.14099206,0.05,0,99
+10,6,Nicole Scherzinger,Singer/Rapper,35.9999,0.1675,0.16574618,0.05,0,99
+10,7,Nicole Scherzinger,Singer/Rapper,27.0,0.1859,0.18530695,0.05,0,99
+10,8,Nicole Scherzinger,Singer/Rapper,29.5,0.2255,0.2282741,0.05,0,99
+10,9,Nicole Scherzinger,Singer/Rapper,29.5,0.2887,0.28795016,0.05,0,99
+10,10,Nicole Scherzinger,Singer/Rapper,28.7777,0.401,0.3955197,0.05,0,99
+10,1,Niecy Nash,Actor/Actress,18.0,0.1,0.09972127,0.05,0,8
+10,2,Niecy Nash,Actor/Actress,21.0,0.1044,0.10005967,0.05,0,8
+10,3,Niecy Nash,Actor/Actress,21.0,0.1049,0.10876612,0.05,0,8
+10,4,Niecy Nash,Actor/Actress,18.0,0.122,0.119607955,0.05,0,8
+10,5,Niecy Nash,Actor/Actress,18.0,0.1348,0.13541353,0.05,0,8
+10,6,Niecy Nash,Actor/Actress,25.9998,0.1555,0.15467714,0.05,0,8
+10,7,Niecy Nash,Actor/Actress,24.5,0.1763,0.17743845,0.05,0,8
+10,8,Niecy Nash,Actor/Actress,21.5,0.1631,0.16579367,0.08,1,8
+25,1,Nikki Bella,Athlete,20.0,0.0773,0.07671815,0.05,0,7
+25,2,Nikki Bella,Athlete,19.5,0.0778,0.07949616,0.05,0,7
+25,3,Nikki Bella,Athlete,21.0,0.0888,0.08940513,0.05,0,7
+25,4,Nikki Bella,Athlete,24.0,0.0888,0.0913639,0.05,0,7
+25,5,Nikki Bella,Athlete,27.0,0.0967,0.102864616,0.05,0,7
+25,6,Nikki Bella,Athlete,36.0,0.1109,0.11831495,0.05,0,7
+25,7,Nikki Bella,Athlete,24.0,0.1024,0.096959904,0.08,1,7
+27,1,Nikki Glaser,Comedian,17.5,0.0555,0.05267836,0.08,1,1
+20,1,Noah Galloway,Motivational Speaker,26.0,0.0692,0.0762967,0.05,0,99
+20,2,Noah Galloway,Motivational Speaker,27.0,0.0773,0.07916952,0.05,0,99
+20,3,Noah Galloway,Motivational Speaker,30.0,0.0797,0.08523855,0.05,0,99
+20,4,Noah Galloway,Motivational Speaker,32.0,0.092,0.09562983,0.05,0,99
+20,5,Noah Galloway,Motivational Speaker,28.0,0.1042,0.10721981,0.05,0,99
+20,6,Noah Galloway,Motivational Speaker,34.0,0.1212,0.11848913,0.05,0,99
+20,7,Noah Galloway,Motivational Speaker,38.0,0.1377,0.14306904,0.05,0,99
+20,8,Noah Galloway,Motivational Speaker,31.5,0.1644,0.16702661,0.05,0,99
+20,9,Noah Galloway,Motivational Speaker,38.0,0.2361,0.22691418,0.05,0,99
+20,10,Noah Galloway,Motivational Speaker,36.0,0.245,0.2529593,0.05,0,99
+24,1,Normani,Singer/Rapper,27.0,0.0922,0.09052279,0.05,0,99
+24,2,Normani,Singer/Rapper,32.0,0.096,0.094238326,0.05,0,99
+24,3,Normani,Singer/Rapper,34.0,0.1011,0.107292846,0.05,0,99
+24,4,Normani,Singer/Rapper,32.0,0.113,0.11320298,0.05,0,99
+24,5,Normani,Singer/Rapper,39.0,0.1239,0.12155882,0.05,0,99
+24,6,Normani,Singer/Rapper,36.0,0.1408,0.14536197,0.05,0,99
+24,7,Normani,Singer/Rapper,42.0,0.1709,0.16295214,0.05,0,99
+24,8,Normani,Singer/Rapper,39.5,0.2273,0.2450584,0.05,0,99
+24,9,Normani,Singer/Rapper,38.0,0.2861,0.28406236,0.05,0,99
+24,10,Normani,Singer/Rapper,39.333200000000005,0.3822,0.38092005,0.05,0,99
+22,1,Nyle DiMarco,Model,23.0,0.0757,0.07453586,0.05,0,99
+22,2,Nyle DiMarco,Model,20.0,0.075,0.077717595,0.05,0,99
+22,3,Nyle DiMarco,Model,25.0,0.0826,0.08502362,0.05,0,99
+22,4,Nyle DiMarco,Model,34.0,0.0891,0.093226895,0.05,0,99
+22,5,Nyle DiMarco,Model,37.0,0.08,0.08856043,0.05,0,99
+22,6,Nyle DiMarco,Model,25.0,0.1002,0.09970695,0.05,0,99
+22,7,Nyle DiMarco,Model,28.0,0.1231,0.12678131,0.05,0,99
+22,8,Nyle DiMarco,Model,29.0,0.1629,0.16223715,0.05,0,99
+22,9,Nyle DiMarco,Model,28.5,0.2135,0.21863028,0.05,0,99
+22,10,Nyle DiMarco,Model,28.9998,0.3594,0.3065754,0.05,0,99
+30,1,Olivia Jade,Social Media Personality,25.0,0.0678,0.063703895,0.05,0,8
+30,2,Olivia Jade,Social Media Personality,27.0,0.0686,0.06729724,0.05,0,8
+30,3,Olivia Jade,Social Media Personality,24.0,0.0722,0.07193309,0.05,0,8
+30,4,Olivia Jade,Social Media Personality,35.0,0.0851,0.08184171,0.05,0,8
+30,5,Olivia Jade,Social Media Personality,36.0,0.0956,0.09508609,0.05,0,8
+30,6,Olivia Jade,Social Media Personality,36.0,0.1035,0.10003437,0.05,0,8
+30,7,Olivia Jade,Social Media Personality,42.0,0.1154,0.11262681,0.05,0,8
+30,8,Olivia Jade,Social Media Personality,36.0,0.0748,0.09867948,0.08,1,8
+22,1,Paige VanZant,Athlete,21.0,0.0865,0.08491345,0.05,0,99
+22,2,Paige VanZant,Athlete,24.0,0.0931,0.085313074,0.05,0,99
+22,3,Paige VanZant,Athlete,23.0,0.0901,0.09176935,0.05,0,99
+22,4,Paige VanZant,Athlete,36.0,0.1044,0.10361241,0.05,0,99
+22,5,Paige VanZant,Athlete,31.0,0.1154,0.11328607,0.05,0,99
+22,6,Paige VanZant,Athlete,28.0,0.1152,0.1153174,0.05,0,99
+22,7,Paige VanZant,Athlete,27.5,0.1357,0.13252825,0.05,0,99
+22,8,Paige VanZant,Athlete,28.0,0.1699,0.1754852,0.05,0,99
+22,9,Paige VanZant,Athlete,29.5,0.2174,0.22069582,0.05,0,99
+22,10,Paige VanZant,Athlete,29.666600000000003,0.3588,0.37654877,0.05,0,99
+10,1,Pamela Anderson,Model,21.0,0.0838,0.08330743,0.05,0,7
+15,1,Pamela Anderson,Model,17.0,0.0556,0.05481714,0.08,1,1
+10,2,Pamela Anderson,Model,22.0,0.0828,0.086341396,0.05,0,7
+10,3,Pamela Anderson,Model,21.0,0.0901,0.09601321,0.05,0,7
+10,4,Pamela Anderson,Model,23.5,0.1049,0.109190606,0.05,0,7
+10,5,Pamela Anderson,Model,21.0,0.1207,0.121703714,0.05,0,7
+10,6,Pamela Anderson,Model,29.9998,0.1313,0.13878115,0.05,0,7
+10,7,Pamela Anderson,Model,25.5,0.1299,0.12945068,0.08,1,7
+20,1,Patti LaBelle,Singer/Rapper,25.0,0.0962,0.093650736,0.05,0,6
+20,2,Patti LaBelle,Singer/Rapper,28.0,0.0963,0.09431955,0.05,0,6
+20,3,Patti LaBelle,Singer/Rapper,22.0,0.1044,0.09994448,0.05,0,6
+20,4,Patti LaBelle,Singer/Rapper,30.0,0.1169,0.11046314,0.05,0,6
+20,5,Patti LaBelle,Singer/Rapper,27.0,0.1247,0.11660177,0.05,0,6
+20,6,Patti LaBelle,Singer/Rapper,34.0,0.1009,0.102353595,0.08,1,6
+21,1,Paula Deen,TV Personality,15.0,0.0726,0.074217185,0.05,0,6
+21,2,Paula Deen,TV Personality,18.5,0.0782,0.07753747,0.05,0,6
+21,3,Paula Deen,TV Personality,20.0,0.0958,0.09157997,0.05,0,6
+21,4,Paula Deen,TV Personality,18.0,0.0942,0.09699159,0.05,0,6
+21,5,Paula Deen,TV Personality,26.0,0.1026,0.10717338,0.05,0,6
+21,6,Paula Deen,TV Personality,24.0,0.0812,0.08075439,0.08,1,6
+4,1,Paulina Porizkova,Model,19.0,0.0823,0.08115367,0.05,0,2
+4,2,Paulina Porizkova,Model,21.0,0.0668,0.066082545,0.08,1,2
+6,1,Penn Jillette,Magician,16.0,0.0564,0.06503832,0.05,0,2
+6,2,Penn Jillette,Magician,17.0,0.0574,0.053290714,0.08,1,2
+12,1,Petra Nemcova,Model,18.0,0.0825,0.083550714,0.05,0,5
+12,2,Petra Nemcova,Model,18.0,0.085,0.08554648,0.05,0,5
+12,3,Petra Nemcova,Model,25.0,0.0928,0.09539541,0.05,0,5
+12,4,Petra Nemcova,Model,23.0,0.1066,0.10716746,0.05,0,5
+12,5,Petra Nemcova,Model,22.0,0.0958,0.096413635,0.08,1,5
+33,1,Phaedra Parks,TV Personality,19.0,0.0801,0.078161225,0.05,0,5
+33,2,Phaedra Parks,TV Personality,21.0,0.0849,0.08369889,0.05,0,5
+33,3,Phaedra Parks,TV Personality,28.0,0.1017,0.09886228,0.05,0,5
+33,4,Phaedra Parks,TV Personality,32.0,0.1178,0.10755957,0.05,0,5
+33,5,Phaedra Parks,TV Personality,24.0,0.0679,0.07018479,0.08,1,5
+6,1,Priscilla Presley,Actor/Actress,24.0,0.0881,0.0891915,0.05,0,5
+6,2,Priscilla Presley,Actor/Actress,21.0,0.0912,0.09148255,0.05,0,5
+6,3,Priscilla Presley,Actor/Actress,26.0,0.1059,0.10629545,0.05,0,5
+6,4,Priscilla Presley,Actor/Actress,22.0,0.115,0.11689989,0.05,0,5
+6,5,Priscilla Presley,Actor/Actress,21.0,0.1021,0.100538574,0.08,1,5
+1,1,Rachel Hunter,Model,20.0,0.1043,0.12299475,0.05,0,4
+1,2,Rachel Hunter,Model,24.0,0.1724,0.14959681,0.05,0,4
+1,3,Rachel Hunter,Model,26.0,0.2145,0.2098332,0.05,0,4
+1,4,Rachel Hunter,Model,25.0,0.1786,0.21187402,0.08,1,4
+12,1,Ralph Macchio,Actor/Actress,24.0,0.1009,0.09962779,0.05,0,9
+12,2,Ralph Macchio,Actor/Actress,21.0,0.0946,0.098422065,0.05,0,9
+12,3,Ralph Macchio,Actor/Actress,21.0,0.0999,0.10537969,0.05,0,9
+12,4,Ralph Macchio,Actor/Actress,25.0,0.1202,0.1171742,0.05,0,9
+12,5,Ralph Macchio,Actor/Actress,22.0,0.1373,0.1308124,0.05,0,9
+12,6,Ralph Macchio,Actor/Actress,24.0,0.1502,0.1473033,0.05,0,9
+12,7,Ralph Macchio,Actor/Actress,33.0,0.1751,0.17144065,0.05,0,9
+12,8,Ralph Macchio,Actor/Actress,23.0,0.2125,0.20882425,0.05,0,9
+12,9,Ralph Macchio,Actor/Actress,24.0,0.216,0.2166925,0.08,1,9
+19,1,Randy Couture,Athlete,31.0,0.0825,0.08124677,0.05,0,3
+19,2,Randy Couture,Athlete,28.0,0.081,0.086708024,0.05,0,3
+19,3,Randy Couture,Athlete,26.0,0.0691,0.07582121,0.08,1,3
+24,1,Rashad Jennings,Athlete,31.0,0.0828,0.082986146,0.05,0,99
+24,2,Rashad Jennings,Athlete,32.0,0.0837,0.08460058,0.05,0,99
+24,3,Rashad Jennings,Athlete,28.0,0.0874,0.09168171,0.05,0,99
+24,4,Rashad Jennings,Athlete,39.0,0.0988,0.10139023,0.05,0,99
+24,5,Rashad Jennings,Athlete,32.0,0.1134,0.116981216,0.05,0,99
+24,6,Rashad Jennings,Athlete,35.0,0.125,0.12262784,0.05,0,99
+24,7,Rashad Jennings,Athlete,39.0,0.1465,0.14784676,0.05,0,99
+24,8,Rashad Jennings,Athlete,37.5,0.2008,0.19642484,0.05,0,99
+24,9,Rashad Jennings,Athlete,38.5,0.2459,0.24981517,0.05,0,99
+24,10,Rashad Jennings,Athlete,39.6666,0.2797,0.288625,0.05,0,99
+28,1,Ray Lewis,Athlete,15.0,0.0855,0.08572728,0.05,0,98
+28,2,Ray Lewis,Athlete,15.0,0.0865,0.08780614,0.05,0,98
+20,1,Redfoo,Singer/Rapper,22.0,0.0965,0.08988953,0.05,0,2
+20,2,Redfoo,Singer/Rapper,31.0,0.0643,0.06733655,0.08,1,2
+33,1,Reginald VelJohnson,Actor/Actress,16.0,0.0846,0.08263036,0.05,0,3
+33,2,Reginald VelJohnson,Actor/Actress,15.0,0.0936,0.09006693,0.05,0,3
+33,3,Reginald VelJohnson,Actor/Actress,21.0,0.0423,0.040690497,0.08,1,3
+11,1,Rick Fox,Athlete,22.0,0.0837,0.08450536,0.05,0,7
+11,2,Rick Fox,Athlete,21.0,0.0908,0.09183288,0.05,0,7
+11,3,Rick Fox,Athlete,24.0,0.1035,0.101468936,0.05,0,7
+11,4,Rick Fox,Athlete,19.5,0.106,0.11022833,0.05,0,7
+11,5,Rick Fox,Athlete,24.0,0.1226,0.1240359,0.05,0,7
+11,6,Rick Fox,Athlete,30.0,0.1405,0.14132883,0.05,0,7
+11,7,Rick Fox,Athlete,34.5,0.1381,0.14393339,0.08,1,7
+23,1,Rick Perry,Politician,20.0,0.0654,0.06469264,0.05,0,3
+23,2,Rick Perry,Politician,22.0,0.0708,0.071990445,0.05,0,3
+23,3,Rick Perry,Politician,23.0,0.0551,0.058706082,0.08,1,3
+13,1,Ricki Lake,Actor/Actress,20.0,0.0886,0.09004719,0.05,0,99
+13,2,Ricki Lake,Actor/Actress,23.0,0.0953,0.09797911,0.05,0,99
+13,3,Ricki Lake,Actor/Actress,27.0,0.1052,0.10699804,0.05,0,99
+13,4,Ricki Lake,Actor/Actress,29.0,0.1185,0.120968774,0.05,0,99
+13,5,Ricki Lake,Actor/Actress,24.0,0.1315,0.13322967,0.05,0,99
+13,6,Ricki Lake,Actor/Actress,29.0,0.1461,0.14956734,0.05,0,99
+13,7,Ricki Lake,Actor/Actress,26.5,0.1736,0.1771281,0.05,0,99
+13,8,Ricki Lake,Actor/Actress,26.0,0.2147,0.21180396,0.05,0,99
+13,9,Ricki Lake,Actor/Actress,33.4999,0.2673,0.2691058,0.05,0,99
+13,10,Ricki Lake,Actor/Actress,27.999899999999997,0.371,0.35527968,0.05,0,99
+20,1,Riker Lynch,Actor/Actress,31.0,0.0899,0.08821059,0.05,0,99
+20,2,Riker Lynch,Actor/Actress,32.0,0.0897,0.088808015,0.05,0,99
+20,3,Riker Lynch,Actor/Actress,34.0,0.0995,0.09745997,0.05,0,99
+20,4,Riker Lynch,Actor/Actress,34.0,0.1025,0.10655949,0.05,0,99
+20,5,Riker Lynch,Actor/Actress,38.0,0.1202,0.11831819,0.05,0,99
+20,6,Riker Lynch,Actor/Actress,38.0,0.1368,0.14352651,0.05,0,99
+20,7,Riker Lynch,Actor/Actress,37.0,0.1633,0.15857312,0.05,0,99
+20,8,Riker Lynch,Actor/Actress,39.0,0.196,0.18038975,0.05,0,99
+20,9,Riker Lynch,Actor/Actress,40.0,0.29,0.29460022,0.05,0,99
+20,10,Riker Lynch,Actor/Actress,40.0,0.3811,0.37587938,0.05,0,99
+13,1,Rob Kardashian,TV Personality,16.0,0.0798,0.07896645,0.05,0,99
+13,2,Rob Kardashian,TV Personality,21.0,0.0877,0.08821349,0.05,0,99
+13,3,Rob Kardashian,TV Personality,24.0,0.0924,0.097803764,0.05,0,99
+13,4,Rob Kardashian,TV Personality,24.0,0.1095,0.10943686,0.05,0,99
+13,5,Rob Kardashian,TV Personality,25.0,0.1266,0.12417633,0.05,0,99
+13,6,Rob Kardashian,TV Personality,22.0,0.1483,0.1433933,0.05,0,99
+13,7,Rob Kardashian,TV Personality,25.5,0.171,0.16920729,0.05,0,99
+13,8,Rob Kardashian,TV Personality,25.5,0.1965,0.2037944,0.05,0,99
+13,9,Rob Kardashian,TV Personality,32.4998,0.25,0.2534403,0.05,0,99
+13,10,Rob Kardashian,TV Personality,28.333199999999998,0.2662,0.28817612,0.05,0,99
+20,1,Robert Herjavec,Entrepreneur,28.0,0.057,0.06731792,0.05,0,8
+20,2,Robert Herjavec,Entrepreneur,28.0,0.0773,0.07394467,0.05,0,8
+20,3,Robert Herjavec,Entrepreneur,29.0,0.0797,0.081057176,0.05,0,8
+20,4,Robert Herjavec,Entrepreneur,34.0,0.092,0.09390688,0.05,0,8
+20,5,Robert Herjavec,Entrepreneur,24.0,0.1042,0.1051784,0.05,0,8
+20,6,Robert Herjavec,Entrepreneur,33.5,0.1212,0.117340416,0.05,0,8
+20,7,Robert Herjavec,Entrepreneur,31.0,0.1377,0.1362162,0.05,0,8
+20,8,Robert Herjavec,Entrepreneur,31.0,0.1309,0.12964804,0.08,1,8
+34,1,Robert Irwin,Conservationist,15.0,0.0183,0.06493119,0.05,0,99
+34,2,Robert Irwin,Conservationist,22.0,0.0783,0.0737721,0.05,0,99
+34,3,Robert Irwin,Conservationist,22.0,0.0867,0.07920631,0.05,0,99
+34,4,Robert Irwin,Conservationist,22.0,0.0934,0.08716269,0.05,0,99
+34,5,Robert Irwin,Conservationist,35.0,0.0434,0.057387035,0.05,0,99
+34,6,Robert Irwin,Conservationist,36.0,0.1046,0.10111411,0.05,0,99
+34,7,Robert Irwin,Conservationist,41.0,0.1169,0.110826015,0.05,0,99
+34,8,Robert Irwin,Conservationist,38.0,0.1314,0.12959681,0.05,0,99
+34,9,Robert Irwin,Conservationist,42.0,0.1495,0.14575739,0.05,0,99
+34,10,Robert Irwin,Conservationist,29.5,0.1757,0.1756585,0.05,0,99
+34,11,Robert Irwin,Conservationist,29.666600000000003,0.2144,0.21999884,0.05,0,99
+7,1,Rocco DiSpirito,TV Personality,17.5,0.0749,0.0742716,0.05,0,4
+7,2,Rocco DiSpirito,TV Personality,16.0,0.0828,0.08628847,0.05,0,4
+7,3,Rocco DiSpirito,TV Personality,20.0,0.108,0.10374677,0.05,0,4
+7,4,Rocco DiSpirito,TV Personality,18.0,0.0867,0.08255533,0.08,1,4
+12,1,Romeo,Singer/Rapper,19.0,0.1029,0.10120958,0.05,0,8
+12,2,Romeo,Singer/Rapper,23.0,0.1014,0.10130313,0.05,0,8
+12,3,Romeo,Singer/Rapper,20.0,0.1135,0.11016717,0.05,0,8
+12,4,Romeo,Singer/Rapper,23.0,0.1225,0.12007334,0.05,0,8
+12,5,Romeo,Singer/Rapper,26.0,0.1337,0.1345079,0.05,0,8
+12,6,Romeo,Singer/Rapper,28.0,0.1569,0.15363775,0.05,0,8
+12,7,Romeo,Singer/Rapper,30.0,0.1818,0.17817701,0.05,0,8
+12,8,Romeo,Singer/Rapper,26.0,0.1711,0.1704576,0.08,1,8
+14,1,Roshon Fegan,Actor/Actress,23.0,0.0857,0.083254375,0.05,0,8
+14,2,Roshon Fegan,Actor/Actress,26.0,0.0867,0.08638733,0.05,0,8
+14,3,Roshon Fegan,Actor/Actress,25.0,0.0932,0.093269564,0.05,0,8
+14,4,Roshon Fegan,Actor/Actress,26.0,0.1059,0.102669835,0.05,0,8
+14,5,Roshon Fegan,Actor/Actress,26.0,0.118,0.116150476,0.05,0,8
+14,6,Roshon Fegan,Actor/Actress,27.9998,0.1279,0.12947936,0.05,0,8
+14,7,Roshon Fegan,Actor/Actress,26.0,0.1514,0.15062045,0.05,0,8
+14,8,Roshon Fegan,Actor/Actress,28.0,0.1424,0.14311765,0.08,1,8
+20,1,Rumer Willis,Actor/Actress,32.0,0.0913,0.08996766,0.05,0,99
+20,2,Rumer Willis,Actor/Actress,32.0,0.0942,0.09048456,0.05,0,99
+20,3,Rumer Willis,Actor/Actress,33.0,0.0994,0.09869023,0.05,0,99
+20,4,Rumer Willis,Actor/Actress,35.0,0.1099,0.10753905,0.05,0,99
+20,5,Rumer Willis,Actor/Actress,39.0,0.1227,0.12332781,0.05,0,99
+20,6,Rumer Willis,Actor/Actress,35.5,0.1437,0.14018774,0.05,0,99
+20,7,Rumer Willis,Actor/Actress,37.0,0.1541,0.15178874,0.05,0,99
+20,8,Rumer Willis,Actor/Actress,40.0,0.1926,0.18807295,0.05,0,99
+20,9,Rumer Willis,Actor/Actress,39.0,0.2772,0.27572003,0.05,0,99
+20,10,Rumer Willis,Actor/Actress,40.0,0.3739,0.37116128,0.05,0,99
+23,1,Ryan Lochte,Athlete,24.0,0.0777,0.07756137,0.05,0,8
+23,2,Ryan Lochte,Athlete,24.0,0.0782,0.077746086,0.05,0,8
+23,3,Ryan Lochte,Athlete,25.0,0.0872,0.08536908,0.05,0,8
+23,4,Ryan Lochte,Athlete,22.0,0.0912,0.094595216,0.05,0,8
+23,5,Ryan Lochte,Athlete,24.0,0.1132,0.110113405,0.05,0,8
+23,6,Ryan Lochte,Athlete,30.0,0.1151,0.11301627,0.05,0,8
+23,7,Ryan Lochte,Athlete,33.0,0.1286,0.12948376,0.05,0,8
+23,8,Ryan Lochte,Athlete,26.0,0.114,0.115265824,0.08,1,8
+5,1,Sabrina Bryan,Actor/Actress,26.0,0.0885,0.09068861,0.05,0,6
+15,1,Sabrina Bryan,Actor/Actress,22.5,0.0821,0.08257653,0.05,0,6
+5,2,Sabrina Bryan,Actor/Actress,26.0,0.0939,0.09329903,0.05,0,6
+15,2,Sabrina Bryan,Actor/Actress,26.0,0.0906,0.09013156,0.05,0,6
+5,3,Sabrina Bryan,Actor/Actress,27.0,0.1018,0.10279344,0.05,0,6
+15,3,Sabrina Bryan,Actor/Actress,25.5,0.0991,0.09988282,0.05,0,6
+5,4,Sabrina Bryan,Actor/Actress,30.0,0.1181,0.118166,0.05,0,6
+15,4,Sabrina Bryan,Actor/Actress,35.5,0.1175,0.11521984,0.05,0,6
+5,5,Sabrina Bryan,Actor/Actress,28.0,0.131,0.13415588,0.05,0,6
+15,5,Sabrina Bryan,Actor/Actress,29.25,0.1291,0.12972073,0.05,0,6
+5,6,Sabrina Bryan,Actor/Actress,25.0,0.1095,0.10898428,0.08,1,6
+15,6,Sabrina Bryan,Actor/Actress,30.0,0.1018,0.1006305,0.08,1,6
+19,1,Sadie Robertson,TV Personality,34.0,0.075,0.075272046,0.05,0,99
+19,2,Sadie Robertson,TV Personality,31.0,0.0845,0.080410235,0.05,0,99
+19,3,Sadie Robertson,TV Personality,32.0,0.0935,0.086736664,0.05,0,99
+19,4,Sadie Robertson,TV Personality,37.0,0.1022,0.09849152,0.05,0,99
+19,5,Sadie Robertson,TV Personality,36.0,0.1067,0.106268816,0.05,0,99
+19,6,Sadie Robertson,TV Personality,35.0,0.1065,0.10987814,0.05,0,99
+19,7,Sadie Robertson,TV Personality,31.0,0.122,0.12588136,0.05,0,99
+19,8,Sadie Robertson,TV Personality,38.0,0.1454,0.14314398,0.05,0,99
+19,9,Sadie Robertson,TV Personality,36.5,0.1694,0.16581202,0.05,0,99
+19,10,Sadie Robertson,TV Personality,37.0,0.2014,0.20443629,0.05,0,99
+19,11,Sadie Robertson,TV Personality,39.333200000000005,0.2497,0.24954306,0.05,0,99
+28,1,Sailor Brinkley-Cook,Model,18.0,0.0855,0.077444516,0.05,0,6
+28,2,Sailor Brinkley-Cook,Model,18.0,0.0865,0.080042586,0.05,0,6
+28,3,Sailor Brinkley-Cook,Model,23.0,0.1038,0.09107498,0.05,0,6
+28,4,Sailor Brinkley-Cook,Model,31.0,0.1032,0.09692484,0.05,0,6
+28,5,Sailor Brinkley-Cook,Model,24.0,0.0533,0.073328406,0.05,0,6
+28,6,Sailor Brinkley-Cook,Model,27.0,0.0543,0.05428455,0.08,1,6
+31,1,Sam Champion,News Anchor,20.0,0.0636,0.061276782,0.05,0,4
+31,2,Sam Champion,News Anchor,26.0,0.0682,0.06855025,0.05,0,4
+31,3,Sam Champion,News Anchor,25.0,0.0732,0.07326471,0.05,0,4
+31,4,Sam Champion,News Anchor,25.0,0.0236,0.022500157,0.08,1,4
+3,1,Sara Evans,Singer/Rapper,15.0,0.0996,0.10019798,0.05,0,98
+3,2,Sara Evans,Singer/Rapper,21.0,0.1079,0.10889795,0.05,0,98
+3,3,Sara Evans,Singer/Rapper,25.0,0.1214,0.11926394,0.05,0,98
+3,4,Sara Evans,Singer/Rapper,20.0,0.1382,0.13581085,0.05,0,98
+3,5,Sara Evans,Singer/Rapper,24.0,0.1571,0.14871763,0.05,0,98
+25,1,Sasha Pieterse,Actor/Actress,18.0,0.0817,0.07988376,0.05,0,5
+25,2,Sasha Pieterse,Actor/Actress,22.5,0.0817,0.082817055,0.05,0,5
+25,3,Sasha Pieterse,Actor/Actress,19.0,0.1012,0.09291575,0.05,0,5
+25,4,Sasha Pieterse,Actor/Actress,24.0,0.0888,0.093406335,0.05,0,5
+25,5,Sasha Pieterse,Actor/Actress,24.0,0.0805,0.078381814,0.08,1,5
+34,1,Scott Hoying,Singer/Rapper,10.0,0.0837,0.07609133,0.05,0,6
+34,2,Scott Hoying,Singer/Rapper,18.0,0.0847,0.08317519,0.05,0,6
+34,3,Scott Hoying,Singer/Rapper,22.0,0.0951,0.094812766,0.05,0,6
+34,4,Scott Hoying,Singer/Rapper,21.0,0.1063,0.10366308,0.05,0,6
+34,5,Scott Hoying,Singer/Rapper,30.0,0.1131,0.11239777,0.05,0,6
+34,6,Scott Hoying,Singer/Rapper,28.0,0.0451,0.048016656,0.08,1,6
+18,1,Sean Avery,Athlete,20.0,0.0819,0.08172883,0.05,0,2
+18,2,Sean Avery,Athlete,21.0,0.0698,0.074446864,0.08,1,2
+16,1,Sean Lowe,TV Personality,19.0,0.0775,0.07961065,0.05,0,8
+16,2,Sean Lowe,TV Personality,20.0,0.0799,0.07961972,0.05,0,8
+16,3,Sean Lowe,TV Personality,21.0,0.0877,0.089376785,0.05,0,8
+16,4,Sean Lowe,TV Personality,20.0,0.0941,0.09846485,0.05,0,8
+16,5,Sean Lowe,TV Personality,24.0,0.1123,0.1085438,0.05,0,8
+16,6,Sean Lowe,TV Personality,23.0,0.122,0.12327665,0.05,0,8
+16,7,Sean Lowe,TV Personality,24.0,0.1413,0.1408828,0.05,0,8
+16,8,Sean Lowe,TV Personality,21.0,0.1382,0.13847664,0.08,1,8
+28,1,Sean Spicer,Politician,12.0,0.0293,0.049990553,0.05,0,9
+28,2,Sean Spicer,Politician,16.0,0.0865,0.08213454,0.05,0,9
+28,3,Sean Spicer,Politician,15.0,0.0444,0.09277363,0.05,0,9
+28,4,Sean Spicer,Politician,21.0,0.1032,0.10012652,0.05,0,9
+28,5,Sean Spicer,Politician,19.0,0.1146,0.10921309,0.05,0,9
+28,6,Sean Spicer,Politician,21.0,0.1158,0.1142448,0.05,0,9
+28,7,Sean Spicer,Politician,21.0,0.131,0.12989959,0.05,0,9
+28,8,Sean Spicer,Politician,20.0,0.1524,0.1523745,0.05,0,9
+28,9,Sean Spicer,Politician,25.0,0.1053,0.105581835,0.08,1,9
+31,1,Selma Blair,Actor/Actress,28.0,0.0668,0.06674011,0.05,0,98
+31,2,Selma Blair,Actor/Actress,28.0,0.069,0.07053076,0.05,0,98
+31,3,Selma Blair,Actor/Actress,28.0,0.0743,0.07590698,0.05,0,98
+31,4,Selma Blair,Actor/Actress,32.0,0.0867,0.08256212,0.05,0,98
+31,5,Selma Blair,Actor/Actress,40.0,0.0921,0.089284465,0.05,0,98
+4,1,Shandi Finnessey,Beauty Pagent,19.0,0.064,0.076984495,0.05,0,3
+4,2,Shandi Finnessey,Beauty Pagent,20.0,0.0803,0.08147157,0.05,0,3
+4,3,Shandi Finnessey,Beauty Pagent,21.0,0.0726,0.07102208,0.08,1,3
+31,1,Shangela,TV Personality,28.0,0.0636,0.06349447,0.05,0,99
+31,2,Shangela,TV Personality,28.0,0.0682,0.067421004,0.05,0,99
+31,3,Shangela,TV Personality,30.0,0.0732,0.07103747,0.05,0,99
+31,4,Shangela,TV Personality,32.0,0.0787,0.077383086,0.05,0,99
+31,5,Shangela,TV Personality,38.5,0.0861,0.08460127,0.05,0,99
+31,6,Shangela,TV Personality,36.0,0.1045,0.105981305,0.05,0,99
+31,7,Shangela,TV Personality,36.5,0.1158,0.11901068,0.05,0,99
+31,8,Shangela,TV Personality,42.0,0.1417,0.14103281,0.05,0,99
+31,9,Shangela,TV Personality,36.5,0.1919,0.19056138,0.05,0,99
+31,10,Shangela,TV Personality,38.0,0.2722,0.27079424,0.05,0,99
+3,1,Shanna Moakler,Model,18.0,0.0822,0.08064475,0.05,0,2
+3,2,Shanna Moakler,Model,22.0,0.0722,0.06807575,0.08,1,2
+10,1,Shannen Doherty,Actor/Actress,18.0,0.0999,0.09803228,0.05,0,2
+10,2,Shannen Doherty,Actor/Actress,20.0,0.0689,0.07355665,0.08,1,2
+6,1,Shannon Elizabeth,Actor/Actress,21.0,0.0878,0.087411076,0.05,0,7
+6,2,Shannon Elizabeth,Actor/Actress,24.0,0.0893,0.09110485,0.05,0,7
+6,3,Shannon Elizabeth,Actor/Actress,24.0,0.1003,0.10295832,0.05,0,7
+6,4,Shannon Elizabeth,Actor/Actress,28.0,0.1124,0.11514059,0.05,0,7
+6,5,Shannon Elizabeth,Actor/Actress,23.0,0.1274,0.12851043,0.05,0,7
+6,6,Shannon Elizabeth,Actor/Actress,24.0,0.1495,0.14898497,0.05,0,7
+6,7,Shannon Elizabeth,Actor/Actress,25.5,0.1364,0.13768378,0.08,1,7
+8,1,Shawn Johnson,Athlete,23.0,0.0775,0.07603503,0.05,0,99
+15,1,Shawn Johnson,Athlete,22.0,0.0765,0.07772871,0.05,0,99
+8,2,Shawn Johnson,Athlete,24.0,0.0778,0.07701057,0.05,0,99
+15,2,Shawn Johnson,Athlete,25.0,0.0832,0.08353554,0.05,0,99
+8,3,Shawn Johnson,Athlete,27.0,0.0818,0.08264037,0.05,0,99
+15,3,Shawn Johnson,Athlete,26.5,0.0942,0.09434058,0.05,0,99
+8,4,Shawn Johnson,Athlete,25.0,0.0953,0.093412384,0.05,0,99
+15,4,Shawn Johnson,Athlete,39.5,0.1071,0.11252949,0.05,0,99
+8,5,Shawn Johnson,Athlete,26.0,0.1098,0.11342867,0.05,0,99
+15,5,Shawn Johnson,Athlete,28.25,0.1236,0.12287521,0.05,0,99
+8,6,Shawn Johnson,Athlete,26.0,0.1199,0.119952984,0.05,0,99
+15,6,Shawn Johnson,Athlete,28.0,0.1256,0.12488416,0.05,0,99
+8,7,Shawn Johnson,Athlete,28.0,0.1389,0.13940819,0.05,0,99
+15,7,Shawn Johnson,Athlete,37.9998,0.1402,0.13864662,0.05,0,99
+8,8,Shawn Johnson,Athlete,26.0,0.1659,0.15963505,0.05,0,99
+15,8,Shawn Johnson,Athlete,27.8333,0.1465,0.15423487,0.05,0,99
+8,9,Shawn Johnson,Athlete,28.0,0.2106,0.21222207,0.05,0,99
+15,9,Shawn Johnson,Athlete,29.5,0.2139,0.21908133,0.05,0,99
+8,10,Shawn Johnson,Athlete,28.0,0.2559,0.28284118,0.05,0,99
+15,10,Shawn Johnson,Athlete,28.944300000000002,0.2823,0.3180899,0.05,0,99
+8,11,Shawn Johnson,Athlete,30.0,0.3578,0.3646234,0.05,0,99
+14,1,Sherri Sheperd,Actor/Actress,23.0,0.0842,0.08310879,0.05,0,4
+14,2,Sherri Sheperd,Actor/Actress,23.0,0.0805,0.08457081,0.05,0,4
+14,3,Sherri Sheperd,Actor/Actress,24.0,0.0898,0.09170837,0.05,0,4
+14,4,Sherri Sheperd,Actor/Actress,21.0,0.0773,0.076278254,0.08,1,4
+24,1,Simone Biles,Athlete,32.0,0.083,0.08529582,0.05,0,9
+24,2,Simone Biles,Athlete,29.0,0.0787,0.08343426,0.05,0,9
+24,3,Simone Biles,Athlete,32.0,0.088,0.089291744,0.05,0,9
+24,4,Simone Biles,Athlete,36.0,0.1039,0.102465734,0.05,0,9
+24,5,Simone Biles,Athlete,38.0,0.1118,0.11206739,0.05,0,9
+24,6,Simone Biles,Athlete,34.5,0.1257,0.13150884,0.05,0,9
+24,7,Simone Biles,Athlete,39.0,0.1454,0.14434204,0.05,0,9
+24,8,Simone Biles,Athlete,36.0,0.2008,0.20558934,0.05,0,9
+24,9,Simone Biles,Athlete,40.0,0.2048,0.20480083,0.08,1,9
+29,1,Skai Jackson,Actor/Actress,21.0,0.0709,0.06826839,0.05,0,10
+29,2,Skai Jackson,Actor/Actress,15.0,0.069,0.06985077,0.05,0,10
+29,3,Skai Jackson,Actor/Actress,18.0,0.0744,0.07523125,0.05,0,10
+29,4,Skai Jackson,Actor/Actress,28.0,0.0809,0.08130096,0.05,0,10
+29,5,Skai Jackson,Actor/Actress,24.0,0.0878,0.09088936,0.05,0,10
+29,6,Skai Jackson,Actor/Actress,18.0,0.099,0.0976087,0.05,0,10
+29,7,Skai Jackson,Actor/Actress,27.0,0.1073,0.10504342,0.05,0,10
+29,8,Skai Jackson,Actor/Actress,26.9998,0.1318,0.13337405,0.05,0,10
+29,9,Skai Jackson,Actor/Actress,28.9998,0.1526,0.15108204,0.05,0,10
+29,10,Skai Jackson,Actor/Actress,28.5,0.1162,0.11467547,0.08,1,10
+2,1,Stacy Keibler,Athlete,22.0,0.1033,0.103026904,0.05,0,99
+2,2,Stacy Keibler,Athlete,29.0,0.1176,0.122570224,0.05,0,99
+2,3,Stacy Keibler,Athlete,27.0,0.1309,0.14076754,0.05,0,99
+2,4,Stacy Keibler,Athlete,26.0,0.1526,0.1511217,0.05,0,99
+2,5,Stacy Keibler,Athlete,30.0,0.1787,0.17552991,0.05,0,99
+2,6,Stacy Keibler,Athlete,30.0,0.2158,0.22324127,0.05,0,99
+2,7,Stacy Keibler,Athlete,27.5,0.2714,0.28609776,0.05,0,99
+2,8,Stacy Keibler,Athlete,28.6665,0.2631,0.2749054,0.05,0,99
+33,1,Stephen Nedoroscik,Athlete,21.0,0.0803,0.08223288,0.05,0,99
+33,2,Stephen Nedoroscik,Athlete,22.0,0.0849,0.08748732,0.05,0,99
+33,3,Stephen Nedoroscik,Athlete,31.0,0.1017,0.102355115,0.05,0,99
+33,4,Stephen Nedoroscik,Athlete,33.0,0.1178,0.115422085,0.05,0,99
+33,5,Stephen Nedoroscik,Athlete,24.0,0.1333,0.13106875,0.05,0,99
+33,6,Stephen Nedoroscik,Athlete,28.0,0.1518,0.15077181,0.05,0,99
+33,7,Stephen Nedoroscik,Athlete,27.0,0.1787,0.18102457,0.05,0,99
+33,8,Stephen Nedoroscik,Athlete,26.5,0.1369,0.16731437,0.05,0,99
+33,9,Stephen Nedoroscik,Athlete,29.5,0.136,0.15377495,0.05,0,99
+6,1,Steve Guttenberg,Actor/Actress,18.0,0.0894,0.08709952,0.05,0,3
+6,2,Steve Guttenberg,Actor/Actress,16.0,0.0917,0.08865091,0.05,0,3
+6,3,Steve Guttenberg,Actor/Actress,21.0,0.08,0.07674834,0.08,1,3
+8,1,Steve Wozniak,Entrepreneur,13.0,0.0526,0.058268335,0.05,0,4
+8,2,Steve Wozniak,Entrepreneur,17.0,0.0728,0.06870489,0.05,0,4
+8,3,Steve Wozniak,Entrepreneur,10.0,0.0779,0.07482535,0.05,0,4
+8,4,Steve Wozniak,Entrepreneur,12.0,0.0597,0.060656194,0.08,1,4
+8,1,Steve-O,TV Personality,17.0,0.0735,0.07095955,0.05,0,6
+8,2,Steve-O,TV Personality,14.0,0.0728,0.072794184,0.05,0,6
+8,3,Steve-O,TV Personality,15.0,0.0779,0.08035108,0.05,0,6
+8,4,Steve-O,TV Personality,15.0,0.0876,0.08946095,0.05,0,6
+8,5,Steve-O,TV Personality,18.0,0.1073,0.10474167,0.05,0,6
+8,6,Steve-O,TV Personality,16.0,0.0982,0.101540826,0.08,1,6
+12,1,Sugar Ray Leonard,Athlete,17.0,0.0925,0.090291575,0.05,0,4
+12,2,Sugar Ray Leonard,Athlete,17.0,0.0929,0.090556026,0.05,0,4
+12,3,Sugar Ray Leonard,Athlete,20.0,0.1029,0.09924688,0.05,0,4
+12,4,Sugar Ray Leonard,Athlete,21.0,0.0888,0.088450395,0.08,1,4
+30,1,Suni Lee,Athlete,28.0,0.0699,0.06984211,0.05,0,9
+30,2,Suni Lee,Athlete,28.0,0.0705,0.07143018,0.05,0,9
+30,3,Suni Lee,Athlete,21.0,0.0734,0.074230276,0.05,0,9
+30,4,Suni Lee,Athlete,34.0,0.0851,0.08474915,0.05,0,9
+30,5,Suni Lee,Athlete,36.0,0.0956,0.09696755,0.05,0,9
+30,6,Suni Lee,Athlete,36.0,0.1055,0.105901375,0.05,0,9
+30,7,Suni Lee,Athlete,34.0,0.1154,0.115811974,0.05,0,9
+30,8,Suni Lee,Athlete,42.0,0.1413,0.1351907,0.05,0,9
+30,9,Suni Lee,Athlete,37.5,0.1162,0.120781295,0.08,1,9
+7,1,Susan Lucci,Actor/Actress,18.5,0.0823,0.082178414,0.05,0,7
+7,2,Susan Lucci,Actor/Actress,21.0,0.0995,0.09651733,0.05,0,7
+7,3,Susan Lucci,Actor/Actress,21.0,0.1208,0.11051776,0.05,0,7
+7,4,Susan Lucci,Actor/Actress,24.0,0.118,0.1157751,0.05,0,7
+7,5,Susan Lucci,Actor/Actress,22.0,0.133,0.129856,0.05,0,7
+7,6,Susan Lucci,Actor/Actress,23.0,0.1497,0.15195705,0.05,0,7
+7,7,Susan Lucci,Actor/Actress,24.0,0.138,0.13968788,0.08,1,7
+20,1,Suzanne Somers,Actor/Actress,25.0,0.0892,0.086866215,0.05,0,5
+20,2,Suzanne Somers,Actor/Actress,28.0,0.0901,0.08772646,0.05,0,5
+20,3,Suzanne Somers,Actor/Actress,25.0,0.0976,0.09387548,0.05,0,5
+20,4,Suzanne Somers,Actor/Actress,28.0,0.1082,0.103770226,0.05,0,5
+20,5,Suzanne Somers,Actor/Actress,28.0,0.0867,0.08997231,0.08,1,5
+21,1,Tamar Braxton,Singer/Rapper,23.0,0.0873,0.084234856,0.05,0,98
+21,2,Tamar Braxton,Singer/Rapper,24.5,0.0888,0.08658451,0.05,0,98
+21,3,Tamar Braxton,Singer/Rapper,33.0,0.115,0.1108865,0.05,0,98
+21,4,Tamar Braxton,Singer/Rapper,27.0,0.1135,0.10916575,0.05,0,98
+21,5,Tamar Braxton,Singer/Rapper,29.0,0.1282,0.11507117,0.05,0,98
+21,6,Tamar Braxton,Singer/Rapper,40.0,0.1219,0.1196574,0.05,0,98
+21,7,Tamar Braxton,Singer/Rapper,27.0,0.1366,0.13414022,0.05,0,98
+21,8,Tamar Braxton,Singer/Rapper,28.0,0.1456,0.1546393,0.05,0,98
+21,9,Tamar Braxton,Singer/Rapper,24.5,0.1907,0.17816786,0.05,0,98
+2,1,Tatum O'Neal,Actor/Actress,23.0,0.1051,0.10755773,0.05,0,2
+2,2,Tatum O'Neal,Actor/Actress,17.0,0.0557,0.05977804,0.08,1,2
+19,1,Tavis Smiley,Radio Personality,29.0,0.0699,0.06997843,0.05,0,2
+19,2,Tavis Smiley,Radio Personality,28.0,0.0592,0.061611027,0.08,1,2
+7,1,Ted McGinley,Actor/Actress,18.5,0.0623,0.05957808,0.08,1,1
+31,1,Teresa Giudice,TV Personality,20.0,0.0636,0.06511429,0.05,0,2
+31,2,Teresa Giudice,TV Personality,23.0,0.015,0.016641552,0.08,1,2
+23,1,Terra Jole,TV Personality,25.0,0.0742,0.07379685,0.05,0,10
+23,2,Terra Jole,TV Personality,31.0,0.073,0.07706336,0.05,0,10
+23,3,Terra Jole,TV Personality,30.0,0.085,0.08241903,0.05,0,10
+23,4,Terra Jole,TV Personality,25.0,0.0912,0.09174451,0.05,0,10
+23,5,Terra Jole,TV Personality,27.0,0.1085,0.106916286,0.05,0,10
+23,6,Terra Jole,TV Personality,30.0,0.1076,0.1085266,0.05,0,10
+23,7,Terra Jole,TV Personality,34.5,0.1187,0.12156538,0.05,0,10
+23,8,Terra Jole,TV Personality,24.0,0.1401,0.14098035,0.05,0,10
+23,9,Terra Jole,TV Personality,38.0,0.1624,0.16635303,0.05,0,10
+23,10,Terra Jole,TV Personality,30.0,0.1557,0.1766653,0.08,1,10
+25,1,Terrell Owens,Athlete,15.0,0.0769,0.07697222,0.05,0,8
+25,2,Terrell Owens,Athlete,19.5,0.0796,0.08005531,0.05,0,8
+25,3,Terrell Owens,Athlete,21.0,0.0876,0.0897864,0.05,0,8
+25,4,Terrell Owens,Athlete,24.0,0.0894,0.09183934,0.05,0,8
+25,5,Terrell Owens,Athlete,25.0,0.0967,0.10041008,0.05,0,8
+25,6,Terrell Owens,Athlete,37.0,0.1097,0.11667635,0.05,0,8
+25,7,Terrell Owens,Athlete,24.5,0.1298,0.1327648,0.05,0,8
+25,8,Terrell Owens,Athlete,25.5,0.1337,0.13431723,0.08,1,8
+11,1,The Situation,TV Personality,15.0,0.0805,0.0782274,0.05,0,4
+11,2,The Situation,TV Personality,18.0,0.0877,0.086858556,0.05,0,4
+11,3,The Situation,TV Personality,20.0,0.0993,0.09683134,0.05,0,4
+11,4,The Situation,TV Personality,14.0,0.0865,0.087739326,0.08,1,4
+2,1,Tia Carrere,Actor/Actress,20.0,0.1069,0.10520951,0.05,0,5
+2,2,Tia Carrere,Actor/Actress,22.0,0.1176,0.11498637,0.05,0,5
+2,3,Tia Carrere,Actor/Actress,26.0,0.1309,0.13039044,0.05,0,5
+2,4,Tia Carrere,Actor/Actress,25.0,0.1526,0.15045686,0.05,0,5
+2,5,Tia Carrere,Actor/Actress,22.0,0.1063,0.10944002,0.08,1,5
+27,1,Tinashe,Singer/Rapper,23.0,0.0865,0.08659247,0.05,0,4
+27,2,Tinashe,Singer/Rapper,26.0,0.0922,0.09294819,0.05,0,4
+27,3,Tinashe,Singer/Rapper,27.0,0.105,0.10024414,0.05,0,4
+27,4,Tinashe,Singer/Rapper,26.0,0.0806,0.077708595,0.08,1,4
+9,1,Tom DeLay,Politician,19.9999,0.06,0.0518627,0.05,0,98
+9,2,Tom DeLay,Politician,18.0,0.062,0.06404827,0.05,0,98
+9,3,Tom DeLay,Politician,15.0,0.0711,0.068355866,0.05,0,98
+19,1,Tommy Chong,Comedian,27.0,0.0751,0.06959163,0.05,0,10
+19,2,Tommy Chong,Comedian,28.0,0.0837,0.07856348,0.05,0,10
+19,3,Tommy Chong,Comedian,34.0,0.0841,0.08475554,0.05,0,10
+19,4,Tommy Chong,Comedian,28.0,0.0973,0.1076641,0.05,0,10
+19,5,Tommy Chong,Comedian,23.0,0.1053,0.10294276,0.05,0,10
+19,6,Tommy Chong,Comedian,28.0,0.1085,0.10770912,0.05,0,10
+19,7,Tommy Chong,Comedian,30.0,0.1211,0.12047275,0.05,0,10
+19,8,Tommy Chong,Comedian,29.0,0.1391,0.1396539,0.05,0,10
+19,9,Tommy Chong,Comedian,28.5,0.1634,0.1685541,0.05,0,10
+19,10,Tommy Chong,Comedian,31.0,0.1577,0.15353496,0.08,1,10
+7,1,Toni Braxton,Singer/Rapper,22.5,0.0873,0.08986325,0.05,0,5
+7,2,Toni Braxton,Singer/Rapper,23.0,0.1018,0.10133461,0.05,0,5
+7,3,Toni Braxton,Singer/Rapper,22.0,0.122,0.12120141,0.05,0,5
+7,4,Toni Braxton,Singer/Rapper,22.0,0.1166,0.12008254,0.05,0,5
+7,5,Toni Braxton,Singer/Rapper,22.0,0.1023,0.103377275,0.08,1,5
+26,1,Tonya Harding,Athlete,23.0,0.1039,0.104716405,0.05,0,99
+26,2,Tonya Harding,Athlete,33.0,0.1308,0.13423273,0.05,0,99
+26,3,Tonya Harding,Athlete,35.0,0.1863,0.18270922,0.05,0,99
+26,4,Tonya Harding,Athlete,28.0,0.3563,0.34106365,0.05,0,99
+33,1,Tori Spelling,Actor/Actress,17.0,0.0831,0.08193642,0.05,0,2
+33,2,Tori Spelling,Actor/Actress,19.0,0.0286,0.029893415,0.08,1,2
+31,1,Trevor Donovan,Actor/Actress,21.0,0.0665,0.067976385,0.05,0,9
+31,2,Trevor Donovan,Actor/Actress,30.0,0.0733,0.07364234,0.05,0,9
+31,3,Trevor Donovan,Actor/Actress,27.0,0.0786,0.07649812,0.05,0,9
+31,4,Trevor Donovan,Actor/Actress,28.0,0.0795,0.07994017,0.05,0,9
+31,5,Trevor Donovan,Actor/Actress,36.0,0.0861,0.088128015,0.05,0,9
+31,6,Trevor Donovan,Actor/Actress,34.0,0.1106,0.108359456,0.05,0,9
+31,7,Trevor Donovan,Actor/Actress,39.0,0.131,0.12175662,0.05,0,9
+31,8,Trevor Donovan,Actor/Actress,39.0,0.1417,0.15007995,0.05,0,9
+31,9,Trevor Donovan,Actor/Actress,32.5,0.1162,0.116674475,0.08,1,9
+1,1,Trista Sutter,TV Personality,18.0,0.1763,0.16415124,0.05,0,2
+1,2,Trista Sutter,TV Personality,19.0,0.1011,0.10354013,0.08,1,2
+3,1,Tucker Carlson,TV Personality,12.0,0.0684,0.063083716,0.08,1,1
+8,1,Ty Murray,Athlete,14.0,0.0782,0.07495258,0.05,0,10
+8,2,Ty Murray,Athlete,20.0,0.0802,0.07632507,0.05,0,10
+8,3,Ty Murray,Athlete,23.0,0.0841,0.08292567,0.05,0,10
+8,4,Ty Murray,Athlete,25.0,0.0919,0.09195105,0.05,0,10
+8,5,Ty Murray,Athlete,21.0,0.1073,0.10822859,0.05,0,10
+8,6,Ty Murray,Athlete,18.0,0.1179,0.12171923,0.05,0,10
+8,7,Ty Murray,Athlete,24.0,0.1389,0.1416386,0.05,0,10
+8,8,Ty Murray,Athlete,26.0,0.1643,0.17417733,0.05,0,10
+8,9,Ty Murray,Athlete,23.0,0.206,0.20492923,0.05,0,10
+8,10,Ty Murray,Athlete,24.0,0.2132,0.19964568,0.08,1,10
+32,1,Tyson Beckford,Model,12.0,0.0735,0.070275284,0.05,0,3
+32,2,Tyson Beckford,Model,18.0,0.0803,0.078138195,0.05,0,3
+32,3,Tyson Beckford,Model,20.0,0.0305,0.027724374,0.08,1,3
+17,1,Valerie Harper,Actor/Actress,21.0,0.0896,0.08801678,0.05,0,4
+17,2,Valerie Harper,Actor/Actress,19.0,0.0872,0.08876981,0.05,0,4
+17,3,Valerie Harper,Actor/Actress,16.0,0.0903,0.0960077,0.05,0,4
+17,4,Valerie Harper,Actor/Actress,18.0,0.0776,0.078263715,0.08,1,4
+25,1,Vanessa Lachey,TV Personality,21.0,0.0736,0.07263097,0.05,0,7
+25,2,Vanessa Lachey,TV Personality,23.5,0.0776,0.07549116,0.05,0,7
+25,3,Vanessa Lachey,TV Personality,23.0,0.0863,0.084244534,0.05,0,7
+25,4,Vanessa Lachey,TV Personality,24.0,0.0868,0.08678217,0.05,0,7
+25,5,Vanessa Lachey,TV Personality,24.0,0.0967,0.0954236,0.05,0,7
+25,6,Vanessa Lachey,TV Personality,36.0,0.1097,0.112190045,0.05,0,7
+25,7,Vanessa Lachey,TV Personality,27.0,0.0979,0.09677571,0.08,1,7
+23,1,Vanilla Ice,Singer/Rapper,25.0,0.0855,0.086082,0.05,0,4
+23,2,Vanilla Ice,Singer/Rapper,26.0,0.0864,0.087039806,0.05,0,4
+23,3,Vanilla Ice,Singer/Rapper,23.0,0.0941,0.09356156,0.05,0,4
+23,4,Vanilla Ice,Singer/Rapper,23.0,0.0759,0.07272021,0.08,1,4
+29,1,Veron Davis,Athlete,17.0,0.0693,0.06981105,0.05,0,6
+29,2,Veron Davis,Athlete,18.0,0.069,0.0707689,0.05,0,6
+29,3,Veron Davis,Athlete,22.0,0.0744,0.075600654,0.05,0,6
+29,4,Veron Davis,Athlete,22.0,0.0809,0.081501156,0.05,0,6
+29,5,Veron Davis,Athlete,21.0,0.0878,0.08729521,0.05,0,6
+29,6,Veron Davis,Athlete,21.0,0.0368,0.03820401,0.08,1,6
+21,1,Victor Espinoza,Athlete,15.0,0.0767,0.07731844,0.05,0,2
+21,2,Victor Espinoza,Athlete,18.5,0.0605,0.063463956,0.08,1,2
+16,1,Victor Ortiz,Athlete,18.0,0.0838,0.083798885,0.05,0,6
+16,2,Victor Ortiz,Athlete,18.0,0.0866,0.08296533,0.05,0,6
+16,3,Victor Ortiz,Athlete,23.0,0.0954,0.0929277,0.05,0,6
+16,4,Victor Ortiz,Athlete,18.0,0.1009,0.10217068,0.05,0,6
+16,5,Victor Ortiz,Athlete,21.0,0.1119,0.11201528,0.05,0,6
+16,6,Victor Ortiz,Athlete,20.0,0.1016,0.101735674,0.08,1,6
+25,1,Victoria Arlen,Athlete,19.0,0.0744,0.07701018,0.05,0,9
+25,2,Victoria Arlen,Athlete,22.0,0.0776,0.079345815,0.05,0,9
+25,3,Victoria Arlen,Athlete,22.0,0.0862,0.088812634,0.05,0,9
+25,4,Victoria Arlen,Athlete,27.0,0.0906,0.092986725,0.05,0,9
+25,5,Victoria Arlen,Athlete,27.0,0.1001,0.10005317,0.05,0,9
+25,6,Victoria Arlen,Athlete,31.0,0.1115,0.11261963,0.05,0,9
+25,7,Victoria Arlen,Athlete,28.5,0.1343,0.13016874,0.05,0,9
+25,8,Victoria Arlen,Athlete,24.0,0.1669,0.16728531,0.05,0,9
+25,9,Victoria Arlen,Athlete,28.0,0.1642,0.16472363,0.08,1,9
+31,1,Vinny Guadagnino,TV Personality,17.0,0.0636,0.06431646,0.05,0,8
+31,2,Vinny Guadagnino,TV Personality,27.0,0.0682,0.069850996,0.05,0,8
+31,3,Vinny Guadagnino,TV Personality,23.0,0.0732,0.072838195,0.05,0,8
+31,4,Vinny Guadagnino,TV Personality,29.0,0.0787,0.079438746,0.05,0,8
+31,5,Vinny Guadagnino,TV Personality,31.0,0.0861,0.08330257,0.05,0,8
+31,6,Vinny Guadagnino,TV Personality,28.0,0.1045,0.09906731,0.05,0,8
+31,7,Vinny Guadagnino,TV Personality,31.5,0.1158,0.11309158,0.05,0,8
+31,8,Vinny Guadagnino,TV Personality,29.0,0.075,0.07372332,0.08,1,8
+3,1,Vivica A. Fox,Actor/Actress,22.0,0.0943,0.094464175,0.05,0,4
+3,2,Vivica A. Fox,Actor/Actress,24.0,0.1055,0.105260886,0.05,0,4
+3,3,Vivica A. Fox,Actor/Actress,27.0,0.1122,0.11904452,0.05,0,4
+3,4,Vivica A. Fox,Actor/Actress,24.0,0.0994,0.09742152,0.08,1,4
+22,1,Von Miller,Athlete,21.0,0.0852,0.08497341,0.05,0,7
+22,2,Von Miller,Athlete,20.0,0.0838,0.08592014,0.05,0,7
+22,3,Von Miller,Athlete,20.0,0.0924,0.093470424,0.05,0,7
+22,4,Von Miller,Athlete,32.0,0.1018,0.10360599,0.05,0,7
+22,5,Von Miller,Athlete,29.0,0.111,0.10989169,0.05,0,7
+22,6,Von Miller,Athlete,24.0,0.1152,0.11545971,0.05,0,7
+22,7,Von Miller,Athlete,26.0,0.1025,0.10301139,0.08,1,7
+22,1,Wanya Morris,Singer/Rapper,23.0,0.0967,0.09318554,0.05,0,9
+22,2,Wanya Morris,Singer/Rapper,24.0,0.0952,0.094338745,0.05,0,9
+22,3,Wanya Morris,Singer/Rapper,24.0,0.1046,0.102924794,0.05,0,9
+22,4,Wanya Morris,Singer/Rapper,35.0,0.1134,0.1144449,0.05,0,9
+22,5,Wanya Morris,Singer/Rapper,30.0,0.1261,0.1257751,0.05,0,9
+22,6,Wanya Morris,Singer/Rapper,29.0,0.1256,0.12403491,0.05,0,9
+22,7,Wanya Morris,Singer/Rapper,27.5,0.147,0.14197095,0.05,0,9
+22,8,Wanya Morris,Singer/Rapper,25.0,0.2007,0.19126694,0.05,0,9
+22,9,Wanya Morris,Singer/Rapper,30.0,0.1778,0.15966497,0.08,1,9
+7,1,Warren Sapp,Athlete,21.5,0.0775,0.07675693,0.05,0,99
+7,2,Warren Sapp,Athlete,24.0,0.0917,0.0905547,0.05,0,99
+7,3,Warren Sapp,Athlete,25.0,0.0859,0.10435609,0.05,0,99
+7,4,Warren Sapp,Athlete,22.0,0.1042,0.10877412,0.05,0,99
+7,5,Warren Sapp,Athlete,25.0,0.1229,0.12181069,0.05,0,99
+7,6,Warren Sapp,Athlete,25.0,0.143,0.13990937,0.05,0,99
+7,7,Warren Sapp,Athlete,21.0,0.1657,0.16596997,0.05,0,99
+7,8,Warren Sapp,Athlete,27.0,0.2138,0.21095003,0.05,0,99
+7,9,Warren Sapp,Athlete,24.5,0.2581,0.25672913,0.05,0,99
+7,10,Warren Sapp,Athlete,27.5,0.3515,0.3087483,0.05,0,99
+31,1,Wayne Brady,Comedian,29.0,0.0636,0.059693888,0.05,0,99
+31,2,Wayne Brady,Comedian,32.0,0.0682,0.06559326,0.05,0,99
+31,3,Wayne Brady,Comedian,33.0,0.0732,0.07297514,0.05,0,99
+31,4,Wayne Brady,Comedian,36.0,0.0787,0.07921995,0.05,0,99
+31,5,Wayne Brady,Comedian,41.0,0.0861,0.08603353,0.05,0,99
+31,6,Wayne Brady,Comedian,34.0,0.1045,0.104625136,0.05,0,99
+31,7,Wayne Brady,Comedian,38.0,0.1158,0.11595959,0.05,0,99
+31,8,Wayne Brady,Comedian,45.0,0.1417,0.1387266,0.05,0,99
+31,9,Wayne Brady,Comedian,36.5,0.1919,0.19188434,0.05,0,99
+31,10,Wayne Brady,Comedian,38.0,0.2722,0.26874876,0.05,0,99
+5,1,Wayne Newton,Singer/Rapper,19.0,0.0943,0.0929503,0.05,0,3
+5,2,Wayne Newton,Singer/Rapper,15.0,0.1014,0.101425424,0.05,0,3
+5,3,Wayne Newton,Singer/Rapper,18.0,0.0746,0.076738134,0.08,1,3
+12,1,Wendy Williams,TV Personality,14.0,0.0875,0.085559465,0.05,0,3
+12,2,Wendy Williams,TV Personality,17.0,0.0855,0.08717359,0.05,0,3
+12,3,Wendy Williams,TV Personality,15.0,0.0772,0.077220336,0.08,1,3
+34,1,Whitney Leavitt,TV Personality,15.0,0.0723,0.071040906,0.05,0,10
+34,2,Whitney Leavitt,TV Personality,22.0,0.0783,0.078764,0.05,0,10
+34,3,Whitney Leavitt,TV Personality,24.0,0.0867,0.08594661,0.05,0,10
+34,4,Whitney Leavitt,TV Personality,25.0,0.0934,0.09423808,0.05,0,10
+34,5,Whitney Leavitt,TV Personality,33.0,0.1026,0.103062645,0.05,0,10
+34,6,Whitney Leavitt,TV Personality,39.0,0.1046,0.10421988,0.05,0,10
+34,7,Whitney Leavitt,TV Personality,42.0,0.1169,0.11305708,0.05,0,10
+34,8,Whitney Leavitt,TV Personality,39.5,0.1314,0.132848,0.05,0,10
+34,9,Whitney Leavitt,TV Personality,42.0,0.1548,0.15041122,0.05,0,10
+34,10,Whitney Leavitt,TV Personality,29.0,0.1038,0.102622844,0.08,1,10
+3,1,Willa Ford,Singer/Rapper,22.0,0.1002,0.10033518,0.05,0,5
+3,2,Willa Ford,Singer/Rapper,23.0,0.1094,0.10866071,0.05,0,5
+3,3,Willa Ford,Singer/Rapper,22.0,0.118,0.12082582,0.05,0,5
+3,4,Willa Ford,Singer/Rapper,28.0,0.1372,0.13393003,0.05,0,5
+3,5,Willa Ford,Singer/Rapper,27.0,0.1177,0.12204981,0.08,1,5
+14,1,William Levy,Actor/Actress,24.0,0.0842,0.083505385,0.05,0,99
+14,2,William Levy,Actor/Actress,25.0,0.0853,0.08549004,0.05,0,99
+14,3,William Levy,Actor/Actress,28.0,0.0911,0.09423626,0.05,0,99
+14,4,William Levy,Actor/Actress,22.0,0.1002,0.10084664,0.05,0,99
+14,5,William Levy,Actor/Actress,29.0,0.1152,0.115638755,0.05,0,99
+14,6,William Levy,Actor/Actress,36.0,0.1297,0.12964806,0.05,0,99
+14,7,William Levy,Actor/Actress,26.5,0.1551,0.15196094,0.05,0,99
+14,8,William Levy,Actor/Actress,28.5,0.185,0.18074638,0.05,0,99
+14,9,William Levy,Actor/Actress,29.0,0.2665,0.2602711,0.05,0,99
+14,10,William Levy,Actor/Actress,29.666600000000003,0.3603,0.351318,0.05,0,99
+20,1,Willow Shields,Actor/Actress,25.0,0.0896,0.08654364,0.05,0,7
+20,2,Willow Shields,Actor/Actress,32.0,0.0882,0.08921003,0.05,0,7
+20,3,Willow Shields,Actor/Actress,32.0,0.0997,0.09704646,0.05,0,7
+20,4,Willow Shields,Actor/Actress,39.0,0.1075,0.10752264,0.05,0,7
+20,5,Willow Shields,Actor/Actress,34.0,0.1226,0.121536,0.05,0,7
+20,6,Willow Shields,Actor/Actress,36.5,0.1322,0.1307505,0.05,0,7
+20,7,Willow Shields,Actor/Actress,39.0,0.1146,0.120128386,0.08,1,7
+16,1,Wynonna Judd,Singer/Rapper,18.0,0.0933,0.09134946,0.05,0,3
+16,2,Wynonna Judd,Singer/Rapper,18.0,0.0918,0.08990544,0.05,0,3
+16,3,Wynonna Judd,Singer/Rapper,15.0,0.073,0.07260214,0.08,1,3
+32,1,Xochitl Gomez,Actor/Actress,18.0,0.077,0.076879166,0.05,0,99
+32,2,Xochitl Gomez,Actor/Actress,24.0,0.0811,0.08273121,0.05,0,99
+32,3,Xochitl Gomez,Actor/Actress,32.0,0.0894,0.08891993,0.05,0,99
+32,4,Xochitl Gomez,Actor/Actress,27.0,0.0946,0.10051465,0.05,0,99
+32,5,Xochitl Gomez,Actor/Actress,28.0,0.1052,0.107856706,0.05,0,99
+32,6,Xochitl Gomez,Actor/Actress,42.0,0.1177,0.11830869,0.05,0,99
+32,7,Xochitl Gomez,Actor/Actress,37.0,0.1312,0.13416703,0.05,0,99
+32,8,Xochitl Gomez,Actor/Actress,40.0,0.1533,0.15454364,0.05,0,99
+32,9,Xochitl Gomez,Actor/Actress,41.0,0.181,0.1845702,0.05,0,99
+32,10,Xochitl Gomez,Actor/Actress,30.0,0.2132,0.21240191,0.05,0,99
+32,11,Xochitl Gomez,Actor/Actress,30.0,0.2185,0.22844733,0.05,0,99
+16,1,Zendaya,Actor/Actress,24.0,0.0886,0.087714106,0.05,0,99
+16,2,Zendaya,Actor/Actress,26.0,0.0873,0.08835544,0.05,0,99
+16,3,Zendaya,Actor/Actress,25.9998,0.0977,0.09845347,0.05,0,99
+16,4,Zendaya,Actor/Actress,26.0,0.1133,0.10871459,0.05,0,99
+16,5,Zendaya,Actor/Actress,29.0,0.1174,0.12051926,0.05,0,99
+16,6,Zendaya,Actor/Actress,25.5,0.1274,0.13592023,0.05,0,99
+16,7,Zendaya,Actor/Actress,30.0,0.1525,0.1516454,0.05,0,99
+16,8,Zendaya,Actor/Actress,29.0,0.1706,0.17185122,0.05,0,99
+16,9,Zendaya,Actor/Actress,27.5,0.2035,0.2086256,0.05,0,99
+16,10,Zendaya,Actor/Actress,30.0,0.2612,0.2573124,0.05,0,99
