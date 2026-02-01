@@ -1,0 +1,8 @@
+=== Voting Method Comparison Report ===
+Total Weeks Analyzed: 34 seasons
+Weeks with Different Elimination Outcomes: 106
+
+=== Bias Analysis ===
+Correlation with Fan Rank (Rank Method): 0.8108
+Correlation with Fan Rank (Pct Method):  0.6794
+-> Rank Method is closer to pure fan popularity.
