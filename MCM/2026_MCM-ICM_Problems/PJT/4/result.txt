@@ -48,3 +48,72 @@ QUANTITATIVE PROOF OF OPTIMIZATION
   'Robbed' Incidents in New System: 1
   'Robbed' Rate: 0.4%
   -> A rate near 0% proves the system protects top talent.
+
+
+
+
+
+  (dwts-env) PS D:\Repositories\ScuderiaAMG\MCM\2026_MCM-ICM_Problems\PJT\4> python .\q4.py
+============================================================
+OPTIMIZED ELIMINATION MODEL: The 'Meritocratic Safety Net' System
+============================================================
+Core Concept: Standardized Scores + Judge's Veto Power
+Improvement over V1: Adds a non-linear 'Safety Net' (Judges Save) to
+                     prevent high-popularity/low-skill outliers from eliminating
+                     skilled dancers in the bottom tier.
+
+Mathematical Logic:
+  1. Composite Score (CS) = 0.5 * Z_judge + 0.5 * Z_fan
+  2. Identify Bottom 2 contestants based on CS.
+       Eliminate argmin(Judge_Score) from Bottom 2.
+       Eliminate argmin(Judge_Score) from Bottom 2.
+       (If Judge Scores tie, revert to lowest CS).
+============================================================
+
+[1] Loading Data...
+[2] Executing Optimized Algorithm...
+D:\Repositories\ScuderiaAMG\MCM\2026_MCM-ICM_Problems\PJT\4\q4.py:100: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  df_optimized = df.groupby(['season', 'week'], group_keys=False).apply(apply_safety_net_logic)
+    -> Calculation Complete. Results saved.
+
+============================================================
+QUANTITATIVE PROOF OF OPTIMIZATION
+============================================================
+
+[Proof 1: Technical Integrity Metric]
+  Metric: Correlation between Judge Scores and Survival
+  Spearman Correlation: 0.1838
+  Interpretation: Positive value confirms skill is a protective factor.
+
+[Proof 2: The 'Bobby Bones' Stress Test (Season 27)]
+  Tracking Bobby Bones in 'Meritocratic Safety Net' System:
+    Week 1: Judge Score 20.0 | Composite Z-Score -0.58 | Status: Safe
+    Week 2: Judge Score 19.5 | Composite Z-Score -1.13 [Bottom 2] | Status: Safe
+    Week 3: Judge Score 23.0 | Composite Z-Score -0.74 | Status: Safe
+    Week 4: Judge Score 20.0 | Composite Z-Score -0.65 | Status: Safe
+    Week 5: Judge Score 21.0 | Composite Z-Score -1.52 [Bottom 2] | Status: Safe
+    Week 6: Judge Score 22.0 | Composite Z-Score -0.91 [Bottom 2] | Status: ELIMINATED (By Judges Save)
+----------------------------------------
+  -> SUCCESS: The optimized system eliminates Bobby Bones.
+     Why? Even if fans saved him from last place, his low judge scores
+     triggered the 'Veto' when he landed in the Bottom 2.
+
+[Proof 3: 'Robbed' Rate Analysis]
+  Definition of 'Robbed': Contestant eliminated despite having Top 3 judge scores.
+  Total Eliminations Simulated: 285
+  'Robbed' Incidents in New System: 1
+  'Robbed' Rate: 0.4%
+  -> A rate near 0% proves the system protects top talent.
+(dwts-env) PS D:\Repositories\ScuderiaAMG\MCM\2026_MCM-ICM_Problems\PJT\4> python .\pic.py
+Successfully loaded Optimized_Algorithm_Results.csv
+Generating Figure 1: Scatter Plot...
+Generating Figure 2: Box Plot...
+D:\Repositories\ScuderiaAMG\MCM\2026_MCM-ICM_Problems\PJT\4\pic.py:112: FutureWarning:
+
+Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+  sns.boxplot(
+Generating Figure 3: Timeline...
+Generating Figure 4: Density Plot...
+All visualizations generated and saved successfully.
+(dwts-env) PS D:\Repositories\ScuderiaAMG\MCM\2026_MCM-ICM_Problems\PJT\4>
