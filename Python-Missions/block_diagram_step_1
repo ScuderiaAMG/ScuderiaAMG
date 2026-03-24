@@ -1,0 +1,32 @@
+// Block Diagram
+digraph {
+	nodesep=0.8 rankdir=LR ranksep=1.0
+	node [fontname=Arial fontsize=12]
+	edge [fontname=Arial fontsize=10]
+	R [label="R(s)" shape=plaintext]
+	C [label="C(s)" shape=plaintext]
+	Sum1 [label="Σ" fixedsize=true shape=circle width=0.4]
+	Sum2 [label="Σ" fixedsize=true shape=circle width=0.4]
+	Sum3 [label="Σ" fixedsize=true shape=circle width=0.4]
+	G1 [label=G1 height=0.4 shape=box width=0.6]
+	G2 [label=G2 height=0.4 shape=box width=0.6]
+	G3 [label=G3 height=0.4 shape=box width=0.6]
+	G4 [label=G4 height=0.4 shape=box width=0.6]
+	H1 [label=H1 height=0.4 shape=box width=0.6]
+	H2 [label=H2 height=0.4 shape=box width=0.6]
+	G5 [label=G5 height=0.4 shape=box width=0.6]
+	R -> Sum1
+	Sum1 -> G1
+	G1 -> Sum2
+	Sum2 -> G2
+	G2 -> Sum3
+	Sum3 -> G3
+	G3 -> G4
+	G4 -> C
+	G1 -> H2 [headport=e tailport=e]
+	H2 -> Sum1 [headport=s xlabel="-"]
+	G3 -> H1 [headport=e tailport=e]
+	H1 -> Sum2 [headport=s xlabel="-"]
+	R -> G5
+	G5 -> Sum2 [xlabel="+"]
+}

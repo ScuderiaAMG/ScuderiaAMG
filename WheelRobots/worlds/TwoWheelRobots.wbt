@@ -1,0 +1,162 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      rollingFriction 0.01 0.1 0
+    }
+  ]
+}
+Viewpoint {
+  fieldOfView 1.2
+  orientation -0.15027659788884018 0.04809145820470283 0.9874736228247827 2.5294510153464316
+  position 0.9114102753112879 -0.8730170606014184 0.3477167043376841
+}
+Floor {
+  translation 0 0 -0.001
+  size 12 8
+  appearance Parquetry {
+    type "light strip"
+    textureTransform TextureTransform {
+      scale 0.4 0.4
+    }
+  }
+}
+RectangleArena {
+  translation 0.0108032 0.356442 4.44089e-16
+  floorSize 5 5
+  floorAppearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        "map.png"
+      ]
+    }
+    roughness 1
+    metalness 0
+    textureTransform TextureTransform {
+      scale 0.1 0.1
+    }
+  }
+  wallThickness 0.02
+}
+TexturedBackgroundLight {
+}
+DEF Robot Robot {
+  rotation 0 1 0 0
+  children [
+    Gyro {
+      translation 0 0 0.1
+      name "TWRGyro"
+    }
+    InertialUnit {
+      translation 0 0 0.1
+      name "InertialUnit"
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4.5560677108308014e-07
+        axis 0 1 0
+        anchor 0 -0.08 0.04
+      }
+      device [
+        RotationalMotor {
+          name "LeftMotor"
+        }
+      ]
+      endPoint Solid {
+        translation 2.3379075471179845e-06 -0.08000020029764963 0.03994271815216589
+        rotation 0.9999999998543796 -1.2038058938269776e-05 1.2096531981867125e-05 1.570000392463698
+        children [
+          DEF LeftWheelShape Shape {
+            appearance PBRAppearance {
+              baseColor 0.74902 0.74902 0.74902
+              baseColorMap ImageTexture {
+                url [
+                  "wheel.png"
+                ]
+              }
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "LeftWheel"
+        boundingObject USE LeftWheelShape
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        position 4.6541499812378456e-07
+        axis 0 1 0
+        anchor 0 0.08 0.04
+      }
+      device [
+        RotationalMotor {
+          name "RightMotor"
+        }
+      ]
+      endPoint Solid {
+        translation 2.3345339035250754e-06 0.07999999967522221 0.039942709870750076
+        rotation 0.9999999998544801 -1.203235072990474e-05 1.2093901474711898e-05 1.570000399398459
+        children [
+          DEF RightWheelShape Shape {
+            appearance PBRAppearance {
+              baseColor 0.74902 0.74902 0.74902
+              baseColorMap ImageTexture {
+                url [
+                  "wheel.png"
+                ]
+              }
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.02
+              radius 0.04
+            }
+          }
+        ]
+        name "RightWheel"
+        boundingObject USE RightWheelShape
+        physics Physics {
+        }
+      }
+    }
+    Solid {
+      translation 0 0 0.1
+      children [
+        DEF BodyShape Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 0.1 0.12 0.1
+          }
+        }
+      ]
+      name "Body"
+    }
+  ]
+  boundingObject Pose {
+    translation 0 0 0.1
+    children [
+      USE BodyShape
+    ]
+  }
+  physics Physics {
+  }
+  controller "my_controller"
+}
