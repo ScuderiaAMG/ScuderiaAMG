@@ -15,7 +15,7 @@ WorldInfo {
 Viewpoint {
   fieldOfView 1.2
   orientation -0.15027659788884018 0.04809145820470283 0.9874736228247827 2.5294510153464316
-  position 0.9114102753112879 -0.8730170606014184 0.3477167043376841
+  position 0.9032713931592307 -0.6990638461139547 0.435315987577672
 }
 Floor {
   translation 0 0 -0.001
@@ -47,7 +47,7 @@ RectangleArena {
 TexturedBackgroundLight {
 }
 DEF Robot Robot {
-  rotation 0 1 0 0
+  rotation 0 1 0 0.1
   children [
     Gyro {
       translation 0 0 0.1
@@ -69,8 +69,8 @@ DEF Robot Robot {
         }
       ]
       endPoint Solid {
-        translation 2.3379075471179845e-06 -0.08000020029764963 0.03994271815216589
-        rotation 0.9999999998543796 -1.2038058938269776e-05 1.2096531981867125e-05 1.570000392463698
+        translation 2.337907547117983e-06 -0.08000020029764963 0.03994271815216589
+        rotation 0.9999999998543796 -1.2038058938269777e-05 1.2096531981867123e-05 1.5700003924636987
         children [
           DEF LeftWheelShape Shape {
             appearance PBRAppearance {
@@ -108,7 +108,7 @@ DEF Robot Robot {
       ]
       endPoint Solid {
         translation 2.3345339035250754e-06 0.07999999967522221 0.039942709870750076
-        rotation 0.9999999998544801 -1.203235072990474e-05 1.2093901474711898e-05 1.570000399398459
+        rotation 0.9999999998544801 -1.2032350729904735e-05 1.2093901474711898e-05 1.570000399398459
         children [
           DEF RightWheelShape Shape {
             appearance PBRAppearance {
