@@ -35,7 +35,7 @@ dt = timestep / 1000.0
 # PI gains (start values, tune in Webots).
 target_pitch = 0.0
 KP = 1.0
-KI = 0.8
+KI = 0.9
 
 # Anti-windup and output limits.
 integral_error = 0.0

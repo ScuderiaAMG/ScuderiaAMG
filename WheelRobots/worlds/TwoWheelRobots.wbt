@@ -47,7 +47,8 @@ RectangleArena {
 TexturedBackgroundLight {
 }
 DEF Robot Robot {
-  rotation 0 1 0 0.1
+  translation 0.01121938056409879 -4.671348807175875e-07 -0.00042649988000208194
+  rotation -0.00022975941324796466 -0.9999969277516612 -0.0024681365138354947 0.04097777418279499
   children [
     Gyro {
       translation 0 0 0.1
@@ -59,7 +60,7 @@ DEF Robot Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 4.5560677108308014e-07
+        position 0.28013199212804685
         axis 0 1 0
         anchor 0 -0.08 0.04
       }
@@ -69,8 +70,8 @@ DEF Robot Robot {
         }
       ]
       endPoint Solid {
-        translation 2.337907547117983e-06 -0.08000020029764963 0.03994271815216589
-        rotation 0.9999999998543796 -1.2038058938269777e-05 1.2096531981867123e-05 1.5700003924636987
+        translation -1.3590629535301473e-05 -0.08000020029764963 0.03994430466184839
+        rotation 0.9806841697434744 0.13836370366784453 -0.13825355229385436 1.5895041290083007
         children [
           DEF LeftWheelShape Shape {
             appearance PBRAppearance {
@@ -93,11 +94,13 @@ DEF Robot Robot {
         boundingObject USE LeftWheelShape
         physics Physics {
         }
+        linearVelocity -0.017955737552839947 -1.3249629443608286e-09 -2.2546629832841864e-05
+        angularVelocity 3.0336442750802775e-08 -0.4488548061470594 0.00037019575929258814
       }
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 4.6541499812378456e-07
+        position 0.28053442640381776
         axis 0 1 0
         anchor 0 0.08 0.04
       }
@@ -107,8 +110,8 @@ DEF Robot Robot {
         }
       ]
       endPoint Solid {
-        translation 2.3345339035250754e-06 0.07999999967522221 0.039942709870750076
-        rotation 0.9999999998544801 -1.2032350729904735e-05 1.2093901474711898e-05 1.570000399398459
+        translation -1.3618576226716264e-05 0.07999999967522221 0.03994430311193992
+        rotation 0.9806295170566314 0.13855739958407737 -0.1384470920524384 1.5895598573029794
         children [
           DEF RightWheelShape Shape {
             appearance PBRAppearance {
@@ -131,6 +134,8 @@ DEF Robot Robot {
         boundingObject USE RightWheelShape
         physics Physics {
         }
+        linearVelocity -0.018014317064806166 2.3264641512748536e-09 -1.4636007180817939e-05
+        angularVelocity -2.2108561434849363e-08 -0.45032055068161075 0.000370209151249172
       }
     }
     Solid {
@@ -159,4 +164,6 @@ DEF Robot Robot {
   physics Physics {
   }
   controller "my_controller"
+  linearVelocity 0.0114735165911929 -7.57188678537387e-06 0.0013795661591207878
+  angularVelocity 0.00010608457092325642 0.492211241946354 0.00036173585367301283
 }
