@@ -1,0 +1,41 @@
+# ==========================================
+# Basys2 硬件引脚约束文件 (.ucf)
+# ==========================================
+
+# 1. 系统时钟 (50MHz)
+# 注意：图中未标出时钟引脚，但 Basys2 默认的 50MHz 晶振引脚固定为 B8
+NET "clk_50m" LOC = "B8";
+
+# 2. 控制按键与开关
+# 复位信号 (nCR) 建议分配给拨码开关 SW0，方便保持电平状态
+NET "nCR" LOC = "P11";       
+# 调分按键 (AdjMinKey) 分配给 BTN0
+NET "AdjMinKey" LOC = "G12"; 
+# 调时按键 (AdjHrKey) 分配给 BTN1
+NET "AdjHrKey" LOC = "C11";  
+
+# 3. 秒显示 (8个LED显示秒的 BCD 码 Sec[7:0])
+NET "Sec[0]" LOC = "M5";  # LD0
+NET "Sec[1]" LOC = "M11"; # LD1
+NET "Sec[2]" LOC = "P7";  # LD2
+NET "Sec[3]" LOC = "P6";  # LD3
+NET "Sec[4]" LOC = "N5";  # LD4
+NET "Sec[5]" LOC = "N4";  # LD5
+NET "Sec[6]" LOC = "P4";  # LD6
+NET "Sec[7]" LOC = "G1";  # LD7
+
+# 4. 数码管位选信号 (AN3 ~ AN0，低电平有效)
+NET "AN[3]" LOC = "K14"; # 最左侧数码管 (显示小时十位)
+NET "AN[2]" LOC = "M13"; # 左二数码管 (显示小时个位)
+NET "AN[1]" LOC = "J12"; # 右二数码管 (显示分钟十位)
+NET "AN[0]" LOC = "F12"; # 最右侧数码管 (显示分钟个位)
+
+# 5. 数码管段选信号 (CA ~ CG, DP，低电平有效)
+NET "SEG[0]" LOC = "L14"; # CA
+NET "SEG[1]" LOC = "H12"; # CB
+NET "SEG[2]" LOC = "N14"; # CC
+NET "SEG[3]" LOC = "N11"; # CD
+NET "SEG[4]" LOC = "P12"; # CE
+NET "SEG[5]" LOC = "L13"; # CF
+NET "SEG[6]" LOC = "M12"; # CG
+NET "SEG[7]" LOC = "N13"; # DP (小数点，若不需要可赋高电平熄灭)
