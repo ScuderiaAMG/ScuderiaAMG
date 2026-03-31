@@ -1,0 +1,13 @@
+[Inputs]
+clk_50m
+nCR
+AdjMinKey
+AdjHrKey
+[Outputs]
+=Sec[7:0]=
+=Min[7:0]=
+=Hr[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel top_clock
+

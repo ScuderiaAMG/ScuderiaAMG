@@ -1,0 +1,7 @@
+verilog work "counter6.v"
+verilog work "counter10.v"
+verilog work "divider.v"
+verilog work "display_driver.v"
+verilog work "counter60.v"
+verilog work "counter24.v"
+verilog work "top_clock.v"

@@ -1,0 +1,60 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Mar 31 19:54:20 2026
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "Sec<0>" LOCATE = SITE "M5" LEVEL 1;
+COMP "Sec<1>" LOCATE = SITE "M11" LEVEL 1;
+COMP "Sec<2>" LOCATE = SITE "P7" LEVEL 1;
+COMP "Sec<3>" LOCATE = SITE "P6" LEVEL 1;
+COMP "Sec<4>" LOCATE = SITE "N5" LEVEL 1;
+COMP "Sec<5>" LOCATE = SITE "N4" LEVEL 1;
+COMP "Sec<6>" LOCATE = SITE "P4" LEVEL 1;
+COMP "Sec<7>" LOCATE = SITE "G1" LEVEL 1;
+COMP "AN<0>" LOCATE = SITE "F12" LEVEL 1;
+COMP "AN<1>" LOCATE = SITE "J12" LEVEL 1;
+COMP "AN<2>" LOCATE = SITE "M13" LEVEL 1;
+COMP "AN<3>" LOCATE = SITE "K14" LEVEL 1;
+COMP "nCR" LOCATE = SITE "P11" LEVEL 1;
+COMP "clk_50m" LOCATE = SITE "B8" LEVEL 1;
+COMP "AdjMinKey" LOCATE = SITE "G12" LEVEL 1;
+COMP "SEG<0>" LOCATE = SITE "L14" LEVEL 1;
+COMP "SEG<1>" LOCATE = SITE "H12" LEVEL 1;
+COMP "SEG<2>" LOCATE = SITE "N14" LEVEL 1;
+COMP "SEG<3>" LOCATE = SITE "N11" LEVEL 1;
+COMP "SEG<4>" LOCATE = SITE "P12" LEVEL 1;
+COMP "SEG<5>" LOCATE = SITE "L13" LEVEL 1;
+COMP "SEG<6>" LOCATE = SITE "M12" LEVEL 1;
+COMP "SEG<7>" LOCATE = SITE "N13" LEVEL 1;
+COMP "AdjHrKey" LOCATE = SITE "C11" LEVEL 1;
+NET "clk_50m_BUFGP/IBUFG" BEL "clk_50m_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP clk_1khz = BEL "clk_1khz" BEL "U_Display/scan_cnt_1" BEL
+        "U_Display/scan_cnt_0";
+TIMEGRP clk_50m = BEL "clk_1khz" BEL "U_Div/clk_1hz" BEL "U_Div/count_0" BEL
+        "U_Div/count_1" BEL "U_Div/count_2" BEL "U_Div/count_3" BEL
+        "U_Div/count_4" BEL "U_Div/count_5" BEL "U_Div/count_6" BEL
+        "U_Div/count_7" BEL "U_Div/count_8" BEL "U_Div/count_9" BEL
+        "U_Div/count_10" BEL "U_Div/count_11" BEL "U_Div/count_12" BEL
+        "U_Div/count_13" BEL "U_Div/count_14" BEL "U_Div/count_15" BEL
+        "U_Div/count_16" BEL "U_Div/count_17" BEL "U_Div/count_18" BEL
+        "U_Div/count_19" BEL "U_Div/count_20" BEL "U_Div/count_21" BEL
+        "U_Div/count_22" BEL "U_Div/count_23" BEL "U_Div/count_24" BEL
+        "cnt_1k_0" BEL "cnt_1k_1" BEL "cnt_1k_2" BEL "cnt_1k_3" BEL "cnt_1k_4"
+        BEL "cnt_1k_5" BEL "cnt_1k_6" BEL "cnt_1k_7" BEL "cnt_1k_8" BEL
+        "cnt_1k_9" BEL "cnt_1k_10" BEL "cnt_1k_11" BEL "cnt_1k_12" BEL
+        "cnt_1k_13" BEL "cnt_1k_14" BEL "cnt_1k_15" BEL
+        "clk_50m_BUFGP/BUFG.GCLKMUX" BEL "clk_50m_BUFGP/BUFG";
+TIMEGRP U_Div/clk_1hz1 = BEL "U_Div/clk_1hz" BEL "U_Sec/UC1/Q_0" BEL
+        "U_Sec/UC1/Q_1" BEL "U_Sec/UC1/Q_2" BEL "U_Sec/UC1/Q_3" BEL
+        "U_Min/UC1/Q_0" BEL "U_Min/UC1/Q_1" BEL "U_Min/UC1/Q_2" BEL
+        "U_Min/UC1/Q_3" BEL "U_Min/UC0/Q_0" BEL "U_Min/UC0/Q_1" BEL
+        "U_Min/UC0/Q_2" BEL "U_Min/UC0/Q_3" BEL "U_Sec/UC0/Q_0" BEL
+        "U_Sec/UC0/Q_1" BEL "U_Sec/UC0/Q_2" BEL "U_Sec/UC0/Q_3" BEL
+        "U_Hr/Cnt_1" BEL "U_Hr/Cnt_2" BEL "U_Hr/Cnt_0" BEL "U_Hr/Cnt_3" BEL
+        "U_Hr/Cnt_4" BEL "U_Hr/Cnt_6" BEL "U_Hr/Cnt_7" BEL "U_Hr/Cnt_5" BEL
+        "U_Div/clk_1hz_BUFG.GCLKMUX" BEL "U_Div/clk_1hz_BUFG";
+TS_clk_1khz = PERIOD TIMEGRP "clk_1khz" 20 ns HIGH 50%;
+TS_clk_50m = PERIOD TIMEGRP "clk_50m" 20 ns HIGH 50%;
+TS_U_Div_clk_1hz1 = PERIOD TIMEGRP "U_Div/clk_1hz1" 20 ns HIGH 50%;
+SCHEMATIC END;
+

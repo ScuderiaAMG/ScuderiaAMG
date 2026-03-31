@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Administrator\Desktop\cty\basys2\top_clock.ncd
+OUTFILE=C:\Users\Administrator\Desktop\cty\basys2\top_clock.bit
+FAMILY=Spartan3E
+PART=xc3s100e-4cp132
+WORKINGDIR=C:\Users\Administrator\Desktop\cty\basys2
+LICENSE=WebPack
+USER_INFO=__0_0_0
