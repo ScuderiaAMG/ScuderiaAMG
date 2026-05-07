@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(pip install *)",
+      "Bash(python)",
+      "Bash(gcc --version)",
+      "Read(//mingw64/bin/**)",
+      "Read(//c/mingw64/bin/**)",
+      "Bash(where gcc *)",
+      "Bash(where cl *)",
+      "Bash(where clang *)",
+      "Bash(where cc *)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/Microsoft Visual Studio/**)"
+    ]
+  }
+}
