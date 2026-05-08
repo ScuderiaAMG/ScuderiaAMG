@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 available'\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\('pdfplumber available'\\)\")",
+      "Bash(python -c \"import pikepdf; print\\('pikepdf available'\\)\")",
+      "Bash(pdftotext \"D:\\\\ScuderiaAMG\\\\运筹学\\\\2015-2020年试卷.pdf\" -)",
+      "Bash(pdftotext -layout \"D:\\\\ScuderiaAMG\\\\运筹学\\\\2015-2020年试卷.pdf\" -)",
+      "Bash(pdftotext *)"
+    ]
+  }
+}
