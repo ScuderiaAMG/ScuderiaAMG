@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import PyPDF2; print\\('PyPDF2 available'\\)\")",
+      "Bash(python3 -c \"import pdfplumber; print\\('pdfplumber available'\\)\")",
+      "Bash(python3 -c \"import fitz; print\\('pymupdf available'\\)\")",
+      "Read(//c/Users/LEGION/AppData/Local/Programs/**)",
+      "Bash(ls /c/Program*/Python*/python.exe)",
+      "Bash(where node *)",
+      "Bash(/d/Applications/Anaconda3/python *)",
+      "Bash(PYTHONIOENCODING=utf-8 /d/Applications/Anaconda3/python *)"
+    ]
+  }
+}
