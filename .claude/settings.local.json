@@ -4,7 +4,22 @@
       "Bash(pip list *)",
       "Bash(pip3 list *)",
       "Bash(pdftotext *)",
-      "Bash(python *)"
+      "Bash(python *)",
+      "Bash(python3 -c \"import PyPDF2; print\\('PyPDF2 available'\\)\")",
+      "Bash(gcc --version)",
+      "Bash(where python *)",
+      "Bash(where python3 *)",
+      "Bash(ls /c/Python*)",
+      "Read(//c/Users/**)",
+      "Read(//mingw64/bin/**)",
+      "Read(//c/mingw64/bin/**)",
+      "Read(//c/msys64/mingw64/bin/**)",
+      "Bash(/mingw64/bin/gcc --version)",
+      "Bash(D:/Applications/Anaconda3/python.exe *)",
+      "Read(//usr/bin/**)",
+      "Bash(/usr/bin/gcc --version)",
+      "Read(//d/msys64/mingw64/bin/**)",
+      "Bash(pacman --version)"
     ]
   }
 }

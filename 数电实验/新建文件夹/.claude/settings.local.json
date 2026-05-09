@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import PyPDF2; print\\('PyPDF2 available'\\)\")",
+      "Bash(python3 -c \"import pdfplumber; print\\('pdfplumber available'\\)\")",
+      "Bash(python3 -c \"import pikepdf; print\\('pikepdf available'\\)\")",
+      "Bash(python3 -c \"import fitz; print\\('fitz/pymupdf available'\\)\")",
+      "Bash(where python *)",
+      "Bash(where py *)",
+      "Bash(py --version)",
+      "Bash(D:/Applications/Anaconda3/python.exe *)",
+      "Bash(where tesseract *)",
+      "Bash(pip install *)",
+      "Bash(tesseract --version)",
+      "Read(//d/Program Files/**)",
+      "Read(//c/Program Files/**)",
+      "Bash(winget install *)",
+      "Bash(pdftotext -layout \"2019模电数电实验OEI+IC版.pdf\" \"/tmp/pdf1.txt\")",
+      "Read(//tmp/**)",
+      "Bash(pdftotext -layout \"数电实验（鱼龙混杂自己挑题目看）.pdf\" \"/tmp/pdf2.txt\")",
+      "Bash(pdftotext -layout \"数电实验（鱼龙混杂自己挑题目看）.pdf\" \"/tmp/pdf2_v2.txt\")",
+      "Bash(pdftotext -layout \"2019模电数电实验OEI+IC版.pdf\" pdf1_output.txt)",
+      "Bash(python3 -c \"import pytesseract; print\\('pytesseract available'\\)\")",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL available'\\)\")",
+      "Bash(python3 -c \"import easyocr; print\\('easyocr available'\\)\")",
+      "Bash(python3 -c \"import subprocess; print\\(subprocess.check_output\\(['pip', 'list'], text=True\\)\\)\")",
+      "Bash(python3 *)",
+      "Bash(ls /c/Python*)",
+      "Read(//mingw64/**)",
+      "Bash(/d/Applications/Anaconda3/python *)",
+      "Bash(pdftotext \"2019模电数电实验OEI+IC版.pdf\" -)",
+      "Bash(pdfinfo \"2019模电数电实验OEI+IC版.pdf\")",
+      "Bash(pdfinfo \"数电实验（鱼龙混杂自己挑题目看）.pdf\")",
+      "Bash(/d/Applications/Anaconda3/Scripts/conda list *)",
+      "Bash(/d/Applications/Anaconda3/Scripts/pip list *)"
+    ]
+  }
+}
