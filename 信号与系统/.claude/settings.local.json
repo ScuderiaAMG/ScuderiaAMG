@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pdftotext -layout \"D:/ScuderiaAMG/信号与系统/第5章2026.pdf\" \"D:/ScuderiaAMG/信号与系统/第5章2026.txt\")",
+      "Bash(pdftotext -layout \"D:/ScuderiaAMG/信号与系统/第6章2026.pdf\" \"D:/ScuderiaAMG/信号与系统/第6章2026.txt\")"
+    ]
+  }
+}

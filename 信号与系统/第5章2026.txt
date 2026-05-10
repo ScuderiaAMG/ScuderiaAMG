@@ -1,0 +1,2144 @@
+         Signal
+
+&System  Signal&System        &Syste
+
+                   
+         jiangjh@hust.edu.cn
+       Signal
+                          m
+                              0063
+
+                                       0066
+
+                                    1
+ Signal
+        
+                      &Syste
+
+
+&SystemSignal&System
+
+       
+
+       Signal
+                          m
+       
+
+       
+
+       PCM
+
+
+
+                      0063
+
+                                0066
+
+                             2
+          5.1 
+
+         Signal 
+   =    ()       
+                                              &Syste
+   =   ()        
+
+&SystemSignal=&Sy(s)tem
+                                          ()
+
+       Signal    
+                          m
+         =   ()
+
+          = () 
+                                   () 
+
+                 
+
+                                              0063
+
+                                                       0066
+
+                                                    3
+                 5.1 
+Signal H( j)
+         =  Y ( j)  =           =  H ( j)  e j ( )
+            F ( j)     
+
+H(j)=F [h(t)] h(t)= F -1[H(j)]             &Syste
+
+H ( j) 
+
+H ( j) Signal&(S)ystem
+&System
+         f (t )        h( t )   yzs ( t ) = h( t ) f ( t )
+       Signal
+                          m        
+
+       F ( j )         H ( j )     Yzs ( j ) = H ( j )F ( j )
+
+ () = ()  ()                               0063
+  =   +  
+                                                            0066
+
+                                                            4
+&System                  5.1 &Syste
+
+       Signal () 
+
+         =   |=?
+
+        
+
+       ()Signal&System
+
+          =   |=
+        · ()
+        · ()
+       Signal
+                          m  0063
+
+                                      0066
+
+                                   5
+                   5.1 
+
+Signal 1. 
+   ­ 
+      f (t) = Acos(0t) F ( j) =  A[ ( + 0 ) +  ( - 0 )]
+                                                          &Syste
+Y  (  j  )  =  HA(Hj()jFS()i[jg(n)a+l&0S) y+st(em- 0
+&System     =
+                                                      )]
+
+            =  A[H (- j0 ) ( + 0 ) + H ( j0 ) ( - 0 )]
+         Signal
+                            m
+            =  A H ( j0 ) [e-  j0 ( + 0 ) + e  j0 ( - 0 )]
+
+   0 = (0) 0   e- j0t                                     e j0t
+ -0 = (0) -0
+
+
+             y( t ) = H( j0 ) Acos( 0t + 0 )
+
+                                                          0063
+
+                                                                 0066
+
+                                                                 6
+                        5.1 
+                                 Signal
+       1  H ( j) 
+                                 () = -60
+       H(  j)  =   1.5  0    20
+                            20
+                    0                                        &Syste
+
+        f (t) = 2 cos(10t + 90) + 5cos(25t + 120)
+
+&System y(t) Signal&System
+
+         f1(t) = 2 cos(10t + 90) 
+                    y1( t ) = H( j10 ) 2 cos( 10t + 90 - 60 )
+                           = 3 cos( 10t + 30 )
+
+         f2 (t) = 5cos(25t + 120)   20
+
+          H ( j25) = 0 
+           Signal
+                              m
+                    y( t ) = 3 cos( 10t + 30 )
+
+                                                             0063
+
+                                                                      0066
+
+                                                                   7
+                 5.1 
+                               Si+ gnaR l
+ 2 RC                          f (t )                 C   +
+
+  f (t) = cos100t + cos 3000t                            y( t )
+ 1/ RC = 1000                                   &Syste
+                               -
+
+                                                            -
+
+:
+
+H ( j) = Y ( j) = S1ig/( njaCl)&S=yste1m = 1/ RC
+
+           F ( j) R +1/( jC) jRC +1 j +1/ RC
+&System
+          Signal1/ RC
+                             m
+H ( j) =   2 + (1/ RC)2        () = - tan -1 RC 
+
+  = 100 rad/s
+
+          H ( j100) = 0.995 (100) = -5.71
+
+                                                0063
+
+                                                         0066
+
+                                                         8
+                  5.1 
+                         Signal
+· MATLAB
+   
+
+                                        &Syste
+
+H ( j) =  1/ RC
+
+           2 + (1/ RC)2
+
+&System                  Signal&System
+
+() = - tan -1 RC
+          Signal
+                             m
+  = 3000 rad/s
+
+          H ( j3000) = 0.316 (3000) = -71.6
+
+y(t) = 0.995cos(100t - 5.71) + 0.316 cos(3000t - 71.6)
+
+                                        0063
+
+                                                 0066
+
+                                              9
+                 5.1 &Syste
+
+ Signal y(t) = 0.995cos(100t -5.71) + 0.316cos(3000t - 71.6)
+
+· MATLAB
+
+                 Signal&System
+&System
+       Signal
+                          m0063
+
+                             0066
+
+                             10
+                        5.1 
+
+Signal  |H(j)|()                  1
+
+  f                  f  (t)  =1+          cos n t     y(t)
+                     t                 n           ,
+                                           |H(j)|                         ()
+(  t          1                   n=1                          &Syste
+      ) = 1 + cos n
+                                       2
+              n=1 n
+
+      = 1 + cos t + 1 cos 2t +                                 
+
+F ( j) = 2 () 2         Signal&System                 -2 0             2
+                              -2 0 2                        -
++ [ ( +1) +  ( -1)]
+&System
++ 1 [ ( + 2) +  ( - 2)] + 
+  2
+       Signal
+                          m
+
+
+ y( t ) = 2 + cos( t -  ) = 2 + sin t
+
+                                                  2
+
+                                                                 0063
+
+                                                                           0066
+
+                                                                       11
+                    5.1 
+
+Signal -
+
+&System e jn t                                 H ( jn) e jn t&Syste
+       Fne jn t
+                 SignaHl(&jS)ystem FnH ( jn)e jn t
+
+        f (t) =  Fne jntSignal y(t) =  H ( jn)Fne jnt
+                    n=-   m            n=-
+
+         Yn = H ( jn)Fn 
+
+                                                             0063
+
+                                                                       0066
+
+                                                                   12
+                  5.1 
+
+Signal  4 RC
+  
+
+                            f (t)                  &Syste
+
+                         1
+
+&System                                   
+                                                  t
+                 Signal&System
+             -2          - 0.5 0 0.5
+                                      2
+ 
+       Signal
+Fn                        m=Sa( n)n = 0,  1,  2, 
+
+          T        2
+
+ = T=2
+
+Fn  =     0.5Sa(  n   )  n = 0,  1,  2,
+
+                   2                               0063
+
+                                                             0066
+
+                                                         13
+                  5.1 
+
+Signal RC H( j) = 1/ RC
+                                            j + 1/ RC
+
+         H( jn ) = H( jn ) = 1 / RC                    &Syste
+                                   jn + 1 / RC
+
+
+
+                 Signal&System
+&System                     1  / RC
+       Yn = H ( jn)Fn =        +1 / RC  0.5Sa(  n   )
+                         jn
+                                                 2
+       Signal
+                          m
+
+          y(t) =  Yne jnt
+                      n=-
+
+                                                       0063
+
+                                                                    0066
+
+                                                             14 14
+&System  5.1 &Syste
+
+                 Signal
+
+          Signal&System
+
+       Signal
+                          m
+         RC
+
+             0063
+
+                                 0066
+
+                             15
+&System  &Syste5.1 
+
+                 Signal
+
+          Signal&System
+
+       Signal
+                          m
+         RC
+
+         0063
+
+                                 0066
+
+                             16
+                     5.1 
+
+Signal -
+               H ( j)
+       F( j )                     &Syste
+
+&System       Signal&System
+
+         Y( j ) = F( j )H( j )
+       Signal
+                          m
+         y( t ) = FT -1 [Y( j )]
+
+                                  0063
+
+                                            0066
+
+                                        17
+                     5.1
+Signal 5 e(t) = 2  (t) -  (t - )  u0(t) 
+               uR (t )           uR (t ) = Ri (t )           I ( j )
+
+         +     R        +        i (t ) = C duo (t )         R              &Syste
+                                                                    1+
+e(t)              uo (t) C              dt E( j)          +
+                                                                jC C U 0( j)
+         -              -                                 -                -
+
+Signal&System  I( j) = jcU0( j) 
+&SystemRC                        UR  (  j) = RI (  j )
+                                 Uo     j ) = 1
+                                     (              ----
+
+                                 I ( j ) jC
+             Signal
+                                m
+ e(t) = 2  (t ) -  (t - )
+(1) E( j ) = 2[ ( ) + 1 -  ( )e- j - 1 e- j ]
+                                 j                        j
+
+            2 (1 - e- j ) =          2              - j         - j  - j 
+                                        j
+=                                       (e 2 .e 2         - e 2 .e 2 )
+            j                    j
+
+=           2Sa(         -  j                                               0063
+                              2
+                     )e                                                               0066
+
+                  2                                                               18
+             e (t )                     =5.21(1      - e -j ) = 2 Sa  2 e -1j2 
+                                           j
+Signal (1)F            =   E(  j    )
+
+( 2 )                                          1          U0(   j )    =                  R   jC                     =       1+  1
+                                                          =E (  j1 )
+(2 )     H ( j )                        =HR +jj c 1 =                                         + 1                                j RC
+                                                            1+  j Rc
+                                                                                                        jC             &Syste
+                                                     j c
+
+(3 ) R ( j ) =             E ( j )  H ( j ) =             1  2                      S                     e  -  j  
+                                                  1+      j Rc                               2                      2
+                                                                                       a
+
+Signal&(Syste)m (
+ (44))u 0u(0t&System(t)= F -1[R( j )] =         -FFj--1)1[1j2+j2(j11+-R1eCj-- e-jRjCj)1R+-Cj1]R1RCC2+]          (1 -   e-    j    
+                )  =                                                                                                              
+                       F -1 R ( j ) =                                                                                            )
+                                                                                                                                  
+                       = F -1[ 2 (1 - e                                                                                           
+
+                               j
+                     Signal                                                                             j
+                                        m
+=  F  -1  ( ) 2    1   =-  Fe j-1[  2   (1 -    e2-  j )  --2(1R1-C2e2+- jj+) 1e+-  RjjC R) C   ]
+             j         =   F -1[         1       +                                              e-
+                                    j-          e-    j                             2       
+                                        (R1 C-                                              
+                                    2                j )                                                  j     ]
+
+  e-t (t)                    j1                           2j +   1  2  ej- R1C+t           1
+                           j +                            +1    RC
+                                                                                          R(Ct )
+
+                                                                                                                       0063
+
+                                                                                                                                     0066
+
+                                                     j                                                                           19
+                           5.1 
+Signal e-t(t)  1 ,
+                                                      2                        -1t
+
+                           j +  j + 1                               2e RC  (t )
+
+                                                         RC                                          &Syste
+
+e- (t- ) (t -  )  1 e- j ,                                            2        e - j                   - t -
+
+                              j +                           j + 1                            2e RC  (t - )
+
+&System                  2    Signal&SystemRC
+       u0  (t)  =  F-1[       (1    -   e-  j   )  -      2              +      2              e- j ]
+                         j
+                                                      j +          1        j +         1
+
+                                                             RC                         RC
+       Signal
+                          m=2[(t)-  (t  -    )]  -  2[e   - 1 t    (t)   -  e  - t -    (t  -    )]
+                                                           RC                    RC
+
+                =  2[1  -  e  -1t   ]   (t)  -   2[1  -  e  - t -  ]  (t  -    )
+                                RC                            RC
+
+H(jw)
+
+
+
+
+
+H(s) H(jw)                                                                                           0063
+
+                                                                                                               0066
+
+                                                                                                           20
+                       5.1 
+                                   Signal H(j) =
+                                                                       1
+
+                                           1                   1+ (RC )2
+
+1                         2                                 22
+                          +
++           R
+
+e(t)                C     uo (t )                                      &Syste
+
+-                         -                   O1                            
+                                                    RC
+1
+                          Signal&System 2  E  E  (  j )  =  2  Sa         
+      e(t)                                                            2   
+&System                
+                       
+      2
+
+         Signal                            O                                
+                            m
+      O                t
+
+         uo (t )                              | U0( j ) |=| H ( j ).E( j ) |
+
+                       
+
+      E                
+
+                       
+
+                                           O                                  
+
+      O                       
+
+                       t 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      0063
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         0066
+
+                             .                                                21
+ Signal
+        
+                      &Syste
+
+
+&SystemSignal&System
+
+       
+
+       Signal
+                          m
+       
+
+       
+
+       PCM
+
+
+
+                      0063
+
+                             0066
+
+                             22
+                                           5.2 
+                                              Signalu0(t)
+                                                                      2
+                                                                           &Syste
+                             e(t )         R
+
+                        2
+
+                                    e(t )  C  u0 (t )
+
+0                                                      0                         t
+
+
+ Signal&System
+&System
+
+
+       Signal
+                          m
+· 
+
+1. 
+
+
+2. 
+
+
+                                                                           0063
+
+                                                                                     0066
+
+                                                                                 23
+                          5.2            &Syste
+
+Signal · 
+
+
+
+
+
+ · 
+
+   ­ Sf(itg),nal&Systey(mt), 
+
+       y(t)=Kf(t-t0) K t0
+&System
+()     Signal  = ( - 0)            =    ()
+                          m
+       f (t)                     y (t )  t
+                              t    t0
+                                                 0063
+
+                                                                                               0066
+
+                                                       24
+         5.2 
+                               Signal
+                                 = ( - 0)            
+·  ()                                      &Syste
+
+­ F(j), Y(j), 
+  
+
+&System  =  Sig na-l&S ystem =   -
+
+ H(j)= Ke-jt0
+       Signal
+                          mH ( j) ( )
+
+         K                                        
+
+                               0
+
+         0                                 - t0
+
+                                           0063
+
+                                                        0066
+
+                                                    25
+                           5.2 
+Signal 
+                 f (t) = A1 sin(1t) + A2 sin(21t)
+
+                                                                 &Syste
+
+       y(t) = KA1 sin(1t - 1 ) + KA2 sin(21t - 2 )
+
+&System      =  KA1  siSnign1(ta-l&S11 )ys+teKmA2sin      (t  -  2      
+                                                                 21    )
+                                                      21                
+
+                                                      
+        Signal
+                           m
+
+
+
+
+       1  =  2   =   t0     1 = 1 = 1
+       1     21                 2 21 2
+
+                                                                 0063
+
+                                                                           0066
+
+                                                                       26
+                      5.2 
+                      Signal f2(t)
+                                     f3(t)
+
+               f1(t)
+
+&System               Signal&System                   &Syste
+
+       Signal
+                          m
+       f1(t) = [sin(2 t) + sin(5 t)][ (t) -  (t -1)]
+
+f2 (t) = [sin(2 (t -1)) + sin(5 (t -1))][ (t -1) -  (t - 2)]
+
+f3 (t) = [sin(2 t - 2 ) + sin(5 t - 2 )][ (t -1) -  (t - 2)]
+
+                                                      0063
+
+                                                                  0066
+
+                                                              27
+                                 5.2 
+Signal 
+u(t),  is(t),  iS (t)                              R1                      R2  +
+
+H(j)                                                                 &Syste    u(t)
+
+R1R2                                               1H 1F
+
+                        Signal&System                                          -
+&System
+           U(  j )      ( R2  +   1  )( R1 +  j L ) R1R2  +  1  +  j       R2  R1        
+
+                                 jC                                            
+H(  j ) =Signal      =
+                            mIS ( j )1                              j  1
+                        R2 +         + R1 +   j L  R1     +  R2  +             
+                                 jC
+
+H(j)= K e-jt0
+                    R1=R2=1 H(j)=1
+
+                                                                     0063
+
+                                                                                   0066
+
+                                                                               28
+ Signal
+        
+                      &Syste
+
+
+&SystemSignal&System
+
+       
+
+       Signal
+                          m
+       
+
+       
+
+       PCM
+
+
+
+                      0063
+
+                             0066
+
+                             29
+                        5.3 
+
+                        Signal
+· (
+                                                &Syste
+0)            H Lp ( j) = G2C ()                
+
+&System        Signal&System H(j)    H ( j)  C =      1 = 0.707
+                                                      2
+              1                   1
+
+       Signal- CC       - C        C         
+                          m
+                          
+
+                        
+
+                                                0063
+
+                                                          0066
+
+                                                      30
+                                     5.3 
+
+                             H (j )  Si(g) nal
+
+                           1                      &Syste
+
+                                         c
+
+         -c O      Sc ig nal&Sy-stec Om        
+
+&System1  e- j t0        c H j                 1          c
+                                               0          c
+       0
+                          c  
+(( ) ) ( ) H                                =
+j      Signal
+   =                      m
+
+                                         = -t0
+
+·  
+·    () 
+
+                                                  0063
+
+                                                        0066
+
+                                                        31
+                                      5.3 
+
+Signal 
+   h(t )  H(j )
+                          1
+       F -1 H(j )             H (j )ej  t d                  &Syste
+  h(t ) =              =  2
+                             -
+
+       1 =  c   1    e-Sjigtn0eajl&t dSystem
+&System2    -c
+
+       1    c 1  ej (t -t0 ) d      1            1           ej  (t -t0 ) c
+       2                            2  j                                      -c
+            -c
+        ( ) =                    =
+        Signal                                t  -  t
+                           m                          0
+
+         ( ) 1 1       1 ej c (t -t0 )  -  e- j c (t -t0 ) 
+                       2j                             
+       =   t - t0
+
+       ( ( ) ) ( ) = t - t0
+       c    sin c    - t0        =  c       Sa c    t        - t0  
+              c t
+                                                             0063
+
+                                                                     0066
+
+                                                                     32
+                      5.3 
+                      Signal 1
+   (t)
+                       (t )  1 
+
+
+(1)                   ()[, ]&Syste
+
+        c                     t ()
+
+                      tS-igt0na l&Syste0m
+
+                                      c   h(t)  (t)
+( ) ( ) h t
+     =          Sa c
+&System
+        h(t )  Signal
+                                  m
+c                      
+
+
+
+                                            2
+
+                      
+
+                 t0        t<0
+               
+                      t
+               c
+                      0063
+
+                                     0066
+
+                                     33
+                                            5.3 
+Signal 
+e(t ) = u(t )    + 1
+( )                                       j
+                                                              &Syste
+
+( ) h(t)  H                  1  e- j  t0           c
+                    j     =  
+ r(t) = u(t)  Sh(igt)n0al&System   c
+&System                   1
+( ) ( ) R =F -1 R(   +         e-  j  t0 ,(-c     c )
+ r(t ) =            )   j 1        () +
+                               c
+                        = 2    -c  
+            Signal                              1      e-  j  e t0 j         t  d  
+                               m                     
+                                               j     
+
+          ( )  1                               1     c   ej  (t -t0 )
+                                               2     -c
+       = 2                                                 j
+                 c         ej  (t -t0 )  d  +                                d
+
+                 -c
+
+        ( )  =                   - t0
+           1  +  2  c   sin  t           d     =  1     1     c (t -t0 ) sin x                                                 dx
+           2     2  0                             2  +
+                                                           0                       x
+
+                                                                       0063
+
+                                         x =  (t - t0 )                                                                  0066
+
+                                                                                      34
+                                                                         sin x
+
+                                                                      1x
+                                                          Signal 2
+                  Si(y )= y           sin  x  d  x                                    3 4
+                                   0
+                                        x                             O                          x
+
+1. 0                                                                    Si( y)  &Syste
+
+2.                                                                    
+                                                                      2
+
+3 .  x =Signal&System
+ x = -&System                                                         O                          y
+
+         r (t )  Signal                                                  -
+                                    m                                      2
+       1
+       1                                         r  (t )  =     1  +  1  Si     c     (t  - t0 )
+       2         c c                                            2     
+
+       O              t0                                     t     
+                      tr
+                                                                                0063
+
+                                                                                           0066
+
+                                                                                          35
+                                         5.3 
+                                            Signal 
+                                                      t0  +  
+
+           r (t )                                            c
+                                                &Syste
+            1                                         t0  -  
+            1      c    c
+            2         t0                                     c
+
+           O                 Signal&Systemt t0
+&System
+                      tr
+
+1tr
+                   Signal
+t    =             2                  m=1B=c=fc
+  r
+                       c     B        2
+
+B
+
+2tr B
+ B tr = 1 
+                                                0063
+
+                                                             0066
+
+                                                          36
+                                    5.3 
+
+Signal · 
+
+                 H Hp ( j) = 1 - G2C ()           &Syste
+
+                                                  
+
+&System          H(j) Signal&System H(j)       C =      1 = 0.707
+                                                        2
+              1                          1
+
+       Signal- C C    - C                   C  
+                          m
+                        
+
+                      
+
+                                                  0063
+
+                                                            0066
+
+                                                        37
+                                    5.3                &Syste
+
+Signal · 
+
+         H Bp ( j) = G2C ( + 0 ) + G2C ( - 0 )]
+
+                 SignaHl&(jS) ystem
+                                                      1
+&System
+       Signal- 00 -C 0          
+                          m0 + C
+         
+                     
+
+               
+
+                                                       0063
+
+                                                                 0066
+
+                                                             38
+                                    5.3 &Syste
+
+Signal · 
+
+               H BS ( j) = 1 - H Bp ()
+
+                 Sign1alH&(jS)ystem
+&System
+       Signal- 00 -C 0 0 +C
+                          m
+                
+
+              
+
+                                        0063
+
+                                                  0066
+
+                                              39
+                                    5.3 
+
+Signal  1
+
+ f(t)20cos100t[cos104t]2 
+H(j)G240() y(t)
+                                             &Syste
+                                       H(j)
+
+       f(t)  H(j)           y(t)  1
+
+&System      Signal&System
+
+f(t)20cos100t[cos104t]2           -120 0 120 
+
+       Signal
+                          m
+       10cos100t5(cos20100tcos19900t)
+
+2cos2=1+cos2 cos+cos=2cos[(+)/2]·cos[(-)/2]
+
+: F(j)10[(+100)(-100)]5[(+ 20100)
+             +(-20100)+ (+19900)+ (-19900)]
+
+Y(j)H(j)F(j)10[(+100)+ (-100)]
+
+:            y(t)10cos100t                   0063
+
+                                                       0066
+
+                                                   40
+                   5.3 
+
+       Signal f (t)
+         f (t )    y( t )
+
+       5Hzf (t)y(t)                                                 &Syste
+
+       (1) f ( t ) = -4 + 2 sin( 4 t ) + 6 cos( 12 t ) + 3 sin( 16 t ) + 4cos( 16 t )
+
+       (2) f ( t ) = 8 - 8cos2( 6Sigt )nal&System
+&System
+       Signal
+                          m
+       (1) y( t ) = -4 + 2 sin( 4 t )
+
+           (2) f ( t ) = 8 - 8 cos( 12 t ) + 1 = 4 - 4 cos( 12 t )
+
+                                       2
+
+                 y( t ) = 4
+
+                                                                    0063
+
+                                                                              0066
+
+                                                                          41
+2                                   5.3 
+
+                Signal f (t)f (t) H1(j)
+
+                H2(j)x(t)y(t)
+
+         f (t)                                    x(t)                                &Syste
+
+                                           H1(j)              H2(j) y (t)
+
+                cos9t                               cos9t
+
+F(j)            Signal&SH1y(js)tem                                                    H2(j)
+&System
+   1                                                    1                               2
+
+                                         Signal-9          0      9     -9                                                                          0       
+                          m
+-15 -9 -6 0 6 9 15                                                                                                                                     9
+
+                f  (t                      )cos 9t      1  {  F[  j(   +9  )]  +  F[  j(                                                               - 9 )]}
+                                                        2
+
+                                                    X(j)
+
+                                                                  ½               
+                                           -15 -9 -3 0 3 9 15
+                                                                                                                                              0063
+
+                                                                                                                                                                                               0066
+
+                                                                                                                                                       42
+                                        5.3 
+                                        Signal y (t)
+f (t)                x(t) xs(t)                        X(j)
+
+              H1(j)              H2(j)
+
+                                                           ½
+
+       cos9t         cos9t                                                               &Syste
+
+                                        -15 -9 -6 0 6 9 15
+
+· y(t)
+
+&System       xs( t ) = x( t )Sciogs 9nt al&12 {SXy[stje( m+ 9 )] + X [ j(  - 9 )]}
+
+                                 XS(j)
+
+              Signal
+                                 m
+                                                    ¼                 
+
+                             -15 -9 -6 0 6 9 15               H2(j)
+
+                    Y(j)                                        2
+
+                       ½                               -9     0              
+
+                                                                        9
+
+              -9 -6 0 6 9
+
+                                                                 0063
+
+                                                                                     0066
+
+                                                                        43
+                                                   5.3 
+     Signal   =  + cos  - sin()
+3
+     f (t)h(t)y(t)
+
+(1) h( t ) = Sa( 5 t ) ( 2 ) h( t ) = e-t( t ) ( 3 ) h( t ) = Sa( t )cos( 8 t )&Syste
+
+ F( j ) = 8 ( )+  [ ( + 4 ) +  ( - 4 )] - j [ ( + 8 ) -  ( - 8 )]
+
+                    Signal&System
+
+ (1) Sa(5 t )  0.2G10 ( )  y( t ) = 0.8 + 0.2 cos( 4 t )
+&System
+     e-t(t ) 
+(2)    Signal        1
+                          mj +1
+
+   y( t ) = 4 +      1  )2  cos(  4 t   - 1    )-      1  )2  sin( 8 t  -2    )
+                 1+( 4                             1+( 8
+
+(3)                 1 = arctg4 , 2 = arctg8
+
+(3)  Sa(  t )cos( 8 t )           1  [  G2  (      + 8  ) + G2 (   - 8        )]
+                                  2
+
+       y(  t  )  =  -   1   sin(  8     t  )                            0063
+                        2
+                                                                                      0066
+
+                                                                                  44
+ Signal
+        
+                      &Syste
+
+
+&SystemSignal&System
+
+       
+
+       Signal
+                          m
+       
+
+       
+
+       PCM
+
+
+
+                      0063
+
+                             0066
+
+                             45
+&System                                           5.4 &Syste
+
+       Signal 
+
+       
+       
+
+       1 
+
+          Signal&System
+
+       2 ()
+              
+       Signal
+                          m                           0063
+
+                                                                0066
+
+                                                            46
+                                         5.4 
+
+                                Signal fS (t)= f (t)cos0t
+
+         -m m                       &Syste
+
+       f (t )  fS(t )                 y( t )
+
+&System        Signal&System        y(t)= f (t)cos0t
+
+               s( t ) = cos 0t
+       Signal
+                          m
+               
+                FS(j)=½{F[j(- 0)]+F[j(+ 0)]}
+
+
+
+                                -0  0063   0 0066
+
+                                          47
+                                                    5.4 
+                                  Signal g(t) = y(t)  s(t) = f (t)  s2(t)
+                                 =  f  (t) cos2 0t  =  1  [  f  (t  )  +  f        (t) cos 20t]
+                                                       2                   &Syste
+y (t)= f (t)cos0t
+
+                          g(t )        2                        f (t )
+
+         y( t )  Signal&-Syc s0tecm
+
+&System  s( t ) = cos 0t
+       Signal
+                          m
+                 
+                  G(j)=½F(j)+¼{F[j(-20)]+F[j(+20)]}
+
+
+F(j)f (t) 
+
+                                                                             0063
+
+                                                                                       0066
+
+                                                                                   48
+                       1   5.4 
+                        2  Si0 gnal
+                   -0
+                            ( -0 )&Syste
+           ( + 0 )
+
+&System  1 -0Signal&S1y2stem0           1
+         4                                 4
+
+- 20 - 0Signal             0   20
+                          m
+                   G( )           0063
+
+            -m m                              0066
+
+                                              49
+                                                       5.4 
+Signal 1 
+        f (t) = 1 Sa(2t)    (a)
+
+               
+
+(b)
+                                                                    &Syste
+ () = 0 
+
+f (t )                                                     H ( j )
+
+                                     y( t )
+
+&System                   Signal&System 1
+
+        cos 1000t                               -1000           1000        
+
+                                             -1001 -999 0 999 1001
+        Signal              
+                           mSa( C t )CG2C( )
+
+                   1  Sa(2 t )     1  G4 ()  =  F(  j)
+                                   2
+                   
+
+ f1(t) = f (t)cos1000t
+
+         F1 (  j)     =  1  {F[  j(   + 1000)]  +  F[  j(  -1000)]
+                         2
+
+                                                                      0063
+
+                      =  1  [G4 (  + 1000)   +  G4 (   -1000)]                                                      0066
+                         4
+                                                                            50
+                                                                   5.4 
+Signal F1(
+j )=  1  [G4  (   + 1000)     +      G4 (   - 1000)]
+      4
+
+                  F1( j)                                                           H ( j )
+
+                                                                                1           &Syste
+              14
+
+      -1000                 1000                          -1000                    1000           
+
+-1002 -998 0 998                     1002           -1001 -999 0 999 1001
+
+&System                     Signal&System
+
+Y ( j) = H ( j)F1( j)
+          Signal
+                             m=      1  [G2 (  + 1000)    +  G2 (                  -1000)]
+                                     4
+
+         f   (t)  cos    t        1  [F  (  +    )  +  F  (  -     )]
+                                  2
+
+                            1     Sa(t)        G2  (   )
+
+                            
+
+                                               1
+                                        y(t) = Sa(t)cos1000t
+                                               2                                            0063
+
+                                                                                                      0066
+
+                                                                                                  51
+                                           5.4 
+
+Signal 2  f (t) = 1 Sa(t)cos1000t (a)
+                  
+
+(b)
+
+  () = 0                                                                                            &Syste
+
+f (t )                                        y( t )                               H ( j )
+
+                                                                                 1
+
+&System cos 1000t              Signal&System                                                        
+
+                                                                     -1 0 1
+
+                1                                f0(t)cos2 1000t
+        f0(t) =  Sa(t)
+           Signal                      f1(t) =                       =     1  [  f0  (t   )  +  f0(t)cos 2000t]
+                              m                                            2
+
+  F1(   j )  =  1  F0 (  j )  +  1  {F0[  j(     +  2000)] +         F0[      j(          -     2000)]}
+                2                4
+
+  Sa( C t )             G2C    ( )               1  Sa(t )   G2( )         =     F0 (     j )
+                   C                             
+
+                         Y  (  j    )  =  H(  j  )F1(  j    )  =  1  F0 (  j     )  =  1  G2 (   )
+                                                                  2                    2
+
+                              y(t) = 1 Sa(t)                                                        0063
+
+                                     2                                                                               0066
+
+                                                                                                                 52
+ Signal
+        
+                      &Syste
+
+
+&SystemSignal&System
+
+       
+
+       Signal
+                          m
+       
+
+       
+
+       PCM
+
+
+
+                      0063
+
+                             0066
+
+                             53
+&System                               5.5 &Syste
+
+       Signal 
+
+         ·
+
+         
+
+            Signal&Sy;stem
+
+             
+
+         ·
+
+         
+
+         
+
+          
+       Signal
+                          m               0063
+
+                                                    0066
+
+                                                54
+                                               5.5 
+
+   1               Signal 
+
+                   H    (  s  )  =  V2  (s)  =  (          2s   1002           &Syste
+                                    V1  (s)
+                                                   s  +  1)2 +
+
+v1 (t ) = (1+ cos t ) cos(100t)v2 (t )
+
+&System             Signal&System
+       v1 (t ) 
+
+   v1  (  t  )Signal=cos(100t    )  +  1  cos  (101t  )  +  1  cos  (  99t  )
+                                 m     2                    2
+
+
+
+H (s)
+
+H  ( j)         =  ( j   2 j                    ( j)2     2 j       + 1002     0063
+                                                         + 2 j
+                        +1)2 +1002                                                                                      0066
+
+                                                                                     55
+                                 5.5 
+
+Signal H       2 j
+( j)   ( j)2  + 2 j   + 1002  =               2  -100)
+
+                                 2+  j ( +100)(
+                                           
+                                                    &Syste
+                                            + 100  2
+
+                                           ( 100 )
+
+&System       SignaHl&(Sjys)tem         j    1
+
+                                  1+       ( -100)
+
+       Signal
+                          m
+ cos(100t )1 cos(101t ), 1 cos(99t ),
+                                     2       2
+
+
+
+       H ( j100) = 1
+
+       ( ) H j101 = 2 e- j45           ( ) 2 j45        0066
+
+                                     H j99 = e 0063
+                     2                     2            56
+                          5.5 
+
+v2(t)          Signal H ( j101) = 2 e-j45 H ( j99) = 2 ej45
+                          2                                          2&Syste
+H ( j100) = 1
+
+v2 (t )
+
+v2 (t ) = cos (100t ) + 12Sig22ncaols&(1S0y1st t-e4m5) +
+&System                                                   2  cos (99t      +  45    )
+                                                          2
+       Signal                                                                        
+                          m
+       = cos (100t ) + 2 cos (100t ) · cos (t - 45)
+                         2
+
+        ( ) 2 cos       
+         2              
+       = 1+
+         
+                t - 45    cos  (100t  )
+
+                        
+
+                                                                     0063
+
+                                                                              0066
+
+                                                                              57
+                                 5.5 
+
+  ( - 100)                       Signal H
+
+  ( - 99)             (-101)     (  j    )                1
+
+2                   2                                  j( -100)
+                                                1  +    &Syste
+
+           99 100 101  
+
+&System      1         Signal&System( )         
+                                                2
+
+                                                
+
+H (j ) 1                                        4
+                                                100
+                 2
+           Signal                        99        101        
+                              m          -  
+                                            4
+
+                                         -  
+                                            2
+
+       99 100 101      
+
+                 ( - 100)        H ( j100) = 1
+                    2  ( + 101)
+ 2  ( - 99)                      H ( j101) = 2 e- j45
+                    4
+4                                               2
+
+                                 H ( j99) = 2 ej45      0063
+
+                                                                  0066
+
+99 100 101                                  2                 58
+                                            5.5 
+
+              1        Signal v1(t) = (1+ cost)cos(100t)
+
+H (j )              1                                  v1 (t )            &Syste
+
+                    2
+
+      99 100 101 Signal&System                                                                                                                                                                                                                                                                                                                   t
+
+&System                                             
+          Signal
+ ( )                         m                         v2 (t )
+
+                 2
+                 
+
+        99        4
+
+                 100
+
+        -              101                                                                                                                                                                                                                                                                                                                       t
+           4
+
+        -  
+           2
+
+                            ( ) v2(t)       2                   cos(100t  )
+                                   =  1  +     cos  t  - 450  
+                                            2                                                                                                                                                                                                                                                                                              0063                                          0066
+                                      
+                                                                                                                                                                                                                                                                                                                                                 59
+         5.5 
+
+Signal ·
+         &Syste
+
+
+ 45 
+
+                  Signal&System
+
+·   (
+&System
+""     Signal
+                          m
+·  
+ =  s;
+
+           4
+
+         0063
+
+                             0066
+
+                             60
+         5.5 
+
+         Signal
+
+
+         &Syste
+
+
+Signal&System""
+&System
+ 
+       Signal
+                          m0063
+
+                                 0066
+
+                             61
+                                  5.5 
+
+Signal 2 f (t)                          
+                  1         f  (  )w      -t    d
+                  a                       a        &Syste
+                       -
+
+1.SiHgna (al)&System
+
+ 
+             +&System                         + f ( )w( - t )d
+                                          1
+f (t) * h(t) = f ( )h(t -  )d =
+       Signal                             a -      a
+                          m-
+
+ha (t ) =  1   w    -  t                           f (bt)  1 F ( )
+            a          a  
+                                                              bb
+
+w(t )W ( ) 
+
+         F ha (t ) = Ha ( ) = aW (-a )             0063
+
+                                                                0066
+
+                                                         62
+2                                               5.5 
+
+Signal 2.w     sin  (    t  ) cos (  3    t  )
+   (  t  )  =                                   H           (  )  
+                             t                           a
+
+Ha ( ) ~                                                                   &Syste
+
+w(t) = 1 sin( t) cos(3  t)
+            t Signal&System
+&System
+         W () =          1     F  Sa    (    t) cos (3 t)
+            Signal       
+                               m
+                    =  2    1  G2       (    -  3  )  +  G2  (    +  3  )
+                             
+
+                       1                  2     4 
+                                           
+         W  (  )    =       2  
+
+                       0                                                   0063
+
+                                                                                 0066
+
+                                                                                 63
+2                             5.5 
+
+                                 Signal w(t) = 1 sin(t) cos(3t)
+                                                    t
+F ha (t ) = Ha () = aW (-a)                    1                                                                                                2     4 
+                                               
+                                 W    (  )  =    2                                                                                              &Syste
+
+                                               0                                                                                                 
+
+               1 a     2    4                      W ( )
+               
+H  a  (  )  =     2     a     a                  1
+                       Signal&System           2
+&System        0
+
+                                 -4 -2O 2 3 4 
+                     Signal
+                                        m
+3.
+
+   Ha ( )                                           Ha ( )
+
+                                               1a
+
+                                               2
+
+         0     =  3  B  =  2     - 4 - 2 O                                                                                                            2 34 
+                  a        a        aa
+                                                                                                                                                      a aa
+                                                                                                                                              
+
+                                                                                                                                                0063
+
+                                                                                                                                                      0066
+
+                                                                                                                                                      64
+2        5.5 
+
+Signal 4.     
+
+a&System          &Syste
+
+
+   ·aSignal&System
+
+   ·a
+   ·
+    B 0 = 2 3
+       Signal
+                          m0063
+
+                             0066
+
+                             65
+ Signal
+        
+                      &Syste
+
+
+&SystemSignal&System
+
+       
+
+       Signal
+                          m
+       
+
+       
+
+       PCM
+
+
+
+                      0063
+
+                             0066
+
+                             66
+                     5.6 
+
+Signal                                           TS
+                                                         S  2m 1 F S ( )
+f(t)          fs(t)                  f(t)
+                                                       &Syste
+                                                                                
+
+           T(t)                              -S      om S                         
+
+                                                       S -m
+
+      Signal&System                                    H ( )
+&System
+              Ts                                     TS
+
+H     ( )              c
+                       c
+           =Signal0                              -C o C
+                               m
+                                                                                  
+
+F () = Fs ()  H ()  f (t ) = fs (t )  h (t )       F( )
+
+                                                 1
+
+                                                 - mom
+
+                                                                          
+
+                                                       0063
+
+                                                                          0066
+
+                                                                          67
+                                5.6 
+
+Signal 
+                           
+
+                                                              
+
+  fs (t) = f (t) T (t) = f (nTs ) (t - nTs )
+                                               n = -                          &Syste
+
+       Fs  ()   =    1     FS(ig)n 2TaSl& (Sy-sntes )m=       1        F  (  -      ns  )
+                     2                                        TS
+&System                                                           
+
+                                                                  n=-
+
+
+
+H ( ) = T0sSignal                c                 h(t )            =  Ts  c  Sa(c         t)
+                          m      c
+                                                                           
+
+fs f (t) =(t)   h(t  )  =         f  (nTs   )  (t  -  nTs  )    Ts  c  Sa(c         t )
+                                                            
+                           n=-                                      
+
+                          ( )  =c                     c
+                           Ts     n = -  f  (nTs )Sa          t - nTs
+                               
+                                                                              0063
+
+                                                                                           0066
+
+                                                                                           68
+                     5.6 
+
+Signal ( )  ( ) ftTsc  
+           =         n = -  f(nTs )Sa  c  t - nTs  
+                  
+
+·fs(t)f(nTs)                                       &Syste
+Saf(t) 
+
+ s         2mSignc =al&mS,yTss t=em2s        
+&System=                                  =
+                                             c
+
+       Signal
+                          m
+                                 
+
+       f (t) =  f (nTs )Sac (t - nTs ) 
+                              n = -
+
+       · 
+            =      = =-     -    
+                 = =-   ( - )
+
+       · 
+
+       · 0063  0066
+                                                                                                                                 69
+                         5.6 
+
+                                   Signal         1
+                                         fs (t ) = f (nTs ) (t - nTs )
+                                                               n = -
+                                       ( ) ( ) Fs 
+                                               =  TS n=-  F         - ns
+
+                                      fs (t)                 &Syste
+
+                                   1
+
+Signal&SysteOmTs                                                                t
+&System
+ p(t)
+       Signal
+                          m        1
+
+         M1                        O Ts                                         t
+
+f (t)                    fs0 (t )    fs0 (t )
+
+                   M2              1
+
+         p1 (t )                   O Ts                      0063               t
+
+                                                                          0066
+
+                                                                          70
+                              5.6 
+
+LTI                                                          Signal
+
+                              ho (t )                                     ho (t )       &Syste
+
+fs (t )      1                                    f so (t )
+
+             O            Ts      t                                = u (t ) - u (t - Ts )
+
+&System                   Signal&System                                               Ts           -  j       Ts
+( ) ( ) ( ) fso t                                                                                             2
+         = fs t       ho t                                 H 0 ()  =      Ts    Sa     2        e
+
+Fs0 ( ) = Fs ( ) H 0 ( )Signal                                         
+                              m
+         1                                 Ts                Ts    e-  j    Ts  
+                                                                            2   
+         Ts       F                                           2                 
+
+             n = -
+          ( ) =
+                          -  n s                    Sa
+
+            ( )                         T           e-  j    Ts
+                                                             2
+         =F
+
+              n = -
+                 - ns         Sa               s
+
+                                           2                                            0063
+
+                                                                                                      0066
+
+                                                                                                   71
+                   5.6 
+
+                   Signal ( )  ( ) Fs0                                       T             e-    j    Ts
+                                                        - ns            Sa            s               2
+                                         =F                                 
+                                                                                  2
+                                              n = -
+
+     1 Fs0 ( )                                         1      ej    Ts  &Syste                      s     
+                                                                    2                               2     
+                                             Sa                                                           
+                   1                                   Ts                         
+                    H 0 r                               2  
+                                         =                 
+
+-    O  m          Signal&(S) yste0m                                                                s     
+                                                                                                    2     
+     m                                                                                                    
+
+&System                                                                                    
+
+        H 0r (j )
+
+- s O s     Signal        - s            
+                               m
+   22                         2
+
+     1 F ( )                   O s       0 =               1
+                                                 
+                                      2                    
+                                                            2
+                   2
+                   
+
+                                    
+
+-    O  m                                                                   0063
+
+     m                                                                                     0066
+
+                                                                                         72
+.              5.6 
+
+         f(t)       Signal
+
+               fs(t)  fs(t)               h1 (t)  &Systefs1(t)
+
+                                          1
+
+&System  Ts Signalt&System-Ts 0 Ts t
+
+       Signalfs1(t)   h1 ( t  )  =  1  -  t   ( t  Ts )
+                          mt              Ts  ( t  Ts )
+
+                                    0
+
+                                                  0063
+
+                                                        0066
+
+                                                        73
+                                   5.6 
+
+Signal fs1(t) 
+           t                   (t  Ts )          
+           1  - Ts             (t  Ts )                                     &Syste
+h1(t )  =                                                  F  h1(  t  )  =  Ts Sa 2 (  Ts       )
+
+           0                                                                             2
+
+ Signal&System
+&System
+                 1                               
+ ( ) ( ) Fs 
+              =  TS n=-  F   - ns
+
+Fs1( ) = F  fs1(t )Signal                                  1                                 s  
+        = Fs ( )  F h1(t )            m                                                      2  
+                                                            Sa2    Ts                           
+                                                                    2    
+                                                 ( ) H                   
+                                                    1r
+                                                 j      =
+
+                                                                                             s  
+                                                                                             2  
+            =        F (       ns  )Sa2 (Ts                0                                    
+              n = -                                        
+                            -              2  )
+
+                                                                            0063
+
+                                                                                       0066
+
+                                                                                       74
+ Signal
+        
+                      &Syste
+
+
+&SystemSignal&System
+
+       
+
+       Signal
+                          m
+       
+
+       
+
+       PCM
+
+
+
+                      0063
+
+                             0066
+
+                             76
+                              5.7 PCM
+
+Signal 
+            f (t) V
+
+         1.5 1.46  1.5 1.52  1.5        &Syste
+
+         1.4
+
+         1.3
+
+         1.2                 1.22  1.2
+
+&System  1.1      Signal&System
+
+         1.0
+
+         0.9      0.87  0.9  0.89  0.9
+
+         0.8
+       Signal
+                          m0.7
+
+         0.6
+
+         0.5                      0.46  0.5
+                                       0.22  0.2
+         0.4 0.34  0.3
+
+         0.3
+         0.2
+
+         0.1 0.06  0.1
+
+              TS
+
+                                        0063
+
+                                                  0066
+
+                                                  80
+                        
+Signal   H ( j) 
+         H  (  j  )  =  
+                            
+                                                          &Syste
+1                        
+                        
+
+&System  2Signal&System
+
+         
+                                             H(j)= K e-jt0
+       Signal
+                          m
+         
+
+                        
+
+ 
+
+ 
+
+ 
+
+                                                          0063
+
+                                                                    0066
+
+                                                                89
+&System                         &Syste
+
+       Signal  
+              
+                 
+              
+
+        Signal&System
+
+               
+               
+               
+       Signal
+                          m     0063
+
+                                          0066
+
+                                      90
+                     
+
+Signal 
+
+· 5-55-8
+
+                                &Syste
+
+· 5-9
+
+                 Signal&System
+
+&System· 5-20
+
+
+        Signal
+· 5-23                     m
+
+
+
+· 5-24(2)(3)(4)
+
+                                0063
+
+                                      0066
+
+                                      91
+
