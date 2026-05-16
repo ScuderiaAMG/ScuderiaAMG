@@ -19,7 +19,21 @@
       "Read(//usr/bin/**)",
       "Bash(/usr/bin/gcc --version)",
       "Read(//d/msys64/mingw64/bin/**)",
-      "Bash(pacman --version)"
+      "Bash(pacman --version)",
+      "Bash(python3 -c \"import PyPDF2; print\\('PyPDF2 OK'\\)\")",
+      "Bash(python3 -c \"import pdfplumber; print\\('pdfplumber OK'\\)\")",
+      "Bash(python3 -c \"import pikepdf; print\\('pikepdf OK'\\)\")",
+      "Bash(pacman -Q pdftoppm)",
+      "Bash(pacman -Q poppler)",
+      "Bash(npm list *)",
+      "Bash(npm install *)",
+      "Bash(node *)",
+      "Bash(npm init *)",
+      "Bash(cmd *)",
+      "Bash(taskkill //F //IM node.exe)",
+      "Read(//d//**)",
+      "Bash(rm -rf \"D:/ScuderiaAMG/tmp_pdf\")",
+      "Bash(powershell *)"
     ]
   }
 }
