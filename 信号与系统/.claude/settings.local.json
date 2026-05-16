@@ -2,7 +2,33 @@
   "permissions": {
     "allow": [
       "Bash(pdftotext -layout \"D:/ScuderiaAMG/信号与系统/第5章2026.pdf\" \"D:/ScuderiaAMG/信号与系统/第5章2026.txt\")",
-      "Bash(pdftotext -layout \"D:/ScuderiaAMG/信号与系统/第6章2026.pdf\" \"D:/ScuderiaAMG/信号与系统/第6章2026.txt\")"
+      "Bash(pdftotext -layout \"D:/ScuderiaAMG/信号与系统/第6章2026.pdf\" \"D:/ScuderiaAMG/信号与系统/第6章2026.txt\")",
+      "Bash(pip list *)",
+      "Bash(pdftotext -layout \"D:\\\\ScuderiaAMG\\\\信号与系统\\\\第1章2026.pdf\" /tmp/chapter1.txt)",
+      "Read(//tmp/**)",
+      "Bash(/d/Applications/Anaconda3/python *)",
+      "Bash(apt-get list *)",
+      "Bash(pacman -Q poppler)",
+      "Bash(dpkg -l)",
+      "Bash(tesseract --version)",
+      "Read(//d/Applications/**)",
+      "Read(//c/Program Files/**)",
+      "Bash(find /c -name \"tesseract.exe\")",
+      "Bash(/c/Program Files/Tesseract-OCR/tesseract.exe *)",
+      "Bash(curl -L -o \"C:/Program Files/Tesseract-OCR/tessdata/chi_sim.traineddata\" \"https://github.com/tesseract-ocr/tessdata/raw/main/chi_sim.traineddata\")",
+      "Bash(curl -L --connect-timeout 10 --max-time 60 -o \"C:/Program Files/Tesseract-OCR/tessdata/chi_sim.traineddata\" \"https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/main/chi_sim.traineddata\")",
+      "Bash(curl -L --connect-timeout 10 --max-time 120 -o /tmp/chi_sim.traineddata \"https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/main/chi_sim.traineddata\")",
+      "Bash(cp /tmp/chi_sim.traineddata \"C:/Program Files/Tesseract-OCR/tessdata/\")",
+      "Bash(\"/c/Program Files/Tesseract-OCR/tesseract.exe\" --list-langs)",
+      "Bash(mkdir -p /tmp/tessdata)",
+      "Bash(cp /tmp/chi_sim.traineddata /tmp/tessdata/)",
+      "Bash(TESSDATA_PREFIX=/tmp \"/c/Program Files/Tesseract-OCR/tesseract.exe\" --list-langs)",
+      "Bash(TESSDATA_PREFIX=/tmp /c/Program Files/Tesseract-OCR/tesseract.exe *)",
+      "Bash(\"/c/Program Files/Tesseract-OCR/tesseract.exe\" --print-parameters)",
+      "Bash(mkdir -p /d/trash/tessdata)",
+      "Bash(cp /tmp/chi_sim.traineddata /d/trash/tessdata/)",
+      "Read(//d/trash/**)",
+      "Bash(pacman -S --noconfirm mingw-w64-x86_64-poppler)"
     ]
   }
 }
