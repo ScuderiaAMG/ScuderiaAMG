@@ -1,8 +1,8 @@
 # Hi there mate
 
-I'm a student at **Huazhong University of Science and Technology (HUST)**, School of Artificial Intelligence and Automation, majoring in Automation. My interests lie in **ROS robotics**, **reinforcement learning**, and **computer vision**.
+A student at **Huazhong University of Science and Technology (HUST)**, School of Artificial Intelligence and Automation, majoring in Automation. Interests lie in **ROS robotics**, **reinforcement learning**, and **computer vision**.
 
-*Escherichia30636* is my personal codebase — a mix of coursework, competition projects, experiments, and the occasional surprise. The repo goes private during **January, June, July, and December** each year.
+*Escherichia30636* is personal codebase — a mix of coursework, competition projects, experiments, and the occasional surprise. The repo goes private during **January, June, July, and December** each year.
 
 Fan of **Mercedes-AMG Petronas F1 Team** · Fan of **Lewis Hamilton**
 
@@ -294,7 +294,9 @@ A curated collection of Python scripts demonstrating common MCM modeling techniq
 
 ## Robotics
 
-### ROS Workspace · `一个不知道哪来的工作空间/`
+### ROS Workspace · 
+
+>`一个不知道哪来的工作空间/`
 
 ROS Noetic workspace for drone autonomy. 9 packages under `src/`, built with Catkin/CMake.
 
@@ -311,7 +313,9 @@ ROS Noetic workspace for drone autonomy. 9 packages under `src/`, built with Cat
 | `usb_cam` | USB camera ROS driver |
 | `template` | Package template for new nodes |
 
-### AirHust · `AirHust/`
+### AirHust · 
+
+>`AirHust/`
 
 Webots-based UAV collision avoidance in C++. 15+ controller iterations showing algorithm evolution:
 
@@ -350,7 +354,7 @@ Webots wheeled robot controllers and simulation worlds.
 
 **Languages:** Python · C/C++ · Java
 
-**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLOv8
+**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLO
 
 **Robotics:** ROS Noetic · Webots · Catkin/CMake
 
