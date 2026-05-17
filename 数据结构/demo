@@ -1,0 +1,3 @@
+gcc Q1.c -o Q1.exe -lcomctl32 -lgdi32 -mwindows -fexec-charset=GBK ; .\Q1.exe
+
+gcc Q2.c -o Q2.exe -lcomctl32 -lgdi32 -mwindows -fexec-charset=GBK ; .\Q2.exe

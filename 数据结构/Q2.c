@@ -97,7 +97,8 @@ int resultWeight = 0;
 int startNode = 0, endNode = 10;
 int waypoints[MAX_WP], wpCount = 0;
 
-HWND hGraphWnd, hStartCombo, hEndCombo, hWpCombo, hWpList, hResultText, hCalcBtn;
+HWND hGraphWnd, hStartCombo, hEndCombo, hWpCombo, hWpList, hResultText, hCalcBtn, hResetBtn, hReloadBtn;
+HFONT hMainFont = NULL;
 
 void fillCombo(HWND combo) {
     SendMessage(combo, CB_RESETCONTENT, 0, 0);
@@ -178,6 +179,7 @@ void drawGraph(HDC hdc, RECT *rc) {
         SetTextColor(memDC, RGB(100, 100, 100));
         TextOut(memDC, mx, my, wbuf, strlen(wbuf));
     }
+    SelectObject(memDC, oldPen);
     DeleteObject(edgePen); DeleteObject(pathPen);
 
     for (i = 0; i < N; i++) {
@@ -257,6 +259,10 @@ LRESULT CALLBACK mainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) 
             450, panelY - 2, 50, 24, hWnd, (HMENU)401, hInst, NULL);
         CreateWindow("BUTTON", "移除", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
             505, panelY - 2, 50, 24, hWnd, (HMENU)402, hInst, NULL);
+        hResetBtn = CreateWindow("BUTTON", "重置", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+            570, panelY - 2, 50, 24, hWnd, (HMENU)404, hInst, NULL);
+        hReloadBtn = CreateWindow("BUTTON", "重载", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+            625, panelY - 2, 50, 24, hWnd, (HMENU)405, hInst, NULL);
 
         int listY = panelY + 28;
         hWpList = CreateWindow("LISTBOX", NULL,
@@ -275,10 +281,10 @@ LRESULT CALLBACK mainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) 
         SendMessage(hStartCombo, CB_SETCURSEL, startNode, 0);
         SendMessage(hEndCombo, CB_SETCURSEL, endNode, 0);
 
-        HFONT hFont = CreateFont(11, 0, 0, 0, FW_BOLD, 0, 0, 0,
+        hMainFont = CreateFont(11, 0, 0, 0, FW_BOLD, 0, 0, 0,
             DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
             DEFAULT_QUALITY, DEFAULT_PITCH, "微软雅黑");
-        SendMessage(hCalcBtn, WM_SETFONT, (WPARAM)hFont, TRUE);
+        SendMessage(hCalcBtn, WM_SETFONT, (WPARAM)hMainFont, TRUE);
         break;
     }
     case WM_SIZE: {
@@ -318,9 +324,31 @@ LRESULT CALLBACK mainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) 
                 computeFullPath();
             }
             InvalidateRect(hGraphWnd, NULL, TRUE);
+        } else if (LOWORD(wParam) == 404) {
+            SendMessage(hEndCombo, CB_SETCURSEL, 0, 0);
+            wpCount = 0;
+            SendMessage(hWpList, LB_RESETCONTENT, 0, 0);
+            resultLen = 0; resultWeight = 0;
+            SetWindowText(hResultText, "");
+            InvalidateRect(hGraphWnd, NULL, TRUE);
+        } else if (LOWORD(wParam) == 405) {
+            edgeCount = 0;
+            generateRoadNetwork();
+            fillCombo(hStartCombo);
+            fillCombo(hEndCombo);
+            fillCombo(hWpCombo);
+            SendMessage(hStartCombo, CB_SETCURSEL, startNode, 0);
+            SendMessage(hEndCombo, CB_SETCURSEL, 0, 0);
+            endNode = 0;
+            wpCount = 0;
+            SendMessage(hWpList, LB_RESETCONTENT, 0, 0);
+            resultLen = 0; resultWeight = 0;
+            SetWindowText(hResultText, "");
+            InvalidateRect(hGraphWnd, NULL, TRUE);
         }
         break;
     case WM_DESTROY:
+        if (hMainFont) DeleteObject(hMainFont);
         PostQuitMessage(0);
         break;
     }

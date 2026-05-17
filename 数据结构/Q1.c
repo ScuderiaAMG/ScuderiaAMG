@@ -39,8 +39,10 @@ int userCount = sizeof(users)/sizeof(users[0]);
 int permCount = sizeof(permissions)/sizeof(permissions[0]);
 
 int currentUserId = -1;
-HWND hTreeView, hStatus, hMainWnd, hLoginWnd;
+int loggingOut = 0;
+HWND hTreeView, hStatus, hMainWnd, hLoginWnd, hLogoutBtn;
 HWND hUserCombo, hPwdEdit, hLoginBtn, hLoginMsg;
+HFONT hLoginFont = NULL;
 HINSTANCE g_hInst;
 
 int hasPermission(int userId, int menuId) {
@@ -115,10 +117,10 @@ LRESULT CALLBACK loginWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
         hLoginBtn = CreateWindow("BUTTON","登 录",
             WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,
             120,165,150,35,hWnd,(HMENU)203,hInst,NULL);
-        HFONT hFont = CreateFont(16,0,0,0,FW_BOLD,0,0,0,
+        hLoginFont = CreateFont(16,0,0,0,FW_BOLD,0,0,0,
             DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,
             DEFAULT_QUALITY,DEFAULT_PITCH,"微软雅黑");
-        SendMessage(GetDlgItem(hWnd,301),WM_SETFONT,(WPARAM)hFont,TRUE);
+        SendMessage(GetDlgItem(hWnd,301),WM_SETFONT,(WPARAM)hLoginFont,TRUE);
         return 0;
     }
     case WM_COMMAND:
@@ -145,6 +147,7 @@ LRESULT CALLBACK loginWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
         }
         break;
     case WM_DESTROY:
+        if(hLoginFont) DeleteObject(hLoginFont);
         if(currentUserId==-1) PostQuitMessage(0);
         break;
     }
@@ -168,11 +171,15 @@ LRESULT CALLBACK mainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) 
         for(i=0;i<roleCount;i++) if(u && roles[i].id==u->roleId){r=&roles[i];break;}
         char st[256]; wsprintf(st,"当前用户: %s | 角色: %s",u?u->name:"?",r?r->name:"?");
         SendMessage(hStatus,SB_SETTEXT,0,(LPARAM)st);
+        hLogoutBtn = CreateWindow("BUTTON","注 销",
+            WS_CHILD|WS_VISIBLE|BS_PUSHBUTTON,
+            rc.right-110,rc.bottom-48,100,26,hWnd,(HMENU)205,GetModuleHandle(NULL),NULL);
         break;
     }
     case WM_SIZE:{
         RECT rc; GetClientRect(hWnd,&rc);
         SetWindowPos(hTreeView,NULL,10,10,rc.right-20,rc.bottom-50,SWP_NOZORDER);
+        SetWindowPos(hLogoutBtn,NULL,rc.right-110,rc.bottom-48,100,26,SWP_NOZORDER);
         SendMessage(hStatus,WM_SIZE,0,0);
         break;
     }
@@ -193,8 +200,26 @@ LRESULT CALLBACK mainWndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) 
         }
         break;
     }
+    case WM_COMMAND:
+        if(LOWORD(wParam)==205){
+            loggingOut=1;
+            DestroyWindow(hWnd);
+        }
+        break;
     case WM_DESTROY:
-        PostQuitMessage(0);
+        if(loggingOut){
+            loggingOut=0;
+            currentUserId=-1;
+            hLoginWnd=CreateWindow("LoginWnd","用户登录",
+                WS_OVERLAPPED|WS_CAPTION|WS_SYSMENU,
+                (GetSystemMetrics(SM_CXSCREEN)-400)/2,
+                (GetSystemMetrics(SM_CYSCREEN)-270)/2,400,270,
+                NULL,NULL,g_hInst,NULL);
+            ShowWindow(hLoginWnd,SW_SHOW);
+            UpdateWindow(hLoginWnd);
+        }else{
+            PostQuitMessage(0);
+        }
         break;
     }
     return DefWindowProc(hWnd,msg,wParam,lParam);
