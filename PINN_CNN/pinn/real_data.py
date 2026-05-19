@@ -129,9 +129,9 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
             except (ValueError, np.linalg.LinAlgError):
                 continue
 
-            # Resample to fixed voltage grid (128 pts, 2.8-3.6V for NCA; LFP uses 2.8-3.6V)
-            v_grid = np.linspace(2.8, 3.6, 128)
-            valid = (voltage > 2.8) & (voltage < 3.6)
+            # Resample to fixed voltage grid (NCA: 3.2-4.2V)
+            v_grid = np.linspace(3.2, 4.2, 128)
+            valid = (voltage > 3.2) & (voltage < 4.2)
             if valid.sum() < 10:
                 continue
             f = interp1d(voltage[valid], dq_dv_smooth[valid],
@@ -159,23 +159,35 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
     return result
 
 
+def _find_sheet(sheets: dict, prefix: str):
+    """Find first sheet whose name starts with prefix."""
+    for name, df in sheets.items():
+        if name.startswith(prefix):
+            return df
+    return None
+
+
 # ============================================================
-# CALCE Loader
+# CALCE Loader  (Arbin xlsx 格式)
 # ============================================================
 
 def load_calce(data_dir: str | Path = "data/calce",
                cells: tuple = ("CS2_35", "CS2_36", "CS2_37", "CS2_38")) -> dict:
-    """Load CALCE battery aging CSV/Excel data.
+    """Load CALCE battery aging data from Arbin .xlsx files.
 
-    CALCE data structure (per cell directory):
-      <cell_name>/
-        <cell_name>_cycle_data.csv    — 每行一个循环的汇总数据
-        <cell_name>_<cycleN>_<temp>.csv — 单个循环的详细V,I,T时间序列
+    每个 cell 目录下包含多个 .xlsx 文件，每个文件是一次 Arbin 测试会话:
+      - Info sheet:        测试元信息 (跳过)
+      - Channel_1-008:     逐采样点的 V, I, T, Cycle_Index, 容量累计
+      - Statistics_1-008:  逐循环汇总 (Discharge_Capacity, Internal_Resistance)
 
-    CALCE data can be requested from: https://calce.umd.edu/battery-data
-
-    Returns standardized dict.
+    Returns standardized dict with keys:
+      cell_id, cycle, soh, temp, ic, dv_start, capacity_meas
     """
+    try:
+        import pandas as pd
+    except ImportError:
+        raise ImportError("需要 pandas + openpyxl: pip install pandas openpyxl")
+
     data_dir = Path(data_dir)
     all_data = {
         "cell_id": [], "cycle": [], "soh": [], "temp": [],
@@ -188,101 +200,149 @@ def load_calce(data_dir: str | Path = "data/calce",
             print(f"  [跳过] {cell_dir} — 目录不存在")
             continue
 
-        # Attempt to find cycle summary CSV
-        summary_csv = cell_dir / f"{cell_name}_cycle_data.csv"
-        if not summary_csv.exists():
-            # Try to scan detailed CSVs
-            detail_files = sorted(cell_dir.glob("*.csv"))
-            if not detail_files:
-                print(f"  [跳过] {cell_name}: 无CSV文件")
-                continue
-            _load_calce_from_details(cell_dir, cell_idx, detail_files, all_data)
-        else:
-            _load_calce_from_summary(cell_dir, cell_idx, summary_csv, all_data)
+        xlsx_files = sorted(cell_dir.glob("*.xlsx"))
+        if not xlsx_files:
+            print(f"  [跳过] {cell_name}: 无 .xlsx 文件")
+            continue
 
-        print(f"  Loaded {cell_name}")
+        print(f"  Loading {cell_name} ({len(xlsx_files)} sessions) ...")
+
+        # --- Pass 1: collect all Statistics sheets to find nominal capacity ---
+        all_caps = []
+        for xf in xlsx_files:
+            try:
+                sheets = pd.read_excel(xf, sheet_name=None)
+                stat_sheet = _find_sheet(sheets, "Statistics")
+                if stat_sheet is None:
+                    continue
+                # Discharge_Capacity is cumulative across cycles — diff to get per-cycle
+                cum_cap = stat_sheet["Discharge_Capacity(Ah)"].dropna().values
+                if len(cum_cap) < 2:
+                    continue
+                per_cycle_cap = np.diff(cum_cap, prepend=0)
+                # First cycle's prepend=0 isn't accurate; use second cycle's value as reference
+                if len(per_cycle_cap) > 1:
+                    per_cycle_cap[0] = per_cycle_cap[1]  # assume first ≈ second
+                all_caps.extend(per_cycle_cap.tolist())
+            except Exception:
+                continue
+
+        if not all_caps:
+            print(f"  [警告] {cell_name}: 无法读取放电容量, 跳过")
+            continue
+        c_nominal = float(np.percentile(all_caps, 95))  # robust to outliers
+
+        # --- Pass 2: extract charge curves + SOH per cycle ---
+        global_cycle = 0
+
+        for xf in xlsx_files:
+            try:
+                sheets = pd.read_excel(xf, sheet_name=None)
+                stats = _find_sheet(sheets, "Statistics")
+                channel = _find_sheet(sheets, "Channel")
+                if stats is None or channel is None:
+                    continue
+            except Exception:
+                continue
+
+            # Build SOH lookup per cycle from Statistics
+            # Discharge_Capacity is cumulative → diff for per-cycle values
+            stats_sorted = stats.sort_values("Cycle_Index")
+            cum_cap_arr = stats_sorted["Discharge_Capacity(Ah)"].values.astype(np.float64)
+            per_cycle_cap = np.diff(cum_cap_arr, prepend=0)
+            if len(per_cycle_cap) > 1:
+                per_cycle_cap[0] = per_cycle_cap[1]
+            cum_res = stats_sorted["Internal_Resistance(Ohm)"].values
+
+            cycles_list = stats_sorted["Cycle_Index"].values.astype(int)
+            soh_map = {int(cycles_list[j]): float(per_cycle_cap[j]) / c_nominal
+                      for j in range(len(cycles_list))}
+            res_map = {int(cycles_list[j]): float(cum_res[j])
+                      for j in range(len(cycles_list))}
+
+            if len(soh_map) == 0:
+                continue
+
+            # Extract charge segments from Channel data
+            channel_cols = {c.lower().replace(" ", "_").replace("(", "").replace(")", ""): c
+                           for c in channel.columns}
+            v_col = channel_cols.get("voltage_v", "Voltage(V)")
+            i_col = channel_cols.get("current_a", "Current(A)")
+            t_col = channel_cols.get("test_time_s", "Test_Time(s)")
+            cyc_col = channel_cols.get("cycle_index", "Cycle_Index")
+            cap_col = channel_cols.get("charge_capacity_ah", "Charge_Capacity(Ah)")
+
+            df = channel[[v_col, i_col, t_col, cyc_col, cap_col]].copy()
+            df.columns = ["voltage", "current", "time", "cycle", "cap_ah"]
+
+            # Charge cycles: current > 0.01A
+            charge_mask = df["current"] > 0.01
+            if charge_mask.sum() < 100:
+                continue
+
+            unique_cycles = sorted(df.loc[charge_mask, "cycle"].unique())
+
+            for cyc in unique_cycles:
+                if cyc not in soh_map:
+                    continue
+                soh_val = soh_map[cyc]
+                if soh_val <= 0 or soh_val > 1.5:
+                    continue
+
+                mask = charge_mask & (df["cycle"] == cyc)
+                seg = df.loc[mask].sort_values("time")
+                if len(seg) < 50:
+                    continue
+
+                voltage = seg["voltage"].values.astype(np.float64)
+                current = seg["current"].values.astype(np.float64)
+                time_arr = seg["time"].values.astype(np.float64)
+                cap_arr = seg["cap_ah"].values.astype(np.float64)
+
+                charge_current = float(np.mean(current))
+                if charge_current < 0.01:
+                    continue
+
+                # dV_start proxy
+                dv_start = (voltage[min(5, len(voltage) - 1)] - voltage[0]) / charge_current
+
+                # IC curve from dQ/dV (using charge capacity directly)
+                try:
+                    # Use charge capacity as Q for more stable derivative
+                    dv_dq = np.gradient(voltage, cap_arr)
+                    dq_dv = 1.0 / np.clip(np.abs(dv_dq), 1e-6, None)
+                    wlen = min(31, len(dq_dv) // 2 * 2 + 1)
+                    if wlen >= 5:
+                        dq_dv_smooth = savgol_filter(dq_dv, wlen, 3)
+                    else:
+                        dq_dv_smooth = dq_dv
+                except (ValueError, np.linalg.LinAlgError):
+                    continue
+
+                # Resample to 128-point voltage grid (LiCoO2: 3.0-4.2V)
+                v_grid = np.linspace(3.0, 4.2, 128)
+                valid_v = (voltage > 3.0) & (voltage < 4.2)
+                if valid_v.sum() < 10:
+                    continue
+                f = interp1d(voltage[valid_v], dq_dv_smooth[valid_v],
+                             kind="linear", bounds_error=False, fill_value=0.0)
+                ic_curve = f(v_grid)
+                mx = ic_curve.max()
+                if mx > 0:
+                    ic_curve /= mx
+
+                global_cycle += 1
+                all_data["cell_id"].append(cell_idx)
+                all_data["cycle"].append(global_cycle)
+                all_data["soh"].append(np.clip(soh_val, 0.3, 1.02))
+                all_data["temp"].append(25.0)  # room temp for CALCE CS2
+                all_data["ic"].append(ic_curve.astype(np.float32))
+                all_data["dv_start"].append(dv_start)
+                all_data["capacity_meas"].append(soh_val * c_nominal)
+
+        print(f"    → {global_cycle} charge cycles extracted (c_nominal={c_nominal:.3f} Ah)")
 
     result = {k: np.array(v) if k != "ic" else np.stack(v) if v else np.array([])
               for k, v in all_data.items()}
+    print(f"\nCALCE total: {len(result['soh'])} samples from {len(cells)} cells")
     return result
-
-
-def _load_calce_from_summary(cell_dir, cell_idx, summary_csv, all_data):
-    """Parse CALCE summary CSV format."""
-    import csv
-    with open(summary_csv) as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            try:
-                cycle = int(row.get("cycle", row.get("Cycle", 0)))
-                soh = float(row.get("soh", row.get("SOH", row.get("capacity_ratio", 1.0))))
-                temp = float(row.get("temperature", row.get("Temperature", 25.0)))
-                cap = float(row.get("capacity", row.get("Capacity", 1.1)))
-                dv = float(row.get("dc_resistance", row.get("DC_R", 0.05)))
-            except (ValueError, KeyError):
-                continue
-
-            all_data["cell_id"].append(cell_idx)
-            all_data["cycle"].append(cycle)
-            all_data["soh"].append(soh)
-            all_data["temp"].append(temp)
-            all_data["dv_start"].append(dv)
-            all_data["capacity_meas"].append(cap)
-            # IC curve placeholder — filled with zeros if not available
-            all_data["ic"].append(np.zeros(128, dtype=np.float32))
-
-
-def _load_calce_from_details(cell_dir, cell_idx, detail_files, all_data):
-    """Parse CALCE per-cycle detail CSV files."""
-    import csv
-    n_ic = 128
-    for fpath in detail_files:
-        try:
-            voltage, current, time_arr = [], [], []
-            with open(fpath) as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    voltage.append(float(row.get("Voltage", row.get("voltage", row.get("V", 0)))))
-                    current.append(float(row.get("Current", row.get("current", row.get("I", 0)))))
-                    time_arr.append(float(row.get("Time", row.get("time", row.get("t", 0)))))
-            if len(voltage) < 50:
-                continue
-
-            voltage = np.array(voltage)
-            current = np.array(current)
-            time_arr = np.array(time_arr)
-
-            # Basic feature extraction
-            charge_current = float(np.mean(current[current > 0.01]))
-            if charge_current < 0.01:
-                continue
-            dv_start = (voltage[min(5, len(voltage)-1)] - voltage[0]) / charge_current
-
-            dt = np.diff(time_arr, prepend=time_arr[0])
-            dt = np.clip(dt, 0.1, None)
-            q_ah = np.cumsum(current * dt) / 3600.0
-
-            dv_dq = np.gradient(voltage, q_ah)
-            dq_dv = 1.0 / np.clip(np.abs(dv_dq), 1e-6, None)
-            dq_dv_smooth = savgol_filter(dq_dv, min(31, len(dq_dv)//2*2+1), 3)
-
-            v_grid = np.linspace(2.8, 3.6, n_ic)
-            valid_mask = (voltage > 2.8) & (voltage < 3.6)
-            if valid_mask.sum() < 10:
-                continue
-            f = interp1d(voltage[valid_mask], dq_dv_smooth[valid_mask],
-                         kind='linear', bounds_error=False, fill_value=0.0)
-            ic_curve = f(v_grid)
-            mx = ic_curve.max()
-            if mx > 0:
-                ic_curve /= mx
-
-            all_data["cell_id"].append(cell_idx)
-            all_data["cycle"].append(len(all_data["cycle"]))
-            all_data["soh"].append(1.0)  # placeholder, needs external SOH labels
-            all_data["temp"].append(25.0)
-            all_data["ic"].append(ic_curve.astype(np.float32))
-            all_data["dv_start"].append(dv_start)
-            all_data["capacity_meas"].append(1.0)
-        except Exception:
-            continue
