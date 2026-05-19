@@ -180,6 +180,7 @@ def load_calce(data_dir: str | Path = "data/calce",
       - Channel_1-008:     逐采样点的 V, I, T, Cycle_Index, 容量累计
       - Statistics_1-008:  逐循环汇总 (Discharge_Capacity, Internal_Resistance)
 
+    首次加载后缓存为 .npz 文件，后续秒级加载。
     Returns standardized dict with keys:
       cell_id, cycle, soh, temp, ic, dv_start, capacity_meas
     """
@@ -189,6 +190,14 @@ def load_calce(data_dir: str | Path = "data/calce",
         raise ImportError("需要 pandas + openpyxl: pip install pandas openpyxl")
 
     data_dir = Path(data_dir)
+    cache_path = data_dir / "calce_cache.npz"
+
+    # --- Return cached data if available ---
+    if cache_path.exists():
+        print(f"  Loading cached: {cache_path}")
+        cached = dict(np.load(cache_path, allow_pickle=True))
+        return {k: np.asarray(v) for k, v in cached.items()}
+
     all_data = {
         "cell_id": [], "cycle": [], "soh": [], "temp": [],
         "ic": [], "dv_start": [], "capacity_meas": [],
@@ -345,4 +354,11 @@ def load_calce(data_dir: str | Path = "data/calce",
     result = {k: np.array(v) if k != "ic" else np.stack(v) if v else np.array([])
               for k, v in all_data.items()}
     print(f"\nCALCE total: {len(result['soh'])} samples from {len(cells)} cells")
+
+    # Cache to .npz for fast reload
+    if len(result["soh"]) > 0:
+        cache_path.parent.mkdir(parents=True, exist_ok=True)
+        np.savez_compressed(cache_path, **result)
+        print(f"  Cached → {cache_path}")
+
     return result
