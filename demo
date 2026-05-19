@@ -4,7 +4,7 @@ $env:ANTHROPIC_AUTH_TOKEN="sk-63e1b84932724e5a92ef18dd97b1a741"
 $env:ANTHROPIC_MODEL="deepseek-v4-pro[1m]"
 $env:ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro[1m]"
 $env:ANTHROPIC_DEFAULT_SONNET_MODEL="deepseek-v4-pro[1m]"
-$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-v4-flash"
+$env:ANTHROPIC_DEFAULT_HAIKU_MODEL="deepseek-reasoner"
 $env:CLAUDE_CODE_SUBAGENT_MODEL="deepseek-v4-flash"
 $env:CLAUDE_CODE_EFFORT_LEVEL="max"
 claude
