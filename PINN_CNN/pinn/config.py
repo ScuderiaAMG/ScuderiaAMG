@@ -57,7 +57,7 @@ class Config:
     physics: PhysicsConfig = field(default_factory=PhysicsConfig)
     training: TrainingConfig = field(default_factory=TrainingConfig)
     data: DataConfig = field(default_factory=DataConfig)
-    checkpoint_dir: Path = field(default_factory=lambda: Path("D:/ScuderiaAMG/PINN_CNN/pinn/checkpoints"))
-    log_dir: Path = field(default_factory=lambda: Path("D:/ScuderiaAMG/PINN_CNN/pinn/logs"))
-    data_cache: Path = field(default_factory=lambda: Path("D:/ScuderiaAMG/PINN_CNN/pinn/cache"))
+    checkpoint_dir: Path = field(default_factory=lambda: Path(__file__).resolve().parent / "checkpoints")
+    log_dir: Path = field(default_factory=lambda: Path(__file__).resolve().parent / "logs")
+    data_cache: Path = field(default_factory=lambda: Path(__file__).resolve().parent / "cache")
     seed: int = 42

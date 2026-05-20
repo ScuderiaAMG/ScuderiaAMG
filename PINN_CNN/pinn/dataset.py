@@ -129,7 +129,7 @@ def load_all_data(cfg) -> dict:
     Priority: real data (NASA + CALCE) first; synthetic as fallback if no real data found.
     """
     sources = []
-    base = Path("D:/ScuderiaAMG/PINN_CNN/data")
+    base = Path(__file__).resolve().parent.parent / "data"
     has_real = False
 
     # NASA PCoE

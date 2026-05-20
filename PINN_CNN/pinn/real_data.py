@@ -11,7 +11,7 @@ Dataset sources (需手动下载):
      文件: CS2_35, CS2_36, CS2_37, CS2_38 (LiCoO2 18650)
      工况: 多温度多倍率循环老化
 
-Download → 放入 D:/ScuderiaAMG/PINN_CNN/data/ 下对应子目录.
+Download → 放入项目 data/ 目录下对应子目录（如 PINN_CNN/data/nasa_pcoe/）.
 """
 import numpy as np
 from scipy.interpolate import interp1d
