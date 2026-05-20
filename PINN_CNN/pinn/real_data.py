@@ -26,6 +26,25 @@ import traceback
 # NASA PCoE Loader
 # ============================================================
 
+def _unpack_nasa_array(arr: np.ndarray) -> np.ndarray:
+    """Unwrap nested NASA .mat cell arrays to a flat 1D float64 array.
+
+    Handles both (1,N) direct arrays and nested (1,1)-cell formats.
+    """
+    while arr.shape == (1, 1) and arr.dtype.names is None:
+        arr = arr[0, 0]
+    if arr.ndim == 2 and arr.shape[0] == 1:
+        return arr[0].astype(np.float64)
+    return arr.flatten().astype(np.float64)
+
+
+def _decode_type(raw) -> str:
+    """Decode NASA cycle type (str or bytes) → lowercase string."""
+    if hasattr(raw, 'decode'):
+        raw = raw.decode('utf-8', errors='replace')
+    return str(raw).strip().lower()
+
+
 def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
                    cells: tuple = ("B0005", "B0006", "B0007", "B0018")) -> dict:
     """Load NASA PCoE battery aging .mat files.
@@ -66,23 +85,17 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
         n_total = len(battery["cycle"][0])
         type_counts = {}
         for cyc_idx in range(min(20, n_total)):
-            raw_type = battery["cycle"][0, cyc_idx]["type"][0]
-            # Handle both str and bytes
-            if hasattr(raw_type, 'decode'):
-                raw_type = raw_type.decode('utf-8', errors='replace')
-            type_str = str(raw_type).strip().lower()
-            type_counts[type_str] = type_counts.get(type_str, 0) + 1
+            type_counts[_decode_type(battery["cycle"][0, cyc_idx]["type"][0])] = \
+                type_counts.get(_decode_type(battery["cycle"][0, cyc_idx]["type"][0]), 0) + 1
         print(f"    前20圈类型: {type_counts}  (共{n_total}圈)")
 
         # Determine nominal capacity: max discharge capacity in first 50 cycles
         discharge_caps = []
         for cyc_idx in range(min(50, n_total)):
             cyc_data = battery["cycle"][0, cyc_idx]
-            raw_type = cyc_data["type"][0]
-            if hasattr(raw_type, 'decode'):
-                raw_type = raw_type.decode('utf-8', errors='replace')
-            if str(raw_type).strip().lower() == "discharge":
-                discharge_caps.append(float(cyc_data["data"][0, 0]["Capacity"][0, 0]))
+            if _decode_type(cyc_data["type"][0]) == "discharge":
+                cap_arr = _unpack_nasa_array(cyc_data["data"][0, 0]["Capacity"])
+                discharge_caps.append(float(cap_arr[0]))
         if not discharge_caps:
             print(f"  [警告] {cell_name}: 找不到放电循环, 跳过")
             continue
@@ -94,19 +107,16 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
 
         for cyc_idx in range(n_total):
             cyc_data = battery["cycle"][0, cyc_idx]
-            raw_type = cyc_data["type"][0]
-            if hasattr(raw_type, 'decode'):
-                raw_type = raw_type.decode('utf-8', errors='replace')
-            cycle_type = str(raw_type).strip().lower()
+            cycle_type = _decode_type(cyc_data["type"][0])
 
             if cycle_type != "charge":
                 continue
 
             data = cyc_data["data"][0, 0]
-            voltage = data["Voltage_measured"][0, 0].flatten().astype(np.float64)
-            current = data["Current_measured"][0, 0].flatten().astype(np.float64)
-            temp_arr = data["Temperature_measured"][0, 0].flatten().astype(np.float64)
-            time_arr = data["Time"][0, 0].flatten().astype(np.float64)
+            voltage = _unpack_nasa_array(data["Voltage_measured"])
+            current = _unpack_nasa_array(data["Current_measured"])
+            temp_arr = _unpack_nasa_array(data["Temperature_measured"])
+            time_arr = _unpack_nasa_array(data["Time"])
 
             if len(voltage) < 50:
                 continue  # too short, skip
@@ -115,12 +125,9 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
             soh_value = None
             for prev_idx in range(cyc_idx - 1, -1, -1):
                 prev_data = battery["cycle"][0, prev_idx]
-                raw_t = prev_data["type"][0]
-                if hasattr(raw_t, 'decode'):
-                    raw_t = raw_t.decode('utf-8', errors='replace')
-                if str(raw_t).strip().lower() == "discharge":
-                    cap = float(prev_data["data"][0, 0]["Capacity"][0, 0])
-                    soh_value = cap / c_nominal
+                if _decode_type(prev_data["type"][0]) == "discharge":
+                    cap_arr = _unpack_nasa_array(prev_data["data"][0, 0]["Capacity"])
+                    soh_value = float(cap_arr[0]) / c_nominal
                     break
             if soh_value is None:
                 continue
