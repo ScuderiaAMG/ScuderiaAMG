@@ -11,6 +11,20 @@ from pathlib import Path
 import warnings
 
 
+def _safe_savgol(data: np.ndarray, window_length: int, polyorder: int) -> np.ndarray:
+    """savgol_filter with fallback for scipy compatibility issues."""
+    wlen = min(window_length, len(data))
+    if wlen % 2 == 0:
+        wlen -= 1
+    if wlen <= polyorder:
+        return np.asarray(data, dtype=np.float64)
+    try:
+        return savgol_filter(np.asarray(data, dtype=np.float64), wlen, polyorder)
+    except Exception:
+        kernel = np.ones(wlen) / wlen
+        return np.convolve(np.asarray(data, dtype=np.float64), kernel, mode='same')
+
+
 class LFPBatterySimulator:
     """2-RC ECM simulator for LiFePO4 18650 cell aging."""
 
@@ -128,8 +142,8 @@ class LFPBatterySimulator:
                 dv_dq_raw = np.gradient(v_total, q_ah)
                 # dQ/dV = 1 / (dV/dQ), clip to avoid singularities
                 dq_dv_raw = 1.0 / np.clip(np.abs(dv_dq_raw), 1e-6, None)
-                dq_dv_smooth = savgol_filter(dq_dv_raw, window_length=31, polyorder=3)
-            except (ValueError, np.linalg.LinAlgError):
+                dq_dv_smooth = _safe_savgol(dq_dv_raw, 31, 3)
+            except Exception:
                 dq_dv_smooth = np.zeros(n_time)
 
             # Resample to fixed voltage grid

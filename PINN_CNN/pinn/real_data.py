@@ -19,6 +19,7 @@ from scipy.signal import savgol_filter
 from pathlib import Path
 from typing import Optional
 import warnings
+import traceback
 
 
 # ============================================================
@@ -61,24 +62,42 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
         mat = loadmat(str(mat_path))
         battery = mat[cell_name][0, 0]
 
+        # Print cycle type distribution for diagnosis
+        n_total = len(battery["cycle"][0])
+        type_counts = {}
+        for cyc_idx in range(min(20, n_total)):
+            raw_type = battery["cycle"][0, cyc_idx]["type"][0]
+            # Handle both str and bytes
+            if hasattr(raw_type, 'decode'):
+                raw_type = raw_type.decode('utf-8', errors='replace')
+            type_str = str(raw_type).strip().lower()
+            type_counts[type_str] = type_counts.get(type_str, 0) + 1
+        print(f"    前20圈类型: {type_counts}  (共{n_total}圈)")
+
         # Determine nominal capacity: max discharge capacity in first 50 cycles
         discharge_caps = []
-        for cyc_idx in range(min(50, len(battery["cycle"][0]))):
+        for cyc_idx in range(min(50, n_total)):
             cyc_data = battery["cycle"][0, cyc_idx]
-            if cyc_data["type"][0].strip().lower() == "discharge":
+            raw_type = cyc_data["type"][0]
+            if hasattr(raw_type, 'decode'):
+                raw_type = raw_type.decode('utf-8', errors='replace')
+            if str(raw_type).strip().lower() == "discharge":
                 discharge_caps.append(float(cyc_data["data"][0, 0]["Capacity"][0, 0]))
         if not discharge_caps:
             print(f"  [警告] {cell_name}: 找不到放电循环, 跳过")
             continue
         c_nominal = max(discharge_caps)
+        print(f"    额定容量: {c_nominal:.4f} Ah (前50圈中放电循环 {len(discharge_caps)} 个)")
 
         # Extract charge cycles for feature building
         n_charge_cycles = 0
-        n_total_cycles = len(battery["cycle"][0])
 
-        for cyc_idx in range(n_total_cycles):
+        for cyc_idx in range(n_total):
             cyc_data = battery["cycle"][0, cyc_idx]
-            cycle_type = cyc_data["type"][0].strip().lower()
+            raw_type = cyc_data["type"][0]
+            if hasattr(raw_type, 'decode'):
+                raw_type = raw_type.decode('utf-8', errors='replace')
+            cycle_type = str(raw_type).strip().lower()
 
             if cycle_type != "charge":
                 continue
@@ -96,7 +115,10 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
             soh_value = None
             for prev_idx in range(cyc_idx - 1, -1, -1):
                 prev_data = battery["cycle"][0, prev_idx]
-                if prev_data["type"][0].strip().lower() == "discharge":
+                raw_t = prev_data["type"][0]
+                if hasattr(raw_t, 'decode'):
+                    raw_t = raw_t.decode('utf-8', errors='replace')
+                if str(raw_t).strip().lower() == "discharge":
                     cap = float(prev_data["data"][0, 0]["Capacity"][0, 0])
                     soh_value = cap / c_nominal
                     break
@@ -104,7 +126,6 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
                 continue
 
             # ---- Feature extraction ----
-            # Temperature (mean of this charge cycle)
             temp_mean = float(temp_arr.mean())
 
             # dV_start proxy: voltage change in first few seconds / current
@@ -117,16 +138,15 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
             cap_meas = soh_value * c_nominal
 
             # IC curve: dQ/dV during charge
-            # Q = integral of I*dt
             dt = np.diff(time_arr, prepend=time_arr[0] - (time_arr[1]-time_arr[0]) if len(time_arr) > 1 else 1.0)
-            dt = np.clip(dt, 0.1, None)  # avoid zero/negative dt
+            dt = np.clip(dt, 0.1, None)
             q_ah = np.cumsum(current * dt) / 3600.0
 
             try:
                 dv_dq = np.gradient(voltage, q_ah)
                 dq_dv = 1.0 / np.clip(np.abs(dv_dq), 1e-6, None)
-                dq_dv_smooth = savgol_filter(dq_dv, min(31, len(dq_dv)//2*2+1), 3)
-            except (ValueError, np.linalg.LinAlgError):
+                dq_dv_smooth = _safe_savgol(dq_dv, min(31, len(dq_dv)//2*2+1), 3)
+            except Exception:
                 continue
 
             # Resample to fixed voltage grid (NCA: 3.2-4.2V)
@@ -155,7 +175,7 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
     # Concatenate
     result = {k: np.array(v) if k != "ic" else np.stack(v) if v else np.array([])
               for k, v in all_data.items()}
-    print(f"\nTotal: {len(result['soh'])} samples from {len(cells)} cells")
+    print(f"\nNASA total: {len(result['soh'])} samples from {len(cells)} cells")
     return result
 
 
@@ -165,6 +185,21 @@ def _find_sheet(sheets: dict, prefix: str):
         if name.startswith(prefix):
             return df
     return None
+
+
+def _safe_savgol(data: np.ndarray, window_length: int, polyorder: int) -> np.ndarray:
+    """savgol_filter with fallback for edge-case / scipy compatibility issues."""
+    wlen = min(window_length, len(data))
+    if wlen % 2 == 0:
+        wlen -= 1
+    if wlen <= polyorder:
+        return data
+    try:
+        return savgol_filter(np.asarray(data, dtype=np.float64), wlen, polyorder)
+    except Exception:
+        # Fallback: simple moving average
+        kernel = np.ones(wlen) / wlen
+        return np.convolve(np.asarray(data, dtype=np.float64), kernel, mode='same')
 
 
 # ============================================================
@@ -180,8 +215,6 @@ def load_calce(data_dir: str | Path = "data/calce",
       Channel sheet 同时包含逐采样点 (V, I, Cycle_Index) 和累积容量/内阻列。
 
     首次加载后缓存为 .npz 文件，后续秒级加载。
-    Returns standardized dict with keys:
-      cell_id, cycle, soh, temp, ic, dv_start, capacity_meas
     """
     try:
         import pandas as pd
@@ -212,26 +245,36 @@ def load_calce(data_dir: str | Path = "data/calce",
 
         print(f"  Loading {cell_name} ({len(xlsx_files)} sessions) ...")
 
-        # --- Pass 1: estimate nominal capacity from all discharge capacities ---
+        # --- Pass 1: estimate nominal capacity ---
         all_dc_per_cycle = []
         for xf in xlsx_files:
             try:
                 sheets = pd.read_excel(xf, sheet_name=None)
                 channel = _find_sheet(sheets, "Channel")
                 if channel is None:
+                    print(f"    [跳过] {xf.name}: 无 Channel sheet, sheets={list(sheets.keys())}")
                     continue
                 df = channel
-                for cyc, grp in df.groupby("Cycle_Index"):
-                    dc = grp["Discharge_Capacity(Ah)"].max() - grp["Discharge_Capacity(Ah)"].min()
+                # Normalise column names
+                df.columns = [str(c).strip() for c in df.columns]
+                dc_col = _find_col(df, "Discharge_Capacity")
+                cyc_col = _find_col(df, "Cycle_Index")
+                if dc_col is None or cyc_col is None:
+                    print(f"    [跳过] {xf.name}: 找不到列, cols={list(df.columns)[:8]}")
+                    continue
+                for cyc, grp in df.groupby(cyc_col):
+                    dc = float(grp[dc_col].max()) - float(grp[dc_col].min())
                     if dc > 0:
                         all_dc_per_cycle.append(dc)
-            except Exception:
+            except Exception as e:
+                print(f"    [错误] {xf.name}: {e}")
                 continue
 
         if not all_dc_per_cycle:
             print(f"  [警告] {cell_name}: 无法读取放电容量, 跳过")
             continue
         c_nominal = float(np.percentile(all_dc_per_cycle, 95))
+        print(f"    c_nominal = {c_nominal:.4f} Ah (from {len(all_dc_per_cycle)} cycle caps)")
 
         # --- Pass 2: extract charge curves + SOH ---
         global_cycle = 0
@@ -242,30 +285,31 @@ def load_calce(data_dir: str | Path = "data/calce",
                 channel = _find_sheet(sheets, "Channel")
                 if channel is None:
                     continue
-            except Exception:
+            except Exception as e:
+                print(f"    [错误] 读取 {xf.name}: {e}")
                 continue
 
             df = channel
-            # Standardise column access
-            col_map = {c.lower().replace(" ", "_").replace("(", "").replace(")", ""): c
-                       for c in df.columns}
-            cyc_col = col_map.get("cycle_index", "Cycle_Index")
-            i_col = col_map.get("current_a", "Current(A)")
-            v_col = col_map.get("voltage_v", "Voltage(V)")
-            t_col = col_map.get("test_time_s", "Test_Time(s)")
-            dc_col = col_map.get("discharge_capacity_ah", "Discharge_Capacity(Ah)")
-            cc_col = col_map.get("charge_capacity_ah", "Charge_Capacity(Ah)")
+            df.columns = [str(c).strip() for c in df.columns]
 
-            # --- Per-cycle stats ---
+            cyc_col = _find_col(df, "Cycle_Index")
+            i_col = _find_col(df, "Current")
+            v_col = _find_col(df, "Voltage")
+            t_col = _find_col(df, "Test_Time")
+            dc_col = _find_col(df, "Discharge_Capacity")
+            cc_col = _find_col(df, "Charge_Capacity")
+            if any(c is None for c in [cyc_col, i_col, v_col, t_col, dc_col, cc_col]):
+                continue
+
+            # --- Per-cycle SOH from discharge capacity ---
             cycle_stats = {}
             for cyc, grp in df.groupby(cyc_col):
-                dc = float(grp[dc_col].max() - grp[dc_col].min())
+                dc = float(grp[dc_col].max()) - float(grp[dc_col].min())
                 if dc <= 0:
                     continue
                 soh_val = dc / c_nominal
-                if soh_val <= 0 or soh_val > 1.5:
-                    continue
-                cycle_stats[int(cyc)] = soh_val
+                if 0 < soh_val <= 1.5:
+                    cycle_stats[int(cyc)] = soh_val
 
             # --- Extract charge segments ---
             charge_mask = df[i_col] > 0.01
@@ -298,8 +342,8 @@ def load_calce(data_dir: str | Path = "data/calce",
                     dv_dq = np.gradient(voltage, cap_arr)
                     dq_dv = 1.0 / np.clip(np.abs(dv_dq), 1e-6, None)
                     wlen = min(31, len(dq_dv) // 2 * 2 + 1)
-                    dq_dv_smooth = savgol_filter(dq_dv, wlen, 3) if wlen >= 5 else dq_dv
-                except (ValueError, np.linalg.LinAlgError):
+                    dq_dv_smooth = _safe_savgol(dq_dv, wlen, 3)
+                except Exception:
                     continue
 
                 v_grid = np.linspace(3.0, 4.2, 128)
@@ -334,3 +378,11 @@ def load_calce(data_dir: str | Path = "data/calce",
         print(f"  Cached → {cache_path}")
 
     return result
+
+
+def _find_col(df, keyword: str) -> str | None:
+    """Find column name containing keyword (case-insensitive)."""
+    for c in df.columns:
+        if keyword.lower().replace("_", "").replace(" ", "") in c.lower().replace("_", "").replace(" ", ""):
+            return c
+    return None
