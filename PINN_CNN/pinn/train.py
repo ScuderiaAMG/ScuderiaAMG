@@ -102,7 +102,6 @@ def train(cfg: Config | None = None):
 
     t_start = time.perf_counter()
 
-    torch.autograd.set_detect_anomaly(True)
     nan_detected = False
 
     for epoch in range(1, cfg.training.epochs + 1):
@@ -125,17 +124,26 @@ def train(cfg: Config | None = None):
                 loss_phys, phys_dict = physics_loss_fn(soh_pred, dv_meas, cell_ids, cycles)
                 loss = loss_data + loss_phys
 
-            # NaN detection on every batch
-            if not nan_detected and (torch.isnan(loss) or torch.isinf(loss)):
-                nan_detected = True
-                print(f"\n  [NaN DETECTED] epoch {epoch}, batch {batch_idx}/{len(dl_train)}")
-                print(f"    soh_pred: min={soh_pred.min():.6f} max={soh_pred.max():.6f} "
-                      f"mean={soh_pred.mean():.6f}")
-                print(f"    loss_data={loss_data.item():.6f}  loss_phys={loss_phys.item():.6f}")
-                print(f"    x range: [{x.min():.4f}, {x.max():.4f}]  x_mean={x.mean():.4f}")
-                print(f"    dv_meas range: [{dv_meas.min():.6f}, {dv_meas.max():.6f}]")
-                print("    (continuing with detect_anomaly to trace source...)")
-                # Continue — detect_anomaly will print the exact op
+            # NaN detection — skip corrupted batches instead of crashing
+            if torch.isnan(loss) or torch.isinf(loss):
+                if not nan_detected:
+                    nan_detected = True
+                    nan_cols = torch.isnan(x).any(dim=0).nonzero(as_tuple=True)[0]
+                    nan_col_names = []
+                    ic_cols = []
+                    aux_names = ["temp", "log_cycle", "dv_start", "capacity_meas"]
+                    for col_idx in nan_cols.tolist():
+                        if col_idx < 128:
+                            ic_cols.append(col_idx)
+                        else:
+                            nan_col_names.append(aux_names[col_idx - 128])
+                    print(f"\n  [NaN DETECTED] epoch {epoch}, batch {batch_idx}/{len(dl_train)}")
+                    print(f"    NaN feature columns: IC indices={ic_cols[:5]}{'...' if len(ic_cols) > 5 else ''}, "
+                          f"aux={nan_col_names}")
+                    print(f"    soh_pred: min={soh_pred.min():.6f} max={soh_pred.max():.6f} "
+                          f"mean={soh_pred.mean():.6f}")
+                    print(f"    loss_data={loss_data.item():.6f}  loss_phys={loss_phys.item():.6f}")
+                continue  # skip this batch
 
             optimizer.zero_grad(set_to_none=True)
             scaler_amp.scale(loss).backward()

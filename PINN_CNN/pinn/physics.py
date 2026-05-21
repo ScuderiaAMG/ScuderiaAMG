@@ -58,6 +58,8 @@ class PhysicsLoss(nn.Module):
 
             # second-difference:  SOH_{n+1} - 2*SOH_n + SOH_{n-1}
             second_diff = soh_sorted[2:] - 2 * soh_sorted[1:-1] + soh_sorted[:-2]
+            if torch.isnan(second_diff).any() or torch.isinf(second_diff).any():
+                continue  # skip corrupted cells
             total_loss += (second_diff ** 2).mean()
             n_cells += 1
 

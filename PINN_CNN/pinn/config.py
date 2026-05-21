@@ -34,7 +34,7 @@ class TrainingConfig:
     early_stop_patience: int = 80
     grad_clip: float = 1.0
     use_amp: bool = True
-    num_workers: int = 4
+    num_workers: int = 0  # 0 avoids Windows spawn multiprocessing issues
 
 
 @dataclass

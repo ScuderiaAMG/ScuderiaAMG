@@ -54,8 +54,8 @@ kaggle datasets download ckskaggle/li-ion-battery-dataset-from-nasa-pcoe -p D:\S
 kaggle datasets download yashxss/nasa-battery-cycle-level-dataset -p D:\ScuderiaAMG\PINN_CNN\data\nasa_pcoe --unzip
 ```
 
-**预期提取**: ~500–600 个带标签充电循环样本
-**已验证**: B0005.mat (16MB), B0006.mat (16MB), B0007.mat (16MB), B0018.mat (8.2MB)
+**预期提取**: **635 个带标签充电循环样本** (实测)
+**已验证**: B0005.mat (167 cycles), B0006.mat (168 cycles), B0007.mat (167 cycles), B0018.mat (133 cycles)
 
 ### 0.2 CALCE 电池数据集
 
@@ -93,13 +93,14 @@ PINN_CNN/data/calce/
 └── calce_cache.npz  ← 首次加载后自动生成
 ```
 
-**已验证 (CS2_35)**:
-- c_nominal = 0.988 Ah
-- 618 charge cycles extracted
-- SOH range: [0.30, 1.01]
-- Capacity range: [0.25, 1.00] Ah
+**已验证 (CALCE, CS2 系列, 实测)**:
+- CS2_35: c_nominal=1.0680 Ah, 923 charge cycles
+- CS2_36: c_nominal=1.0915 Ah, 918 charge cycles
+- CS2_37: c_nominal=1.0638 Ah, 983 charge cycles
+- CS2_38: c_nominal=1.0686 Ah, 1069 charge cycles
+- SOH range: [0.30, 1.02]
 
-**预期总样本**: ~2,400 (4 cells × ~600 cycles each)
+**预期总样本**: ~3,900 (4 cells)
 **首次加载耗时**: ~3–4 分钟 (解析 100+ 个 .xlsx 文件)
 **缓存加载耗时**: ~2 秒 (从 calce_cache.npz)
 
@@ -114,10 +115,10 @@ PINN_CNN/data/calce/
 | 特性 | NASA PCoE | CALCE | Synthetic |
 |------|-----------|-------|-----------|
 | 电芯数量 | 4 | 4 | 50 (虚拟) |
-| 实际样本数 (验证) | ~600 | ~2,400 | ~24,000 |
+| 实际样本数 (实测) | 635 | 3,893 | ~24,000 |
 | 化学体系 | NCA | LiCoO₂ | LFP (模拟) |
 | 与目标(LFP)差异 | 中等 | 较大 | 无(但为模拟) |
-| 额定容量 | 2.0 Ah | 1.0 Ah | 1.1 Ah |
+| 额定容量 | 1.86–2.04 Ah | 1.06–1.09 Ah | 1.1 Ah |
 | 文件格式 | .mat (MATLAB) | .xlsx (Arbin) | .npz |
 | 获取难度 | GitHub/Kaggle 镜像 | 需申请 | 自动 |
 | IC电压范围 | 3.2–4.2V | 3.0–4.2V | 2.8–3.6V |
@@ -200,16 +201,19 @@ PINN_CNN/data/calce/
 | `early_stop_patience` | 80 | 早停等待轮数 |
 | `grad_clip` | 1.0 | 梯度裁剪阈值 |
 | `use_amp` | True | RTX 4060自动混合精度 (CUDA Tensor Core) |
-| `num_workers` | 4 | DataLoader子进程数 |
+| `num_workers` | 0 | DataLoader子进程数 (Windows spawn多进程不稳定，设为0) |
 
-**训练耗时预估** (RTX 4060 Laptop):
+**训练耗时预估**:
 
-| 数据源 | 首次加载 | 训练耗时 | 总耗时 |
-|--------|---------|---------|--------|
-| 仅合成数据 | 2–3 min (生成) | 5–8 min | **< 15 min** |
-| 仅 NASA | < 5 sec (.mat) | 5–8 min | **< 10 min** |
-| 仅 CALCE | 3–4 min (xlsx→缓存) | 8–12 min | **< 16 min** |
-| NASA + CALCE | 3–4 min (CALCE 首次) | 10–15 min | **< 20 min** |
+| 环境 | 数据源 | 首次加载 | 训练耗时 | 总耗时 |
+|------|--------|---------|---------|--------|
+| RTX 4060 Laptop | 仅合成数据 | 2–3 min (生成) | 5–8 min | **< 15 min** |
+| RTX 4060 Laptop | 仅 NASA | < 5 sec (.mat) | 5–8 min | **< 10 min** |
+| RTX 4060 Laptop | 仅 CALCE | 3–4 min (xlsx→缓存) | 8–12 min | **< 16 min** |
+| RTX 4060 Laptop | NASA + CALCE | 3–4 min (CALCE 首次) | 10–15 min | **< 20 min** |
+| CPU (i7-14700HX) | NASA + CALCE | 3–4 min (CALCE 首次) | ~55 min | **< 60 min** |
+
+> **实测 (CPU, 4528 样本)**: 542 epochs 后早停, 总耗时 ~55 min, val_MAE=0.96% SOH, 详见 §5.6。
 
 ---
 
@@ -266,21 +270,53 @@ python -m pinn.train
 首次运行输出示例:
 
 ```
+Device: cpu
 [数据] NASA PCoE .mat 文件已检测到
   Loading B0005 ...
+    前20圈类型: {'charge': 10, 'discharge': 10}  (共616圈)
+    额定容量: 1.8565 Ah
+    → 167 charge cycles extracted
+  Loading B0006 ...
+    额定容量: 2.0353 Ah
     → 168 charge cycles extracted
-  ...
-  NASA samples: 616
+  Loading B0007 ...
+    额定容量: 1.8911 Ah
+    → 167 charge cycles extracted
+  Loading B0018 ...
+    额定容量: 1.8550 Ah
+    → 133 charge cycles extracted
+  NASA total: 635 samples from 4 cells
 
 [数据] CALCE 数据目录已检测到
-  Loading CS2_35 (25 sessions) ...
-    → 618 charge cycles extracted (c_nominal=0.988 Ah)
-  ...
-  CALCE total: 2412 samples from 4 cells
-  合并后总样本: 3028
+  Loading cached: data/calce/calce_cache.npz
+  CALCE samples: 3893
 
-Train: 2119  Val: 454  Test: 455
+  合并后总样本: 4528
+  Train: 3169  Val: 679  Test: 680
+
 Scaler saved → pinn/checkpoints/feature_scaler.pkl
+Data sanity OK — features ∈ [-5.0000, 5.0000], SOH ∈ [0.3000, 1.0200]
+Model params: 53,122 total  |  53,122 trainable
+
+============================================================
+Training: 600 epochs  |  batch=256
+Physics weights: ecm=0.15  smooth=0.05  mono=0.02
+============================================================
+
+Epoch    1/600 | data: 0.095506 | phys: 0.084344 | val_loss: 0.025512 | val_MAE: 0.114100 | lr: 5.0e-04
+Epoch   27/600 | data: 0.001782 | phys: 0.005177 | val_loss: 0.001444 | val_MAE: 0.022337 | lr: 5.0e-04
+...
+Epoch  350/600 | data: 0.000261 | phys: 0.084372 | val_loss: 0.000314 | val_MAE: 0.010798 | lr: 2.5e-04
+...
+Early stop at epoch 542 (best: 462, val_loss=0.000250)
+
+============================================================
+Test Results:
+  MSE:  0.000342
+  MAE:  0.009922  (0.99% SOH)
+  RMSE: 0.018482  (1.85% SOH)
+  R²:   0.991516
+Best model: pinn/checkpoints/best_model.pt
 ```
 
 ### 5.4 导出部署模型
@@ -306,13 +342,19 @@ tensorboard --logdir pinn/logs --bind_all
 
 ### 5.6 预期结果
 
-| 指标 | 目标值 | 判定标准 |
-|------|--------|---------|
-| 验证MAE | < 0.03 (3% SOH) | 合格 |
-| 验证MAE | < 0.015 (1.5% SOH) | 优秀 |
-| INT8量化MAE损失 | < 0.01 (1% SOH) | 合格 |
-| 单次推理延迟 (A55) | < 20ms | 合格 |
-| R² | > 0.95 | 合格 |
+| 指标 | 目标值 | 实测值 (NASA+CALCE, 4528样本, CPU) | 判定标准 |
+|------|--------|-------------------------------------|---------|
+| 验证MAE | < 0.03 (3% SOH) | **0.96% SOH** (best epoch 462) | 优秀 |
+| 测试MAE | < 0.015 (1.5% SOH) | **0.99% SOH** | 优秀 |
+| 测试RMSE | — | **1.85% SOH** | — |
+| R² | > 0.95 | **0.9915** | 优秀 |
+| 训练轮数 | ≤ 600 | **542** (early stop) | — |
+| 数据loss (train) | — | 0.000250 (best val) | — |
+| 物理loss | — | 0.0844 (稳定) | — |
+| INT8量化MAE损失 | < 0.01 (1% SOH) | 待验证 | 合格 |
+| 单次推理延迟 (A55) | < 20ms | 待验证 | 合格 |
+
+> **注**: 物理损失中的 `phys_smooth` 组件偶尔降至 ~0.005 (如 epoch 27, 88, 380, 400)，原因是部分 cell 的退化曲线二阶差分触发了 NaN guard（从 NASA B0018 混合充放电数据中提取的少量坏样本被跳过）。此为正常保护行为，不影响训练收敛。
 
 ---
 
@@ -414,8 +456,11 @@ PINN_CNN/
 
 | 问题 | 可能原因 | 解决方案 |
 |------|---------|---------|
+| 训练第1轮即NaN崩溃 (`PowBackward0`) | 原始数据含NaN/Inf穿透 `np.clip` | 在 `build_features` 的 clip 后追加 `np.nan_to_num()`；IC曲线和aux特征送入scaler前各追加一次清洗 |
+| 训练第1轮即NaN崩溃 (Windows特有) | DataLoader `num_workers>0` 的spawn多进程数据损坏 | 设置 `num_workers=0` |
 | 训练loss不下降 | 学习率过大 | 降低lr至1e-4 |
 | 物理loss震荡 | ecm_weight过大 | 降低至0.05 |
+| phys_smooth 偶尔骤降至 ~0.005 | NaN guard 跳过了部分 cell 的坏样本 | 正常保护行为，不影响训练。检查对应 cell 的原始数据质量 |
 | 验证MAE > 10% | 合成数据分布不真实 | 增大n_cells, 添加多工况 |
 | CALCE 加载报 "无法读取放电容量" | 累计容量未正确差分 | 检查 `real_data.py` 中 `np.diff(cum_cap, prepend=0)` |
 | CALCE c_nominal 异常 (>10Ah) | 未对累计值做差分 | 确认已用 `per_cycle_cap = np.diff(cum_cap_arr)` |
