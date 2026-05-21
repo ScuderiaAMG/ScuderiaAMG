@@ -9,6 +9,7 @@ from torch.utils.tensorboard import SummaryWriter
 from pathlib import Path
 import time
 import sys
+import math
 import numpy as np
 
 from .config import Config
@@ -39,6 +40,29 @@ def train(cfg: Config | None = None):
     # ---- data ----
     dl_train, dl_val, dl_test, scaler = create_dataloaders(cfg)
 
+    # Print scaler stats for diagnosis
+    print(f"Scaler mean:  {scaler.mean_}")
+    print(f"Scaler scale: {scaler.scale_}")
+    for i, (name, m, s) in enumerate(zip(
+        ["temp", "log_cycle", "dv_start", "capacity_meas"],
+        scaler.mean_, scaler.scale_
+    )):
+        print(f"  {name}: μ={m:.6f}, σ={s:.6f}")
+
+    # Validate data: check for NaN/Inf in first batch
+    x0, soh0, dv0, _, _ = next(iter(dl_train))
+    for name, t in [("features", x0), ("soh", soh0), ("dv", dv0)]:
+        if torch.isnan(t).any():
+            raise RuntimeError(f"NaN detected in {name}! Check raw data / scaler.")
+        if torch.isinf(t).any():
+            raise RuntimeError(f"Inf detected in {name}! Check raw data / scaler.")
+    # Clip extreme features to stabilise training
+    extreme_mask = (x0 < -10) | (x0 > 10)
+    n_extreme = extreme_mask.any(dim=1).sum().item()
+    print(f"Data sanity OK — features ∈ [{x0.min():.4f}, {x0.max():.4f}], "
+          f"SOH ∈ [{soh0.min():.4f}, {soh0.max():.4f}], "
+          f"extreme samples: {n_extreme}/{x0.size(0)}")
+
     # ---- model ----
     model = BatteryPINN(cfg).to(device)
     physics_loss_fn = PhysicsLoss(cfg)
@@ -55,10 +79,11 @@ def train(cfg: Config | None = None):
     )
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
         optimizer, mode='min', factor=cfg.training.lr_factor,
-        patience=cfg.training.lr_patience, verbose=True,
+        patience=cfg.training.lr_patience,
     )
     data_criterion = nn.MSELoss()
-    scaler_amp = torch.cuda.amp.GradScaler(enabled=cfg.training.use_amp)
+    scaler_amp = torch.amp.GradScaler('cuda', enabled=cfg.training.use_amp)
+    use_amp = cfg.training.use_amp and device.type == 'cuda'
 
     # ---- checkpoint & logging ----
     cfg.checkpoint_dir.mkdir(parents=True, exist_ok=True)
@@ -77,6 +102,9 @@ def train(cfg: Config | None = None):
 
     t_start = time.perf_counter()
 
+    torch.autograd.set_detect_anomaly(True)
+    nan_detected = False
+
     for epoch in range(1, cfg.training.epochs + 1):
         # ----- TRAIN -----
         model.train()
@@ -91,11 +119,23 @@ def train(cfg: Config | None = None):
             cell_ids = cell_ids.to(device)
             cycles = cycles.to(device)
 
-            with torch.cuda.amp.autocast(enabled=cfg.training.use_amp):
+            with torch.amp.autocast('cuda', enabled=use_amp):
                 soh_pred, _r_proxy = model(x)
                 loss_data = data_criterion(soh_pred, soh_true)
                 loss_phys, phys_dict = physics_loss_fn(soh_pred, dv_meas, cell_ids, cycles)
                 loss = loss_data + loss_phys
+
+            # NaN detection on every batch
+            if not nan_detected and (torch.isnan(loss) or torch.isinf(loss)):
+                nan_detected = True
+                print(f"\n  [NaN DETECTED] epoch {epoch}, batch {batch_idx}/{len(dl_train)}")
+                print(f"    soh_pred: min={soh_pred.min():.6f} max={soh_pred.max():.6f} "
+                      f"mean={soh_pred.mean():.6f}")
+                print(f"    loss_data={loss_data.item():.6f}  loss_phys={loss_phys.item():.6f}")
+                print(f"    x range: [{x.min():.4f}, {x.max():.4f}]  x_mean={x.mean():.4f}")
+                print(f"    dv_meas range: [{dv_meas.min():.6f}, {dv_meas.max():.6f}]")
+                print("    (continuing with detect_anomaly to trace source...)")
+                # Continue — detect_anomaly will print the exact op
 
             optimizer.zero_grad(set_to_none=True)
             scaler_amp.scale(loss).backward()
@@ -149,7 +189,10 @@ def train(cfg: Config | None = None):
 
         # ----- checkpointing & early stop -----
         is_best = val_data_loss < best_val_loss
-        if is_best:
+        # Always save first valid checkpoint; skip NaN losses
+        if not math.isfinite(val_data_loss):
+            pass  # skip NaN — don't save, don't count as best
+        elif is_best:
             best_val_loss = val_data_loss
             best_epoch = epoch
             patience_counter = 0

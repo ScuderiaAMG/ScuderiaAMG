@@ -78,12 +78,15 @@ def build_features(raw: dict, cfg, scaler: StandardScaler | None = None) -> tupl
     cap = raw["capacity_meas"].reshape(-1, 1).astype(np.float32)
 
     aux = np.concatenate([temp, log_cycle, dv, cap], axis=1)
+    aux_norm = np.clip(aux, -1e6, 1e6)  # clip raw extreme values before fitting scaler
+
+    features_raw = np.concatenate([ic_raw, aux_norm.astype(np.float32)], axis=1)
 
     if scaler is None:
-        scaler = StandardScaler().fit(aux)
+        scaler = StandardScaler().fit(features_raw)
 
-    aux_norm = scaler.transform(aux)
-    features = np.concatenate([ic_raw, aux_norm.astype(np.float32)], axis=1)
+    features = scaler.transform(features_raw).astype(np.float32)
+    features = np.clip(features, -5.0, 5.0)  # aggressive clip for stability
     return features, scaler
 
 

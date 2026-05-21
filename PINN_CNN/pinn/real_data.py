@@ -136,7 +136,10 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
             temp_mean = float(temp_arr.mean())
 
             # dV_start proxy: voltage change in first few seconds / current
-            charge_current = float(np.mean(current[current > 0.01]))
+            pos_mask = current > 0.01
+            if pos_mask.sum() == 0:
+                continue
+            charge_current = float(np.mean(current[pos_mask]))
             if charge_current < 0.01:
                 continue
             dv_start = (voltage[min(5, len(voltage)-1)] - voltage[0]) / charge_current
@@ -165,8 +168,10 @@ def load_nasa_pcoe(data_dir: str | Path = "data/nasa_pcoe",
                          kind='linear', bounds_error=False, fill_value=0.0)
             ic_curve = f(v_grid)
             mx = ic_curve.max()
-            if mx > 0:
+            if mx > 1e-4:
                 ic_curve /= mx
+            else:
+                ic_curve = np.zeros_like(ic_curve)
 
             all_data["cell_id"].append(cell_idx)
             all_data["cycle"].append(n_charge_cycles + 1)
@@ -361,8 +366,10 @@ def load_calce(data_dir: str | Path = "data/calce",
                              kind="linear", bounds_error=False, fill_value=0.0)
                 ic_curve = f(v_grid)
                 mx = ic_curve.max()
-                if mx > 0:
+                if mx > 1e-4:
                     ic_curve /= mx
+                else:
+                    ic_curve = np.zeros_like(ic_curve)
 
                 global_cycle += 1
                 all_data["cell_id"].append(cell_idx)
