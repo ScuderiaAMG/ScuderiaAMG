@@ -102,6 +102,10 @@ def train(cfg: Config | None = None):
 
     t_start = time.perf_counter()
 
+<<<<<<< HEAD
+    torch.autograd.set_detect_anomaly(True)
+=======
+>>>>>>> 7086cd304f5d27ce05f536780dbfb7b3d82d08e0
     nan_detected = False
 
     for epoch in range(1, cfg.training.epochs + 1):
