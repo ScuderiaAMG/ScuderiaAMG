@@ -19,32 +19,14 @@ PINN_CNN/
 
 ---
 
-<<<<<<< HEAD
-## 一、CNN 在双 AI 模型中的角色
-
-```
-双AI模型 SOH评估
-├── PINN (快速筛查)            CNN (精准评估)
-│   ├── 8-10 分钟数据          ├── 完整充电周期
-│   ├── SOH 回归 [0, 1]        ├── 老化阶段分类 (I-IV)
-│   ├── 物理约束引导            ├── RUL 剩余寿命预测
-│   ├── 输入: 132-d 特征向量    ├── 输入: IC 曲线 (1, 128) 原始 1D 信号
-│   └── 产线快速筛查            └── 实验室验证 / 梯次利用分选
-│
-└── 部署芯片: RZ/G2L Cortex-A55 (ONNX + INT8 量化)
-```
-
-**核心设计逻辑:**
-- PINN 将 IC 曲线扁平化为 132-d 向量，丢失了曲线的空间/局部形态信息
-- CNN 直接对原始 1D 曲线进行卷积，捕捉 **IC 峰值位移、峰值高度变化、曲线形状畸变** 等与老化机制高度相关的局部形态特征
-- 二者互补：PINN 求快 (8 分钟)，CNN 求准 (完整周期)
-=======
 ## 一、三阶段分类定义
 
 ```
 阶段 0 — healthy   (健康):    SOH ≥ 0.82
 阶段 1 — degrading (衰退):    0.82 > SOH ≥ 0.70
 阶段 2 — EOL       (寿命终止): SOH < 0.70
+```
+
 ```
     hidden_dim: int = 32           # 分类/回归头隐藏层维度
     num_stages: int = 4            # 老化四阶段: I-成膜, II-稳定, III-加速, IV-寿命终止
@@ -76,6 +58,7 @@ DataConfig:
     test_ratio: float = 0.15       # 测试集比例
     eol_soh_threshold: float = 0.70  # 寿命终止 SOH 阈值
     label_smoothing: float = 0.05  # 分类标签平滑 (防止过拟合)
+
 ```
 
 ### 2.2 `model.py` — 1D-CNN 模型架构
@@ -353,6 +336,7 @@ Channel 2: d(IC)/dV        → 自归一化 → StandardScaler → clip[-5,5]
 - 训练集自动计算类别权重 (inverse frequency)
 
 **标签:**
+
 ```
 阶段: SOH ≥ 0.82 → 0(healthy),  0.82 > SOH ≥ 0.70 → 1(degrading),  SOH < 0.70 → 2(EOL)
 RUL:  max(0, N_EOL - N_current) / N_EOL  (每电芯独立, ∈ [0,1])
@@ -361,6 +345,7 @@ RUL:  max(0, N_EOL - N_current) / N_EOL  (每电芯独立, ∈ [0,1])
 ### 2.4 `train.py` — 多任务训练
 
 **损失:**
+
 ```
 TotalLoss = 0.55 × CrossEntropyLoss(weight=class_weights, label_smoothing=0.08)
           + 0.45 × MSELoss(RUL)
@@ -387,23 +372,10 @@ cd D:\ScuderiaAMG\PINN_CNN
 python -m cnn.train          # 训练
 python -m cnn.export         # 导出ONNX
 tensorboard --logdir cnn/logs  # 监控
->>>>>>> 7086cd304f5d27ce05f536780dbfb7b3d82d08e0
 ```
 
 ---
 
-<<<<<<< HEAD
-## 四、超参数调优指南
-
-| 现象 | 原因 | 调整方向 |
-|---|---|---|
-| 分类准确率 < 60% | 类别不平衡 或 学习率过高 | 增大 `label_smoothing`, 降低 lr 到 5e-4 |
-| RUL MAE > 0.15 | RUL 头收敛困难 | 增大 `rul_weight` 到 0.7, 降低 `cls_weight` 到 0.3 |
-| 验证损失震荡 | 批次太小 或 学习率过高 | 增大 `batch_size` 到 256, 降低 lr |
-| 早停过早 (< 50 epoch) | `early_stop_patience` 太小 | 增大到 80-100 |
-| GPU 显存不足 | 批次过大 | 减小 `batch_size` 到 64 |
-| 阶段 I/IV 召回率低 | 类别样本数差异大 | 调整 `StageThresholds` 阈值使分布更均衡 |
-=======
 ## 四、超参数调优
 
 | 现象 | 方向 |
@@ -412,7 +384,6 @@ tensorboard --logdir cnn/logs  # 监控
 | 过拟合 (train/val差距>15%) | 增大 dropout 到 0.3, 增大 noise_std |
 | RUL 误差大 | 增大 `rul_weight` 到 0.55 |
 | 早停过早 | 增大 `early_stop_patience` 到 150 |
->>>>>>> 7086cd304f5d27ce05f536780dbfb7b3d82d08e0
 
 ---
 
@@ -428,18 +399,6 @@ tensorboard --logdir cnn/logs  # 监控
                            │
               ┌────────────┴────────────┐
               ▼                         ▼
-<<<<<<< HEAD
-         PINN 路径                   CNN 路径
-    (RZ/G2L Cortex-A55)        (RZ/G2L Cortex-A55)
-              │                         │
-    输入: 132-d 扁平特征         输入: (1, 128) IC 曲线
-    模型: MLP + ResBlock         模型: 1D Conv 骨干
-    参数量: ~25K                 参数量: ~13K
-    输出: SOH ∈ [0,1]            输出: Stage (0-3) + RUL ∈ [0,1]
-    延迟: < 15 ms                延迟: < 10 ms
-              │                         │
-    适用: 产线快速筛查          适用: 梯次利用分选/实验室验证
-=======
          PINN 路径                   CNN 路径 (3-stage)
     (RZ/G2L Cortex-A55)        (RZ/G2L Cortex-A55)
               │                         │
@@ -450,7 +409,6 @@ tensorboard --logdir cnn/logs  # 监控
     延迟: < 15 ms                延迟: < 15 ms
               │                         │
     适用: 产线快速筛查          适用: 梯次利用分选/回收评估
->>>>>>> 7086cd304f5d27ce05f536780dbfb7b3d82d08e0
 ```
 
 **两种模型独立运行，针对不同场景分别调用，不构成级联关系。**
