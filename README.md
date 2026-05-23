@@ -225,6 +225,74 @@ python RD-DualNet2.py --mode enhance --eval_dir <path> --input_dir <path>
 
 ---
 
+## PINN_CNN — Dual AI Battery SOH Estimation for RA8+RZ/G2L
+
+>`PINN_CNN/`
+
+A dual-model battery state-of-health (SOH) estimation system built for the Renesas RA8 (Cortex-M85) + RZ/G2L (Cortex-A55) dual-chip architecture. Part of an industrial-grade lithium battery aging test and high-reliability data black-box system. Two complementary AI models: a physics-informed neural network for fast screening and a residual 1D-CNN for precise assessment.
+
+| Model | Chip | Task | Input | Output | Params | A55 Latency |
+|---|---|---|---|---|---|---|
+| PINN | RZ/G2L | SOH regression | 132-d features | SOH ∈ [0,1] | ~53K | < 15 ms |
+| CNN | RZ/G2L | 3-stage + RUL | (2, 128) IC dual-channel | healthy/degrading/EOL + RUL | ~44K | < 15 ms |
+
+**Pipeline**: production-line fast screening (8-minute charge data → PINN → SOH) → cascaded sorting (full charge → CNN → health grade + remaining useful life).
+
+### PINN — Physics-Informed Neural Network (`pinn/`)
+
+A compact MLP with residual skip connections, trained with physics-based regularization on top of standard MSE. Input is a 132-d vector: IC curve (128 points on 2.8–3.6V grid) + temperature + log cycle count + dV proxy + measured capacity.
+
+| Component | Detail |
+|---|---|
+| Architecture | Linear(132→128) → Linear(128→128) → Linear(128→64) → ResidualBlock(64) → dual head: SOH (Sigmoid) + aux resistance proxy |
+| Physics loss | **ECM consistency** (MSE between predicted R and dV measurement) + **degradation smoothness** (2nd-order SOH penalty across cycles) + **monotonicity** (ReLU penalty on SOH rise). Weights: 0.15 / 0.05 / 0.02 |
+| Training | AdamW (lr=5e-4, wd=1e-5), ReduceLROnPlateau, AMP mixed precision, gradient clip 1.0, 600 epochs, batch 256, early stop 80 |
+| Data | NASA PCoE (.mat, cells B0005/6/7/18) + CALCE Arbin (.xlsx, CS2_35/36/37/38). Falls back to LFP 18650 2-RC ECM synthetic data (`battery_sim.py`) if real data unavailable |
+| Performance | Test MAE < 1% SOH, R² > 0.99 |
+| Export | PyTorch → ONNX opset 14 → INT8 dynamic quantization (83 KB) |
+
+### CNN — Residual 1D-CNN for Precise Assessment (`cnn/`)
+
+A slim residual conv net performing joint 3-stage classification and RUL regression. Dual-channel input: IC curve + IC gradient (d(IC)/dV), each (128,) — stacked as (2, 128).
+
+| Component | Detail |
+|---|---|
+| Architecture | Stem Conv1d(2→16, k=7, s=2) → 3× ResidualBlock (16→32→48, k=7/7/5) with MaxPool → AdaptiveAvgPool1d → dual heads: classification (48→48→24→3) + RUL regression (48→48→24→1) |
+| Stages | healthy (SOH ≥ 0.82), degrading (0.82 > SOH ≥ 0.70), EOL (SOH < 0.70) |
+| Training | AdamW (lr=8e-4, wd=1e-4), CrossEntropyLoss (inverse-frequency class weights, label smoothing 0.08) + MSELoss(RUL), weights 0.55/0.45, AMP, 600 epochs, batch 128, early stop 100 |
+| Augmentation | Gaussian noise (σ=0.03), random scale (0.85–1.15), voltage-axis shift (±6 points) — training only |
+| Data split | Cell-based split (no cross-contamination), quality filtering (rejects flat/degenerate IC curves), ~70/15/15 train/val/test |
+| Performance | Test accuracy ~70%, RUL MAE 0.21 |
+| Export | PyTorch → ONNX opset 14 → INT8 dynamic quantization (84 KB) |
+
+### RZ/G2L Deployment (`deploy/`)
+
+ONNX Runtime CPU execution on dual Cortex-A55 @ 1.2 GHz:
+
+```
+python3 inference.py pinn  sample_132d.npy    # → SOH: 0.9234 (92.3%)
+python3 inference.py cnn   ic_curve_128.npy   # → Stage: healthy (0), RUL: 0.8764
+python3 inference.py benchmark                 # → PINN: 8.2 ms, CNN: 7.5 ms
+```
+
+Python API via `PINNInference` and `CNNInference` classes. RA8 ↔ RZ/G2L communication over QSPI/USB HS with shared memory. Full data loop: RA8 collects voltage/current/temperature → Kalman filter + IC/DV feature extraction → RZ/G2L runs inference → results stored to Octa-NAND + displayed on UI.
+
+### Data Sources
+
+- **NASA PCoE**: 4 cells (B0005/6/7/18), `.mat` format, nested cell-array structure, charge/discharge curves at multiple temperatures
+- **CALCE**: 4 cells (CS2_35/36/37/38), `.xlsx` Arbin format, multi-sheet per file, first-load caching to `.npz`
+- **Synthetic**: `pinn/battery_sim.py` — LFP 18650 2-RC ECM simulator with power-law capacity fade, resistance growth, CC charging with noise
+
+```
+data/
+├── nasa_pcoe/      B0005.mat, B0006.mat, B0007.mat, B0018.mat
+└── calce/          CS2_35/, CS2_36/, CS2_37/, CS2_38/  (Arbin .xlsx)
+```
+
+Detailed documentation, training instructions, and hyperparameter tuning guide: `PINN_CNN/README.md`.
+
+---
+
 ## MCM — Mathematical Contest in Modeling
 
 >`MCM/`
