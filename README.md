@@ -291,6 +291,10 @@ data/
 
 Detailed documentation, training instructions, and hyperparameter tuning guide: `PINN_CNN/README.md`.
 
+Accompanying documents:
+- `基于瑞萨RA8+RZ_G2L双芯架构的工业级锂电池老化测试与高可靠数据黑匣子系统项目建议书.pdf` — full project proposal
+- `RA8 Octa-NAND file system support2026.docx` — NAND flash storage design notes
+
 ---
 
 ## MCM — Mathematical Contest in Modeling
@@ -422,8 +426,10 @@ Webots wheeled robot controllers and simulation worlds.
 
 **Languages:** Python · C/C++ · Java
 
-**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLO
+**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLO · ONNX / ONNX Runtime · TensorBoard
 
-**Robotics:** ROS Noetic · Webots · Catkin/CMake
+**Robotics:** ROS Noetic · Webots · Catkin/CMake · Renesas RA8 (Cortex-M85) · RZ/G2L (Cortex-A55)
+
+**Domain:** Battery SOH Estimation · PINNs · ECM (2-RC) · IC/DV Analysis · Embedded AI (INT8 Deployment)
 
 **Tools:** VS Code · MSYS2/MinGW64 · Anaconda · ChromeDriver/Selenium · Pygame · pandas · matplotlib · Git
