@@ -129,7 +129,7 @@ Selenium + BeautifulSoup crawler for scraping the **ShanghaiRanking 2025 Chinese
 
 ## horizon_haarcascade — FH5 Auction Sniper & Face Detection
 
-`horizon_haarcascade/`
+>`horizon_haarcascade/`
 
 A dual-project folder combining Forza Horizon 5 auction automation with OpenCV Haar cascade face detection experiments. The name is a portmanteau: Forza **Horizon** + **Haar Cascade**.
 
