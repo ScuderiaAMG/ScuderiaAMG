@@ -153,40 +153,48 @@ def _find_adb():
 
 
 def adb(*args):
-    return subprocess.run([_ADB_PATH] + list(args), capture_output=True, text=True)
+    return subprocess.run([_ADB_PATH] + list(args), capture_output=True, text=True,
+                          encoding="utf-8", errors="replace")
 
 
 
 def adb_setup():
     print("[*] 配置 Mock GPS 环境...")
 
-    # 1. 授权
+    # 1. 系统级 mock 开关
+    before = adb("shell", "settings", "get", "secure", "mock_location").stdout.strip()
+    if before == "0":
+        print("[*] secure.mock_location=0, 正在设为 1...")
+        adb("shell", "settings", "put", "secure", "mock_location", "1")
+
+    # 2. Shell 权限
     adb("shell", "appops", "set", "com.android.shell",
         "android:mock_location", "allow")
 
-    # 2. 强制开 GPS
+    # 3. 强制开 GPS
     adb("shell", "settings", "put", "secure", "location_mode", "3")
 
-    # 3. 启用定位服务
+    # 4. 启用定位服务
     adb("shell", "cmd", "location", "set-location-enabled", "true")
 
-    # 4. 重建 gps + network 双 provider
+    # 5. 重建 gps + network 双 provider
     for p in ["gps", "network"]:
         adb("shell", "cmd", "location", "providers", "remove-test-provider", p)
 
     r_gps = adb("shell", "cmd", "location", "providers", "add-test-provider", "gps")
     r_net = adb("shell", "cmd", "location", "providers", "add-test-provider", "network")
     if r_gps.returncode != 0 and r_net.returncode != 0:
-        print(f"[ERROR] 无法添加 test provider:\n{r_gps.stderr}")
-        print("[*] 请在手机 开发者选项 中确认 USB 调试已开启")
+        err = (r_gps.stderr or r_gps.stdout or "").strip()
+        print(f"[ERROR] 无法添加 test provider: {err}")
+        print("[*] 该设备可能不支持 cmd location test provider")
         sys.exit(1)
 
-    # 5. 启用
+    # 6. 启用
     for p in ["gps", "network"]:
         adb("shell", "cmd", "location", "providers",
             "set-test-provider-enabled", p, "true")
 
-    # 6. 初始定位 + 验证
+    # 7. 初始定位 + 验证
     adb("shell", "cmd", "location", "providers",
         "set-test-provider-location", "gps",
         "--location", "30.508800,114.411500",
