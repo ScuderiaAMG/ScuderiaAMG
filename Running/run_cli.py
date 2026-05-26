@@ -119,6 +119,7 @@ def generate_trajectory(waypoints, speed_mps, interval, lap_count, max_duration_
 # ── GPX 导出 ─────────────────────────────────────────────
 
 def export_gpx(coords, speed_mps, output_path):
+    import zipfile
     from datetime import datetime, timedelta, timezone
     tz_utc = timezone.utc
     start = datetime.now(tz_utc).replace(microsecond=0)
@@ -141,7 +142,21 @@ def export_gpx(coords, speed_mps, output_path):
     lines.append('  </trk>')
     lines.append('</gpx>')
 
-    Path(output_path).write_text("\n".join(lines), encoding="utf-8")
+    gpx_content = "\n".join(lines)
+
+    out_path = Path(output_path)
+    if out_path.suffix == '.gpx':
+        zip_path = out_path.with_suffix('.zip')
+    elif out_path.suffix != '.zip':
+        zip_path = out_path.with_suffix('.zip')
+    else:
+        zip_path = out_path
+
+    gpx_name = out_path.stem + ".gpx"
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+        zf.writestr(gpx_name, gpx_content)
+
+    return str(zip_path)
 
 
 # ── ADB 操作 ─────────────────────────────────────────────
@@ -493,7 +508,7 @@ def main():
     p.add_argument("--diagnose", action="store_true",
                    help="诊断手机定位状态")
     p.add_argument("--gpx", type=str, default=None,
-                   help="导出 GPX 文件，例如 --gpx route.gpx")
+                   help="导出 GPX 到 ZIP 包，例如 --gpx route")
 
     args = p.parse_args()
 
@@ -546,12 +561,12 @@ def main():
         wps = data["waypoints"]
         speed = args.speed
         coords = generate_trajectory(wps, speed, 1.0, args.laps, args.max_time)
-        export_gpx(coords, speed, args.gpx)
+        zip_path = export_gpx(coords, speed, args.gpx)
         total_dist = len(coords) * speed
-        print(f"[OK] GPX 已导出: {args.gpx}")
+        print(f"[OK] GPX 已打包导出: {zip_path}")
         print(f"     坐标点: {len(coords)}  |  距离: ~{fmt_dist(total_dist)}  |  "
               f"用时: {fmt_time(len(coords))}")
-        print(f"     传到手机后用 Mock GPS App 导入播放")
+        print(f"     传到手机后解压，用 Mock GPS App 导入 GPX")
         return
 
     if args.dry_run:

@@ -146,7 +146,8 @@ class RunSimulator:
 
 def export_gpx(coords: list[tuple[float, float]], speed_mps: float,
                output_path: str, track_name: str = "HUST Running"):
-    """导出 GPX 文件，可用于 Mock GPS App 导入"""
+    """导出 GPX 文件为 ZIP 包，可用于 Mock GPS App 导入"""
+    import zipfile
     from datetime import datetime, timedelta, timezone
 
     tz_utc = timezone.utc
@@ -173,5 +174,18 @@ def export_gpx(coords: list[tuple[float, float]], speed_mps: float,
     lines.append('  </trk>')
     lines.append('</gpx>')
 
-    Path(output_path).write_text("\n".join(lines), encoding="utf-8")
-    return output_path
+    gpx_content = "\n".join(lines)
+
+    out_path = Path(output_path)
+    if out_path.suffix == '.gpx':
+        zip_path = out_path.with_suffix('.zip')
+    elif out_path.suffix != '.zip':
+        zip_path = out_path.with_suffix('.zip')
+    else:
+        zip_path = out_path
+
+    gpx_name = out_path.stem + ".gpx"
+    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zf:
+        zf.writestr(gpx_name, gpx_content)
+
+    return str(zip_path)

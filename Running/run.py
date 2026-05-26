@@ -213,7 +213,7 @@ def do_run(config: RunConfig):
 @click.option("--diagnose", is_flag=True, default=False,
               help="诊断手机定位状态，排查 mock 失败原因")
 @click.option("--gpx", type=str, default=None,
-              help="导出 GPX 文件（不连设备），例如 --gpx route.gpx")
+              help="导出 GPX 到 ZIP 包（不连设备），例如 --gpx route")
 def main(speed, pace, route, laps, max_time, dry_run, list_routes, diagnose, gpx):
     """华中大体育 GPS 跑步模拟器
 
@@ -283,12 +283,12 @@ def main(speed, pace, route, laps, max_time, dry_run, list_routes, diagnose, gpx
         simulator = RunSimulator(route_obj, speed_mps)
         coords = simulator.generate_trajectory(laps or min_laps_for_distance(route_obj),
                                                 max_time)
-        gpx_path = export_gpx(coords, speed_mps, gpx)
+        zip_path = export_gpx(coords, speed_mps, gpx)
         total_dist = len(coords) * speed_mps
-        console.print(f"[green]✅ GPX 文件已导出: {gpx_path}[/]")
+        console.print(f"[green]✅ GPX 已打包导出: {zip_path}[/]")
         console.print(f"[dim]   坐标点: {len(coords)}  |  距离: ~{format_distance(total_dist)}  |  "
                       f"用时: {format_duration(len(coords))}[/]")
-        console.print(f"[dim]   将 {gpx_path} 传到手机，用 Mock GPS App (如 Fake GPS) 导入播放[/]")
+        console.print(f"[dim]   将 {zip_path} 传到手机，解压后用 Mock GPS App (如 Fake GPS) 导入 GPX[/]")
         return
 
     if dry_run:
