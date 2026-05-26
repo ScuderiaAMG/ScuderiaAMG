@@ -20,6 +20,11 @@ from core.route_engine import (
     route_total_distance,
     RunSimulator,
     haversine,
+    MIN_PACE,
+    MAX_PACE,
+    MIN_DISTANCE_M,
+    clamp_pace,
+    min_laps_for_distance,
 )
 from core.adb_controller import ADBController
 
@@ -29,7 +34,7 @@ console = Console()
 def format_pace(mps: float) -> str:
     if mps <= 0:
         return "--:--"
-    sec_per_km = 1000 / mps
+    sec_per_km = round(1000 / mps)
     minutes = int(sec_per_km // 60)
     seconds = int(sec_per_km % 60)
     return f"{minutes}:{seconds:02d}"
@@ -193,11 +198,11 @@ def do_run(config: RunConfig):
 @click.option("--speed", type=float, default=None,
               help="跑步速度 (m/s)，例如 3.33")
 @click.option("--pace", type=float, default=None,
-              help="跑步配速 (min/km)，例如 5.0")
+              help=f"跑步配速 (min/km)，范围 {MIN_PACE:.0f}-{MAX_PACE:.0f}，默认 5.0")
 @click.option("--route", type=str, default="hust_campus",
               help="路线名称 (对应 routes/ 目录下的 JSON 文件)")
-@click.option("--laps", type=int, default=1,
-              help="跑步圈数")
+@click.option("--laps", type=int, default=None,
+              help="跑步圈数（默认自动计算以满足最低距离）")
 @click.option("--max-time", type=float, default=None,
               help="最大跑步时间（秒）")
 @click.option("--dry-run", is_flag=True, default=False,
@@ -207,6 +212,7 @@ def do_run(config: RunConfig):
 def main(speed, pace, route, laps, max_time, dry_run, list_routes):
     """华中大体育 GPS 跑步模拟器
 
+    每次跑步最少 3.5 km，配速范围 4:00 - 10:00 min/km。
     通过 USB 连接 Android 手机，模拟 GPS 位置变化来完成跑步打卡。
     """
 
@@ -220,17 +226,38 @@ def main(speed, pace, route, laps, max_time, dry_run, list_routes):
         for f in json_files:
             r = load_route(f.stem)
             dist = route_total_distance(r)
-            console.print(f"  • {f.stem} — {r.description} "
-                          f"({len(r.waypoints)} 个航点, ~{format_distance(dist)})")
+            min_laps = min_laps_for_distance(r)
+            console.print(f"  • {f.stem} — {r.description}")
+            console.print(f"    {len(r.waypoints)} 个航点, ~{format_distance(dist)}/圈, "
+                          f"最少 {min_laps} 圈 (≥{format_distance(MIN_DISTANCE_M)})")
         return
 
-    # 速度优先级: --pace > --speed > 默认值
+    # 配速: --pace > --speed > 默认 5:00
     if pace is not None:
-        speed_mps = RunSimulator.pace_to_speed(pace)
+        pace_val = clamp_pace(pace)
+        if pace_val != pace:
+            console.print(f"[yellow]⚠ 配速 {pace:.1f} 超出范围，已调整为 {pace_val:.1f} min/km[/]")
+        speed_mps = RunSimulator.pace_to_speed(pace_val)
     elif speed is not None:
         speed_mps = speed
+        pace_val = (1000 / speed_mps) / 60
+        if pace_val < MIN_PACE or pace_val > MAX_PACE:
+            pace_val = clamp_pace(pace_val)
+            speed_mps = RunSimulator.pace_to_speed(pace_val)
+            console.print(f"[yellow]⚠ 速度超出配速范围，已调整为 {pace_val:.1f} min/km[/]")
     else:
-        speed_mps = 3.33
+        pace_val = 5.0
+        speed_mps = RunSimulator.pace_to_speed(pace_val)
+
+    # 圈数: 用户指定 > 自动计算满足 3.5km
+    route_obj = load_route(route)
+    min_laps = min_laps_for_distance(route_obj)
+    if laps is None:
+        laps = min_laps
+        console.print(f"[dim]自动设置圈数: {laps} (满足最低 {format_distance(MIN_DISTANCE_M)})[/]")
+    elif laps < min_laps:
+        console.print(f"[yellow]⚠ {laps} 圈不足 {format_distance(MIN_DISTANCE_M)}，已调整为 {min_laps} 圈[/]")
+        laps = min_laps
 
     config = RunConfig(
         speed_mps=speed_mps,

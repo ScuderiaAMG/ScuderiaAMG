@@ -3,10 +3,12 @@
 华中大体育 GPS 跑步模拟器 — 纯命令行模式
 零第三方依赖，适合 SSH 远程操作 / headless 服务器
 
+约束: 每次最少 3.5 km, 配速 4:00-10:00 min/km
+
 用法:
-  python run_cli.py                          # 默认配速 5:00, 跑 1 圈 (~2.4km)
+  python run_cli.py                          # 默认配速 5:00, 自动圈数(>=3.5km)
   python run_cli.py -p 6.5                   # 配速 6:30 min/km
-  python run_cli.py -p 5.0 -l 2              # 配速 5:00, 跑 2 圈
+  python run_cli.py -p 5.0 -l 2              # 配速 5:00, 指定跑 2 圈
   python run_cli.py -p 4.5 -t 1800           # 配速 4:30, 最多跑 30 分钟
   python run_cli.py -s 3.33                  # 直接用速度 (m/s) 控制
   python run_cli.py --dry-run                # 仅预览轨迹, 不连设备
@@ -23,7 +25,23 @@ import sys
 import time
 from pathlib import Path
 
+# ── 约束常量 ────────────────────────────────────────────
+
+MIN_DISTANCE_M = 3500       # 每次最少 3.5 km
+MIN_PACE = 4.0              # 最快配速 4:00 min/km
+MAX_PACE = 10.0             # 最慢配速 10:00 min/km
+
 # ── 工具函数 ────────────────────────────────────────────
+
+def clamp_pace(pace):
+    return max(MIN_PACE, min(MAX_PACE, pace))
+
+
+def min_laps_for_distance(wps):
+    dist = route_distance(wps)
+    if dist <= 0:
+        return 1
+    return max(1, int(MIN_DISTANCE_M / dist + 0.999))
 
 def haversine(lat1, lng1, lat2, lng2):
     R = 6371000
@@ -38,7 +56,7 @@ def haversine(lat1, lng1, lat2, lng2):
 def fmt_pace(mps):
     if mps <= 0:
         return "--:--"
-    sec = 1000 / mps
+    sec = round(1000 / mps)
     return f"{int(sec // 60)}:{int(sec % 60):02d}"
 
 
@@ -265,22 +283,25 @@ def cmd_list():
     routes_dir = Path(__file__).parent / "routes"
     for f in sorted(routes_dir.glob("*.json")):
         data = json.loads(f.read_text(encoding="utf-8"))
-        d = route_distance(data["waypoints"])
-        print(f"  {f.stem:20s}  {len(data['waypoints']):2d} 点  "
-              f"~{fmt_dist(d):>8s}  {data.get('description', '')}")
+        wps = data["waypoints"]
+        d = route_distance(wps)
+        min_laps = min_laps_for_distance(wps)
+        print(f"  {f.stem:20s}  {len(wps):2d} 点  "
+              f"~{fmt_dist(d):>8s}/圈  最少 {min_laps} 圈 (>= {fmt_dist(MIN_DISTANCE_M)})  "
+              f"{data.get('description', '')}")
 
 
 # ── 入口 ────────────────────────────────────────────────
 
 def main():
     p = argparse.ArgumentParser(
-        description="华中大体育 GPS 跑步模拟器 (纯 CLI)",
+        description="华中大体育 GPS 跑步模拟器 (纯 CLI)\n约束: 每次最少 3.5km, 配速 4:00-10:00 min/km",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
-  python run_cli.py                       默认配速 5min/km, 跑 1 圈
+  python run_cli.py                       默认配速 5:00, 自动圈数(>=3.5km)
   python run_cli.py -p 6.5                配速 6:30
-  python run_cli.py -p 5.0 -l 2           配速 5:00, 跑 2 圈
+  python run_cli.py -p 5.0 -l 2           配速 5:00, 指定跑 2 圈
   python run_cli.py -p 4.5 -t 1800        配速 4:30, 最多 30 分钟
   python run_cli.py -s 2.78               速度 2.78 m/s
   python run_cli.py --dry-run             仅预览
@@ -288,13 +309,13 @@ def main():
         """,
     )
     p.add_argument("-p", "--pace", type=float,
-                   help="配速 (min/km), 如 5.0 = 5分/km")
+                   help=f"配速 (min/km), 范围 {MIN_PACE:.0f}-{MAX_PACE:.0f}")
     p.add_argument("-s", "--speed", type=float,
                    help="速度 (m/s), 如 3.33 (仅未指定 -p 时生效)")
     p.add_argument("-r", "--route", default="hust_campus",
                    help="路线名称 (默认 hust_campus)")
-    p.add_argument("-l", "--laps", type=int, default=1,
-                   help="圈数 (默认 1)")
+    p.add_argument("-l", "--laps", type=int, default=0,
+                   help="圈数 (0=自动满足最低 3.5km)")
     p.add_argument("-t", "--max-time", type=int, default=0,
                    help="最长跑步时间 秒 (0=不限)")
     p.add_argument("--dry-run", action="store_true",
@@ -310,16 +331,33 @@ def main():
         cmd_list()
         return
 
-    # 速度: --pace 优先, 否则用 --speed, 再否则默认 pace=5.0
+    # 配速: --pace > --speed > 默认 5:00, 限幅到 [MIN_PACE, MAX_PACE]
     pace_used = "--pace" in sys.argv or "-p" in sys.argv
     speed_used = "--speed" in sys.argv or "-s" in sys.argv
 
     if args.pace is not None and pace_used:
-        args.speed = 1000 / (args.pace * 60)
+        if args.pace < MIN_PACE or args.pace > MAX_PACE:
+            print(f"[WARN] 配速 {args.pace:.1f} 超出范围，已调整为 {clamp_pace(args.pace):.1f}")
+        args.speed = 1000 / (clamp_pace(args.pace) * 60)
     elif args.speed is not None and speed_used:
-        args.speed = args.speed  # 保持不变
+        pace_val = (1000 / args.speed) / 60
+        if pace_val < MIN_PACE or pace_val > MAX_PACE:
+            print(f"[WARN] 速度对应配速 {pace_val:.1f} 超出范围，已调整")
+            pace_val = clamp_pace(pace_val)
+            args.speed = 1000 / (pace_val * 60)
     else:
-        args.speed = 1000 / (5.0 * 60)  # 默认 5:00 配速
+        args.speed = 1000 / (5.0 * 60)
+
+    # 圈数: 自动计算或校验满足 3.5km
+    data = load_route(args.route)
+    wps = data["waypoints"]
+    min_laps = min_laps_for_distance(wps)
+    if args.laps <= 0:
+        args.laps = min_laps
+        print(f"[INFO] 自动设置圈数: {min_laps} (满足最低 {fmt_dist(MIN_DISTANCE_M)})")
+    elif args.laps < min_laps:
+        print(f"[WARN] {args.laps} 圈不足 {fmt_dist(MIN_DISTANCE_M)}，已调整为 {min_laps} 圈")
+        args.laps = min_laps
 
     if args.dry_run:
         cmd_dry_run(args)

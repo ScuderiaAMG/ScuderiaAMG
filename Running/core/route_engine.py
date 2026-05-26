@@ -6,6 +6,24 @@ from typing import Iterator
 
 from .models import Route, Waypoint
 
+# 约束常量
+MIN_DISTANCE_M = 3500       # 每次跑步最少 3.5 km
+MIN_PACE = 4.0              # 最快配速 4:00 min/km
+MAX_PACE = 10.0             # 最慢配速 10:00 min/km
+
+
+def clamp_pace(pace: float) -> float:
+    """将配速限制在 [MIN_PACE, MAX_PACE] 范围内"""
+    return max(MIN_PACE, min(MAX_PACE, pace))
+
+
+def min_laps_for_distance(route: Route, min_distance_m: float = MIN_DISTANCE_M) -> int:
+    """计算达到最短距离所需的最少圈数"""
+    dist = route_total_distance(route)
+    if dist <= 0:
+        return 1
+    return max(1, int(min_distance_m / dist) + (1 if min_distance_m % dist > 0 else 0))
+
 
 def haversine(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
     """返回两点间距离（米）"""
@@ -57,6 +75,10 @@ class RunSimulator:
     def __init__(self, route: Route, speed_mps: float = 3.33,
                  update_interval: float = 1.0, jitter: float = 0.00001):
         self.route = route
+        pace = (1000 / speed_mps) / 60 if speed_mps > 0 else float("inf")
+        if pace < MIN_PACE or pace > MAX_PACE:
+            pace = clamp_pace(pace)
+            speed_mps = 1000 / (pace * 60)
         self.speed_mps = speed_mps
         self.update_interval = update_interval
         self.jitter = jitter
@@ -71,6 +93,7 @@ class RunSimulator:
     def pace_to_speed(pace_min_per_km: float) -> float:
         if pace_min_per_km <= 0:
             raise ValueError("配速必须大于 0")
+        pace_min_per_km = clamp_pace(pace_min_per_km)
         return 1000 / (pace_min_per_km * 60)
 
     def _build_full_waypoint_cycle(self, lap_count: int) -> list[tuple[float, float]]:
