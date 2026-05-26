@@ -118,8 +118,43 @@ def generate_trajectory(waypoints, speed_mps, interval, lap_count, max_duration_
 
 # ── ADB 操作 ─────────────────────────────────────────────
 
+_ADB_COMMON_DIRS = [
+    r"D:\Applications\platform-tools",
+    r"C:\platform-tools",
+    r"C:\adb",
+    r"D:\adb",
+]
+
+_ADB_PATH = "adb"
+
+
+def _find_adb():
+    global _ADB_PATH
+    # 先试 PATH
+    r = subprocess.run(["where", "adb"], capture_output=True, text=True, shell=True)
+    if r.returncode == 0 and r.stdout.strip():
+        _ADB_PATH = "adb"
+        return
+
+    # 搜索常见目录
+    for d in _ADB_COMMON_DIRS:
+        p = Path(d) / "adb.exe"
+        if p.is_file():
+            _ADB_PATH = str(p)
+            return
+
+    # 搜索 LOCALAPPDATA
+    base = os.environ.get("LOCALAPPDATA", "")
+    if base:
+        p = Path(base) / "platform-tools" / "adb.exe"
+        if p.is_file():
+            _ADB_PATH = str(p)
+            return
+
+
 def adb(*args):
-    return subprocess.run(["adb"] + list(args), capture_output=True, text=True)
+    return subprocess.run([_ADB_PATH] + list(args), capture_output=True, text=True)
+
 
 
 def adb_setup():
@@ -181,8 +216,14 @@ def cmd_dry_run(args):
 
 def cmd_live(args):
     # 检查 ADB
+    _find_adb()
     if adb("version").returncode != 0:
         print("[ERROR] 未找到 ADB，请先安装 Android SDK Platform Tools 并加入 PATH")
+        print("  如果已安装但此处找不到，请尝试：")
+        print("  1. 重新打开终端（PATH 变更后需重启终端）")
+        print(f"  2. 或将 adb.exe 放到: {_ADB_COMMON_DIRS[0]}")
+        for d in _ADB_COMMON_DIRS[1:]:
+            print(f"     {d}")
         sys.exit(1)
 
     # 检查设备
