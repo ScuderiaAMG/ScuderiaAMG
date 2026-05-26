@@ -170,47 +170,104 @@ def adb_setup():
     # 3. 启用定位服务
     adb("shell", "cmd", "location", "set-location-enabled", "true")
 
-    # 4. 重建 provider
-    adb("shell", "cmd", "location", "providers", "remove-test-provider", "gps")
-    r = adb("shell", "cmd", "location", "providers", "add-test-provider",
-            "gps", "gps", "network")
-    if r.returncode != 0:
-        print(f"[ERROR] 无法添加 test provider:\n{r.stderr}")
+    # 4. 重建 gps + network 双 provider
+    for p in ["gps", "network"]:
+        adb("shell", "cmd", "location", "providers", "remove-test-provider", p)
+
+    r_gps = adb("shell", "cmd", "location", "providers", "add-test-provider", "gps")
+    r_net = adb("shell", "cmd", "location", "providers", "add-test-provider", "network")
+    if r_gps.returncode != 0 and r_net.returncode != 0:
+        print(f"[ERROR] 无法添加 test provider:\n{r_gps.stderr}")
         print("[*] 请在手机 开发者选项 中确认 USB 调试已开启")
         sys.exit(1)
 
-    # 5. 启用 test provider（关键！不加不生效）
-    adb("shell", "cmd", "location", "providers",
-        "set-test-provider-enabled", "gps", "true")
+    # 5. 启用
+    for p in ["gps", "network"]:
+        adb("shell", "cmd", "location", "providers",
+            "set-test-provider-enabled", p, "true")
 
     # 6. 初始定位 + 验证
     adb("shell", "cmd", "location", "providers",
         "set-test-provider-location", "gps",
         "--location", "30.508800,114.411500",
         "--accuracy", "5")
+    adb("shell", "cmd", "location", "providers",
+        "set-test-provider-location", "network",
+        "--location", "30.508800,114.411500",
+        "--accuracy", "5")
 
     verify = adb("shell", "cmd", "location", "providers",
                   "get-test-provider-location", "gps")
     if "30.508" in verify.stdout and "114.411" in verify.stdout:
-        print("[OK] Mock GPS 环境就绪（已验证）")
+        print("[OK] Mock GPS 环境就绪（gps 已验证）")
     else:
         print("[OK] Mock GPS 环境就绪")
-        print(f"    回读: {verify.stdout.strip()[:120]}")
+        print(f"    gps 回读: {verify.stdout.strip()[:120]}")
 
 
 def adb_send(lat, lng):
-    adb("shell", "cmd", "location", "providers",
-        "set-test-provider-location", "gps",
-        "--location", f"{lat},{lng}",
-        "--accuracy", "5")
+    for p in ["gps", "network"]:
+        adb("shell", "cmd", "location", "providers",
+            "set-test-provider-location", p,
+            "--location", f"{lat},{lng}",
+            "--accuracy", "5")
 
 
 def adb_teardown():
     print("\n[*] 清理 Mock GPS 环境...")
-    adb("shell", "cmd", "location", "providers",
-        "set-test-provider-enabled", "gps", "false")
-    adb("shell", "cmd", "location", "providers", "remove-test-provider", "gps")
+    for provider in ["gps", "network"]:
+        adb("shell", "cmd", "location", "providers",
+            "set-test-provider-enabled", provider, "false")
+        adb("shell", "cmd", "location", "providers",
+            "remove-test-provider", provider)
     print("[OK] 清理完成")
+
+
+# ── 模式: diagnose ─────────────────────────────────────
+
+def cmd_diagnose():
+    print("=" * 60)
+    print("  定位诊断报告")
+    print("=" * 60)
+
+    # 设备信息
+    print("\n── 设备信息 ──")
+    for prop in ["ro.product.brand", "ro.product.model", "ro.build.version.release"]:
+        r = adb("shell", "getprop", prop)
+        print(f"  {prop.rsplit('.',1)[-1]}: {r.stdout.strip()}")
+
+    # Mock 权限
+    print("\n── Mock 权限 ──")
+    for perm in ["mock_location"]:
+        r = adb("shell", "appops", "get", "com.android.shell",
+                f"android:{perm}")
+        print(f"  shell {perm}: {r.stdout.strip()}")
+
+    r = adb("shell", "settings", "get", "secure", "mock_location")
+    print(f"  secure.mock_location: {r.stdout.strip()}")
+
+    # GPS 状态
+    print("\n── GPS / 定位状态 ──")
+    mode = adb("shell", "settings", "get", "secure", "location_mode").stdout.strip()
+    mode_map = {"0": "关闭", "1": "仅GPS", "2": "仅网络", "3": "高精度"}
+    print(f"  location_mode: {mode} ({mode_map.get(mode, '未知')})")
+
+    for provider in ["gps", "network"]:
+        pos = adb("shell", "cmd", "location", "providers",
+                   "get-test-provider-location", provider)
+        print(f"  test-{provider}: {pos.stdout.strip()[:120]}")
+
+    print("\n── 诊断结论 ──")
+    if mode == "0":
+        print("  ⚠ GPS 处于关闭状态！请手动打开手机 GPS")
+    pos_gps = adb("shell", "cmd", "location", "providers",
+                   "get-test-provider-location", "gps").stdout.strip()
+    if "null" in pos_gps.lower() or not pos_gps:
+        print("  ⚠ gps test provider 未设置有效位置")
+    else:
+        print(f"  ✓ gps test provider 坐标已注入: {pos_gps[:80]}")
+        print("  → 若 App 里程仍不增加，需换用 Mock GPS App（参考 README）")
+    print("=" * 60)
 
 
 # ── 模式: dry-run ───────────────────────────────────────
@@ -397,8 +454,23 @@ def main():
                    help="跳过开始确认，直接运行")
     p.add_argument("--list", action="store_true",
                    help="列出所有可用路线")
+    p.add_argument("--diagnose", action="store_true",
+                   help="诊断手机定位状态")
 
     args = p.parse_args()
+
+    if args.diagnose:
+        _find_adb()
+        if adb("version").returncode != 0:
+            print("[ERROR] 未找到 ADB")
+            sys.exit(1)
+        r = adb("devices")
+        lines = [l for l in r.stdout.strip().split("\n")[1:] if "\tdevice" in l]
+        if not lines:
+            print("[ERROR] 未检测到设备")
+            sys.exit(1)
+        cmd_diagnose()
+        return
 
     if args.list:
         cmd_list()

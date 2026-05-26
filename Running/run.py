@@ -209,12 +209,21 @@ def do_run(config: RunConfig):
               help="仅预览轨迹，不连接设备")
 @click.option("--list-routes", is_flag=True, default=False,
               help="列出所有可用路线")
-def main(speed, pace, route, laps, max_time, dry_run, list_routes):
+@click.option("--diagnose", is_flag=True, default=False,
+              help="诊断手机定位状态，排查 mock 失败原因")
+def main(speed, pace, route, laps, max_time, dry_run, list_routes, diagnose):
     """华中大体育 GPS 跑步模拟器
 
     每次跑步最少 3.5 km，配速范围 4:00 - 10:00 min/km。
     通过 USB 连接 Android 手机，模拟 GPS 位置变化来完成跑步打卡。
     """
+
+    if diagnose:
+        adb = ADBController()
+        adb.check_or_die()
+        adb.check_device()
+        adb.diagnose()
+        return
 
     if list_routes:
         routes_dir = Path(__file__).parent / "routes"
