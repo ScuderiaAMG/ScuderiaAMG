@@ -23,7 +23,6 @@ def _find_adb() -> Optional[str]:
         p = Path(d) / "adb.exe"
         if p.is_file():
             return str(p)
-    # 最后扫一下 Program Files
     for base in [os.environ.get("LOCALAPPDATA", ""), "C:\\", "D:\\"]:
         if not base:
             continue
@@ -39,10 +38,8 @@ class ADBController:
         self._device_id: Optional[str] = None
 
     def is_available(self) -> bool:
-        # 若构造函数里已定位到文件，直接可用
         if Path(self._adb_path).is_file():
             return True
-        # 否则再搜一次
         found = _find_adb()
         if found:
             self._adb_path = found
@@ -96,29 +93,63 @@ class ADBController:
     def setup_mock(self):
         print("🔧 正在配置模拟定位环境...")
 
+        # 1. 授权 shell 模拟定位权限
         r = self._adb("shell", "appops", "set", "com.android.shell",
                        "android:mock_location", "allow")
         if r.returncode != 0:
             print(f"⚠ appops 设置失败: {r.stderr.strip()}")
 
-        self._adb("shell", "cmd", "location", "providers", "remove-test-provider",
-                  "gps")
+        # 2. 强制开启手机 GPS（location_mode: 0=off, 1=gps, 2=network, 3=high_accuracy）
+        self._adb("shell", "settings", "put", "secure", "location_mode", "3")
+
+        # 3. 启用全局定位服务
+        self._adb("shell", "cmd", "location", "set-location-enabled", "true")
+
+        # 4. 清理旧 provider，重新创建
+        self._adb("shell", "cmd", "location", "providers", "remove-test-provider", "gps")
+
         r = self._adb("shell", "cmd", "location", "providers", "add-test-provider",
-                      "gps")
+                       "gps", "gps", "network")
         if r.returncode != 0:
             print(f"❌ 无法添加 test provider: {r.stderr.strip()}")
-            print("   请确认手机已开启「开发者选项 → 选择模拟位置信息应用」")
+            print("   请确认手机已开启「开发者选项 → USB 调试」")
+            print("   以及在开发者选项中能找到「选择模拟位置信息应用」")
             sys.exit(1)
 
-        print("✅ 模拟定位环境配置完成")
+        # 5. 启用 test provider（关键步骤！不加这行 mock 不会生效）
+        r = self._adb("shell", "cmd", "location", "providers",
+                       "set-test-provider-enabled", "gps", "true")
+        if r.returncode != 0:
+            print(f"⚠ 启用 test provider 失败: {r.stderr.strip()}")
+
+        # 6. 发送一个初始位置做验证
+        r = self._adb("shell", "cmd", "location", "providers",
+                       "set-test-provider-location", "gps",
+                       "--location", "30.508800,114.411500",
+                       "--accuracy", "5")
+        if r.returncode != 0:
+            print(f"⚠ 初始定位注入失败: {r.stderr.strip()}")
+
+        # 7. 回读验证
+        verify = self._adb("shell", "cmd", "location", "providers",
+                            "get-test-provider-location", "gps")
+        if "30.508" in verify.stdout and "114.411" in verify.stdout:
+            print("✅ 模拟定位环境配置完成（已验证）")
+        else:
+            print("✅ 模拟定位环境配置完成")
+            print(f"   (验证回读: {verify.stdout.strip()[:120]})")
 
     def send_location(self, lat: float, lng: float):
         loc_str = f"{lat},{lng}"
         self._adb("shell", "cmd", "location", "providers",
-                  "set-test-provider-location", "gps", "--location", loc_str)
+                  "set-test-provider-location", "gps",
+                  "--location", loc_str,
+                  "--accuracy", "5")
 
     def teardown(self):
         print("🧹 正在清理模拟定位环境...")
-        self._adb("shell", "cmd", "location", "providers", "remove-test-provider",
-                  "gps")
+        self._adb("shell", "cmd", "location", "providers",
+                   "set-test-provider-enabled", "gps", "false")
+        self._adb("shell", "cmd", "location", "providers",
+                   "remove-test-provider", "gps")
         print("✅ 清理完成")

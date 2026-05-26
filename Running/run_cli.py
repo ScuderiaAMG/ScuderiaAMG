@@ -159,24 +159,56 @@ def adb(*args):
 
 def adb_setup():
     print("[*] 配置 Mock GPS 环境...")
+
+    # 1. 授权
     adb("shell", "appops", "set", "com.android.shell",
         "android:mock_location", "allow")
+
+    # 2. 强制开 GPS
+    adb("shell", "settings", "put", "secure", "location_mode", "3")
+
+    # 3. 启用定位服务
+    adb("shell", "cmd", "location", "set-location-enabled", "true")
+
+    # 4. 重建 provider
     adb("shell", "cmd", "location", "providers", "remove-test-provider", "gps")
-    r = adb("shell", "cmd", "location", "providers", "add-test-provider", "gps")
+    r = adb("shell", "cmd", "location", "providers", "add-test-provider",
+            "gps", "gps", "network")
     if r.returncode != 0:
         print(f"[ERROR] 无法添加 test provider:\n{r.stderr}")
         print("[*] 请在手机 开发者选项 中确认 USB 调试已开启")
         sys.exit(1)
-    print("[OK] Mock GPS 环境就绪")
+
+    # 5. 启用 test provider（关键！不加不生效）
+    adb("shell", "cmd", "location", "providers",
+        "set-test-provider-enabled", "gps", "true")
+
+    # 6. 初始定位 + 验证
+    adb("shell", "cmd", "location", "providers",
+        "set-test-provider-location", "gps",
+        "--location", "30.508800,114.411500",
+        "--accuracy", "5")
+
+    verify = adb("shell", "cmd", "location", "providers",
+                  "get-test-provider-location", "gps")
+    if "30.508" in verify.stdout and "114.411" in verify.stdout:
+        print("[OK] Mock GPS 环境就绪（已验证）")
+    else:
+        print("[OK] Mock GPS 环境就绪")
+        print(f"    回读: {verify.stdout.strip()[:120]}")
 
 
 def adb_send(lat, lng):
     adb("shell", "cmd", "location", "providers",
-        "set-test-provider-location", "gps", "--location", f"{lat},{lng}")
+        "set-test-provider-location", "gps",
+        "--location", f"{lat},{lng}",
+        "--accuracy", "5")
 
 
 def adb_teardown():
     print("\n[*] 清理 Mock GPS 环境...")
+    adb("shell", "cmd", "location", "providers",
+        "set-test-provider-enabled", "gps", "false")
     adb("shell", "cmd", "location", "providers", "remove-test-provider", "gps")
     print("[OK] 清理完成")
 
