@@ -193,10 +193,11 @@ def cmd_live(args):
     print(f"  预计:    {fmt_time(len(coords))}  |  {len(coords)} 个坐标点")
     print("=" * 55)
 
-    resp = input("\n开始模拟? [Y/n]: ").strip().lower()
-    if resp and resp != 'y':
-        print("取消")
-        return
+    if not args.yes:
+        resp = input("\n开始模拟? [Y/n]: ").strip().lower()
+        if resp and resp != 'y':
+            print("取消")
+            return
 
     adb_setup()
 
@@ -298,6 +299,8 @@ def main():
                    help="最长跑步时间 秒 (0=不限)")
     p.add_argument("--dry-run", action="store_true",
                    help="仅预览轨迹")
+    p.add_argument("-y", "--yes", action="store_true",
+                   help="跳过开始确认，直接运行")
     p.add_argument("--list", action="store_true",
                    help="列出所有可用路线")
 

@@ -15,6 +15,7 @@
 - [第六步：预览轨迹（不连手机）](#第六步预览轨迹不连手机)
 - [第七步：开始模拟跑步](#第七步开始模拟跑步)
 - [第八步：纯命令行模式（SSH / 远程）](#第八步纯命令行模式ssh--远程)
+- [第九步：远程部署方案](#第九步远程部署方案)
 - [命令行参数速查](#命令行参数速查)
 - [常见问题排查](#常见问题排查)
 - [自定义路线](#自定义路线)
@@ -163,7 +164,7 @@ abc12345        device
 打开 CMD，进入本项目目录：
 
 ```bash
-cd D:\ScuderiaAMG\Running
+cd Running
 ```
 
 安装依赖包：
@@ -348,8 +349,8 @@ python run_cli.py --list
 在 SSH 里用 `nohup` 或 `tmux` 可让模拟在后台持续运行：
 
 ```bash
-# 方式 A: nohup（跑完自动退出）
-nohup python run_cli.py -p 5.5 -l 2 > run.log 2>&1 &
+# 方式 A: nohup + -y（跳过确认，跑完自动退出）
+nohup python3 run_cli.py -p 5.5 -l 2 -y > run.log 2>&1 &
 
 # 方式 B: tmux（随时切回来看进度）
 tmux new -s run
@@ -357,7 +358,158 @@ python run_cli.py -p 5.5 -l 2
 # Ctrl+B, D 断开, tmux attach -t run 重连
 ```
 
-> **注意**：后台跑完不会自动确认 `[Y/n]` 提示。用方式 A 时需要先用 `--dry-run` 确认参数正确，然后 `echo y | python run_cli.py ...` 管道自动确认；或使用方式 B（tmux）。
+> **提示**：nohup 后台运行时，用 `-y` 参数跳过确认提示：`nohup python3 run_cli.py -p 5.5 -l 2 -y > run.log 2>&1 &`
+
+---
+
+## 第九步：远程部署方案
+
+核心约束：**跑脚本的机器必须通过 USB 插着手机**。云服务器（阿里云/腾讯云/AWS）做不到这一点。以下是两种可行方案。
+
+### 9.1 方案 A：本地服务器（推荐）
+
+找一台闲置设备放在宿舍/家里，24 小时开机，手机一直插在上面。你从任何地方 SSH 上去控制。
+
+```
+你 (任何地方)  ──SSH──>  本地服务器 (宿舍)  ──USB──>  手机
+```
+
+**适合的设备：**
+
+| 设备 | 成本 | 功耗 | 推荐度 |
+|------|------|------|--------|
+| 旧笔记本（装 Linux） | 0 | ~15W | ★★★★★ |
+| 树莓派 4B/5 | ~200元 | ~5W | ★★★★ |
+| 香橙派/其他 SBC | ~100元 | ~5W | ★★★ |
+| 安卓手机 + Termux | 0 | ~3W | ★★（配置复杂） |
+
+**部署步骤（以 Debian/Ubuntu 为例）：**
+
+```bash
+# ─── 1. 服务器端安装依赖 ───
+
+# 安装 ADB
+sudo apt update
+sudo apt install adb -y
+
+# 确认 Python 3 可用（系统自带）
+python3 --version
+
+# ─── 2. 从本机上传项目 ───
+
+# 在你自己的电脑上执行：
+scp -r Running user@192.168.1.100:~/
+
+# ─── 3. 服务器上验证 ───
+
+ssh user@192.168.1.100
+cd ~/Running
+
+# 手机插上 USB，检查设备
+adb devices
+# 预期输出: xxxxxx  device
+
+# 预览轨迹（不连手机也行）
+python3 run_cli.py --dry-run -p 5.0
+
+# ─── 4. 开始模拟 ───
+
+python3 run_cli.py -p 5.5 -l 2 -y
+```
+
+**防止 USB 休眠丢连接：**
+
+```bash
+# 添加 crontab 定期保活，每 15 分钟 ping 一次 adb
+crontab -e
+# 加入这一行:
+*/15 * * * * /usr/bin/adb devices > /dev/null 2>&1
+```
+
+**保持手机不锁屏：**
+
+```bash
+# 方法 1: 通过 ADB 开启充电常亮（临时生效）
+adb shell svc power stayon true
+
+# 方法 2: 手机设置里手动打开
+# 开发者选项 → 开启「不锁定屏幕」（充电时屏幕不会休眠）
+```
+
+> **注意**：即使开着"不锁定屏幕"，长时间闲置后手机的 HyperOS 息屏策略可能仍然会断开 ADB。建议额外在手机 **设置 → 锁屏 → 自动锁屏 → 设置为"永不"**。
+
+**配合 tmux 实现持久会话：**
+
+```bash
+# 创建会话
+tmux new -s runner
+
+# 运行模拟
+python3 run_cli.py -p 5.5 -l 2 -y
+
+# 按 Ctrl+B 然后按 D 断开（模拟继续在后台跑）
+# 退出 SSH 也完全不影响
+
+# 下次 SSH 进来重新查看：
+tmux attach -t runner
+```
+
+---
+
+### 9.2 方案 B：Windows 本机开 SSH 服务
+
+你的 Windows 电脑本身就是"服务器"。开启自带 SSH 服务后，同一局域网内的手机/平板就能远程控制它。
+
+```
+手机/平板 (同 WiFi)  ──SSH──>  你的 Windows 电脑  ──USB──>  手机
+```
+
+> 此场景适用于：跑步时手机插电脑，你在平板或另一台手机上 SSH 过来控制。
+
+**在 Windows 上安装 OpenSSH Server（管理员 PowerShell）：**
+
+```powershell
+# 安装
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+
+# 启动
+Start-Service sshd
+
+# 设为开机自启
+Set-Service -Name sshd -StartupType 'Automatic'
+
+# 确认防火墙放行端口 22
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server' `
+    -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+```
+
+**从其他设备 SSH 进来：**
+
+```bash
+# 先确认 Windows 电脑的局域网 IP
+# Windows 上执行: ipconfig  → 找到 IPv4 地址，如 192.168.1.105
+
+# 从手机/平板/其他电脑 SSH 连接：
+ssh 你的Windows用户名@192.168.1.105
+
+# 进入项目目录开跑
+cd Running
+python run_cli.py -p 5.5 -l 2
+```
+
+> Windows 用户名为登录时的英文名（不是中文名）。不确定的话在 CMD 里 `echo %USERNAME%` 看。SSH 登录密码就是 Windows 锁屏密码/PIN 码。
+
+---
+
+### 9.3 手机端参考（JuiceSSH）
+
+Android 手机/平板推荐使用 **JuiceSSH**（Play Store 免费），连接后可以随时远程控制 Windows 电脑上的跑步脚本。
+
+操作流程：
+1. 平板安装 JuiceSSH → 新建连接 → 填 Windows IP、用户名、密码
+2. 点击连接 → `cd Running`
+3. `python run_cli.py -p 5.5` → 开始跑
+4. 断开 JuiceSSH 不影响（会话会断，所以建议配合 Windows 端的 tmux 或者用 PowerShell 的进程）
 
 ---
 
@@ -384,6 +536,7 @@ python run_cli.py -p 5.5 -l 2
 | `-r`, `--route` | 路线名称 | `-r hust_campus` |
 | `-l`, `--laps` | 跑几圈 | `-l 2` |
 | `-t`, `--max-time` | 最长跑多久（秒） | `-t 1800` |
+| `-y`, `--yes` | 跳过确认，直接运行 | `-y` |
 | `--dry-run` | 仅预览轨迹 | `--dry-run` |
 | `--list` | 列出所有路线 | `--list` |
 
