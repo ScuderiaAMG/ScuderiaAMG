@@ -142,3 +142,36 @@ class RunSimulator:
             else:
                 actual_interval = self.update_interval
             yield ("wait", actual_interval)
+
+
+def export_gpx(coords: list[tuple[float, float]], speed_mps: float,
+               output_path: str, track_name: str = "HUST Running"):
+    """导出 GPX 文件，可用于 Mock GPS App 导入"""
+    from datetime import datetime, timedelta, timezone
+
+    tz_utc = timezone.utc
+    start_time = datetime.now(tz_utc).replace(microsecond=0)
+    interval = 1.0  # 每秒一个点
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<gpx version="1.1" creator="HUST-Runner"',
+        '     xmlns="http://www.topografix.com/GPX/1/1">',
+        f'  <trk>',
+        f'    <name>{track_name}</name>',
+        f'    <trkseg>',
+    ]
+
+    for i, (lat, lng) in enumerate(coords):
+        t = (start_time + timedelta(seconds=i * interval)).isoformat()
+        lines.append(f'      <trkpt lat="{lat:.8f}" lon="{lng:.8f}">')
+        lines.append(f'        <ele>0</ele>')
+        lines.append(f'        <time>{t}</time>')
+        lines.append(f'      </trkpt>')
+
+    lines.append('    </trkseg>')
+    lines.append('  </trk>')
+    lines.append('</gpx>')
+
+    Path(output_path).write_text("\n".join(lines), encoding="utf-8")
+    return output_path

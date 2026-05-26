@@ -116,6 +116,34 @@ def generate_trajectory(waypoints, speed_mps, interval, lap_count, max_duration_
     return all_coords
 
 
+# ── GPX 导出 ─────────────────────────────────────────────
+
+def export_gpx(coords, speed_mps, output_path):
+    from datetime import datetime, timedelta, timezone
+    tz_utc = timezone.utc
+    start = datetime.now(tz_utc).replace(microsecond=0)
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<gpx version="1.1" creator="HUST-Runner"',
+        '     xmlns="http://www.topografix.com/GPX/1/1">',
+        '  <trk>',
+        '    <name>HUST Running</name>',
+        '    <trkseg>',
+    ]
+    for i, (lat, lng) in enumerate(coords):
+        t = (start + timedelta(seconds=i)).isoformat()
+        lines.append(f'      <trkpt lat="{lat:.8f}" lon="{lng:.8f}">')
+        lines.append(f'        <ele>0</ele>')
+        lines.append(f'        <time>{t}</time>')
+        lines.append(f'      </trkpt>')
+    lines.append('    </trkseg>')
+    lines.append('  </trk>')
+    lines.append('</gpx>')
+
+    Path(output_path).write_text("\n".join(lines), encoding="utf-8")
+
+
 # ── ADB 操作 ─────────────────────────────────────────────
 
 _ADB_COMMON_DIRS = [
@@ -464,6 +492,8 @@ def main():
                    help="列出所有可用路线")
     p.add_argument("--diagnose", action="store_true",
                    help="诊断手机定位状态")
+    p.add_argument("--gpx", type=str, default=None,
+                   help="导出 GPX 文件，例如 --gpx route.gpx")
 
     args = p.parse_args()
 
@@ -511,6 +541,18 @@ def main():
     elif args.laps < min_laps:
         print(f"[WARN] {args.laps} 圈不足 {fmt_dist(MIN_DISTANCE_M)}，已调整为 {min_laps} 圈")
         args.laps = min_laps
+
+    if args.gpx:
+        wps = data["waypoints"]
+        speed = args.speed
+        coords = generate_trajectory(wps, speed, 1.0, args.laps, args.max_time)
+        export_gpx(coords, speed, args.gpx)
+        total_dist = len(coords) * speed
+        print(f"[OK] GPX 已导出: {args.gpx}")
+        print(f"     坐标点: {len(coords)}  |  距离: ~{fmt_dist(total_dist)}  |  "
+              f"用时: {fmt_time(len(coords))}")
+        print(f"     传到手机后用 Mock GPS App 导入播放")
+        return
 
     if args.dry_run:
         cmd_dry_run(args)

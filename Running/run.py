@@ -20,6 +20,7 @@ from core.route_engine import (
     route_total_distance,
     RunSimulator,
     haversine,
+    export_gpx,
     MIN_PACE,
     MAX_PACE,
     MIN_DISTANCE_M,
@@ -211,7 +212,9 @@ def do_run(config: RunConfig):
               help="列出所有可用路线")
 @click.option("--diagnose", is_flag=True, default=False,
               help="诊断手机定位状态，排查 mock 失败原因")
-def main(speed, pace, route, laps, max_time, dry_run, list_routes, diagnose):
+@click.option("--gpx", type=str, default=None,
+              help="导出 GPX 文件（不连设备），例如 --gpx route.gpx")
+def main(speed, pace, route, laps, max_time, dry_run, list_routes, diagnose, gpx):
     """华中大体育 GPS 跑步模拟器
 
     每次跑步最少 3.5 km，配速范围 4:00 - 10:00 min/km。
@@ -274,6 +277,19 @@ def main(speed, pace, route, laps, max_time, dry_run, list_routes, diagnose):
         lap_count=laps,
         max_duration_s=max_time,
     )
+
+    if gpx:
+        route_obj = load_route(route)
+        simulator = RunSimulator(route_obj, speed_mps)
+        coords = simulator.generate_trajectory(laps or min_laps_for_distance(route_obj),
+                                                max_time)
+        gpx_path = export_gpx(coords, speed_mps, gpx)
+        total_dist = len(coords) * speed_mps
+        console.print(f"[green]✅ GPX 文件已导出: {gpx_path}[/]")
+        console.print(f"[dim]   坐标点: {len(coords)}  |  距离: ~{format_distance(total_dist)}  |  "
+                      f"用时: {format_duration(len(coords))}[/]")
+        console.print(f"[dim]   将 {gpx_path} 传到手机，用 Mock GPS App (如 Fake GPS) 导入播放[/]")
+        return
 
     if dry_run:
         do_dry_run(config)
