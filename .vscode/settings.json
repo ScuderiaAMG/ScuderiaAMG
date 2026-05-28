@@ -1,5 +1,8 @@
 {
     "cmake.sourceDirectory": "D:/Repositories/ScuderiaAMG/一个不知道哪来的工作空间/src",
     "java.debug.settings.onBuildFailureProceed": true,
-    "java.project.sourcePaths": ["java/src"]
+    "java.project.sourcePaths": [
+        "java/src"
+    ],
+    "markdown.validate.enabled": true
 }
