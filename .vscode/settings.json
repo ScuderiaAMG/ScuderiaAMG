@@ -4,5 +4,6 @@
     "java.project.sourcePaths": [
         "java/src"
     ],
-    "markdown.validate.enabled": true
+    "markdown.validate.enabled": true,
+    "files.autoGuessEncoding": true
 }
