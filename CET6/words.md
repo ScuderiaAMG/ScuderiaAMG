@@ -34,3 +34,25 @@ illusion n.错觉 幻想 假象 错误观念
 
 simultaneous adj.同时发生的 同时存在的
 
+diminish v.减少 减小
+
+retail n.零售 零售业 v.零售 零卖
+
+patrol n.巡逻 巡逻队 v.巡逻 巡查
+
+device n.装置 设备 手段 策略
+
+versatile adj.多才多艺的 多用途的
+
+fiscal adj.财政的 国库的
+
+accord n.协议 一致 符合 v.给予 赠与 使一致
+
+infant n.婴儿 幼儿 adj.婴儿的 幼儿的
+
+elapse v.消逝 过去
+
+commission n.委员会 佣金 vt.委任 委托
+
+texture n.质地 纹理 结构
+
