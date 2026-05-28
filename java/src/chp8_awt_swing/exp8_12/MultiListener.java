@@ -20,10 +20,10 @@ public class MultiListener extends JFrame implements ActionListener {
         JLabel l = null;
         GridBagLayout gridbag = new GridBagLayout();
         GridBagConstraints c = new GridBagConstraints();
-        setLayout(gridbag);   	//FrameÉèÖÃÎªGridBagLayout²¼¾Ö¹ÜÀíÆ÷¡£
+        setLayout(gridbag);   	//Frameè®¾ç½®ä¸ºGridBagLayoutå¸ƒå±€ç®¡ç†å™¨ã€‚
         c.fill = GridBagConstraints.BOTH;
         c.gridwidth = GridBagConstraints.REMAINDER;
-        l = new JLabel("¼àÌıÆ÷Ìıµ½µÄ:");
+        l = new JLabel("ç›‘å¬å™¨å¬åˆ°çš„:");
         gridbag.setConstraints(l, c);
         add(l);
         c.weighty = 1.0;
@@ -33,7 +33,7 @@ public class MultiListener extends JFrame implements ActionListener {
         add(topTextArea);
         c.weightx = 0.0;
         c.weighty = 0.0;
-        l = new JLabel("ÍµÌıÕßÌıµ½µÄ:");
+        l = new JLabel("å·å¬è€…å¬åˆ°çš„:");
         gridbag.setConstraints(l, c);
         add(l);
         c.weighty = 1.0;
@@ -45,19 +45,19 @@ public class MultiListener extends JFrame implements ActionListener {
         c.weighty = 0.0;
         c.gridwidth = 1;
         c.insets = new Insets(10, 10, 0, 10);
-        button1 = new JButton("À² À² À²");
+        button1 = new JButton("å•¦ å•¦ å•¦");
         gridbag.setConstraints(button1, c);
         add(button1);
         c.gridwidth = GridBagConstraints.REMAINDER;
-        button2 = new JButton("Äã±ğËµ»°!");
+        button2 = new JButton("ä½ åˆ«è¯´è¯!");
         gridbag.setConstraints(button2, c);
         add(button2);
-        //µ±Ç°MultiListener¶ÔÏóÍ¬Ê±¼àÌıÁ½¸öButtonµÄÊÂ¼ş¡£
+        //å½“å‰MultiListenerå¯¹è±¡åŒæ—¶ç›‘å¬ä¸¤ä¸ªButtonçš„äº‹ä»¶ã€‚
         button1.addActionListener(this);
         button2.addActionListener(this);
-        //ÎªµÚ¶ş¸öButtonÔÙ×¢²áÒ»¸ö¼àÌıÆ÷¡£
+        //ä¸ºç¬¬äºŒä¸ªButtonå†æ³¨å†Œä¸€ä¸ªç›‘å¬å™¨ã€‚
         button2.addActionListener(new Eavesdropper());
-        //Ïò´°¿Ú×¢²áÏìÓ¦¹Ø±Õ´°¿Ú²Ù×÷µÄ¼àÌıÆ÷¡£
+        //å‘çª—å£æ³¨å†Œå“åº”å…³é—­çª—å£æ“ä½œçš„ç›‘å¬å™¨ã€‚
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
 	        	System.exit(0);
@@ -69,7 +69,7 @@ public class MultiListener extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         topTextArea.append(e.getActionCommand() + "\n");
     }
-	//µÚ¶ş¸öButtonµÄ¼àÌıÆ÷Àà¡£
+	//ç¬¬äºŒä¸ªButtonçš„ç›‘å¬å™¨ç±»ã€‚
 	class Eavesdropper implements ActionListener {
     	public void actionPerformed(ActionEvent e) {
         	bottomTextArea.append("OK,"+e.getActionCommand() + "\n");
