@@ -9,7 +9,12 @@
       "mcp__ide__getDiagnostics",
       "WebSearch",
       "WebFetch(domain:www.senorasmones.com)",
-      "WebFetch(domain:mumu.163.com)"
+      "WebFetch(domain:mumu.163.com)",
+      "Skill(update-config)",
+      "WebFetch(domain:github.com)",
+      "Bash(mkdir -p ~/.claude/skills)",
+      "Bash(cp -r /tmp/Scrapling/agent-skill/Scrapling-Skill ~/.claude/skills/Scrapling-Skill)",
+      "Read(//c/Users/taiya/.claude/skills/**)"
     ]
   }
 }
