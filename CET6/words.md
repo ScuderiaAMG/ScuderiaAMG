@@ -67,3 +67,19 @@ erode v.侵蚀 腐蚀 逐渐减少
 loom v.隐约出现 迫近 n.织布机
 
 arise v.出现 产生
+
+boast v.自夸 以...为荣 n.引以为豪的事物
+
+aggregate n.总数 聚集体 v.聚集 合计
+
+alter v.改变 修改
+
+proceed v.继续 前进 进行
+
+versus prep.对抗 与...相对
+
+cling v.紧贴 坚持
+
+oblige v.迫使 责成 帮助
+
+forthcoming adj.即将到来的 即将发生的
