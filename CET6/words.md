@@ -56,3 +56,14 @@ commission n.委员会 佣金 vt.委任 委托
 
 texture n.质地 纹理 结构
 
+# 5.30
+
+shed v.流出 流下 脱落 n.小屋 车棚
+
+incorporate v.包含 吸收 合并 组成公司
+
+erode v.侵蚀 腐蚀 逐渐减少
+
+loom v.隐约出现 迫近 n.织布机
+
+arise v.出现 产生
