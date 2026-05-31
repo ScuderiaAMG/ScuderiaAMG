@@ -81,7 +81,7 @@ $$c(t) = K_B(1 - e^{-t/T}), \quad t \geq 0$$
 | 指标 | 公式 | 说明 |
 |------|------|------|
 | $t=T$ 时 | $c(T) = 0.632\,c(\infty)$ | 输出达稳态值的 **63.2%**，对应的时间就是 $T$ |
-| 初始斜率 | $\frac{dc(t)}{dt}\big|_{t=0} = \frac{K}{\tau}$ | 最大斜率在 $t=0$ 处 |
+| 初始斜率 | $\left.\frac{dc(t)}{dt}\right\rvert_{t=0} = \frac{K}{\tau}$ | 最大斜率在 $t=0$ 处 |
 | 延迟时间 | $t_d = 0.69T$ | |
 | 上升时间 | $t_r = 2.2T$ | 10% → 90% |
 | 调整时间 | $t_s = \begin{cases} 3T, & \Delta = 5\% \\ 4T, & \Delta = 2\% \end{cases}$ | |
