@@ -385,17 +385,6 @@ ROS Noetic workspace for drone autonomy. 9 packages under `src/`, built with Cat
 | `usb_cam` | USB camera ROS driver |
 | `template` | Package template for new nodes |
 
-### AirHust · 
-
->`AirHust/`
-
-Webots-based UAV collision avoidance in C++. 15+ controller iterations showing algorithm evolution:
-
-- `collision_avoidance_basic.cpp` -> `collision_avoidance_alpha.cpp` / `_beta.cpp` / `_alpha2.cpp` -> `collision_avoidance_plus.cpp` -> `integrated_work.cpp`
-- `crossing_door_darknet.cpp` — door crossing with Darknet-based detection
-- `slam_test.cpp` — SLAM integration testing
-- `distance_test_mod1.cpp` — distance sensor calibration
-
 ### WheelRobots · `WheelRobots/`
 
 Webots wheeled robot controllers and simulation worlds.
@@ -412,7 +401,6 @@ Webots wheeled robot controllers and simulation worlds.
 
 | Project | Description |
 |---|---|
-| `CSIEC/` | Multi-UAV collaborative perception & planning — research proposal documents, Unitree Go2 EDU SDK development guide |
 | `极限竞速：地平线5刷车脚本/` | Forza Horizon 5 auction house automation — compiled EXE + Excel car database. Source code at `horizon_haarcascade/main.py`. Requirements: 1920x1080, 60Hz+, English locale. |
 | `爬呀爬/` | Python web video crawler — `test_download.py` / `test_download2.py` / `test_download3.py` with duration filtering, custom download directory, max_pages limiting |
 | `设计一个小玩意/` | PCB / schematic design |
