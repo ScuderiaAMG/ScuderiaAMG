@@ -172,7 +172,7 @@ $$K_g(\text{dB}) = -20\lg 0.8 = 1.94 \text{ dB}$$
 
 ### 2.5 例2：Bode 图法求裕度（不同增益对比）
 
-**题目**：已知最小相位系统 $G(s) = \frac{k}{s(s+1)(0.1s+1)}$，分别求 $k=5$ 和 $k=20$ 时的稳定裕度。
+**题目**：已知最小相位系统 $G(s) = \frac{K}{s(s+1)(0.1s+1)}$，分别求 $K=5$ 和 $K=20$ 时的稳定裕度。
 
 **解**：
 
@@ -182,21 +182,21 @@ $$K_g(\text{dB}) = -20\lg 0.8 = 1.94 \text{ dB}$$
 
 **(1) 求 $\omega_c$**：
 
-$$20\lg k - 20\lg\omega_c - 20\lg\sqrt{1+\omega_c^2} - 20\lg\sqrt{1+0.01\omega_c^2} = 0$$
+$$20\lg K - 20\lg\omega_c - 20\lg\sqrt{1+\omega_c^2} - 20\lg\sqrt{1+0.01\omega_c^2} = 0$$
 
 近似求解（设 $\omega_c$ 在转折频率 1 和 10 之间，该段斜率 $-40$ dB/dec）：
 
-$$20\lg k - 40\lg\omega_c = 0 \implies \omega_c = \sqrt{k}$$
+$$20\lg K - 40\lg\omega_c = 0 \implies \omega_c = \sqrt{K}$$
 
-- $k = 5$：$\omega_c \approx \sqrt{5} = 2.24$
-- $k = 20$：$\omega_c \approx \sqrt{20} = 4.47$
+- $K = 5$：$\omega_c \approx \sqrt{5} = 2.24$
+- $K = 20$：$\omega_c \approx \sqrt{20} = 4.47$
 
 **(2) 求 $\gamma$**：
 
 $$\gamma = 180° - 90° - \arctan\omega_c - \arctan(0.1\omega_c)$$
 
-- $k = 5$：$\gamma = 90° - \arctan 2.24 - \arctan 0.224 = 90° - 65.9° - 12.7° = 11.4°$
-- $k = 20$：$\gamma = 90° - \arctan 4.47 - \arctan 0.447 = 90° - 77.4° - 24.1° = -11.5°$
+- $K = 5$：$\gamma = 90° - \arctan 2.24 - \arctan 0.224 = 90° - 65.9° - 12.7° = 11.4°$
+- $K = 20$：$\gamma = 90° - \arctan 4.47 - \arctan 0.447 = 90° - 77.4° - 24.1° = -11.5°$
 
 **(3) 求 $\omega_g$**：
 
@@ -208,24 +208,24 @@ $$\arctan\omega_g + \arctan(0.1\omega_g) = 90°$$
 
 **(4) 求 $K_g$**：
 
-$$|G(j\omega_g)| = \frac{k}{\omega_g\sqrt{1+\omega_g^2}\sqrt{1+0.01\omega_g^2}} = \frac{k}{3.16 \times \sqrt{11} \times \sqrt{1.1}} = \frac{k}{11}$$
+$$|G(j\omega_g)| = \frac{K}{\omega_g\sqrt{1+\omega_g^2}\sqrt{1+0.01\omega_g^2}} = \frac{K}{3.16 \times \sqrt{11} \times \sqrt{1.1}} = \frac{K}{11}$$
 
-- $k = 5$：$K_g = 11/5 = 2.2$，$K_g(\text{dB}) = 6.8$ dB → **稳定**
-- $k = 20$：$K_g = 11/20 = 0.55$，$K_g(\text{dB}) = -5.2$ dB → **不稳定**
+- $K = 5$：$K_g = 11/5 = 2.2$，$K_g(\text{dB}) = 6.8$ dB → **稳定**
+- $K = 20$：$K_g = 11/20 = 0.55$，$K_g(\text{dB}) = -5.2$ dB → **不稳定**
 
 **精确 $K_g$ 表达式**：
 
-$$K_g(\text{dB}) = -20\lg k + 20\lg\omega_g + 20\lg\sqrt{1+\omega_g^2} + 20\lg\sqrt{1+0.01\omega_g^2}$$
+$$K_g(\text{dB}) = -20\lg K + 20\lg\omega_g + 20\lg\sqrt{1+\omega_g^2} + 20\lg\sqrt{1+0.01\omega_g^2}$$
 
 > 用渐近线近似求 $\omega_g$ 时，如果 $\omega_g$ 离转折频率很近，忽略的项会引入误差。
 
-> 通俗理解：$k$ 越大，剪切频率越高（响应越快），但相角裕度越小（越不稳定）。这就是控制系统设计中"快"和"稳"的矛盾。
+> 通俗理解：$K$ 越大，剪切频率越高（响应越快），但相角裕度越小（越不稳定）。这就是控制系统设计中"快"和"稳"的矛盾。
 
 ---
 
-### 2.6 例3：由相角裕度反求 $k$
+### 2.6 例3：由相角裕度反求 $K$
 
-**题目**：已知 $G(s) = \frac{k}{s(0.5s+1)(0.1s+1)}$，求使相角裕度 $\gamma = 60°$ 的 $k$ 值。
+**题目**：已知 $G(s) = \frac{K}{s(0.5s+1)(0.1s+1)}$，求使相角裕度 $\gamma = 60°$ 的 $K$ 值。
 
 **解**：
 
@@ -243,13 +243,13 @@ $$\arctan\frac{0.6\omega_c}{1-0.05\omega_c^2} = 30° \implies \frac{0.6\omega_c}
 
 代入幅频条件 $|G(j\omega_c)| = 1$：
 
-$$\frac{k}{\omega_c\sqrt{(0.5\omega_c)^2+1}\sqrt{(0.1\omega_c)^2+1}} = 1$$
+$$\frac{K}{\omega_c\sqrt{(0.5\omega_c)^2+1}\sqrt{(0.1\omega_c)^2+1}} = 1$$
 
-$$k = \omega_c\sqrt{1+0.25\omega_c^2}\sqrt{1+0.01\omega_c^2} = 0.9214 \times \sqrt{1.212} \times \sqrt{1.0085} \approx 1.02$$
+$$K = \omega_c\sqrt{1+0.25\omega_c^2}\sqrt{1+0.01\omega_c^2} = 0.9214 \times \sqrt{1.212} \times \sqrt{1.0085} \approx 1.02$$
 
-> **$k = 1.02$ 时，$\gamma = 60°$。**
+> **$K = 1.02$ 时，$\gamma = 60°$。**
 
-**对比**：若用渐近线近似求 $\omega_c$：$20\lg k - 20\lg\omega_c = 0 \implies \omega_c = k$，精度较低。
+**对比**：若用渐近线近似求 $\omega_c$：$20\lg K - 20\lg\omega_c = 0 \implies \omega_c = K$，精度较低。
 
 ---
 

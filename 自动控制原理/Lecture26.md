@@ -181,7 +181,7 @@ $$\varphi_{K1}(\omega) = -180° + \gamma^* + \Delta\varphi = -180° + 50° + 5°
 
 $$-90° - \arctan(\omega) - \arctan\left(\frac{\omega}{2}\right) - \arctan(0.886\omega) + \arctan(0.0636\omega) = -125°$$
 
-> 注：这里 $\arctan(0.0636\omega)$ 是超前网络分母 $0.0636s+1$ 引入的负相角的绝对值部分（实际上是 $-\arctan(0.0636\omega)$），$\arctan(0.886\omega)$ 是分子的正相角贡献。
+> 注：超前网络分母 $0.0636s+1$ 引入负相角 $-\arctan(0.0636\omega)$，上式中写为其绝对值形式 $\arctan(0.0636\omega)$（前面已有负号）；分子 $0.886s+1$ 引入正相角 $+\arctan(0.886\omega)$。
 
 解得 $\omega_2 = 1.05\ \text{rad/s}$。
 
