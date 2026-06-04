@@ -214,7 +214,7 @@ $n=3$，$m=1$。渐近线交点：$\sigma_a = \frac{-a - (-b)}{2} = \frac{b-a}{2
 |------|------|
 | 确定主导极点位置 | 作 $\theta = \arccos\zeta$ 等阻尼比线，与根轨迹相交 |
 | 验证主导地位 | 其余极点实部绝对值 ≥ 5 倍主导极点实部绝对值 |
-| 求近似二阶系统 | $\Phi(s) \approx \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$，其中 $\omega_n^2 = |s_1||s_2|$ |
+| 求近似二阶系统 | $\Phi(s) \approx \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$，其中 $\omega_n^2 = \vert s_1 \vert \vert s_2 \vert$ |
 | 计算动态指标 | 使用二阶系统公式 |
 
 ### 6.3 附加零极点的设计规律

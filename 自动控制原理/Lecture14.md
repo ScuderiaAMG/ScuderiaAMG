@@ -88,7 +88,7 @@ $$\boxed{K_r \frac{\prod\limits_{j=1}^{m} (s - z_j)}{\prod\limits_{i=1}^{n} (s -
 
 | | 公式 | 说明 |
 |------|------|------|
-| **幅值条件** | $K_r = \frac{\prod_{i=1}^{n} |s - p_i|}{\prod_{j=1}^{m} |s - z_j|}$ | 与 $K_r$ 大小有关 |
+| **幅值条件** | $K_r = \frac{\prod_{i=1}^{n} \lvert s - p_i \rvert}{\prod_{j=1}^{m} \lvert s - z_j \rvert}$ | 与 $K_r$ 大小有关 |
 | **相角条件** | $\sum_{j=1}^{m} \angle(s - z_j) - \sum_{i=1}^{n} \angle(s - p_i) = (2k+1)\pi,\ k = 0, \pm1, \pm2, \ldots$ | 与 $K_r$ 大小无关 |
 
 > **关键结论**：满足相角条件的点必满足幅值条件（代回可求出对应的 $K_r$），而满足幅值条件的点未必满足相角条件。**相角条件是判断根轨迹上一点的充分必要条件**。
