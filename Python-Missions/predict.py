@@ -4,7 +4,7 @@ from ultralytics import YOLO
 
 # ================= 配置区域 =================
 # 请在此处填入你的实际路径 (Windows路径建议前面加r，防止转义字符报错)
-INPUT_FOLDER = r"D:\Legion\Downloads\dataset\up\test"  
+INPUT_FOLDER = r"D:\Legion\Downloads\dataset\down\test_down"  
 MODEL_PATH = r"D:\escherichia_train\weights\best.pt"    
 # ============================================
 
