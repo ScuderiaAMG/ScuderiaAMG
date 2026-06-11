@@ -83,67 +83,163 @@ Experience replay and target network separation are both critical; removing repl
 
 >`Python-Missions/`
 
-Collection of projects for the 《Python程序设计》 elective and beyond. Spans web scraping, image processing, GANs, super-resolution, and a full Pygame application.
+HUST 自动化学院《Python程序设计》课程作业及扩展项目。涵盖 Python 系统性自学课程体系、从零实现的深度学习框架、图像处理、GAN、YOLO 目标检测、Pygame 应用和物理实验等。总代码量超 80,000 行。
 
-### Pure NumPy GAN · `GAN/1.py`
+---
 
-A minimalist Generative Adversarial Network built **entirely in NumPy** — no PyTorch/TensorFlow. Implements from scratch:
+### Python 系统性自学课程 · `01_basics/` ~ `12_math_and_optimization/`
 
-- `Linear`, `ReLU`, `Sigmoid` layers with manual forward/backward pass
-- Binary Cross Entropy loss with analytical gradient computation
-- `Sequential` container with chain-rule backpropagation through arbitrary layer stacks
-- Generator: latent (4D) -> hidden (16, ReLU) -> 2D output (continuous action space analogue)
-- Discriminator: 2D -> hidden (16, ReLU) -> 1D probability (Sigmoid)
-- Full training loop alternating D and G updates for 2000 epochs
+一套完整的 Python 自学路线，从基础语法到数学与优化，共 12 个模块、32 个核心脚本：
 
-Aimed at understanding GAN internals and the connection to GAIL (Generative Adversarial Imitation Learning) in RL. The real data distribution is set to a Gaussian with mean [5, 5], simulating expert state-action demonstrations.
+| # | 模块 | 内容 | 脚本 |
+|---|---|---|---|
+| 01 | **Basics** | 基础语法、数据结构、面向对象 | `01_fundamentals.py`, `02_data_structures.py`, `03_oop.py` |
+| 02 | **Intermediate** | 高级函数、迭代器、异常处理 | `01_advanced_functions.py`, `02_iterators_and_errors.py` |
+| 03 | **Advanced** | 并发编程、设计模式 | `01_concurrency.py`, `02_design_patterns.py` |
+| 04 | **Data Science** | NumPy 基础、Pandas 基础 | `01_numpy_fundamentals.py`, `02_pandas_fundamentals.py` |
+| 05 | **Machine Learning** | MLP/CNN 从零实现、PyTorch 网络、Transformer、无监督学习 | `01_mlp_from_scratch.py`, `02_cnn_from_scratch.py`, `03_pytorch_networks.py`, `04_transformer.py`, `05_unsupervised_learning.py` |
+| 06 | **Reinforcement Learning** | Q-Learning、DQN、Policy Gradient、PPO、MCTS、环境工具 | `01_q_learning.py` ~ `06_envs_and_utils.py` |
+| 07 | **Algorithms** | 排序搜索、图算法、动态规划、高级数据结构 | `01_sorting_searching.py` ~ `04_advanced_data_structures.py` |
+| 08 | **Computer Vision** | 图像处理基础 | `01_image_processing.py` |
+| 09 | **NLP** | 文本处理、词嵌入 | `01_text_processing.py`, `02_word_embeddings.py` |
+| 10 | **Databases** | SQL 与 ORM | `01_sql_and_orms.py` |
+| 11 | **Software Engineering** | 设计模式与测试、Web 与 API、密码学与安全 | `01_patterns_and_testing.py`, `02_web_and_api.py`, `03_cryptography_and_security.py` |
+| 12 | **Math & Optimization** | 数值方法、概率与统计 | `01_numerical_methods.py`, `02_probability_and_statistics.py` |
 
-### Image Processing · `pic.py/`
+---
+
+### 深度学习框架 · `deep_learning_framework/`
+
+一个**全部从零实现的完整深度学习框架**（~53,000 行纯 Python/NumPy），涵盖现代深度学习全栈。27 个模块覆盖从底层算子到 MLOps 的全流程：
+
+| Module | Scope | Key Components |
+|---|---|---|
+| `layers.py` | 神经网络层 | `Linear`, `Conv2d`, `BatchNorm`, `LayerNorm`, `RNN`, `LSTM`, `GRU`, `Transformer`, `Attention`, `Embedding`, `Dropout` |
+| `models.py` | 模型集合 | `MLP`, `CNN`, `ResNet`, `DenseNet`, `UNet`, `GAN`, `VAE`, `Diffusion`, `ViT`, `CLIP`, `LLaMA-style` |
+| `activations.py` | 激活函数 | `ReLU`, `GELU`, `Swish`, `Mish`, `Softmax` |
+| `losses.py` | 损失函数 | `MSE`, `CrossEntropy`, `Focal`, `Contrastive`, `Triplet`, `Dice` |
+| `optimizers.py` | 优化器 | `SGD`, `Adam`, `AdamW`, `LAMB`, `Lion`, `RMSprop` |
+| `regularization.py` | 正则化 | `Dropout`, `DropPath`, `StochasticDepth`, `LabelSmoothing`, `Mixup`, `CutMix` |
+| `cv.py` | 计算机视觉 | 滤波器 (Gaussian/Median/Bilateral)、边缘检测、数据增强、IoU/NMS |
+| `nlp.py` | 自然语言处理 | `Tokenizer` 族 (Whitespace/Character/BPE)、TF-IDF、序列标注、文本数据增强 |
+| `rl.py` | 强化学习 | `ReplayBuffer`, `PrioritizedReplayBuffer`, N-Step、PER、NoisyNet 支持 |
+| `gnn.py` | 图神经网络 | `GraphConv`, `GAT`, `GIN`, `GraphSAGE`, 消息传递框架 |
+| `multimodal.py` | 多模态 | 图像-文本融合、跨模态注意力、视听对齐 |
+| `timeseries.py` | 时间序列 | LSTM/Transformer 时序预测、序列分解、异常检测 |
+| `tables.py` | 表格数据 | TabNet-style 注意力、特征嵌入、混合密度网络 (~27K 行) |
+| `signal.py` | 信号处理 | 小波变换、FFT、滤波、时频分析 |
+| `bioinformatics.py` | 生物信息 | 序列编码、接触图预测 |
+| `classic_ml.py` | 经典 ML | KMeans、GMM、决策树、HMM、CRF、t-SNE、UMAP |
+| `features.py` | 特征工程 | 分箱、Target Encoding、CatBoost Encoding、互信息、PCA/kPCA |
+| `data_utils.py` | 数据处理 | Dataset/DataLoader、数据清洗管线、增强流水线 |
+| `metrics.py` | 评估指标 | 分类/回归/排序/生成指标、统计检验 |
+| `automl.py` | AutoML | 超参搜索 (Random/Grid/Bayesian/HyperBand)、NAS、模型选择、特征选择 |
+| `distributed.py` | 分布式训练 | DataParallel、DistributedDataParallel、参数服务器、Ring AllReduce |
+| `mlops.py` | MLOps | 实验追踪、模型注册、A/B 测试、特征存储、漂移检测、部署管线 |
+| `security.py` | 安全 | 对抗样本 (FGSM/PGD/C&W)、成员推理、差分隐私、模型水印 |
+| `examples.py` | 示例 | MNIST/CIFAR/IMDB 分类示例、目标检测、图像分割 |
+| `utils.py` | 工具 | `save`/`load`、进度条、学习率调度器、权重初始化 |
+| `weights_db.py` | 模型仓库 | 预训练权重数据库、版本管理、自动下载 (~6,565 行) |
+
+**设计理念**：NumPy-only 后端，`Module` → `Parameter` → 自动求导，API 风格贴近 PyTorch。所有模块可独立使用，无需安装任何深度学习框架。
+
+---
+
+### 农田无人机喷洒农药模拟系统 · `Test3/`
+
+Pygame 驱动的农田无人机喷洒农药交互式模拟器：
+
+| File | Role |
+|---|---|
+| `main.py` | 程序入口 |
+| `app.py` | `FarmDroneApp` — 主控循环，60 FPS，状态机 (welcome → login/register → main → exit) |
+| `drone.py` | `Drone` 类 — 无人机运动模型与渲染 |
+| `field.py` | `Field` 类 — 农田网格化建模与可视化 |
+| `pesticide.py` | `PesticideManager` — 农药喷洒覆盖与消散模型 |
+| `path_planning.py` | `PathPlanner` — 无人机路径规划算法 |
+| `auth.py` | `AuthSystem` — 用户登录/注册（JSON 持久化） |
+| `animation.py` | `AnimationSystem` — 开场/结束动画系统 |
+| `utils.py` | 工具函数 |
+
+### Pygame 全栈应用框架 · `Test3demo/`
+
+一个完整的 Pygame 应用模板——含欢迎动画、登录/注册界面、模拟主界面和结束动画的多屏应用架构 (MVC + Screen 状态机)。`ui/screens/` 下每个屏幕独立模块化，`utils/logger.py` 统一日志。
+
+---
+
+### 纯 NumPy GAN · `GAN/1.py`
+
+从零构建 **纯 NumPy** 生成对抗网络——无 PyTorch/TensorFlow：
+
+- `Linear`, `ReLU`, `Sigmoid` 层 + 手动前向/反向传播
+- Binary Cross Entropy 解析梯度 + `Sequential` 链式反向传播
+- Generator: latent (4D) → hidden (16, ReLU) → 2D 输出
+- Discriminator: 2D → hidden (16, ReLU) → 1D 概率 (Sigmoid)
+- 2000 epoch 交替训练 G/D
+
+目标：理解 GAN 内部机制及其与 GAIL (Generative Adversarial Imitation Learning) 的联系。真实数据分布设为均值 [5, 5] 的高斯分布，模拟专家状态-动作演示。
+
+---
+
+### 图像处理与超分辨率 · `pic.py/`
 
 | Script | Function |
 |---|---|
-| `pic.py` | Selective color inversion — reverses only grayscale pixels (R~G~B within tolerance), leaves colored regions untouched. Uses NumPy boolean masking. |
-| `res.py` | Real-ESRGAN super-resolution pipeline — RRDBNet (23 RRDB blocks, 64 features), FP16 inference, tile-based processing (256px tiles for 8GB VRAM), auto model download from GitHub releases. `enhance_image()` function with configurable outscale and tile_size. |
-| `ai_upscale.py` | Alternative AI upscaling approach |
-| `pro_upscale.py` / `upscale2.py` / `upscale3.py` | Upscaling variants with different model configurations |
-| `realesrgan-ncnn-vulkan-20220424-windows/` | Real-ESRGAN ncnn Vulkan executable — native Windows GPU inference without Python overhead. Includes x2/x3/x4 anime and general models. |
-| `check.py` | Image quality check utility |
-| `tree.py` | File tree visualization |
-| Physics experiment scripts | `光电管伏安特性曲线.py`, `弗兰克-赫兹实验.py`, `零电流法测定普朗克常数h和红限频率.py`, `饱和光电流与入射光强的关系.py` — experimental data plotting with matplotlib |
+| `pic.py` / `pic2.py` | 选择性颜色反转——仅反转灰度像素 (R~G~B 在容差内)，NumPy 布尔掩码实现 |
+| `res.py` | Real-ESRGAN 超分辨率——RRDBNet (23 RRDB blocks, 64 features)、FP16 推理、分块处理 (256px tiles, 适配 8GB VRAM)、自动下载模型。`enhance_image()` 函数支持自定义 outscale 和 tile_size |
+| `pro_upscale.py` | Pro 上采样变体——多模型配置 |
+| `pro_upscale2.py` | **`pro_ai_upscale_any_ratio()`** — 支持任意纵横比的 AI 上采样，批量处理 + 可选输出分辨率与模型 |
+| `upscale2.py` / `upscale3.py` / `ai_upscale.py` | 不同模型配置的上采样变体 |
+| `realesrgan-ncnn-vulkan-20220424-windows/` | Real-ESRGAN ncnn Vulkan 可执行文件——原生 Windows GPU 推理，零 Python 开销，含 x2/x3/x4 anime/general 模型 |
+| `check.py` | 图像质量检测 |
+| `tree.py` | 文件树可视化 |
+| 物理实验脚本 | `光电管伏安特性曲线.py`, `弗兰克-赫兹实验.py`, `零电流法测定普朗克常数h和红限频率.py`, `饱和光电流与入射光强的关系.py` — matplotlib 实验数据可视化 |
 
-### Web Scraping · `demo.py`
+---
 
-Selenium + BeautifulSoup crawler for scraping the **ShanghaiRanking 2025 Chinese University Rankings** (软科中国大学排行榜). Features:
+### YOLOv12 目标检测 · `vision/`
 
-- Anti-detection: `--disable-blink-features`, `excludeSwitches`, navigator.webdriver spoofing
-- Auto-scroll to trigger lazy loading, with max-attempt cap and height-change detection
-- "Load more" button detection with JS click fallback
-- Chinese university name extraction (handles mixed img+text cells, regex for CJK characters)
-- pandas DataFrame output with rank/name/location/type/score columns
-
-### YOLO Object Detection · `vision/`
-
-YOLOv12-based object detection training for competition datasets:
+YOLOv12 竞赛数据集目标检测训练：
 
 | Project | Dataset | Model | Epochs | Hardware |
 |---|---|---|---|---|
-| `Elite_race_train/` | Custom elite race detection | yolo12n.pt | 300 | RTX 4090 D, batch 108 |
-| `raicom2026_train_down/` | RaiCom 2026 downward view | yolo12n.pt | 300 | RTX 4090 D |
-| `raicom2026_train_up/` | RaiCom 2026 upward view | yolo12n.pt | 300 | RTX 4090 D |
+| `Elite_race_train/` | 自定义 EliteRace 检测 | yolo12n.pt | 300 | RTX 4090 D, batch 108 |
+| `raicom2026_train_down/` | RaiCom 2026 俯视视角 | yolo12n.pt | 300 | RTX 4090 D |
+| `raicom2026_train_up/` | RaiCom 2026 仰视视角 | yolo12n.pt | 300 | RTX 4090 D |
 
-Each training run includes: confusion matrix, F1/PR curves, validation batch predictions, training batch samples, best/last/epoch checkpoints.
+每轮训练包含：混淆矩阵、F1/PR 曲线、验证批次预测、训练批次样本、best/last/epoch 检查点。
 
-### Pro AI Upscale · `pic.py/pro_upscale2.py`
+### YOLO 推理 · `predict.py`
 
-`pro_ai_upscale_any_ratio()` — AI-based image upscaling with arbitrary aspect ratio support. Batch-processes images with configurable output resolution and model selection.
+YOLOv12 批量推理脚本——配置输入文件夹 + 模型路径 → 自动创建 result 目录 → 输出带标注的图片 + 检测日志 txt。`weights/best.pt` 为训练好的模型权重。
 
-### PDF Image Extraction · `pdf_img.py`
+---
 
-Extracts embedded images from PDF files for further processing.
+### Web Scraping · `demo.py`
 
-### Basic Exercises
+Selenium + BeautifulSoup 爬取**软科 2025 中国大学排行榜**：
 
-`TEST1.py`, `TEST1-1.py`, `TEST2.py`, `practice1_1.py` through `practice1_4.py`, `test.py`, `test0.py`, `test_snippet.py`, `zz.py`, `block_diagram_step_1` — fundamental Python programming exercises covering data structures, algorithms, file I/O, and control flow.
+- 反检测: `--disable-blink-features`, `excludeSwitches`, `navigator.webdriver` 伪造
+- 自动滚动触发懒加载，最大尝试次数 + 高度变化检测
+- "加载更多"按钮检测，JS 点击回退
+- 中文大学名提取 (处理 img+text 混合单元格，CJK 字符正则)
+- pandas DataFrame 输出含 rank/name/location/type/score 列
+
+### PDF 图像提取 · `pdf_img.py`
+
+从 PDF 文件中提取嵌入图像以供后续处理。
+
+### 其他文件
+
+| File | Description |
+|---|---|
+| `practice1_1.py` ~ `practice1_4.py` | Python 入门练习——数据结构、算法、文件 I/O、控制流 |
+| `TEST1.py` / `TEST1-1.py` / `TEST2.py` / `test.py` / `test0.py` / `test_snippet.py` / `zz.py` | 基础编程练习与代码片段 |
+| `block_diagram_step_1` | 框图步骤描述 |
+| `predict.py` | YOLOv12 推理 |
+| `weights/` | 模型权重 (`RealESRGAN_x4plus.pth`) |
+| `IEEE-Transactions-LaTeX2e-templates-and-instructions/` | IEEE 论文 LaTeX 模板 |
+| 根目录图片/PDF | 超分辨率前后对比图、物理实验数据图、椭圆偏振光雷达图、课程设计 PDF 题目 |
 
 ---
 
