@@ -121,6 +121,26 @@ Selenium + BeautifulSoup crawler for scraping the **ShanghaiRanking 2025 Chinese
 - Chinese university name extraction (handles mixed img+text cells, regex for CJK characters)
 - pandas DataFrame output with rank/name/location/type/score columns
 
+### YOLO Object Detection · `vision/`
+
+YOLOv12-based object detection training for competition datasets:
+
+| Project | Dataset | Model | Epochs | Hardware |
+|---|---|---|---|---|
+| `Elite_race_train/` | Custom elite race detection | yolo12n.pt | 300 | RTX 4090 D, batch 108 |
+| `raicom2026_train_down/` | RaiCom 2026 downward view | yolo12n.pt | 300 | RTX 4090 D |
+| `raicom2026_train_up/` | RaiCom 2026 upward view | yolo12n.pt | 300 | RTX 4090 D |
+
+Each training run includes: confusion matrix, F1/PR curves, validation batch predictions, training batch samples, best/last/epoch checkpoints.
+
+### Pro AI Upscale · `pic.py/pro_upscale2.py`
+
+`pro_ai_upscale_any_ratio()` — AI-based image upscaling with arbitrary aspect ratio support. Batch-processes images with configurable output resolution and model selection.
+
+### PDF Image Extraction · `pdf_img.py`
+
+Extracts embedded images from PDF files for further processing.
+
 ### Basic Exercises
 
 `TEST1.py`, `TEST1-1.py`, `TEST2.py`, `practice1_1.py` through `practice1_4.py`, `test.py`, `test0.py`, `test_snippet.py`, `zz.py`, `block_diagram_step_1` — fundamental Python programming exercises covering data structures, algorithms, file I/O, and control flow.
@@ -277,6 +297,14 @@ python3 inference.py benchmark                 # → PINN: 8.2 ms, CNN: 7.5 ms
 
 Python API via `PINNInference` and `CNNInference` classes. RA8 ↔ RZ/G2L communication over QSPI/USB HS with shared memory. Full data loop: RA8 collects voltage/current/temperature → Kalman filter + IC/DV feature extraction → RZ/G2L runs inference → results stored to Octa-NAND + displayed on UI.
 
+### Deployment Documentation
+
+| File | Content |
+|---|---|
+| `RZG2L_CPP_DEPLOY.md` | 完整 C++ 推理引擎部署教程 — Ubuntu 20.04 ARM64 系统初始化 → ONNX Runtime 1.18+ 源码编译 (ARM NEON) → C++17 `libbattery_inference.so` 双模型推理接口 → CMake 构建部署 |
+| `RZG2L_GUI_DEPLOY.md` | Qt 6.5 LTS 图形化交互界面部署 — Mali-G31 GPU DRM/KMS 显示 → eglfs QPA → QML 仪表盘 → 电池推理引擎集成 |
+| `export_scalers.py` | StandardScaler 参数导出脚本 → 供 C++ 推理端标准化输入特征 |
+
 ### Data Sources
 
 - **NASA PCoE**: 4 cells (B0005/6/7/18), `.mat` format, nested cell-array structure, charge/discharge curves at multiple temperatures
@@ -391,9 +419,90 @@ Webots wheeled robot controllers and simulation worlds.
 
 ---
 
+## Running — 华中大体育 GPS 跑步模拟器
+
+>`Running/`
+
+Campus跑步打卡自动化工具。沿华科校园路线生成模拟跑步 GPS 轨迹，完成"华中大体育"App 的课外跑步打卡。约束规则：每次 ≥3.5 km，配速 4:00-10:00 min/km。
+
+| File | Role |
+|---|---|
+| `run.py` | Rich TUI 交互版 — 轨迹预览、GPX 导出、ADB 实时模拟、设备诊断 |
+| `run_cli.py` | 纯命令行版 — 零第三方依赖，适合 SSH/远程/后台运行 |
+| `routes/` | 校园路线 JSON 定义（GPS 坐标序列），支持自定义路线 |
+| `mumu_gps.py` | MuMu 模拟器 GPS 注入方案 |
+| `analyze_app.py` | App 行为分析工具 |
+| `core/` | 核心轨迹生成与 GPS 模拟引擎 |
+
+**两种使用方式**：
+- **GPX 导出（推荐）**：PC 端预先生成 GPX 轨迹 → 手机 Mock GPS App 导入播放，全设备通用
+- **ADB 实时模拟**：PC 通过 USB 每秒向手机注入 GPS 坐标，仅部分 ROM 支持
+
+配速自动满足 4:00-10:00 min/km，里程自动满足 ≥3.5 km。
+
+### Remote Deployment
+
+| 方案 | 说明 |
+|---|---|
+| 本地服务器 | 旧笔记本/树莓派装 Linux + ADB，手机 USB 插上 24h 开机，SSH 远程控制 |
+| Windows SSH | 管理员 PowerShell 安装 OpenSSH Server，同 WiFi 下远程操控 |
+
+```
+# GPX 导出
+python run_cli.py -p 5.5 --gpx route.gpx
+
+# 后台无人值守
+nohup python3 run_cli.py -p 5.5 -l 2 -y > run.log 2>&1 &
+```
+
+---
+
+## CSIEC — 多无人系统协同感知与规划
+
+>`CSIEC/`
+
+中国国际大学生创新大赛 (CSIEC) 参赛项目——多无人系统（UGV + UAV）协同感知、规划与路径规划。包含完整的项目申报书、答辩 PPT 和宇树 Go2 机器人狗二次开发指南。
+
+| File | Content |
+|---|---|
+| `多无人系统协同感知与规划-项目申请书.pdf` | 正式项目申报书 |
+| `多无人系统协同感知、规划（有图片）-项目.docx` | 带插图的详细项目文档 |
+| `duowurenxitong_defense_20260522_212848.pptx` | 项目答辩 PPT |
+| `连接宇树Go2 开发版（EDU版）的扩展坞进行二次开发.md/pdf` | Unitree Go2 robot dog SDK development guide — 物理连接、网络配置 (192.168.123.18)、SSH 登录、SDK 安装与测试 |
+
+### AirHust · `AirHust/`
+
+无人机/机器人碰撞避免 C++ 算法集——多种碰撞避免策略的 C/C++ 实现与变体：
+
+| Script | Variant |
+|---|---|
+| `collision_avoidance.cpp` | 标准碰撞避免 |
+| `collision_avoidance_alpha.cpp` / `_alpha2.cpp` | Alpha 变体 |
+| `collision_avoidance_beta.cpp` | Beta 变体 |
+| `collision_avoidance_plus.cpp` | 增强版 |
+| `collision_avoidance_basic.cpp` | 基础精简版 |
+| `collision_avoidance_mod.cpp` | 修改版 |
+| `crossing_door_darknet.cpp` | 暗网穿越门检测 |
+| `integrated_test.cpp` / `integrated_work.cpp` | 集成测试与综合方案 |
+| `aia_collision_avoidance.cpp` | AIA (Aerial Intelligent Agent) 竞赛版 |
+
+---
+
 ## Coursework
 
-`人工智能导论/` · `信号与系统/` · `数据结构/` · `自动控制原理/` · `运筹学/` · `计算方法/` · `大学物理/` · `模拟电路/` · `数字电路/` · `微机原理/` · `离散数学/` · `复变函数与积分变换/` · `单片机/` · `文献检索与科技论文写作/` · `大学生社会实践/` · `数电实验/` · `模电实验/` · `电路实验/` · `物理实验复习/` · `自动控制原理实验/`
+`人工智能导论/` · `信号与系统/` · `数据结构/` · `自动控制原理/` · `运筹学/` · `计算方法/` · `大学物理/` · `模拟电路/` · `数字电路/` · `微机原理/` · `离散数学/` · `复变函数与积分变换/` · `单片机/` · `文献检索与科技论文写作/` · `大学生社会实践/` · `数电实验/` · `模电实验/` · `电路实验/` · `物理实验复习/` · `自动控制原理实验/` · `电子技术课程设计实验/` · `马克思主义基本原理/` · `CET6/`
+
+### 电子技术课程设计实验 · `电子技术课程设计实验/`
+
+电子技术课程设计实验资料 — 实验总览、课程设计报告评分要求、实验数据截图。
+
+### 马克思主义基本原理 · `马克思主义基本原理/`
+
+马原课程学习资料 — 期末考试题型与复习提纲（2021-2026各年度）、习题集、历年真题（A/B卷含答案）。
+
+### CET-6 · `CET6/`
+
+大学英语六级备考 — 核心词汇整理 (`words.md`)、SARS-CoV-2 溯源独立评估阅读材料 (SAGO 报告)。
 
 ---
 
@@ -406,7 +515,16 @@ Webots wheeled robot controllers and simulation worlds.
 | `设计一个小玩意/` | PCB / schematic design |
 | `C/` | C programming (`test.c`, HLCM algorithms in `hlcm.md`), 机器学习西瓜书 PDF |
 | `java/` | Java OOP — `Main.java` with Student class |
+| `Claude~Claude!/` | PyQt5 桌面 AI 宠物 — 文件拖拽 + 自然语言问答，调用 DeepSeek API (deepseek-v4-pro)，带思维链 (Reasoning) 解析，可拖动悬浮窗 |
+| `仙人指路/` | 网络配置规则列表 (`kr.list`, `list.list`) |
+| `BorlandCpp3.1_DOSBOX纯净版/` | Borland C++ 3.1 for DOSBOX — HUST 自动化学院 C 语言课程设计专用编程环境（VBS 虚拟机纯净版） |
 | `build/` · `tmp_pdf/` | Build artifacts and temporary PDF processing |
+| `人工智能与自动化学院官网首页/` | 学院新闻中心工作 — 成员名单、HTML 页面设计 (`aia.html`)、高考/国庆推文策划、竞选稿、明信片设计 |
+| `华科ppt模板/` | HUST 官方 PPT/简历模板（含 2022 校庆配色版） |
+| `一些论文/` | 学术论文收集 — 多机器人协同、SLAM、图像去噪、圆检测算法等 |
+| `DatasetForEliterace/` | EliteRace 竞赛数据集 — 图像采集样本 |
+| `atari智能体_被淘汰模型表现/` | Atari DQN 训练中被淘汰的中间模型 (dqn_401, dqn_preview) |
+| `一些不知道如何归类的东东/` | 党支部材料 — 积极分子材料填写指南、工作方案等 |
 
 ---
 
@@ -414,10 +532,12 @@ Webots wheeled robot controllers and simulation worlds.
 
 **Languages:** Python · C/C++ · Java
 
-**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLO · ONNX / ONNX Runtime · TensorBoard
+**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLOv12 · ONNX / ONNX Runtime · TensorBoard
 
-**Robotics:** ROS Noetic · Webots · Catkin/CMake · Renesas RA8 (Cortex-M85) · RZ/G2L (Cortex-A55)
+**Robotics:** ROS Noetic · Webots · Catkin/CMake · Renesas RA8 (Cortex-M85) · RZ/G2L (Cortex-A55) · Unitree Go2
 
-**Domain:** Battery SOH Estimation · PINNs · ECM (2-RC) · IC/DV Analysis · Embedded AI (INT8 Deployment)
+**Domain:** Battery SOH Estimation · PINNs · ECM (2-RC) · IC/DV Analysis · Embedded AI (INT8 Deployment) · Multi-Robot Collaboration
+
+**GUI/Embedded:** Qt 6.5 LTS (eglfs/QML) · PyQt5 · ARM NEON · Mali-G31 GPU
 
 **Tools:** VS Code · MSYS2/MinGW64 · Anaconda · ChromeDriver/Selenium · Pygame · pandas · matplotlib · Git
