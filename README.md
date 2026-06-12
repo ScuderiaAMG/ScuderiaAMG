@@ -83,25 +83,113 @@ Experience replay and target network separation are both critical; removing repl
 
 >`Python-Missions/`
 
+<<<<<<< HEAD
 Collection of projects for the "Python Programming" elective and beyond. Spans web scraping, image processing, GANs, super-resolution, and a full Pygame application.
+=======
+HUST 自动化学院《Python程序设计》课程作业及扩展项目。涵盖 Python 系统性自学课程体系、从零实现的深度学习框架、图像处理、GAN、YOLO 目标检测、Pygame 应用和物理实验等。总代码量超 80,000 行。
+>>>>>>> 1c640f4676aa1864c3f405ddbcaa550e4d7a03a6
 
-### Pure NumPy GAN · `GAN/1.py`
+---
 
-A minimalist Generative Adversarial Network built **entirely in NumPy** — no PyTorch/TensorFlow. Implements from scratch:
+### Python 系统性自学课程 · `01_basics/` ~ `12_math_and_optimization/`
 
-- `Linear`, `ReLU`, `Sigmoid` layers with manual forward/backward pass
-- Binary Cross Entropy loss with analytical gradient computation
-- `Sequential` container with chain-rule backpropagation through arbitrary layer stacks
-- Generator: latent (4D) -> hidden (16, ReLU) -> 2D output (continuous action space analogue)
-- Discriminator: 2D -> hidden (16, ReLU) -> 1D probability (Sigmoid)
-- Full training loop alternating D and G updates for 2000 epochs
+一套完整的 Python 自学路线，从基础语法到数学与优化，共 12 个模块、32 个核心脚本：
 
-Aimed at understanding GAN internals and the connection to GAIL (Generative Adversarial Imitation Learning) in RL. The real data distribution is set to a Gaussian with mean [5, 5], simulating expert state-action demonstrations.
+| # | 模块 | 内容 | 脚本 |
+|---|---|---|---|
+| 01 | **Basics** | 基础语法、数据结构、面向对象 | `01_fundamentals.py`, `02_data_structures.py`, `03_oop.py` |
+| 02 | **Intermediate** | 高级函数、迭代器、异常处理 | `01_advanced_functions.py`, `02_iterators_and_errors.py` |
+| 03 | **Advanced** | 并发编程、设计模式 | `01_concurrency.py`, `02_design_patterns.py` |
+| 04 | **Data Science** | NumPy 基础、Pandas 基础 | `01_numpy_fundamentals.py`, `02_pandas_fundamentals.py` |
+| 05 | **Machine Learning** | MLP/CNN 从零实现、PyTorch 网络、Transformer、无监督学习 | `01_mlp_from_scratch.py`, `02_cnn_from_scratch.py`, `03_pytorch_networks.py`, `04_transformer.py`, `05_unsupervised_learning.py` |
+| 06 | **Reinforcement Learning** | Q-Learning、DQN、Policy Gradient、PPO、MCTS、环境工具 | `01_q_learning.py` ~ `06_envs_and_utils.py` |
+| 07 | **Algorithms** | 排序搜索、图算法、动态规划、高级数据结构 | `01_sorting_searching.py` ~ `04_advanced_data_structures.py` |
+| 08 | **Computer Vision** | 图像处理基础 | `01_image_processing.py` |
+| 09 | **NLP** | 文本处理、词嵌入 | `01_text_processing.py`, `02_word_embeddings.py` |
+| 10 | **Databases** | SQL 与 ORM | `01_sql_and_orms.py` |
+| 11 | **Software Engineering** | 设计模式与测试、Web 与 API、密码学与安全 | `01_patterns_and_testing.py`, `02_web_and_api.py`, `03_cryptography_and_security.py` |
+| 12 | **Math & Optimization** | 数值方法、概率与统计 | `01_numerical_methods.py`, `02_probability_and_statistics.py` |
 
-### Image Processing · `pic.py/`
+---
+
+### 深度学习框架 · `deep_learning_framework/`
+
+一个**全部从零实现的完整深度学习框架**（~53,000 行纯 Python/NumPy），涵盖现代深度学习全栈。27 个模块覆盖从底层算子到 MLOps 的全流程：
+
+| Module | Scope | Key Components |
+|---|---|---|
+| `layers.py` | 神经网络层 | `Linear`, `Conv2d`, `BatchNorm`, `LayerNorm`, `RNN`, `LSTM`, `GRU`, `Transformer`, `Attention`, `Embedding`, `Dropout` |
+| `models.py` | 模型集合 | `MLP`, `CNN`, `ResNet`, `DenseNet`, `UNet`, `GAN`, `VAE`, `Diffusion`, `ViT`, `CLIP`, `LLaMA-style` |
+| `activations.py` | 激活函数 | `ReLU`, `GELU`, `Swish`, `Mish`, `Softmax` |
+| `losses.py` | 损失函数 | `MSE`, `CrossEntropy`, `Focal`, `Contrastive`, `Triplet`, `Dice` |
+| `optimizers.py` | 优化器 | `SGD`, `Adam`, `AdamW`, `LAMB`, `Lion`, `RMSprop` |
+| `regularization.py` | 正则化 | `Dropout`, `DropPath`, `StochasticDepth`, `LabelSmoothing`, `Mixup`, `CutMix` |
+| `cv.py` | 计算机视觉 | 滤波器 (Gaussian/Median/Bilateral)、边缘检测、数据增强、IoU/NMS |
+| `nlp.py` | 自然语言处理 | `Tokenizer` 族 (Whitespace/Character/BPE)、TF-IDF、序列标注、文本数据增强 |
+| `rl.py` | 强化学习 | `ReplayBuffer`, `PrioritizedReplayBuffer`, N-Step、PER、NoisyNet 支持 |
+| `gnn.py` | 图神经网络 | `GraphConv`, `GAT`, `GIN`, `GraphSAGE`, 消息传递框架 |
+| `multimodal.py` | 多模态 | 图像-文本融合、跨模态注意力、视听对齐 |
+| `timeseries.py` | 时间序列 | LSTM/Transformer 时序预测、序列分解、异常检测 |
+| `tables.py` | 表格数据 | TabNet-style 注意力、特征嵌入、混合密度网络 (~27K 行) |
+| `signal.py` | 信号处理 | 小波变换、FFT、滤波、时频分析 |
+| `bioinformatics.py` | 生物信息 | 序列编码、接触图预测 |
+| `classic_ml.py` | 经典 ML | KMeans、GMM、决策树、HMM、CRF、t-SNE、UMAP |
+| `features.py` | 特征工程 | 分箱、Target Encoding、CatBoost Encoding、互信息、PCA/kPCA |
+| `data_utils.py` | 数据处理 | Dataset/DataLoader、数据清洗管线、增强流水线 |
+| `metrics.py` | 评估指标 | 分类/回归/排序/生成指标、统计检验 |
+| `automl.py` | AutoML | 超参搜索 (Random/Grid/Bayesian/HyperBand)、NAS、模型选择、特征选择 |
+| `distributed.py` | 分布式训练 | DataParallel、DistributedDataParallel、参数服务器、Ring AllReduce |
+| `mlops.py` | MLOps | 实验追踪、模型注册、A/B 测试、特征存储、漂移检测、部署管线 |
+| `security.py` | 安全 | 对抗样本 (FGSM/PGD/C&W)、成员推理、差分隐私、模型水印 |
+| `examples.py` | 示例 | MNIST/CIFAR/IMDB 分类示例、目标检测、图像分割 |
+| `utils.py` | 工具 | `save`/`load`、进度条、学习率调度器、权重初始化 |
+| `weights_db.py` | 模型仓库 | 预训练权重数据库、版本管理、自动下载 (~6,565 行) |
+
+**设计理念**：NumPy-only 后端，`Module` → `Parameter` → 自动求导，API 风格贴近 PyTorch。所有模块可独立使用，无需安装任何深度学习框架。
+
+---
+
+### 农田无人机喷洒农药模拟系统 · `Test3/`
+
+Pygame 驱动的农田无人机喷洒农药交互式模拟器：
+
+| File | Role |
+|---|---|
+| `main.py` | 程序入口 |
+| `app.py` | `FarmDroneApp` — 主控循环，60 FPS，状态机 (welcome → login/register → main → exit) |
+| `drone.py` | `Drone` 类 — 无人机运动模型与渲染 |
+| `field.py` | `Field` 类 — 农田网格化建模与可视化 |
+| `pesticide.py` | `PesticideManager` — 农药喷洒覆盖与消散模型 |
+| `path_planning.py` | `PathPlanner` — 无人机路径规划算法 |
+| `auth.py` | `AuthSystem` — 用户登录/注册（JSON 持久化） |
+| `animation.py` | `AnimationSystem` — 开场/结束动画系统 |
+| `utils.py` | 工具函数 |
+
+### Pygame 全栈应用框架 · `Test3demo/`
+
+一个完整的 Pygame 应用模板——含欢迎动画、登录/注册界面、模拟主界面和结束动画的多屏应用架构 (MVC + Screen 状态机)。`ui/screens/` 下每个屏幕独立模块化，`utils/logger.py` 统一日志。
+
+---
+
+### 纯 NumPy GAN · `GAN/1.py`
+
+从零构建 **纯 NumPy** 生成对抗网络——无 PyTorch/TensorFlow：
+
+- `Linear`, `ReLU`, `Sigmoid` 层 + 手动前向/反向传播
+- Binary Cross Entropy 解析梯度 + `Sequential` 链式反向传播
+- Generator: latent (4D) → hidden (16, ReLU) → 2D 输出
+- Discriminator: 2D → hidden (16, ReLU) → 1D 概率 (Sigmoid)
+- 2000 epoch 交替训练 G/D
+
+目标：理解 GAN 内部机制及其与 GAIL (Generative Adversarial Imitation Learning) 的联系。真实数据分布设为均值 [5, 5] 的高斯分布，模拟专家状态-动作演示。
+
+---
+
+### 图像处理与超分辨率 · `pic.py/`
 
 | Script | Function |
 |---|---|
+<<<<<<< HEAD
 | `pic.py` | Selective color inversion — reverses only grayscale pixels (R~G~B within tolerance), leaves colored regions untouched. Uses NumPy boolean masking. |
 | `res.py` | Real-ESRGAN super-resolution pipeline — RRDBNet (23 RRDB blocks, 64 features), FP16 inference, tile-based processing (256px tiles for 8GB VRAM), auto model download from GitHub releases. `enhance_image()` function with configurable outscale and tile_size. |
 | `ai_upscale.py` | Alternative AI upscaling approach |
@@ -114,16 +202,63 @@ Aimed at understanding GAN internals and the connection to GAIL (Generative Adve
 ### Web Scraping · `demo.py`
 
 Selenium + BeautifulSoup crawler for scraping the **ShanghaiRanking 2025 Chinese University Rankings**. Features:
+=======
+| `pic.py` / `pic2.py` | 选择性颜色反转——仅反转灰度像素 (R~G~B 在容差内)，NumPy 布尔掩码实现 |
+| `res.py` | Real-ESRGAN 超分辨率——RRDBNet (23 RRDB blocks, 64 features)、FP16 推理、分块处理 (256px tiles, 适配 8GB VRAM)、自动下载模型。`enhance_image()` 函数支持自定义 outscale 和 tile_size |
+| `pro_upscale.py` | Pro 上采样变体——多模型配置 |
+| `pro_upscale2.py` | **`pro_ai_upscale_any_ratio()`** — 支持任意纵横比的 AI 上采样，批量处理 + 可选输出分辨率与模型 |
+| `upscale2.py` / `upscale3.py` / `ai_upscale.py` | 不同模型配置的上采样变体 |
+| `realesrgan-ncnn-vulkan-20220424-windows/` | Real-ESRGAN ncnn Vulkan 可执行文件——原生 Windows GPU 推理，零 Python 开销，含 x2/x3/x4 anime/general 模型 |
+| `check.py` | 图像质量检测 |
+| `tree.py` | 文件树可视化 |
+| 物理实验脚本 | `光电管伏安特性曲线.py`, `弗兰克-赫兹实验.py`, `零电流法测定普朗克常数h和红限频率.py`, `饱和光电流与入射光强的关系.py` — matplotlib 实验数据可视化 |
 
-- Anti-detection: `--disable-blink-features`, `excludeSwitches`, navigator.webdriver spoofing
-- Auto-scroll to trigger lazy loading, with max-attempt cap and height-change detection
-- "Load more" button detection with JS click fallback
-- Chinese university name extraction (handles mixed img+text cells, regex for CJK characters)
-- pandas DataFrame output with rank/name/location/type/score columns
+---
 
-### Basic Exercises
+### YOLOv12 目标检测 · `vision/`
 
-`TEST1.py`, `TEST1-1.py`, `TEST2.py`, `practice1_1.py` through `practice1_4.py`, `test.py`, `test0.py`, `test_snippet.py`, `zz.py`, `block_diagram_step_1` — fundamental Python programming exercises covering data structures, algorithms, file I/O, and control flow.
+YOLOv12 竞赛数据集目标检测训练：
+
+| Project | Dataset | Model | Epochs | Hardware |
+|---|---|---|---|---|
+| `Elite_race_train/` | 自定义 EliteRace 检测 | yolo12n.pt | 300 | RTX 4090 D, batch 108 |
+| `raicom2026_train_down/` | RaiCom 2026 俯视视角 | yolo12n.pt | 300 | RTX 4090 D |
+| `raicom2026_train_up/` | RaiCom 2026 仰视视角 | yolo12n.pt | 300 | RTX 4090 D |
+
+每轮训练包含：混淆矩阵、F1/PR 曲线、验证批次预测、训练批次样本、best/last/epoch 检查点。
+
+### YOLO 推理 · `predict.py`
+
+YOLOv12 批量推理脚本——配置输入文件夹 + 模型路径 → 自动创建 result 目录 → 输出带标注的图片 + 检测日志 txt。`weights/best.pt` 为训练好的模型权重。
+
+---
+
+### Web Scraping · `demo.py`
+
+Selenium + BeautifulSoup 爬取**软科 2025 中国大学排行榜**：
+>>>>>>> 1c640f4676aa1864c3f405ddbcaa550e4d7a03a6
+
+- 反检测: `--disable-blink-features`, `excludeSwitches`, `navigator.webdriver` 伪造
+- 自动滚动触发懒加载，最大尝试次数 + 高度变化检测
+- "加载更多"按钮检测，JS 点击回退
+- 中文大学名提取 (处理 img+text 混合单元格，CJK 字符正则)
+- pandas DataFrame 输出含 rank/name/location/type/score 列
+
+### PDF 图像提取 · `pdf_img.py`
+
+从 PDF 文件中提取嵌入图像以供后续处理。
+
+### 其他文件
+
+| File | Description |
+|---|---|
+| `practice1_1.py` ~ `practice1_4.py` | Python 入门练习——数据结构、算法、文件 I/O、控制流 |
+| `TEST1.py` / `TEST1-1.py` / `TEST2.py` / `test.py` / `test0.py` / `test_snippet.py` / `zz.py` | 基础编程练习与代码片段 |
+| `block_diagram_step_1` | 框图步骤描述 |
+| `predict.py` | YOLOv12 推理 |
+| `weights/` | 模型权重 (`RealESRGAN_x4plus.pth`) |
+| `IEEE-Transactions-LaTeX2e-templates-and-instructions/` | IEEE 论文 LaTeX 模板 |
+| 根目录图片/PDF | 超分辨率前后对比图、物理实验数据图、椭圆偏振光雷达图、课程设计 PDF 题目 |
 
 ---
 
@@ -277,6 +412,14 @@ python3 inference.py benchmark                 # → PINN: 8.2 ms, CNN: 7.5 ms
 
 Python API via `PINNInference` and `CNNInference` classes. RA8 ↔ RZ/G2L communication over QSPI/USB HS with shared memory. Full data loop: RA8 collects voltage/current/temperature → Kalman filter + IC/DV feature extraction → RZ/G2L runs inference → results stored to Octa-NAND + displayed on UI.
 
+### Deployment Documentation
+
+| File | Content |
+|---|---|
+| `RZG2L_CPP_DEPLOY.md` | 完整 C++ 推理引擎部署教程 — Ubuntu 20.04 ARM64 系统初始化 → ONNX Runtime 1.18+ 源码编译 (ARM NEON) → C++17 `libbattery_inference.so` 双模型推理接口 → CMake 构建部署 |
+| `RZG2L_GUI_DEPLOY.md` | Qt 6.5 LTS 图形化交互界面部署 — Mali-G31 GPU DRM/KMS 显示 → eglfs QPA → QML 仪表盘 → 电池推理引擎集成 |
+| `export_scalers.py` | StandardScaler 参数导出脚本 → 供 C++ 推理端标准化输入特征 |
+
 ### Data Sources
 
 - **NASA PCoE**: 4 cells (B0005/6/7/18), `.mat` format, nested cell-array structure, charge/discharge curves at multiple temperatures
@@ -391,9 +534,90 @@ Webots wheeled robot controllers and simulation worlds.
 
 ---
 
+## Running — 华中大体育 GPS 跑步模拟器
+
+>`Running/`
+
+Campus跑步打卡自动化工具。沿华科校园路线生成模拟跑步 GPS 轨迹，完成"华中大体育"App 的课外跑步打卡。约束规则：每次 ≥3.5 km，配速 4:00-10:00 min/km。
+
+| File | Role |
+|---|---|
+| `run.py` | Rich TUI 交互版 — 轨迹预览、GPX 导出、ADB 实时模拟、设备诊断 |
+| `run_cli.py` | 纯命令行版 — 零第三方依赖，适合 SSH/远程/后台运行 |
+| `routes/` | 校园路线 JSON 定义（GPS 坐标序列），支持自定义路线 |
+| `mumu_gps.py` | MuMu 模拟器 GPS 注入方案 |
+| `analyze_app.py` | App 行为分析工具 |
+| `core/` | 核心轨迹生成与 GPS 模拟引擎 |
+
+**两种使用方式**：
+- **GPX 导出（推荐）**：PC 端预先生成 GPX 轨迹 → 手机 Mock GPS App 导入播放，全设备通用
+- **ADB 实时模拟**：PC 通过 USB 每秒向手机注入 GPS 坐标，仅部分 ROM 支持
+
+配速自动满足 4:00-10:00 min/km，里程自动满足 ≥3.5 km。
+
+### Remote Deployment
+
+| 方案 | 说明 |
+|---|---|
+| 本地服务器 | 旧笔记本/树莓派装 Linux + ADB，手机 USB 插上 24h 开机，SSH 远程控制 |
+| Windows SSH | 管理员 PowerShell 安装 OpenSSH Server，同 WiFi 下远程操控 |
+
+```
+# GPX 导出
+python run_cli.py -p 5.5 --gpx route.gpx
+
+# 后台无人值守
+nohup python3 run_cli.py -p 5.5 -l 2 -y > run.log 2>&1 &
+```
+
+---
+
+## CSIEC — 多无人系统协同感知与规划
+
+>`CSIEC/`
+
+中国国际大学生创新大赛 (CSIEC) 参赛项目——多无人系统（UGV + UAV）协同感知、规划与路径规划。包含完整的项目申报书、答辩 PPT 和宇树 Go2 机器人狗二次开发指南。
+
+| File | Content |
+|---|---|
+| `多无人系统协同感知与规划-项目申请书.pdf` | 正式项目申报书 |
+| `多无人系统协同感知、规划（有图片）-项目.docx` | 带插图的详细项目文档 |
+| `duowurenxitong_defense_20260522_212848.pptx` | 项目答辩 PPT |
+| `连接宇树Go2 开发版（EDU版）的扩展坞进行二次开发.md/pdf` | Unitree Go2 robot dog SDK development guide — 物理连接、网络配置 (192.168.123.18)、SSH 登录、SDK 安装与测试 |
+
+### AirHust · `AirHust/`
+
+无人机/机器人碰撞避免 C++ 算法集——多种碰撞避免策略的 C/C++ 实现与变体：
+
+| Script | Variant |
+|---|---|
+| `collision_avoidance.cpp` | 标准碰撞避免 |
+| `collision_avoidance_alpha.cpp` / `_alpha2.cpp` | Alpha 变体 |
+| `collision_avoidance_beta.cpp` | Beta 变体 |
+| `collision_avoidance_plus.cpp` | 增强版 |
+| `collision_avoidance_basic.cpp` | 基础精简版 |
+| `collision_avoidance_mod.cpp` | 修改版 |
+| `crossing_door_darknet.cpp` | 暗网穿越门检测 |
+| `integrated_test.cpp` / `integrated_work.cpp` | 集成测试与综合方案 |
+| `aia_collision_avoidance.cpp` | AIA (Aerial Intelligent Agent) 竞赛版 |
+
+---
+
 ## Coursework
 
-`人工智能导论/` · `信号与系统/` · `数据结构/` · `自动控制原理/` · `运筹学/` · `计算方法/` · `大学物理/` · `模拟电路/` · `数字电路/` · `微机原理/` · `离散数学/` · `复变函数与积分变换/` · `单片机/` · `文献检索与科技论文写作/` · `大学生社会实践/` · `数电实验/` · `模电实验/` · `电路实验/` · `物理实验复习/` · `自动控制原理实验/`
+`人工智能导论/` · `信号与系统/` · `数据结构/` · `自动控制原理/` · `运筹学/` · `计算方法/` · `大学物理/` · `模拟电路/` · `数字电路/` · `微机原理/` · `离散数学/` · `复变函数与积分变换/` · `单片机/` · `文献检索与科技论文写作/` · `大学生社会实践/` · `数电实验/` · `模电实验/` · `电路实验/` · `物理实验复习/` · `自动控制原理实验/` · `电子技术课程设计实验/` · `马克思主义基本原理/` · `CET6/`
+
+### 电子技术课程设计实验 · `电子技术课程设计实验/`
+
+电子技术课程设计实验资料 — 实验总览、课程设计报告评分要求、实验数据截图。
+
+### 马克思主义基本原理 · `马克思主义基本原理/`
+
+马原课程学习资料 — 期末考试题型与复习提纲（2021-2026各年度）、习题集、历年真题（A/B卷含答案）。
+
+### CET-6 · `CET6/`
+
+大学英语六级备考 — 核心词汇整理 (`words.md`)、SARS-CoV-2 溯源独立评估阅读材料 (SAGO 报告)。
 
 ---
 
@@ -406,7 +630,16 @@ Webots wheeled robot controllers and simulation worlds.
 | `设计一个小玩意/` | PCB / schematic design |
 | `C/` | C programming (`test.c`, HLCM algorithms in `hlcm.md`), 机器学习西瓜书 PDF |
 | `java/` | Java OOP — `Main.java` with Student class |
+| `Claude~Claude!/` | PyQt5 桌面 AI 宠物 — 文件拖拽 + 自然语言问答，调用 DeepSeek API (deepseek-v4-pro)，带思维链 (Reasoning) 解析，可拖动悬浮窗 |
+| `仙人指路/` | 网络配置规则列表 (`kr.list`, `list.list`) |
+| `BorlandCpp3.1_DOSBOX纯净版/` | Borland C++ 3.1 for DOSBOX — HUST 自动化学院 C 语言课程设计专用编程环境（VBS 虚拟机纯净版） |
 | `build/` · `tmp_pdf/` | Build artifacts and temporary PDF processing |
+| `人工智能与自动化学院官网首页/` | 学院新闻中心工作 — 成员名单、HTML 页面设计 (`aia.html`)、高考/国庆推文策划、竞选稿、明信片设计 |
+| `华科ppt模板/` | HUST 官方 PPT/简历模板（含 2022 校庆配色版） |
+| `一些论文/` | 学术论文收集 — 多机器人协同、SLAM、图像去噪、圆检测算法等 |
+| `DatasetForEliterace/` | EliteRace 竞赛数据集 — 图像采集样本 |
+| `atari智能体_被淘汰模型表现/` | Atari DQN 训练中被淘汰的中间模型 (dqn_401, dqn_preview) |
+| `一些不知道如何归类的东东/` | 党支部材料 — 积极分子材料填写指南、工作方案等 |
 
 ---
 
@@ -414,10 +647,12 @@ Webots wheeled robot controllers and simulation worlds.
 
 **Languages:** Python · C/C++ · Java
 
-**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLO · ONNX / ONNX Runtime · TensorBoard
+**ML/DL:** PyTorch 2.x · XGBoost · LightGBM · scikit-learn · NumPy · OpenCV · Gymnasium · Real-ESRGAN · Ultralytics YOLOv12 · ONNX / ONNX Runtime · TensorBoard
 
-**Robotics:** ROS Noetic · Webots · Catkin/CMake · Renesas RA8 (Cortex-M85) · RZ/G2L (Cortex-A55)
+**Robotics:** ROS Noetic · Webots · Catkin/CMake · Renesas RA8 (Cortex-M85) · RZ/G2L (Cortex-A55) · Unitree Go2
 
-**Domain:** Battery SOH Estimation · PINNs · ECM (2-RC) · IC/DV Analysis · Embedded AI (INT8 Deployment)
+**Domain:** Battery SOH Estimation · PINNs · ECM (2-RC) · IC/DV Analysis · Embedded AI (INT8 Deployment) · Multi-Robot Collaboration
+
+**GUI/Embedded:** Qt 6.5 LTS (eglfs/QML) · PyQt5 · ARM NEON · Mali-G31 GPU
 
 **Tools:** VS Code · MSYS2/MinGW64 · Anaconda · ChromeDriver/Selenium · Pygame · pandas · matplotlib · Git

@@ -70,7 +70,7 @@ $$G_0(s) = \frac{2.676}{s(s + 0.916)}$$
 
 $$\sigma_p = 0.16 + 0.4\left(\frac{1}{\sin\gamma} - 1\right) \leq 0.2$$
 
-$$t_s = \frac{\pi}{\omega_c}\left[2 + 1.5\left(\frac{1}{\sin\gamma} - 1\right) + 2.5\left(\frac{1}{\sin\gamma} - 1\right)^2\right] \leq 1.5$$
+$$t_s = \frac{\pi}{\omega_c}\left\[2 + 1.5\left(\frac{1}{\sin\gamma} - 1\right) + 2.5\left(\frac{1}{\sin\gamma} - 1\right)^2\right\] \leq 1.5$$
 
 解得：$\gamma^* \geq 65.38°$，$\omega_c^* \geq 4.56$。
 
@@ -609,7 +609,7 @@ $$H(s) = \frac{G_2(s)H(s)}{G_2(s)} = \frac{0.487s}{0.9s + 1}$$
 
 校正后：
 
-$$G_K(s) = \frac{G_1(s)G_2(s)G_3(s)}{1 + G_2(s)H(s)} = \frac{1130(0.9s + 1)}{s(0.06s + 1)[0.324s^2 + 112.26s + 1]}$$
+$$G_K(s) = \frac{G_1(s)G_2(s)G_3(s)}{1 + G_2(s)H(s)} = \frac{1130(0.9s + 1)}{s(0.06s + 1)\left(0.324s^2 + 112.26s + 1\right)}$$
 
 $\omega_{c1} = 8.2$，$\gamma_1 = 54.79°$，$\sigma_{p1} \approx 24.96\%$，$t_{s1} \approx 0.94\,\text{s}$。
 
@@ -671,7 +671,7 @@ $$u(t) = K_i \int_0^t e(\tau)\,d\tau$$
 
 控制器传递函数：$G_c(s) = K_p(1 + T_d s)$
 
-$$u(t) = K_p\left[e(t) + T_d \frac{de(t)}{dt}\right]$$
+$$u(t) = K_p\left(e(t) + T_d \frac{de(t)}{dt}\right)$$
 
 **对系统的影响**：
 - $\angle(1 + T_d s) = \arctan(T_d\omega) > 0$，提供超前相角
@@ -707,7 +707,7 @@ $$G_c(s) = K_p\left(1 + \frac{1}{T_i s}\right) = \frac{K_p(T_i s + 1)}{T_i s}$$
 
 $$G_c(s) = K_p\left(1 + \frac{1}{T_i s} + T_d s\right)$$
 
-$$u(t) = K_p\left[e(t) + \frac{1}{T_i}\int_0^t e(\tau)\,d\tau + T_d \frac{de(t)}{dt}\right]$$
+$$u(t) = K_p\left(e(t) + \frac{1}{T_i}\int_0^t e(\tau)\,d\tau + T_d \frac{de(t)}{dt}\right)$$
 
 **实质**：利用**积分作用改善稳态性能**，利用**微分作用改善动态性能**。
 

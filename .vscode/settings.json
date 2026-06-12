@@ -5,5 +5,7 @@
         "java/src"
     ],
     "markdown.validate.enabled": true,
-    "files.autoGuessEncoding": true
+    "files.autoGuessEncoding": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "off"
 }
