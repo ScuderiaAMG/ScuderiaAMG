@@ -83,7 +83,7 @@ Experience replay and target network separation are both critical; removing repl
 
 >`Python-Missions/`
 
-Collection of projects for the 《Python程序设计》 elective and beyond. Spans web scraping, image processing, GANs, super-resolution, and a full Pygame application.
+Collection of projects for the "Python Programming" elective and beyond. Spans web scraping, image processing, GANs, super-resolution, and a full Pygame application.
 
 ### Pure NumPy GAN · `GAN/1.py`
 
@@ -109,11 +109,11 @@ Aimed at understanding GAN internals and the connection to GAIL (Generative Adve
 | `realesrgan-ncnn-vulkan-20220424-windows/` | Real-ESRGAN ncnn Vulkan executable — native Windows GPU inference without Python overhead. Includes x2/x3/x4 anime and general models. |
 | `check.py` | Image quality check utility |
 | `tree.py` | File tree visualization |
-| Physics experiment scripts | `光电管伏安特性曲线.py`, `弗兰克-赫兹实验.py`, `零电流法测定普朗克常数h和红限频率.py`, `饱和光电流与入射光强的关系.py` — experimental data plotting with matplotlib |
+| Physics experiment scripts | `phototube_vi_characteristic.py`, `franck_hertz_experiment.py`, `planck_constant_zero_current.py`, `saturation_photocurrent_vs_intensity.py` — experimental data plotting with matplotlib |
 
 ### Web Scraping · `demo.py`
 
-Selenium + BeautifulSoup crawler for scraping the **ShanghaiRanking 2025 Chinese University Rankings** (软科中国大学排行榜). Features:
+Selenium + BeautifulSoup crawler for scraping the **ShanghaiRanking 2025 Chinese University Rankings**. Features:
 
 - Anti-detection: `--disable-blink-features`, `excludeSwitches`, navigator.webdriver spoofing
 - Auto-scroll to trigger lazy loading, with max-attempt cap and height-change detection
