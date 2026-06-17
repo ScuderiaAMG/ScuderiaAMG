@@ -28,7 +28,8 @@ def convolutional_neural_network(img):
         pool_size=2,
         pool_stride=2,
         act="relu")
-    conv_pool_1 = fluid.layers.batch_norm(conv_pool_1)
+    # 替换为静态图 batch_norm
+    conv_pool_1 = paddle.static.nn.batch_norm(conv_pool_1)
     
     # 第二个卷积-池化层
     conv_pool_2 = fluid.nets.simple_img_conv_pool(
@@ -38,7 +39,8 @@ def convolutional_neural_network(img):
         pool_size=2,
         pool_stride=2,
         act="relu")
-    conv_pool_2 = fluid.layers.batch_norm(conv_pool_2)
+    # 替换为静态图 batch_norm
+    conv_pool_2 = paddle.static.nn.batch_norm(conv_pool_2)
     
     # 第三个卷积-池化层
     conv_pool_3 = fluid.nets.simple_img_conv_pool(
@@ -49,28 +51,28 @@ def convolutional_neural_network(img):
         pool_stride=2,
         act="relu")
         
-    # 以softmax为激活函数的全连接输出层，10类数据输出10个数字
-    prediction = fluid.layers.fc(input=conv_pool_3, size=10, act='softmax')
+    # 替换为静态图全连接层 (注意参数名变为了 x 和 activation)
+    prediction = paddle.static.nn.fc(x=conv_pool_3, size=10, activation='softmax')
     return prediction
 
-# (2) 定义数据
-data_shape = [3, 32, 32]
-images = fluid.layers.data(name='images', shape=data_shape, dtype='float32')
-label = fluid.layers.data(name='label', shape=[1], dtype='int64')
+# (2) 定义数据 (已加入 None 维度)
+images = paddle.static.data(name='images', shape=[None, 3, 32, 32], dtype='float32')
+label = paddle.static.data(name='label', shape=[None, 1], dtype='int64')
 
 # (3) 获取分类器
 predict = convolutional_neural_network(images)
 
 # (4) 定义损失函数和准确率
-cost = fluid.layers.cross_entropy(input=predict, label=label) # 交叉熵
-avg_cost = fluid.layers.mean(cost)
-acc = fluid.layers.accuracy(input=predict, label=label)
+# 替换为现代交叉熵函数，关闭 use_softmax (因为上一步 fc 已自带 softmax)，并保持未 reduction 状态以供下一步求平均
+cost = paddle.nn.functional.cross_entropy(input=predict, label=label, reduction='none', use_softmax=False) 
+avg_cost = paddle.mean(cost)
+acc = paddle.static.accuracy(input=predict, label=label)
 
 # 获取测试程序
 test_program = fluid.default_main_program().clone(for_test=True)
 
-# (5) 定义优化方法
-optimizer = fluid.optimizer.Adam(learning_rate=0.001)
+# (5) 定义优化方法 (替换为现代 Adam 优化器)
+optimizer = paddle.optimizer.Adam(learning_rate=0.001)
 optimizer.minimize(avg_cost)
 print("完成")
 
