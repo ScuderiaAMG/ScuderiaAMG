@@ -83,182 +83,104 @@ Experience replay and target network separation are both critical; removing repl
 
 >`Python-Missions/`
 
-<<<<<<< HEAD
 Collection of projects for the "Python Programming" elective and beyond. Spans web scraping, image processing, GANs, super-resolution, and a full Pygame application.
-=======
-HUST 自动化学院《Python程序设计》课程作业及扩展项目。涵盖 Python 系统性自学课程体系、从零实现的深度学习框架、图像处理、GAN、YOLO 目标检测、Pygame 应用和物理实验等。总代码量超 80,000 行。
->>>>>>> 1c640f4676aa1864c3f405ddbcaa550e4d7a03a6
+Coursework and extended projects for the "Python Programming" course at the HUST School of Automation. The collection encompasses a comprehensive self-study Python curriculum, a deep learning framework implemented from scratch, image processing, GANs, YOLO object detection, Pygame applications, and physics experiments, totaling over 80,000 lines of code. ---
 
----
+### Systematic Python Self-Study Course · `01_basics/` ~ `12_math_and_optimization/`
 
-### Python 系统性自学课程 · `01_basics/` ~ `12_math_and_optimization/`
+A comprehensive self-study roadmap for Python, covering everything from basic syntax to mathematics and optimization; includes 12 modules and 32 core scripts:
 
-一套完整的 Python 自学路线，从基础语法到数学与优化，共 12 个模块、32 个核心脚本：
-
-| # | 模块 | 内容 | 脚本 |
+| # | Module | Content | Scripts |
 |---|---|---|---|
-| 01 | **Basics** | 基础语法、数据结构、面向对象 | `01_fundamentals.py`, `02_data_structures.py`, `03_oop.py` |
-| 02 | **Intermediate** | 高级函数、迭代器、异常处理 | `01_advanced_functions.py`, `02_iterators_and_errors.py` |
-| 03 | **Advanced** | 并发编程、设计模式 | `01_concurrency.py`, `02_design_patterns.py` |
-| 04 | **Data Science** | NumPy 基础、Pandas 基础 | `01_numpy_fundamentals.py`, `02_pandas_fundamentals.py` |
-| 05 | **Machine Learning** | MLP/CNN 从零实现、PyTorch 网络、Transformer、无监督学习 | `01_mlp_from_scratch.py`, `02_cnn_from_scratch.py`, `03_pytorch_networks.py`, `04_transformer.py`, `05_unsupervised_learning.py` |
-| 06 | **Reinforcement Learning** | Q-Learning、DQN、Policy Gradient、PPO、MCTS、环境工具 | `01_q_learning.py` ~ `06_envs_and_utils.py` |
-| 07 | **Algorithms** | 排序搜索、图算法、动态规划、高级数据结构 | `01_sorting_searching.py` ~ `04_advanced_data_structures.py` |
-| 08 | **Computer Vision** | 图像处理基础 | `01_image_processing.py` |
-| 09 | **NLP** | 文本处理、词嵌入 | `01_text_processing.py`, `02_word_embeddings.py` |
-| 10 | **Databases** | SQL 与 ORM | `01_sql_and_orms.py` |
-| 11 | **Software Engineering** | 设计模式与测试、Web 与 API、密码学与安全 | `01_patterns_and_testing.py`, `02_web_and_api.py`, `03_cryptography_and_security.py` |
-| 12 | **Math & Optimization** | 数值方法、概率与统计 | `01_numerical_methods.py`, `02_probability_and_statistics.py` |
+| 01 | **Basics** | Basic syntax, data structures, object-oriented programming | `01_fundamentals.py`, `02_data_structures.py`, `03_oop.py` |
+| 02 | **Intermediate** | Advanced functions, iterators, exception handling | `01_advanced_functions.py`, `02_iterators_and_errors.py` |
+| 03 | **Advanced** | Concurrent programming, design patterns | `01_concurrency.py`, `02_design_patterns.py` |
+| 04 | **Data Science** | NumPy basics, Pandas basics | `01_numpy_fundamentals.py`, `02_pandas_fundamentals.py` |
+| 05 | **Machine Learning** | MLP/CNN from scratch, PyTorch networks, Transformer, unsupervised learning | `01_mlp_from_scratch.py`, `02_cnn_from_scratch.py`, `03_pytorch_networks.py`, `04_transformer.py`, `05_unsupervised_learning.py` |
+| 06 | **Reinforcement Learning** | Q-Learning, DQN, Policy Gradient, PPO, MCTS, environment utilities | `01_q_learning.py` ~ `06_envs_and_utils.py` |
+| 07 | **Algorithms** | Sorting & searching, graph algorithms, dynamic programming, advanced data structures | `01_sorting_searching.py` ~ `04_advanced_data_structures.py` |
+| 08 | **Computer Vision** | Image processing basics | `01_image_processing.py` |
+| 09 | **NLP** | Text processing, word embeddings | `01_text_processing.py`, `02_word_embeddings.py` |
+| 10 | **Databases** | SQL and ORMs | `01_sql_and_orms.py` |
+| 11 | **Software Engineering** | Design patterns and testing, Web and APIs, cryptography and security | `01_patterns_and_testing.py`, `02_web_and_api.py`, `03_cryptography_and_security.py` |
+| 12 | **Math & Optimization** | Numerical methods, probability and statistics | `01_numerical_methods.py`, `02_probability_and_statistics.py` |
 
 ---
 
-### 深度学习框架 · `deep_learning_framework/`
+### Deep Learning Framework · `deep_learning_framework/`
 
-一个**全部从零实现的完整深度学习框架**（~53,000 行纯 Python/NumPy），涵盖现代深度学习全栈。27 个模块覆盖从底层算子到 MLOps 的全流程：
+A **complete deep learning framework implemented entirely from scratch** (~53,000 lines of pure Python/NumPy), covering the full stack of modern deep learning. 27 modules covering the entire workflow from low-level operators to MLOps:
 
 | Module | Scope | Key Components |
 |---|---|---|
-| `layers.py` | 神经网络层 | `Linear`, `Conv2d`, `BatchNorm`, `LayerNorm`, `RNN`, `LSTM`, `GRU`, `Transformer`, `Attention`, `Embedding`, `Dropout` |
-| `models.py` | 模型集合 | `MLP`, `CNN`, `ResNet`, `DenseNet`, `UNet`, `GAN`, `VAE`, `Diffusion`, `ViT`, `CLIP`, `LLaMA-style` |
-| `activations.py` | 激活函数 | `ReLU`, `GELU`, `Swish`, `Mish`, `Softmax` |
-| `losses.py` | 损失函数 | `MSE`, `CrossEntropy`, `Focal`, `Contrastive`, `Triplet`, `Dice` |
-| `optimizers.py` | 优化器 | `SGD`, `Adam`, `AdamW`, `LAMB`, `Lion`, `RMSprop` |
-| `regularization.py` | 正则化 | `Dropout`, `DropPath`, `StochasticDepth`, `LabelSmoothing`, `Mixup`, `CutMix` |
-| `cv.py` | 计算机视觉 | 滤波器 (Gaussian/Median/Bilateral)、边缘检测、数据增强、IoU/NMS |
-| `nlp.py` | 自然语言处理 | `Tokenizer` 族 (Whitespace/Character/BPE)、TF-IDF、序列标注、文本数据增强 |
-| `rl.py` | 强化学习 | `ReplayBuffer`, `PrioritizedReplayBuffer`, N-Step、PER、NoisyNet 支持 |
-| `gnn.py` | 图神经网络 | `GraphConv`, `GAT`, `GIN`, `GraphSAGE`, 消息传递框架 |
-| `multimodal.py` | 多模态 | 图像-文本融合、跨模态注意力、视听对齐 |
-| `timeseries.py` | 时间序列 | LSTM/Transformer 时序预测、序列分解、异常检测 |
-| `tables.py` | 表格数据 | TabNet-style 注意力、特征嵌入、混合密度网络 (~27K 行) |
-| `signal.py` | 信号处理 | 小波变换、FFT、滤波、时频分析 |
-| `bioinformatics.py` | 生物信息 | 序列编码、接触图预测 |
-| `classic_ml.py` | 经典 ML | KMeans、GMM、决策树、HMM、CRF、t-SNE、UMAP |
-| `features.py` | 特征工程 | 分箱、Target Encoding、CatBoost Encoding、互信息、PCA/kPCA |
-| `data_utils.py` | 数据处理 | Dataset/DataLoader、数据清洗管线、增强流水线 |
-| `metrics.py` | 评估指标 | 分类/回归/排序/生成指标、统计检验 |
-| `automl.py` | AutoML | 超参搜索 (Random/Grid/Bayesian/HyperBand)、NAS、模型选择、特征选择 |
-| `distributed.py` | 分布式训练 | DataParallel、DistributedDataParallel、参数服务器、Ring AllReduce |
-| `mlops.py` | MLOps | 实验追踪、模型注册、A/B 测试、特征存储、漂移检测、部署管线 |
-| `security.py` | 安全 | 对抗样本 (FGSM/PGD/C&W)、成员推理、差分隐私、模型水印 |
-| `examples.py` | 示例 | MNIST/CIFAR/IMDB 分类示例、目标检测、图像分割 |
-| `utils.py` | 工具 | `save`/`load`、进度条、学习率调度器、权重初始化 |
-| `weights_db.py` | 模型仓库 | 预训练权重数据库、版本管理、自动下载 (~6,565 行) |
+| `layers.py` | Neural Network Layers | `Linear`, `Conv2d`, `BatchNorm`, `LayerNorm`, `RNN`, `LSTM`, `GRU`, `Transformer`, `Attention`, `Embedding`, `Dropout` |
+| `models.py` | Model Collection | `MLP`, `CNN`, `ResNet`, `DenseNet`, `UNet`, `GAN`, `VAE`, `Diffusion`, `ViT`, `CLIP`, `LLaMA-style` |
+| `activations.py` | Activation Functions | `ReLU`, `GELU`, `Swish`, `Mish`, `Softmax` |
+| `losses.py` | Loss Functions | `MSE`, `CrossEntropy`, `Focal`, `Contrastive`, `Triplet`, `Dice` |
+| `optimizers.py` | Optimizers | `SGD`, `Adam`, `AdamW`, `LAMB`, `Lion`, `RMSprop` |
+| `regularization.py` | Regularization | `Dropout`, `DropPath`, `StochasticDepth`, `LabelSmoothing`, `Mixup`, `CutMix` |
+| `cv.py` | Computer Vision | Filters (Gaussian/Median/Bilateral), Edge Detection, Data Augmentation, IoU/NMS |
+| `nlp.py` | Natural Language Processing | `Tokenizer` family (Whitespace/Character/BPE), TF-IDF, Sequence Labeling, Text Data Augmentation |
+| `rl.py` | Reinforcement Learning | `ReplayBuffer`, `PrioritizedReplayBuffer`, N-Step, PER, NoisyNet support |
+| `gnn.py` | Graph Neural Networks | `GraphConv`, `GAT`, `GIN`, `GraphSAGE`, Message Passing Framework |
+| `multimodal.py` | Multimodal | Image-Text Fusion, Cross-modal Attention, Audio-Visual Alignment |
+| `timeseries.py` | Time Series | LSTM/Transformer Forecasting, Sequence Decomposition, Anomaly Detection |
+| | `tables.py` | Tabular data | TabNet-style attention, feature embeddings, mixture density networks (~27K lines) |
+| `signal.py` | Signal processing | Wavelet transform, FFT, filtering, time-frequency analysis |
+| `bioinformatics.py` | Bioinformatics | Sequence encoding, contact map prediction |
+| `classic_ml.py` | Classic ML | KMeans, GMM, decision trees, HMM, CRF, t-SNE, UMAP |
+| `features.py` | Feature engineering | Binning, Target Encoding, CatBoost Encoding, mutual information, PCA/kPCA |
+| `data_utils.py` | Data processing | Dataset/DataLoader, data cleaning pipelines, augmentation pipelines |
+| `metrics.py` | Evaluation metrics | Classification/regression/ranking/generation metrics, statistical tests |
+| `automl.py` | AutoML | Hyperparameter search (Random/Grid/Bayesian/HyperBand), NAS, model selection, feature selection |
+| `distributed.py` | Distributed training | DataParallel, DistributedDataParallel, parameter server, Ring AllReduce |
+| `mlops.py` | MLOps | Experiment tracking, model registry, A/B testing, feature store, drift detection, deployment pipelines |
+| `security.py` | Security | Adversarial examples (FGSM/PGD/C&W), membership inference, differential privacy, model watermarking |
+| `examples.py` | Examples | MNIST/CIFAR/IMDB classification examples, object detection, image segmentation |
+| `utils.py` | Utilities | `save`/`load`, progress bars, learning rate schedulers, weight initialization |
+| `weights_db.py` | Model repository | Pre-trained weights database, version management, automatic download (~6,565 lines) |
 
-**设计理念**：NumPy-only 后端，`Module` → `Parameter` → 自动求导，API 风格贴近 PyTorch。所有模块可独立使用，无需安装任何深度学习框架。
+**Design Philosophy**: NumPy-only backend; `Module` → `Parameter` → automatic differentiation; API style closely resembles PyTorch. All modules can be used independently without installing any deep learning frameworks. ---
 
----
+### Agricultural Drone Pesticide Spraying Simulation System · `Test3/`
 
-### 农田无人机喷洒农药模拟系统 · `Test3/`
-
-Pygame 驱动的农田无人机喷洒农药交互式模拟器：
+An interactive simulator for agricultural drone pesticide spraying, powered by Pygame:
 
 | File | Role |
 |---|---|
-| `main.py` | 程序入口 |
-| `app.py` | `FarmDroneApp` — 主控循环，60 FPS，状态机 (welcome → login/register → main → exit) |
-| `drone.py` | `Drone` 类 — 无人机运动模型与渲染 |
-| `field.py` | `Field` 类 — 农田网格化建模与可视化 |
-| `pesticide.py` | `PesticideManager` — 农药喷洒覆盖与消散模型 |
-| `path_planning.py` | `PathPlanner` — 无人机路径规划算法 |
-| `auth.py` | `AuthSystem` — 用户登录/注册（JSON 持久化） |
-| `animation.py` | `AnimationSystem` — 开场/结束动画系统 |
-| `utils.py` | 工具函数 |
+| `main.py` | Program entry point |
+| `app.py` | `FarmDroneApp` — Main control loop, 60 FPS, state machine (welcome → login/register → main → exit) |
+| `drone.py` | `Drone` class — Drone movement model and rendering |
+| `field.py` | `Field` class — Grid-based modeling and visualization of the farmland |
+| `pesticide.py` | `PesticideManager` — Pesticide spray coverage and dissipation model |
+| `path_planning.py` | `PathPlanner` — Drone path planning algorithm |
+| `auth.py` | `AuthSystem` — User login/registration (JSON persistence) |
+| `animation.py` | `AnimationSystem` — Opening/closing animation system |
+| `utils.py` | Utility functions |
 
-### Pygame 全栈应用框架 · `Test3demo/`
+### Pygame Full-Stack Application Framework · `Test3demo/`
 
-一个完整的 Pygame 应用模板——含欢迎动画、登录/注册界面、模拟主界面和结束动画的多屏应用架构 (MVC + Screen 状态机)。`ui/screens/` 下每个屏幕独立模块化，`utils/logger.py` 统一日志。
+A complete Pygame application template featuring a multi-screen architecture (MVC + Screen state machine) that includes a welcome animation, login/registration screens, the main simulation interface, and a closing animation. Each screen is modularized under `ui/screens/`, and logging is centralized via `utils/logger.py`. ---
 
----
+### Pure NumPy GAN · `GAN/1.py`
 
-### 纯 NumPy GAN · `GAN/1.py`
+Building a **pure NumPy** Generative Adversarial Network from scratch—no PyTorch or TensorFlow:
 
-从零构建 **纯 NumPy** 生成对抗网络——无 PyTorch/TensorFlow：
+- `Linear`, `ReLU`, and `Sigmoid` layers + manual forward/backward passes
+- Binary Cross Entropy analytical gradients + `Sequential` chain-rule backpropagation
+- Generator: latent (4D) → hidden (16, ReLU) → 2D output
+- Discriminator: 2D → hidden (16, ReLU) → 1D probability (Sigmoid)
+- Alternating G/D training for 2000 epochs
 
-- `Linear`, `ReLU`, `Sigmoid` 层 + 手动前向/反向传播
-- Binary Cross Entropy 解析梯度 + `Sequential` 链式反向传播
-- Generator: latent (4D) → hidden (16, ReLU) → 2D 输出
-- Discriminator: 2D → hidden (16, ReLU) → 1D 概率 (Sigmoid)
-- 2000 epoch 交替训练 G/D
+Objective: To understand the internal mechanisms of GANs and their connection to GAIL (Generative Adversarial Imitation Learning). The real data distribution is set as a Gaussian distribution with a mean of [5, 5], simulating expert state-action demonstrations.
 
-目标：理解 GAN 内部机制及其与 GAIL (Generative Adversarial Imitation Learning) 的联系。真实数据分布设为均值 [5, 5] 的高斯分布，模拟专家状态-动作演示。
 
----
-
-### 图像处理与超分辨率 · `pic.py/`
+### Image Processing and Super-Resolution · `pic.py/`
 
 | Script | Function |
 |---|---|
-<<<<<<< HEAD
-| `pic.py` | Selective color inversion — reverses only grayscale pixels (R~G~B within tolerance), leaves colored regions untouched. Uses NumPy boolean masking. |
-| `res.py` | Real-ESRGAN super-resolution pipeline — RRDBNet (23 RRDB blocks, 64 features), FP16 inference, tile-based processing (256px tiles for 8GB VRAM), auto model download from GitHub releases. `enhance_image()` function with configurable outscale and tile_size. |
-| `ai_upscale.py` | Alternative AI upscaling approach |
-| `pro_upscale.py` / `upscale2.py` / `upscale3.py` | Upscaling variants with different model configurations |
-| `realesrgan-ncnn-vulkan-20220424-windows/` | Real-ESRGAN ncnn Vulkan executable — native Windows GPU inference without Python overhead. Includes x2/x3/x4 anime and general models. |
-| `check.py` | Image quality check utility |
-| `tree.py` | File tree visualization |
-| Physics experiment scripts | `phototube_vi_characteristic.py`, `franck_hertz_experiment.py`, `planck_constant_zero_current.py`, `saturation_photocurrent_vs_intensity.py` — experimental data plotting with matplotlib |
+| `pic.py` | Selective color inversion — reverses only grayscale pixels (R, G, and B values ​​within a tolerance range), leaving others unchanged.
 
-### Web Scraping · `demo.py`
-
-Selenium + BeautifulSoup crawler for scraping the **ShanghaiRanking 2025 Chinese University Rankings**. Features:
-=======
-| `pic.py` / `pic2.py` | 选择性颜色反转——仅反转灰度像素 (R~G~B 在容差内)，NumPy 布尔掩码实现 |
-| `res.py` | Real-ESRGAN 超分辨率——RRDBNet (23 RRDB blocks, 64 features)、FP16 推理、分块处理 (256px tiles, 适配 8GB VRAM)、自动下载模型。`enhance_image()` 函数支持自定义 outscale 和 tile_size |
-| `pro_upscale.py` | Pro 上采样变体——多模型配置 |
-| `pro_upscale2.py` | **`pro_ai_upscale_any_ratio()`** — 支持任意纵横比的 AI 上采样，批量处理 + 可选输出分辨率与模型 |
-| `upscale2.py` / `upscale3.py` / `ai_upscale.py` | 不同模型配置的上采样变体 |
-| `realesrgan-ncnn-vulkan-20220424-windows/` | Real-ESRGAN ncnn Vulkan 可执行文件——原生 Windows GPU 推理，零 Python 开销，含 x2/x3/x4 anime/general 模型 |
-| `check.py` | 图像质量检测 |
-| `tree.py` | 文件树可视化 |
-| 物理实验脚本 | `光电管伏安特性曲线.py`, `弗兰克-赫兹实验.py`, `零电流法测定普朗克常数h和红限频率.py`, `饱和光电流与入射光强的关系.py` — matplotlib 实验数据可视化 |
-
----
-
-### YOLOv12 目标检测 · `vision/`
-
-YOLOv12 竞赛数据集目标检测训练：
-
-| Project | Dataset | Model | Epochs | Hardware |
-|---|---|---|---|---|
-| `Elite_race_train/` | 自定义 EliteRace 检测 | yolo12n.pt | 300 | RTX 4090 D, batch 108 |
-| `raicom2026_train_down/` | RaiCom 2026 俯视视角 | yolo12n.pt | 300 | RTX 4090 D |
-| `raicom2026_train_up/` | RaiCom 2026 仰视视角 | yolo12n.pt | 300 | RTX 4090 D |
-
-每轮训练包含：混淆矩阵、F1/PR 曲线、验证批次预测、训练批次样本、best/last/epoch 检查点。
-
-### YOLO 推理 · `predict.py`
-
-YOLOv12 批量推理脚本——配置输入文件夹 + 模型路径 → 自动创建 result 目录 → 输出带标注的图片 + 检测日志 txt。`weights/best.pt` 为训练好的模型权重。
-
----
-
-### Web Scraping · `demo.py`
-
-Selenium + BeautifulSoup 爬取**软科 2025 中国大学排行榜**：
->>>>>>> 1c640f4676aa1864c3f405ddbcaa550e4d7a03a6
-
-- 反检测: `--disable-blink-features`, `excludeSwitches`, `navigator.webdriver` 伪造
-- 自动滚动触发懒加载，最大尝试次数 + 高度变化检测
-- "加载更多"按钮检测，JS 点击回退
-- 中文大学名提取 (处理 img+text 混合单元格，CJK 字符正则)
-- pandas DataFrame 输出含 rank/name/location/type/score 列
-
-### PDF 图像提取 · `pdf_img.py`
-
-从 PDF 文件中提取嵌入图像以供后续处理。
-
-### 其他文件
-
-| File | Description |
-|---|---|
-| `practice1_1.py` ~ `practice1_4.py` | Python 入门练习——数据结构、算法、文件 I/O、控制流 |
-| `TEST1.py` / `TEST1-1.py` / `TEST2.py` / `test.py` / `test0.py` / `test_snippet.py` / `zz.py` | 基础编程练习与代码片段 |
-| `block_diagram_step_1` | 框图步骤描述 |
-| `predict.py` | YOLOv12 推理 |
-| `weights/` | 模型权重 (`RealESRGAN_x4plus.pth`) |
-| `IEEE-Transactions-LaTeX2e-templates-and-instructions/` | IEEE 论文 LaTeX 模板 |
-| 根目录图片/PDF | 超分辨率前后对比图、物理实验数据图、椭圆偏振光雷达图、课程设计 PDF 题目 |
 
 ---
 
@@ -533,91 +455,75 @@ ROS Noetic workspace for drone autonomy. 9 packages under `src/`, built with Cat
 Webots wheeled robot controllers and simulation worlds.
 
 ---
-
-## Running — 华中大体育 GPS 跑步模拟器
+## Running — HUST Sports GPS Running Simulator
 
 >`Running/`
 
-Campus跑步打卡自动化工具。沿华科校园路线生成模拟跑步 GPS 轨迹，完成"华中大体育"App 的课外跑步打卡。约束规则：每次 ≥3.5 km，配速 4:00-10:00 min/km。
+An automation tool for campus running check-ins. It generates simulated GPS running tracks along HUST campus routes to complete the "HUST Sports" app's extracurricular running requirements. Constraints: Distance ≥3.5 km per run; pace 4:00–10:00 min/km.
 
 | File | Role |
 |---|---|
-| `run.py` | Rich TUI 交互版 — 轨迹预览、GPX 导出、ADB 实时模拟、设备诊断 |
-| `run_cli.py` | 纯命令行版 — 零第三方依赖，适合 SSH/远程/后台运行 |
-| `routes/` | 校园路线 JSON 定义（GPS 坐标序列），支持自定义路线 |
-| `mumu_gps.py` | MuMu 模拟器 GPS 注入方案 |
-| `analyze_app.py` | App 行为分析工具 |
-| `core/` | 核心轨迹生成与 GPS 模拟引擎 |
+| `run.py` | Rich TUI interactive version — track preview, GPX export, real-time ADB simulation, device diagnostics |
+| `run_cli.py` | Pure CLI version — zero third-party dependencies; suitable for SSH, remote, or background execution |
+| `routes/` | Campus route JSON definitions (GPS coordinate sequences); supports custom routes |
+| `mumu_gps.py` | GPS injection solution for MuMu Emulator |
+| `analyze_app.py` | App behavior analysis tool |
+| `core/` | Core track generation and GPS simulation engine |
 
-**两种使用方式**：
-- **GPX 导出（推荐）**：PC 端预先生成 GPX 轨迹 → 手机 Mock GPS App 导入播放，全设备通用
-- **ADB 实时模拟**：PC 通过 USB 每秒向手机注入 GPS 坐标，仅部分 ROM 支持
+**Two usage methods**:
+- **GPX Export (Recommended)**: Pre-generate GPX tracks on PC → Import and play back via a "Mock GPS" app on the phone; compatible with all devices.
+- **Real-time ADB Simulation**: PC injects GPS coordinates into the phone via USB every second; supported only by specific ROMs.
 
-配速自动满足 4:00-10:00 min/km，里程自动满足 ≥3.5 km。
+Automatically meets pace requirements (4:00–10:00 min/km) and distance requirements (≥3.5 km). ### Remote Deployment
 
-### Remote Deployment
-
-| 方案 | 说明 |
+| Solution | Description |
 |---|---|
-| 本地服务器 | 旧笔记本/树莓派装 Linux + ADB，手机 USB 插上 24h 开机，SSH 远程控制 |
-| Windows SSH | 管理员 PowerShell 安装 OpenSSH Server，同 WiFi 下远程操控 |
+| Local Server | Old laptop or Raspberry Pi running Linux + ADB; phone connected via USB and kept on 24/7; remote control via SSH |
+| Windows SSH | Install OpenSSH Server via PowerShell (Administrator); remote control over the same Wi-Fi network |
 
 ```
-# GPX 导出
+# GPX Export
 python run_cli.py -p 5.5 --gpx route.gpx
 
-# 后台无人值守
+# Unattended Background Execution
 nohup python3 run_cli.py -p 5.5 -l 2 -y > run.log 2>&1 &
 ```
 
 ---
 
-## CSIEC — 多无人系统协同感知与规划
+## CSIEC — Collaborative Perception and Planning for Multi-Unmanned Systems
 
 >`CSIEC/`
 
-中国国际大学生创新大赛 (CSIEC) 参赛项目——多无人系统（UGV + UAV）协同感知、规划与路径规划。包含完整的项目申报书、答辩 PPT 和宇树 Go2 机器人狗二次开发指南。
-
-| File | Content |
+A project entry for the China International College Students' "Internet+" Innovation Competition (CSIEC)—focusing on collaborative perception, planning, and path planning for multi-unmanned systems (UGV + UAV). Includes the complete project proposal, presentation slides, and a guide for secondary development on the Unitree Go2 robot dog. | File | Content |
 |---|---|
-| `多无人系统协同感知与规划-项目申请书.pdf` | 正式项目申报书 |
-| `多无人系统协同感知、规划（有图片）-项目.docx` | 带插图的详细项目文档 |
-| `duowurenxitong_defense_20260522_212848.pptx` | 项目答辩 PPT |
-| `连接宇树Go2 开发版（EDU版）的扩展坞进行二次开发.md/pdf` | Unitree Go2 robot dog SDK development guide — 物理连接、网络配置 (192.168.123.18)、SSH 登录、SDK 安装与测试 |
+| `多无人系统协同感知与规划-项目申请书.pdf` | Formal project proposal |
+| `多无人系统协同感知、规划（有图片）-项目.docx` | Detailed project document with illustrations |
+| `duowurenxitong_defense_20260522_212848.pptx` | Project defense presentation (PPT) |
+| `连接宇树Go2 开发版（EDU版）的扩展坞进行二次开发.md/pdf` | Unitree Go2 (EDU version) development guide — physical connection, network configuration (192.168.123.18), SSH login, SDK installation and testing |
 
 ### AirHust · `AirHust/`
 
-无人机/机器人碰撞避免 C++ 算法集——多种碰撞避免策略的 C/C++ 实现与变体：
+C++ algorithm suite for UAV/robot collision avoidance — implementations and variants of various collision avoidance strategies:
 
 | Script | Variant |
 |---|---|
-| `collision_avoidance.cpp` | 标准碰撞避免 |
-| `collision_avoidance_alpha.cpp` / `_alpha2.cpp` | Alpha 变体 |
-| `collision_avoidance_beta.cpp` | Beta 变体 |
-| `collision_avoidance_plus.cpp` | 增强版 |
-| `collision_avoidance_basic.cpp` | 基础精简版 |
-| `collision_avoidance_mod.cpp` | 修改版 |
-| `crossing_door_darknet.cpp` | 暗网穿越门检测 |
-| `integrated_test.cpp` / `integrated_work.cpp` | 集成测试与综合方案 |
-| `aia_collision_avoidance.cpp` | AIA (Aerial Intelligent Agent) 竞赛版 |
+| `collision_avoidance.cpp` | Standard collision avoidance |
+| `collision_avoidance_alpha.cpp` / `_alpha2.cpp` | Alpha variant |
+| `collision_avoidance_beta.cpp` | Beta variant |
+| `collision_avoidance_plus.cpp` | Enhanced version |
+| `collision_avoidance_basic.cpp` | Basic/streamlined version |
+| `collision_avoidance_mod.cpp` | Modified version |
+| `crossing_door_darknet.cpp` | Darknet-based doorway detection |
+| `integrated_test.cpp` / `integrated_work.cpp` | Integrated testing and comprehensive solution |
+| `aia_collision_avoidance.cpp` | AIA (Aerial Intelligent Agent) competition version |
 
 ---
 
 ## Coursework
 
-`人工智能导论/` · `信号与系统/` · `数据结构/` · `自动控制原理/` · `运筹学/` · `计算方法/` · `大学物理/` · `模拟电路/` · `数字电路/` · `微机原理/` · `离散数学/` · `复变函数与积分变换/` · `单片机/` · `文献检索与科技论文写作/` · `大学生社会实践/` · `数电实验/` · `模电实验/` · `电路实验/` · `物理实验复习/` · `自动控制原理实验/` · `电子技术课程设计实验/` · `马克思主义基本原理/` · `CET6/`
+`人工智能导论/` · `信号与系统/` · `数据结构/` · `自动控制原理/` · `运筹学/` · `计算方法/` · `大学物理/` · `模拟电路/` · `数字电路/` · `微机原理/` · `离散数学/` · `复变函数与积分变换/` · `单片机/` · `文献检索与科技论文写作/` · `大学生社会实践/` · `数电实验/` · `模电实验/` · `电路实验/` · `物理实验复习/` · `自动控制原理实验/` · `电子技术课程设计实验/` · `马克思主义基本原理/` · `CET6/Reading Materials for the Independent Assessment of SARS-CoV-2 Origins`
 
-### 电子技术课程设计实验 · `电子技术课程设计实验/`
-
-电子技术课程设计实验资料 — 实验总览、课程设计报告评分要求、实验数据截图。
-
-### 马克思主义基本原理 · `马克思主义基本原理/`
-
-马原课程学习资料 — 期末考试题型与复习提纲（2021-2026各年度）、习题集、历年真题（A/B卷含答案）。
-
-### CET-6 · `CET6/`
-
-大学英语六级备考 — 核心词汇整理 (`words.md`)、SARS-CoV-2 溯源独立评估阅读材料 (SAGO 报告)。
 
 ---
 
