@@ -495,7 +495,9 @@ nohup python3 run_cli.py -p 5.5 -l 2 -y > run.log 2>&1 &
 
 >`CSIEC/`
 
-A project entry for the China International College Students' "Internet+" Innovation Competition (CSIEC)—focusing on collaborative perception, planning, and path planning for multi-unmanned systems (UGV + UAV). Includes the complete project proposal, presentation slides, and a guide for secondary development on the Unitree Go2 robot dog. | File | Content |
+A project entry for the China International College Students' "Internet+" Innovation Competition (CSIEC)—focusing on collaborative perception, planning, and path planning for multi-unmanned systems (UGV + UAV). Includes the complete project proposal, presentation slides, and a guide for secondary development on the Unitree Go2 robot dog. 
+
+| File | Content |
 |---|---|
 | `多无人系统协同感知与规划-项目申请书.pdf` | Formal project proposal |
 | `多无人系统协同感知、规划（有图片）-项目.docx` | Detailed project document with illustrations |
