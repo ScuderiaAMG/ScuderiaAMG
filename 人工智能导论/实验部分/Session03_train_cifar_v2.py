@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
+# 开启静态图模式
 paddle.enable_static()
 
 BATCH_SIZE = 128
@@ -50,9 +51,10 @@ optimizer = paddle.optimizer.Adam(learning_rate=0.001)
 optimizer.minimize(avg_cost)
 print("网络配置完成，准备启动 Executor...")
 
-# 强制开启 GPU！
-use_cuda = True
-place = paddle.CUDAPlace(0) if use_cuda else paddle.CPUPlace()
+# ==========================================
+# 终极修复：绝对强制使用 CPUPlace()，彻底切断与 CUDA 的联系
+# ==========================================
+place = paddle.CPUPlace()
 exe = paddle.static.Executor(place)
 exe.run(paddle.static.default_startup_program())
 
@@ -78,12 +80,9 @@ model_save_dir = "./catdog.inference.model"
 for pass_id in range(EPOCH_NUM):
     for batch_id, data in enumerate(train_reader()):
         
-        # 终极修复：强制内存物理连续，彻底封杀 C++ 指针越界
+        # CPU 内存下安全的数据打包
         img_data = np.array([item[0] for item in data], dtype=np.float32).reshape(-1, 3, 32, 32)
-        img_data = np.ascontiguousarray(img_data)
-        
         lbl_data = np.array([item[1] for item in data], dtype=np.int64).reshape(-1, 1)
-        lbl_data = np.ascontiguousarray(lbl_data)
 
         train_cost, train_acc = exe.run(program=paddle.static.default_main_program(),
                                         feed={'images': img_data, 'label': lbl_data},
@@ -98,14 +97,12 @@ for pass_id in range(EPOCH_NUM):
             print('Pass:%d, Batch:%d, Cost:%0.5f, Accuracy:%0.5f' %
                   (pass_id, batch_id, train_cost.item(), train_acc.item()))
 
+    # 测试阶段
     test_costs = []
     test_accs = []
     for batch_id, data in enumerate(test_reader()):
         img_data = np.array([item[0] for item in data], dtype=np.float32).reshape(-1, 3, 32, 32)
-        img_data = np.ascontiguousarray(img_data)
-        
         lbl_data = np.array([item[1] for item in data], dtype=np.int64).reshape(-1, 1)
-        lbl_data = np.ascontiguousarray(lbl_data)
         
         test_cost, test_acc = exe.run(program=test_program,
                                       feed={'images': img_data, 'label': lbl_data},
@@ -117,12 +114,13 @@ for pass_id in range(EPOCH_NUM):
     test_acc_avg = (sum(test_accs) / len(test_accs))
     print('Test:%d, Cost:%0.5f, ACC:%0.5f' % (pass_id, test_cost_avg, test_acc_avg))
 
+# 保存模型
 if not os.path.exists(model_save_dir):
     os.makedirs(model_save_dir)
 print('save models to %s' % (model_save_dir))
 paddle.fluid.io.save_inference_model(model_save_dir, ['images'], [predict], exe)
 print('训练模型保存完成！')
-draw_train_process("training", all_train_iters, all_train_costs, all_train_accs, "trainning cost", "trainning acc")
+draw_train_process("training", all_train_iters, all_train_costs, all_train_accs, "training cost", "training acc")
 
 # 模型预测
 infer_exe = paddle.static.Executor(place)
@@ -140,7 +138,6 @@ def load_image(file):
     im = im.transpose((2, 0, 1))
     im = im / 255.0
     im = np.expand_dims(im, axis=0)
-    print('im_shape的维度:', im.shape)
     return im
 
 with paddle.static.scope_guard(inference_scope):
