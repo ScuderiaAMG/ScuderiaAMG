@@ -1,61 +1,37 @@
 import os
 import paddle
-import paddle.fluid as fluid
 import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 
-# 关键：开启静态图模式，兼容文档中的 Fluid 旧 API
-paddle.enable_static() 
+paddle.enable_static()
 
 BATCH_SIZE = 128
-# 用于训练的数据提供器
 train_reader = paddle.batch(
     paddle.reader.shuffle(paddle.dataset.cifar.train10(), buf_size=128*100),
     batch_size=BATCH_SIZE)
-# 用于测试的数据提供器
 test_reader = paddle.batch(
     paddle.dataset.cifar.test10(),
     batch_size=BATCH_SIZE)
 
 # (1) 网络搭建
 def convolutional_neural_network(img):
-    # 第一个卷积-池化层
+    import paddle.fluid as fluid 
     conv_pool_1 = fluid.nets.simple_img_conv_pool(
-        input=img,
-        filter_size=5,
-        num_filters=20,
-        pool_size=2,
-        pool_stride=2,
-        act="relu")
-    # 替换为静态图 batch_norm
+        input=img, filter_size=5, num_filters=20, pool_size=2, pool_stride=2, act="relu")
     conv_pool_1 = paddle.static.nn.batch_norm(conv_pool_1)
     
-    # 第二个卷积-池化层
     conv_pool_2 = fluid.nets.simple_img_conv_pool(
-        input=conv_pool_1,
-        filter_size=5,
-        num_filters=50,
-        pool_size=2,
-        pool_stride=2,
-        act="relu")
-    # 替换为静态图 batch_norm
+        input=conv_pool_1, filter_size=5, num_filters=50, pool_size=2, pool_stride=2, act="relu")
     conv_pool_2 = paddle.static.nn.batch_norm(conv_pool_2)
     
-    # 第三个卷积-池化层
     conv_pool_3 = fluid.nets.simple_img_conv_pool(
-        input=conv_pool_2,
-        filter_size=5,
-        num_filters=50,
-        pool_size=2,
-        pool_stride=2,
-        act="relu")
+        input=conv_pool_2, filter_size=5, num_filters=50, pool_size=2, pool_stride=2, act="relu")
         
-    # 替换为静态图全连接层 (注意参数名变为了 x 和 activation)
     prediction = paddle.static.nn.fc(x=conv_pool_3, size=10, activation='softmax')
     return prediction
 
-# (2) 定义数据 (已加入 None 维度)
+# (2) 定义数据 
 images = paddle.static.data(name='images', shape=[None, 3, 32, 32], dtype='float32')
 label = paddle.static.data(name='label', shape=[None, 1], dtype='int64')
 
@@ -63,29 +39,22 @@ label = paddle.static.data(name='label', shape=[None, 1], dtype='int64')
 predict = convolutional_neural_network(images)
 
 # (4) 定义损失函数和准确率
-# 替换为现代交叉熵函数，关闭 use_softmax (因为上一步 fc 已自带 softmax)，并保持未 reduction 状态以供下一步求平均
 cost = paddle.nn.functional.cross_entropy(input=predict, label=label, reduction='none', use_softmax=False) 
 avg_cost = paddle.mean(cost)
 acc = paddle.static.accuracy(input=predict, label=label)
 
-# 获取测试程序
-test_program = fluid.default_main_program().clone(for_test=True)
+test_program = paddle.static.default_main_program().clone(for_test=True)
 
-# (5) 定义优化方法 (替换为现代 Adam 优化器)
+# (5) 定义优化方法
 optimizer = paddle.optimizer.Adam(learning_rate=0.001)
 optimizer.minimize(avg_cost)
-print("完成")
+print("网络配置完成，准备启动 Executor...")
 
-# 创建Executor
-use_cuda = True # 使用GPU加速
-place = fluid.CUDAPlace(0) if use_cuda else fluid.CPUPlace()
-exe = fluid.Executor(place)
-exe.run(fluid.default_startup_program())
-
-# ==========================================
-# 彻底删除或注释掉这一行：
-# feeder = fluid.DataFeeder(feed_list=[images, label], place=place)
-# ==========================================
+# 强制开启 GPU！
+use_cuda = True
+place = paddle.CUDAPlace(0) if use_cuda else paddle.CPUPlace()
+exe = paddle.static.Executor(place)
+exe.run(paddle.static.default_startup_program())
 
 all_train_iter = 0
 all_train_iters = []
@@ -107,14 +76,16 @@ EPOCH_NUM = 20
 model_save_dir = "./catdog.inference.model" 
 
 for pass_id in range(EPOCH_NUM):
-    # 开始训练
     for batch_id, data in enumerate(train_reader()):
         
-        # 【最终修复】：显式 Reshape 恢复 4D 结构，完美对接静态图
-        img_data = np.array([item[0] for item in data]).astype('float32').reshape(-1, 3, 32, 32)
-        lbl_data = np.array([item[1] for item in data]).astype('int64').reshape(-1, 1)
+        # 终极修复：强制内存物理连续，彻底封杀 C++ 指针越界
+        img_data = np.array([item[0] for item in data], dtype=np.float32).reshape(-1, 3, 32, 32)
+        img_data = np.ascontiguousarray(img_data)
+        
+        lbl_data = np.array([item[1] for item in data], dtype=np.int64).reshape(-1, 1)
+        lbl_data = np.ascontiguousarray(lbl_data)
 
-        train_cost, train_acc = exe.run(program=fluid.default_main_program(),
+        train_cost, train_acc = exe.run(program=paddle.static.default_main_program(),
                                         feed={'images': img_data, 'label': lbl_data},
                                         fetch_list=[avg_cost, acc])
                                         
@@ -127,14 +98,14 @@ for pass_id in range(EPOCH_NUM):
             print('Pass:%d, Batch:%d, Cost:%0.5f, Accuracy:%0.5f' %
                   (pass_id, batch_id, train_cost.item(), train_acc.item()))
 
-    # 开始测试
     test_costs = []
     test_accs = []
     for batch_id, data in enumerate(test_reader()):
+        img_data = np.array([item[0] for item in data], dtype=np.float32).reshape(-1, 3, 32, 32)
+        img_data = np.ascontiguousarray(img_data)
         
-        # 测试集同步使用 Reshape
-        img_data = np.array([item[0] for item in data]).astype('float32').reshape(-1, 3, 32, 32)
-        lbl_data = np.array([item[1] for item in data]).astype('int64').reshape(-1, 1)
+        lbl_data = np.array([item[1] for item in data], dtype=np.int64).reshape(-1, 1)
+        lbl_data = np.ascontiguousarray(lbl_data)
         
         test_cost, test_acc = exe.run(program=test_program,
                                       feed={'images': img_data, 'label': lbl_data},
@@ -146,24 +117,25 @@ for pass_id in range(EPOCH_NUM):
     test_acc_avg = (sum(test_accs) / len(test_accs))
     print('Test:%d, Cost:%0.5f, ACC:%0.5f' % (pass_id, test_cost_avg, test_acc_avg))
 
-# 保存模型
 if not os.path.exists(model_save_dir):
     os.makedirs(model_save_dir)
 print('save models to %s' % (model_save_dir))
-fluid.io.save_inference_model(model_save_dir,
-                              ['images'],
-                              [predict],
-                              exe)
+paddle.fluid.io.save_inference_model(model_save_dir, ['images'], [predict], exe)
 print('训练模型保存完成！')
 draw_train_process("training", all_train_iters, all_train_costs, all_train_accs, "trainning cost", "trainning acc")
 
-# Step5. 模型预测
-infer_exe = fluid.Executor(place)
-inference_scope = fluid.core.Scope()
+# 模型预测
+infer_exe = paddle.static.Executor(place)
+inference_scope = paddle.static.Scope()
 
 def load_image(file):
     im = Image.open(file)
-    im = im.resize((32, 32), Image.ANTIALIAS)
+    # 兼容新版 Pillow
+    try:
+        resample = Image.Resampling.LANCZOS
+    except AttributeError:
+        resample = Image.ANTIALIAS
+    im = im.resize((32, 32), resample)
     im = np.array(im).astype(np.float32)
     im = im.transpose((2, 0, 1))
     im = im / 255.0
@@ -171,14 +143,10 @@ def load_image(file):
     print('im_shape的维度:', im.shape)
     return im
 
-with fluid.scope_guard(inference_scope):
-    [inference_program,
-     feed_target_names,
-     fetch_targets] = fluid.io.load_inference_model(model_save_dir, infer_exe)
+with paddle.static.scope_guard(inference_scope):
+    [inference_program, feed_target_names, fetch_targets] = paddle.fluid.io.load_inference_model(model_save_dir, infer_exe)
      
-    infer_path = 'dog2.jpg'  # 请确保当前文件夹下有这张测试图片
-    
-    # 防止因找不到图片而阻断运行，加入异常处理
+    infer_path = 'dog2.jpg'
     try:
         img_show = Image.open(infer_path)
         plt.imshow(img_show)
@@ -188,11 +156,8 @@ with fluid.scope_guard(inference_scope):
         results = infer_exe.run(inference_program,
                                 feed={feed_target_names[0]: img},
                                 fetch_list=fetch_targets)
-        print('results', results)
         
-        label_list = [
-            "airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"
-        ]
+        label_list = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
         print("infer results: %s" % label_list[np.argmax(results[0])])
     except FileNotFoundError:
         print(f"未在当前目录找到测试图片 '{infer_path}'，已跳过最终预测阶段。")
