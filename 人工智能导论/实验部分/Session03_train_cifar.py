@@ -102,33 +102,41 @@ def draw_train_process(title, iters, costs, accs, label_cost, lable_acc):
     plt.show()
 
 # 训练并保存模型
+
 EPOCH_NUM = 20
 model_save_dir = "./catdog.inference.model" # 修改为本地路径
 
 for pass_id in range(EPOCH_NUM):
     # 开始训练
     for batch_id, data in enumerate(train_reader()):
+        # 【关键修复】：强制内存对齐，将 label 转为严格的 64 位整型，彻底清空高位脏数据
+        clean_data = [(img, np.int64(lbl)) for img, lbl in data]
+        
         train_cost, train_acc = exe.run(program=fluid.default_main_program(),
-                                        feed=feeder.feed(data),
+                                        feed=feeder.feed(clean_data),
                                         fetch_list=[avg_cost, acc])
         all_train_iter = all_train_iter + BATCH_SIZE
         all_train_iters.append(all_train_iter)
-        all_train_costs.append(train_cost[0])
-        all_train_accs.append(train_acc[0])
+        
+        all_train_costs.append(train_cost.item())
+        all_train_accs.append(train_acc.item())
 
         if batch_id % 100 == 0:
             print('Pass:%d, Batch:%d, Cost:%0.5f, Accuracy:%0.5f' %
-                  (pass_id, batch_id, train_cost[0], train_acc[0]))
+                  (pass_id, batch_id, train_cost.item(), train_acc.item()))
 
     # 开始测试
     test_costs = []
     test_accs = []
     for batch_id, data in enumerate(test_reader()):
+        # 测试集同步进行 64 位整型清洗
+        clean_data = [(img, np.int64(lbl)) for img, lbl in data]
+        
         test_cost, test_acc = exe.run(program=test_program,
-                                      feed=feeder.feed(data),
+                                      feed=feeder.feed(clean_data),
                                       fetch_list=[avg_cost, acc])
-        test_costs.append(test_cost[0])
-        test_accs.append(test_acc[0])
+        test_costs.append(test_cost.item())
+        test_accs.append(test_acc.item())
 
     test_cost_avg = (sum(test_costs) / len(test_costs))
     test_acc_avg = (sum(test_accs) / len(test_accs))
