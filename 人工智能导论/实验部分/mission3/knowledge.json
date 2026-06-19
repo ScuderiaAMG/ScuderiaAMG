@@ -1,0 +1,46 @@
+{
+  "rules": [
+    {
+      "id": "R1",
+      "priority": 1,
+      "premise": ["毛发", "产奶"],
+      "conclusion": "哺乳动物"
+    },
+    {
+      "id": "R2",
+      "priority": 1,
+      "premise": ["羽毛"],
+      "conclusion": "鸟"
+    },
+    {
+      "id": "R3",
+      "priority": 2,
+      "premise": ["哺乳动物", "蹄"],
+      "conclusion": "有蹄类动物"
+    },
+    {
+      "id": "R4",
+      "priority": 2,
+      "premise": ["哺乳动物", "吃肉"],
+      "conclusion": "食肉动物"
+    },
+    {
+      "id": "R5",
+      "priority": 3,
+      "premise": ["食肉动物", "黄褐色", "斑点"],
+      "conclusion": "虎"
+    },
+    {
+      "id": "R6",
+      "priority": 3,
+      "premise": ["食肉动物", "黄褐色", "黑色条纹"],
+      "conclusion": "金钱豹"
+    },
+    {
+      "id": "R7",
+      "priority": 3,
+      "premise": ["有蹄类动物", "长脖子", "暗斑点"],
+      "conclusion": "长颈鹿"
+    }
+  ]
+}
