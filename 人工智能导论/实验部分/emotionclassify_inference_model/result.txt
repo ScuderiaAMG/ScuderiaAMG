@@ -1,0 +1,21 @@
+(paddle_env) PS D:\Repositories\Escherichia30636\人工智能导论\实验部分> python .\Session04_imdb_lstm_v2.py
+WARNING: OMP_NUM_THREADS set to 28, not 1. The computation speed will not be optimized if you use data parallel. It will fail if this PaddlePaddle binary is compiled with OpenBlas since OpenBlas does not support multi-threads.
+PLEASE USE OMP_NUM_THREADS WISELY.
+加载数据字典中...
+加载数据字典完成
+加载训练和测试数据中...
+数据加载完成
+开始训练...
+Pass:0, Batch:0, Cost:0.71008
+Pass:0, Batch:40, Cost:0.07825
+Pass:0, Batch:80, Cost:0.03481
+Pass:0, Batch:120, Cost:0.88917
+Pass:0, Batch:160, Cost:0.22654
+Test:0, Cost:1.11564, ACC:0.50175
+模型已保存至 ./emotionclassify_inference_model
+
+开始进行情感预测...
+'read the book forget the movie'的预测结果为: 正面概率为:0.42334, 负面概率为:0.57666
+'this is a great movie'的预测结果为: 正面概率为:0.44957, 负面概率为:0.55043
+'this is very bad'的预测结果为: 正面概率为:0.47282, 负面概率为:0.52718
+(paddle_env) PS D:\Repositories\Escherichia30636\人工智能导论\实验部分> 
