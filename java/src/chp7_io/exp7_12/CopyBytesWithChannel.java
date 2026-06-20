@@ -1,11 +1,3 @@
-package chp7_io.exp7_12;                     // 声明包路径，位于 chp7_io 实验包下的 exp7_12 子包中
-
-import java.io.FileInputStream;              // 导入 FileInputStream 类，文件字节输入流，从文件读取字节数据
-import java.io.FileOutputStream;             // 导入 FileOutputStream 类，文件字节输出流，向文件写入字节数据
-import java.io.IOException;                  // 导入 IOException 类，处理输入/输出操作异常
-import java.nio.ByteBuffer;                  // 导入 ByteBuffer 类，NIO 字节缓冲区，用于在通道间传输数据
-import java.nio.channels.FileChannel;        // 导入 FileChannel 类，NIO 文件通道，提供高效的文件 I/O 操作
-
 /**
  * 【功能说明】
  *   演示 Java NIO (New IO / Non-blocking IO) 的通道 (Channel) 和缓冲区 (Buffer) 机制。
@@ -29,6 +21,14 @@ import java.nio.channels.FileChannel;        // 导入 FileChannel 类，NIO 文
  *      通过 FileOutputStream.getChannel() 获取只写通道。
  *   10. NIO 优势：通道直接与操作系统内核交互（系统调用），减少用户态与内核态的数据拷贝次数。
  */
+package chp7_io.exp7_12;                     // 声明包路径，位于 chp7_io 实验包下的 exp7_12 子包中
+
+import java.io.FileInputStream;              // 导入 FileInputStream 类，文件字节输入流，从文件读取字节数据
+import java.io.FileOutputStream;             // 导入 FileOutputStream 类，文件字节输出流，向文件写入字节数据
+import java.io.IOException;                  // 导入 IOException 类，处理输入/输出操作异常
+import java.nio.ByteBuffer;                  // 导入 ByteBuffer 类，NIO 字节缓冲区，用于在通道间传输数据
+import java.nio.channels.FileChannel;        // 导入 FileChannel 类，NIO 文件通道，提供高效的文件 I/O 操作
+
 public class CopyBytesWithChannel {          // 定义 CopyBytesWithChannel 公有类（NIO 通道复制演示类）
 
     private static final int BSIZE = 1024;   // 定义常量 BSIZE = 1024（1KB），表示缓冲区大小（字节数）
