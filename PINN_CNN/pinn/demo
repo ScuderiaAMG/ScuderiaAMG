@@ -1,5 +1,0 @@
-(batpinn) PS D:\Repositories\ScuderiaAMG\PINN_CNN> python -m pinn.train
-Device: cpu
-[数据] NASA PCoE 未找到 (D:\ScuderiaAMG\PINN_CNN\data\nasa_pcoe/ — 跳过)
-[数据] 无可用的真实数据集，降级为合成数据
-  Generating synthetic data (cache miss) ...
