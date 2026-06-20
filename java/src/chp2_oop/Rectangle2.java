@@ -1,27 +1,131 @@
-//�������
+/**
+ * ============================================================
+ * 【功能说明】
+ * 矩形类的第二种变体，演示了面向对象编程中直接访问成员变量的方式。
+ * 该类封装了矩形的长度（l）和宽度（w）两个私有属性，
+ * 提供了计算周长（perimeter）和面积（area）的方法。
+ * 该类包含了 main 方法，可以直接独立运行，展示如何创建多个矩形对象、
+ * 直接给成员变量赋值以及调用各方法来计算结果。
+ * 与 Rectangle.java 的关键区别在于：本类没有提供构造方法，
+ * 而是使用默认构造方法创建对象后，再直接给成员变量赋值。
+ * ============================================================
+ * 【知识点】
+ * 1. 默认构造方法 —— 当类中没有显式定义任何构造方法时，Java 自动提供无参构造方法。
+ * 2. 多个对象实例 —— 可以创建同一个类的多个不同对象，各自拥有独立的成员变量副本。
+ * 3. 对象引用赋值 —— 通过"对象名.成员变量名"的形式访问对象的字段。
+ * 4. 在同一包内访问 private 成员（注：本类内部访问自己的 private 字段是允许的）。
+ * 5. 面向对象的"无构造方法"情况下的初始化流程。
+ * ============================================================
+ */
+
+// 此行原本是注释标记（//），后跟的字符在编码转换中显示为乱码
+// 原内容可能是关于文件或版本的中文注释信息
+// 根据规范保留原始内容不做修改
+//�������
+
+// 声明包名为 chp2_oop，属于面向对象编程章节的示例代码
 package chp2_oop;
 
+// 定义一个名为 Rectangle2 的类，采用默认访问权限（包级私有）
+// 这是矩形类的第二个变体版本，与 Rectangle 和 Rectangle1 形成对比
 class Rectangle2 {
-	private int l, w;
 
-	int perimeter() {
-		return 2 * (l + w);
-	}
+    // 声明两个私有（private）整型成员变量（字段/属性）
+    // private: 封装性，将数据隐藏在类内部，外部无法直接访问
+    // int: 32 位有符号整数类型
+    // l: 矩形的长度
+    // w: 矩形的宽度
+    // 注意：本类没有显式定义构造方法，因此 Java 会提供一个默认无参构造方法
+    // 这意味着使用 new Rectangle2() 创建对象时，l 和 w 会被自动初始化为默认值 0
+    private int l, w;
 
-	int area() {
-		return l * w;
-	}
+    // 空行，用于分隔字段声明区和方法定义区，提高代码的可读性
 
-	public static void main(String[] args) {
-		Rectangle2 rect1 = new Rectangle2();
-		Rectangle2 rect2 = new Rectangle2();
-		rect1.l = 10;
-		rect1.w = 5;
-		System.out.println("perimeter of rect1 = " + rect1.perimeter());
-		System.out.println("area of rect1 = " + rect1.area());
-		rect2.l = 6;
-		rect2.w = 4;
-		System.out.println("perimeter of rect2 = " + rect2.perimeter());
-		System.out.println("area of rect2 = " + rect2.area());
-	}
+    // 定义计算矩形周长的方法，具有包级私有访问权限
+    // 无参数，直接使用当前对象的成员变量 l 和 w 进行计算
+    int perimeter() {
+
+        // 返回周长的计算结果：2 × (长 + 宽)
+        // 此处使用 this.l 和 this.w 的简写形式（省略 this）
+        // 当成员变量与方法参数无命名冲突时，可以省略 this 关键字
+        return 2 * (l + w);
+
+    // 右花括号表示 perimeter 方法的结束
+    }
+
+    // 空行，用于分隔两个方法定义，提高代码的可读性
+
+    // 定义计算矩形面积的方法，具有包级私有访问权限
+    int area() {
+
+        // 返回面积的计算结果：长 × 宽
+        // 直接使用当前对象的 l 和 w 字段
+        return l * w;
+
+    // 右花括号表示 area 方法的结束
+    }
+
+    // 空行，用于分隔方法区与 main 入口方法，提高代码的可读性
+
+    // main 方法：程序的入口点，使该类可以直接独立运行
+    // 本类不需要外部测试类，自身就包含了测试代码
+    public static void main(String[] args) {
+
+        // 使用 new 关键字创建 Rectangle2 类的第一个对象实例
+        // Rectangle2 rect1: 声明一个 Rectangle2 类型的引用变量 rect1
+        // new Rectangle2(): 调用 Rectangle2 的默认无参构造方法创建对象
+        // 默认构造方法会将 int 类型成员变量初始化为 0
+        // 在堆（Heap）内存中为对象分配空间，并将引用赋值给变量 rect1
+        Rectangle2 rect1 = new Rectangle2();
+
+        // 创建 Rectangle2 类的第二个对象实例 rect2
+        // rect1 和 rect2 是两个独立的对象，拥有各自独立的 l 和 w 成员变量
+        // 修改 rect1 的字段不会影响 rect2 的字段
+        Rectangle2 rect2 = new Rectangle2();
+
+        // 通过"对象名.成员变量名"给 rect1 对象的 l 字段赋值
+        // 注意：虽然 l 声明为 private，但在类的内部方法中可以访问
+        // 这里是在 Rectangle2 类的 main 方法内部，所以可以访问自己类的 private 字段
+        // 将值 10 赋给 rect1 对象的长度字段
+        rect1.l = 10;
+
+        // 给 rect1 对象的宽度字段 w 赋值为 5
+        rect1.w = 5;
+
+        // 调用 rect1 对象的 perimeter() 方法计算周长
+        // 此时 rect1 对象的 l=10, w=5
+        // 计算结果：2 * (10 + 5) = 30
+        // + 运算符将字符串与数值拼接后输出
+        // 输出结果: perimeter of rect1 = 30
+        System.out.println("perimeter of rect1 = " + rect1.perimeter());
+
+        // 调用 rect1 对象的 area() 方法计算面积
+        // 此时 rect1 对象的 l=10, w=5
+        // 计算结果：10 * 5 = 50
+        // 输出结果: area of rect1 = 50
+        System.out.println("area of rect1 = " + rect1.area());
+
+        // 给 rect2 对象的长度字段 l 赋值 6
+        // rect2 与 rect1 是完全独立的对象实例，互不影响
+        rect2.l = 6;
+
+        // 给 rect2 对象的宽度字段 w 赋值 4
+        rect2.w = 4;
+
+        // 调用 rect2 对象的 perimeter() 方法计算周长
+        // 此时 rect2 对象的 l=6, w=4
+        // 计算结果：2 * (6 + 4) = 20
+        // 输出结果: perimeter of rect2 = 20
+        System.out.println("perimeter of rect2 = " + rect2.perimeter());
+
+        // 调用 rect2 对象的 area() 方法计算面积
+        // 此时 rect2 对象的 l=6, w=4
+        // 计算结果：6 * 4 = 24
+        // 输出结果: area of rect2 = 24
+        System.out.println("area of rect2 = " + rect2.area());
+
+    // 右花括号表示 main 方法的结束
+    }
+
+// 右花括号表示 Rectangle2 类的结束
 }

@@ -1,25 +1,81 @@
-package chp4_oo.exp4_3;
-public class VarTest{ 
-	private int x=1;
-	private int y=1;
-	private int z=1;
-	void changeVar(int a,int b,int c){ 
-		x=a;
-		int y = b;  //yʹͬ�����Ա��������
-		int z = 9; //zʹͬ�����Ա��������
-		System.out.println("In  changVar :   "+"x = "+x+" y ="+y+" z ="+z);
-		this.z=c;  //�����Ա����z��ֵ
-	}
-	String getXYZ(){
-		return "x = "+x+" y ="+y+" z ="+z;
-	}
- 	
- 	
-  	public static void main( String args[] ){ 
-		VarTest v=new VarTest();
-		System.out.println("Before changVar : "+v.getXYZ());  
-	    
-	    v.changeVar(10,10,10);
-	    System.out.println("After changeVar: "+v.getXYZ());
+/**
+ * 【功能说明】
+ * 本文件演示了Java中成员变量（成员域）与局部变量的区别，
+ * 以及局部变量作用域覆盖（遮蔽/shadowing）成员变量的现象。
+ * 在changeVar方法中，参数名与成员变量名不同，但方法内部声明了
+ * 与成员变量同名的局部变量y和z，此时局部变量会遮蔽同名的成员变量。
+ * 使用this关键字可以访问被遮蔽的成员变量。
+ *
+ * 【知识点】
+ * 1. 成员变量（实例变量）：定义在类中、方法外的变量，属于对象，
+ *    其作用域是整个类
+ * 2. 局部变量：定义在方法内部或代码块中的变量，只在声明它的方法内有效
+ * 3. 变量遮蔽（Shadowing）：局部变量与成员变量同名时，
+ *    局部变量会遮蔽（隐藏）成员变量
+ * 4. this关键字：指向当前对象的引用，用于访问被局部变量遮蔽的成员变量
+ * 5. 变量的默认初始化：成员变量有默认初始值，局部变量没有默认值必须显式初始化
+ * 6. 变量的生命周期：成员变量随对象存在，局部变量随方法调用存在
+ */
+package chp4_oo.exp4_3;                     // 声明包路径，该类属于chp4_oo.exp4_3包
+
+/**
+ * VarTest类：变量测试类
+ * 演示成员变量与局部变量的区别以及变量遮蔽现象
+ */
+public class VarTest {                       // 定义一个名为VarTest的公共类
+    private int x = 1;                       // 成员变量x，初始值为1，属于对象，作用域为整个类
+    private int y = 1;                       // 成员变量y，初始值为1，属于对象，作用域为整个类
+    private int z = 1;                       // 成员变量z，初始值为1，属于对象，作用域为整个类
+
+    /**
+     * changeVar方法：修改变量值
+     * 演示局部变量遮蔽成员变量的现象
+     * 参数a、b、c也是局部变量（形式参数）
+     * @param a 用于设置成员变量x的新值
+     * @param b 用于创建局部变量y（遮蔽成员变量y）
+     * @param c 用于创建局部变量z（遮蔽成员变量z），同时通过this给成员变量z赋值
+     */
+    void changeVar(int a, int b, int c) {    // 方法，默认访问权限，参数a、b、c是形式参数（局部变量）
+        x = a;                               // 访问成员变量x，将参数a的值赋给成员变量x
+        int y = b;                           // 声明局部变量y（遮蔽同名的成员变量y），初始值为参数b
+        int z = 9;                           // 声明局部变量z（遮蔽同名的成员变量z），初始值为9
+        // 当前作用域中：y和z都是局部变量，x是成员变量
+        System.out.println("In  changVar :   " + "x = " + x + " y =" + y + " z =" + z);
+        // 输出：x=参数a的值（成员变量x被修改），y=参数b的值（局部变量y），z=9（局部变量z）
+        this.z = c;                          // 使用this关键字访问被遮蔽的成员变量z，将参数c赋给成员变量z
+    }
+
+    /**
+     * getXYZ方法：获取当前成员变量x、y、z的值
+     * @return 包含x、y、z值的格式化字符串
+     */
+    String getXYZ() {                        // 方法，默认访问权限，返回成员变量的当前值
+        return "x = " + x + " y =" + y + " z =" + z;
+        // 返回成员变量x、y、z的字符串表示（注意：这里的y是成员变量y，不是局部变量y）
+    }
+
+    /**
+     * main方法：Java程序入口点
+     * 创建VarTest对象，调用changeVar方法，观察成员变量值的变化
+     * @param args 命令行参数数组
+     */
+    public static void main(String args[]) { // 主方法，JVM自动调用
+        VarTest v = new VarTest();           // 创建VarTest对象v，成员变量x、y、z都初始化为1
+        System.out.println("Before changVar : " + v.getXYZ());
+        // 输出修改前的成员变量值：x=1, y=1, z=1
+
+        v.changeVar(10, 10, 10);             // 调用changeVar方法，传入参数a=10, b=10, c=10
+        // 方法内部执行过程：
+        //   1. 成员变量x = 10（通过参数a）
+        //   2. 局部变量y = 10（遮蔽成员变量y，成员变量y仍为1）
+        //   3. 局部变量z = 9（遮蔽成员变量z，初始化为9）
+        //   4. this.z = 10（通过this关键字修改成员变量z为参数c的值10）
+        // 输出：In changVar : x=10 y=10 z=9
+
+        System.out.println("After changeVar: " + v.getXYZ());
+        // 输出修改后的成员变量值：
+        //   x = 10（被方法中x=a修改）
+        //   y = 1（局部变量y遮蔽了成员变量y，但成员变量y未被修改，仍为1）
+        //   z = 10（被方法中this.z=c修改，参数c=10）
     }
 }

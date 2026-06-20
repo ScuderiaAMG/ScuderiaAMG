@@ -7,5 +7,6 @@
     "markdown.validate.enabled": true,
     "files.autoGuessEncoding": true,
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "java.dependency.syncWithFolderExplorer": false
 }

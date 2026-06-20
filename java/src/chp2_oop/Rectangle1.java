@@ -1,17 +1,96 @@
-//�������
+/**
+ * ============================================================
+ * 【功能说明】
+ * 矩形工具类，使用静态方法（static method）实现矩形的周长和面积计算。
+ * 与 Rectangle.java 不同，本类不封装对象的属性（无成员变量），
+ * 而是通过方法参数传入长和宽的值进行计算。
+ * 本类包含 main 方法，可以直接独立运行，展示静态方法的调用方式。
+ * ============================================================
+ * 【知识点】
+ * 1. static 关键字（静态方法）—— 属于类而非实例，通过"类名.方法名"调用。
+ * 2. 静态方法中只能使用参数或局部变量，不能访问非静态成员变量。
+ * 3. 方法参数传递 —— 通过方法参数将数据传入方法内部。
+ * 4. 方法重载（初步）—— 与 Rectangle.java 中方法签名对比。
+ * 5. 自包含 (self-contained) —— 一个类同时包含业务逻辑和 main 入口。
+ * 6. 字符串连接运算符 + —— 将字符串与数值拼接在一起。
+ * ============================================================
+ */
+
+// 此行原本是注释标记（//），后跟的字符在编码转换中显示为乱码
+// 原内容可能是关于文件或版本的中文注释信息
+// 根据规范保留原始内容不做修改
+//�������
+
+// 声明包名为 chp2_oop，属于面向对象编程章节的示例代码
 package chp2_oop;
 
+// 定义一个名为 Rectangle1 的类，采用默认访问权限（包级私有）
+// 类名中的 "1" 表示这是矩形类的第一个变体版本
+// 该类不需要存储任何对象状态（没有成员变量）
 class Rectangle1 {
-	static int perimeter(int length, int width) {
-		return 2 * (length + width);
-	}
 
-	static int area(int length, int width) {
-		return length * width;
-	}
+    // 静态方法：计算矩形的周长
+    // static: 静态修饰符，表示该方法属于类本身，而非类的某个实例
+    // 静态方法可以通过"类名.方法名(参数)"直接调用，无需创建对象
+    // int: 返回值类型，返回计算得到的周长值
+    // perimeter: 方法名
+    // int length: 参数，矩形的长度值，由调用者传入
+    // int width: 参数，矩形的宽度值，由调用者传入
+    // 注意：因为方法没有访问任何实例变量（成员变量），所以设计为静态方法
+    static int perimeter(int length, int width) {
 
-	public static void main(String[] args) {
-		System.out.println("perimeter = " + Rectangle1.perimeter(5, 4));
-		System.out.println("area = " + Rectangle1.area(5, 4));
-	}
+        // return 语句返回计算结果
+        // 2 * (length + width): 使用方法参数而非成员变量进行计算
+        // 参数 length 和 width 是局部变量，仅在方法内部有效
+        // 方法执行完毕后，参数变量即被销毁（释放）
+        return 2 * (length + width);
+
+    // 右花括号表示 perimeter 静态方法的结束
+    }
+
+    // 空行，用于分隔两个静态方法定义，提高代码的可读性
+
+    // 静态方法：计算矩形的面积
+    // static: 该方法同样属于类本身
+    // int: 返回面积值
+    // area: 方法名
+    // int length: 传入的长度参数
+    // int width: 传入的宽度参数
+    static int area(int length, int width) {
+
+        // 返回长乘以宽的计算结果
+        // 使用传入的参数值进行乘法运算
+        // 乘法运算符 * 在 Java 中用于数值乘法
+        return length * width;
+
+    // 右花括号表示 area 静态方法的结束
+    }
+
+    // 空行，用于分隔静态方法区与 main 入口方法，提高代码的可读性
+
+    // main 方法：程序的入口点，使该类可以直接运行
+    // public: 允许 JVM 从外部调用
+    // static: 无需实例即可调用
+    // void: 不返回任何值
+    // String[] args: 命令行参数数组
+    public static void main(String[] args) {
+
+        // System.out.println 向控制台输出一行文本并换行
+        // 字符串 "perimeter = " 与数值计算结果通过 + 运算符拼接
+        // Rectangle1.perimeter(5, 4): 通过"类名.方法名"的方式调用静态方法
+        // 传入两个实参值：5（长度）和 4（宽度）
+        // 静态方法调用不需要创建 Rectangle1 的对象
+        // 输出结果: perimeter = 18
+        System.out.println("perimeter = " + Rectangle1.perimeter(5, 4));
+
+        // 继续调用 Rectangle1 的静态 area 方法计算面积
+        // Rectangle1.area(5, 4): 传入相同的长宽值 5 和 4
+        // + 运算符将字符串 "area = " 与整数计算结果 20 拼接成新字符串
+        // 输出结果: area = 20
+        System.out.println("area = " + Rectangle1.area(5, 4));
+
+    // 右花括号表示 main 方法的结束
+    }
+
+// 右花括号表示 Rectangle1 类的结束
 }
