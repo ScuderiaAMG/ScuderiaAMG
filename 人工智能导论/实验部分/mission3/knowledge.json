@@ -1,46 +1,95 @@
 {
+  "targets": ["虎", "金钱豹", "斑马", "长颈鹿", "鸵鸟", "企鹅", "信天翁"],
   "rules": [
     {
       "id": "R1",
       "priority": 1,
-      "premise": ["毛发", "产奶"],
+      "premise": ["有毛发"],
       "conclusion": "哺乳动物"
     },
     {
       "id": "R2",
       "priority": 1,
-      "premise": ["羽毛"],
-      "conclusion": "鸟"
+      "premise": ["产奶"],
+      "conclusion": "哺乳动物"
     },
     {
       "id": "R3",
-      "priority": 2,
-      "premise": ["哺乳动物", "蹄"],
-      "conclusion": "有蹄类动物"
+      "priority": 1,
+      "premise": ["有羽毛"],
+      "conclusion": "鸟类"
     },
     {
       "id": "R4",
-      "priority": 2,
-      "premise": ["哺乳动物", "吃肉"],
-      "conclusion": "食肉动物"
+      "priority": 1,
+      "premise": ["会飞", "下蛋"],
+      "conclusion": "鸟类"
     },
     {
       "id": "R5",
-      "priority": 3,
-      "premise": ["食肉动物", "黄褐色", "斑点"],
-      "conclusion": "虎"
+      "priority": 2,
+      "premise": ["吃肉"],
+      "conclusion": "食肉动物"
     },
     {
       "id": "R6",
-      "priority": 3,
-      "premise": ["食肉动物", "黄褐色", "黑色条纹"],
-      "conclusion": "金钱豹"
+      "priority": 2,
+      "premise": ["有犬齿", "有爪", "眼盯前方"],
+      "conclusion": "食肉动物"
     },
     {
       "id": "R7",
+      "priority": 2,
+      "premise": ["哺乳动物", "有蹄"],
+      "conclusion": "有蹄类动物"
+    },
+    {
+      "id": "R8",
+      "priority": 2,
+      "premise": ["哺乳动物", "反刍"],
+      "conclusion": "有蹄类动物"
+    },
+    {
+      "id": "R9",
       "priority": 3,
-      "premise": ["有蹄类动物", "长脖子", "暗斑点"],
+      "premise": ["哺乳动物", "食肉动物", "黄褐色", "黑色条纹"],
+      "conclusion": "虎"
+    },
+    {
+      "id": "R10",
+      "priority": 3,
+      "premise": ["哺乳动物", "食肉动物", "黄褐色", "暗斑点"],
+      "conclusion": "金钱豹"
+    },
+    {
+      "id": "R11",
+      "priority": 3,
+      "premise": ["有蹄类动物", "黑色条纹"],
+      "conclusion": "斑马"
+    },
+    {
+      "id": "R12",
+      "priority": 3,
+      "premise": ["有蹄类动物", "长脖子", "长腿", "暗斑点"],
       "conclusion": "长颈鹿"
+    },
+    {
+      "id": "R13",
+      "priority": 3,
+      "premise": ["鸟类", "长脖子", "长腿", "不会飞", "黑白二色"],
+      "conclusion": "鸵鸟"
+    },
+    {
+      "id": "R14",
+      "priority": 3,
+      "premise": ["鸟类", "会游泳", "不会飞", "黑白二色"],
+      "conclusion": "企鹅"
+    },
+    {
+      "id": "R15",
+      "priority": 3,
+      "premise": ["鸟类", "善飞"],
+      "conclusion": "信天翁"
     }
   ]
 }
