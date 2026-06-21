@@ -9,7 +9,9 @@
       "Bash(choco install *)",
       "Bash(KMP_DUPLICATE_LIB_OK=TRUE python -c ' *)",
       "Bash(rm -f 样卷1.md 样卷2.md 样卷3.md 样卷4.md 样卷5.md 样卷1答案.md 样卷2答案.md 样卷3答案.md 样卷4答案.md 样卷5答案.md)",
-      "Bash(ls *.md)"
+      "Bash(ls *.md)",
+      "Bash(ls -la _extracted_images)",
+      "Bash(ls -la *.md)"
     ]
   }
 }
