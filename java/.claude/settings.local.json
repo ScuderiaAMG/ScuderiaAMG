@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "Read(**)",
+      "Write(**)",
+      "Delete(**)",
+      "Network(*)",
+      "mcp__ide__getDiagnostics",
+      "WebSearch",
+      "WebFetch(domain:www.senorasmones.com)",
+      "WebFetch(domain:mumu.163.com)",
+      "Skill(update-config)",
+      "WebFetch(domain:github.com)",
+      "Bash(mkdir -p ~/.claude/skills)",
+      "Bash(cp -r /tmp/Scrapling/agent-skill/Scrapling-Skill ~/.claude/skills/Scrapling-Skill)",
+      "Read(//c/Users/taiya/.claude/skills/**)",
+      "mcp__ide__executeCode",
+      "Bash(python3 -c ' *)",
+      "Bash(python -c ' *)",
+      "Bash(pip install *)",
+      "Bash(tesseract --version)",
+      "Bash(where choco *)",
+      "Bash(choco install *)",
+      "Bash(KMP_DUPLICATE_LIB_OK=TRUE python -c ' *)"
+    ]
+  }
+}
