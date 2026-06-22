@@ -22,7 +22,7 @@ public class CharToInt {                                 // 公共类 CharToInt�
         intResult = intVar + charVar;                    // charVar 自动提升为 int（'好' 的 Unicode 编码值），再与 intVar 相加
         System.out.println("The char is: " + charVar);   // 输出字符本身，字符串拼接 char 变量时显示其字符表示
         System.out.println("The char's Unicode is: \\u"  // 输出 "The char's Unicode is: \u"（注意转义）
-                + Integer.toHexString(charVar));         // 将 charVar 的 Unicode 编码值转换为十六进制字符串并拼接输出
+                + Integer.toHexString((int)charVar));    // 将 charVar 的 Unicode 编码值转换为十六进制字符串并拼接输出
         System.out.println("The int value corresponding to the char is: "  // 输出提示文字
                 + new Integer(charVar).toString());      // 通过 Integer 包装类将 char 数值转换为十进制字符串输出
         System.out.println("Int " + intVar               // 输出提示文字 "Int "
