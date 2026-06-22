@@ -36,10 +36,10 @@ public class CopyBytesWithChannel {          // 定义 CopyBytesWithChannel 公�
     public static void main(String[] args) throws IOException {  // 程序入口 main 方法，声明抛出 IOException
 
         // 第一步：创建传统文件流，用于获取文件通道
-        FileInputStream inStream = new FileInputStream("src\\chp7_io\\exp7_12\\farrago.txt");
+        FileInputStream inStream = new FileInputStream("java\\src\\chp7_io\\exp7_12\\farrago.txt");
         // 创建 FileInputStream，打开源文件（用于获取输入通道）
 
-        FileOutputStream outStream = new FileOutputStream("src\\chp7_io\\exp7_12\\outagain.txt");
+        FileOutputStream outStream = new FileOutputStream("java\\src\\chp7_io\\exp7_12\\outagain.txt");
         // 创建 FileOutputStream，创建/覆盖目标文件（用于获取输出通道）
 
         // 第二步：通过流的 getChannel() 方法获取文件通道

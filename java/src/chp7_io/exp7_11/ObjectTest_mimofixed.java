@@ -157,7 +157,7 @@ public class ObjectTest_mimofixed {                    // 定义 ObjectTest 公�
         // ========== 第一部分：序列化 ManagerExtern 对象到文件 ==========
         try {                                // try 块开始，捕获序列化过程中的异常
             ObjectOutputStream fout = new ObjectOutputStream(       // 创建 ObjectOutputStream
-                                            new FileOutputStream("src\\chp7_io\\exp7_11\\data2.ser"));
+                                            new FileOutputStream("java\\src\\chp7_io\\exp7_11\\data2.ser"));
             // 包装 FileOutputStream，输出路径包含包目录
 
             fout.writeObject(manager);          // 序列化 ManagerExtern 对象（自动调用 writeExternal 方法）
@@ -173,7 +173,7 @@ public class ObjectTest_mimofixed {                    // 定义 ObjectTest 公�
 
         try {                                   // try 块开始，捕获反序列化过程中的异常
             fin = new ObjectInputStream(          // 创建 ObjectInputStream
-                                            new FileInputStream("data2.ser"));
+                                            new FileInputStream("java\\src\\chp7_io\\exp7_11\\data2.ser"));
             // 注意：反序列化路径为 "data2.ser"（相对根目录，与写入路径不同）
 
             manager = (ManagerExtern_mimofixed) fin.readObject();  // 反序列化恢复对象（自动调用 readExternal 方法）

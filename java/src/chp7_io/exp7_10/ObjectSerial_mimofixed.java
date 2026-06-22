@@ -121,7 +121,7 @@ public class ObjectSerial_mimofixed {                  // 定义 ObjectSerial �
         // 创建一个 Employee 对象：编号 123456，姓名 Tom，年龄 23，薪水 6000，入职日期 2010/03/10，部门 intel
 
         ObjectOutputStream fout1 = new ObjectOutputStream(         // 创建 ObjectOutputStream
-                                        new FileOutputStream("src\\chp7_io\\exp7_10\\data1.ser"));  // 包装 FileOutputStream，输出到 data1.ser
+                                        new FileOutputStream("java\\src\\chp7_io\\exp7_10\\data1.ser"));  // 包装 FileOutputStream，输出到 data1.ser
         fout1.writeObject(employ);          // 序列化 Employee 对象（自动调用 Employee 类中自定义的 writeObject 方法）
         fout1.close();                      // 关闭 ObjectOutputStream，释放资源并刷新缓冲区
 
@@ -129,7 +129,7 @@ public class ObjectSerial_mimofixed {                  // 定义 ObjectSerial �
         employ = null;                      // 将原引用置空，便于垃圾回收，验证反序列化后重新创建对象
 
         ObjectInputStream fin1 = new ObjectInputStream(             // 创建 ObjectInputStream
-                                            new FileInputStream("src\\chp7_io\\exp7_10\\data1.ser"));  // 包装 FileInputStream，读取 data1.ser
+                                            new FileInputStream("java\\src\\chp7_io\\exp7_10\\data1.ser"));  // 包装 FileInputStream，读取 data1.ser
         employ = (Employee_mimofixed) fin1.readObject();  // 反序列化恢复 Employee 对象（自动调用自定义的 readObject 方法）
         fin1.close();                       // 关闭 ObjectInputStream，释放资源
 

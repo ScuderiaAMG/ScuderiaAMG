@@ -27,7 +27,7 @@ public class RandomAccessTest {              // 定义 RandomAccessTest 公有�
         String s;                            // 声明 String 变量 s，用于暂存读取到的每行文本
 
         // 创建 RandomAccessFile 对象，以只读模式 ("r") 打开当前源代码文件
-        RandomAccessFile file = new RandomAccessFile("src\\chp7_io\\exp7_7\\RandomAccessTest.java", "r");
+        RandomAccessFile file = new RandomAccessFile("java\\src\\chp7_io\\exp7_7\\RandomAccessTest.java", "r");
         // RandomAccessFile 第一个参数是文件路径，第二个参数是访问模式
 
         long fileLength = file.length();     // 调用 length() 方法获取文件的总长度（字节数）

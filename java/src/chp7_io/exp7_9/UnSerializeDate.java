@@ -32,7 +32,7 @@ public class UnSerializeDate {               // 定义 UnSerializeDate 公有类
      */
     UnSerializeDate() {                      // 默认构造方法（无参）
         try {                                // try 块开始，捕获可能抛出的 IOException 或 ClassNotFoundException
-            FileInputStream f = new FileInputStream("src\\chp7_io\\exp7_9\\date.ser");  // 创建 FileInputStream 读取序列化文件
+            FileInputStream f = new FileInputStream("java\\src\\chp7_io\\exp7_9\\date.ser");  // 创建 FileInputStream 读取序列化文件
             ObjectInputStream s = new ObjectInputStream(f);       // 创建 ObjectInputStream，包装 FileInputStream，用于读取对象
             d = (Date) s.readObject();       // readObject() 从流中反序列化一个对象，强制转换为 Date 类型并赋值给 d
             f.close();                       // 关闭 FileInputStream，释放文件资源

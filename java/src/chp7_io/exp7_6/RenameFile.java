@@ -52,6 +52,8 @@ public class RenameFile {                    // 定义 RenameFile 公有类（�
      */
     public static void main(String[] args) { // 程序入口 main 方法（注意此处未声明抛出异常）
 
+        if (args.length < 2) return;               // 无命令行参数时直接退出，避免数组越界
+
         File old = new File(args[0]);         // 使用第一个命令行参数创建 File 对象，代表原文件
         File rname = new File(args[1]);       // 使用第二个命令行参数创建 File 对象，代表目标文件名
 

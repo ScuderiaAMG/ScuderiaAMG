@@ -62,7 +62,5 @@ public class ReverseThread extends Thread {  // 定义 ReverseThread 类，继�
         for (i = (len - 1); i >= 0; i--)                    // for 循环：从最后一个字符的索引 (len-1) 开始，递减遍历到 0
             dest.append(source.charAt(i));                  // 将当前位置的字符追加到 dest 中，实现反转拼接
         return dest.toString();                             // 将 StringBuffer 转换为 String 对象并返回
-
-    }                                                        // reverseIt() 方法结束
-
-}                                                            // ReverseThread 类结束
+    }
+}
