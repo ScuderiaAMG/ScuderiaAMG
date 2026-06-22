@@ -21,13 +21,13 @@ import java.util.List;                                     // 导入List接口�
 
 public class ListTest_mimofixed {                                    // 主类（public），演示原始类型集合的使用
     public static void main(String[] args) {               // 主方法：程序执行的入口点
-        // 注意：列表中只应存放Integer类型的对象
-        List<Object> listofInteger = new LinkedList<Object>();             // 使用泛型参数<Object>创建LinkedList，明确指定类型参数
-        listofInteger.add(Integer.valueOf(2000));              // 向集合中添加一个Integer对象（值为2000），使用valueOf替代废弃的构造函数
-        listofInteger.add("8");                            // 向集合中添加一个String对象"8"（编译通过，但破坏了类型一致性）
-        Integer x = (Integer) listofInteger.get(0);        // 取出索引0处的元素，需要手动强制转换为Integer类型（此处类型正确，转换成功）
-        System.out.println(x);                             // 输出整数x的值：2000
-        x = (Integer) listofInteger.get(1);               // 取出索引1处的元素，强制转换为Integer类型（运行时抛出ClassCastException异常！因为实际是String类型）
-        System.out.println(x);                             // 此行因上面的异常而不会被执行
+        // 使用泛型参数<Integer>确保类型安全，编译期即可检测类型错误
+        List<Integer> listofInteger = new LinkedList<Integer>();          // 使用泛型指定只能存放Integer类型
+        listofInteger.add(Integer.valueOf(2000));              // 向集合中添加Integer对象2000
+        listofInteger.add(Integer.valueOf(8));                 // 向集合中添加Integer对象8（类型安全，编译期检查通过）
+        Integer x = listofInteger.get(0);                      // 使用泛型后无需强制转换，编译器自动保证类型正确
+        System.out.println(x);                             // 输出：2000
+        x = listofInteger.get(1);                          // 取出索引1的元素，无需强制转换
+        System.out.println(x);                             // 输出：8
     }
 }
