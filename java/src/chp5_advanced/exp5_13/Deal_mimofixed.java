@@ -24,8 +24,11 @@ import java.util.List;                                     // 导入List接口
 
 class Deal_mimofixed {                                               // 主类（非public），模拟发牌操作
     public static void main(String args[]) {               // 主方法：程序执行的入口点
-        int numHands = Integer.parseInt(args[0]);          // 从命令行参数获取玩家数量（第1个参数）
-        int cardsPerHand = Integer.parseInt(args[1]);      // 从命令行参数获取每手牌数（第2个参数）
+        // 从命令行参数获取玩家数量和每手牌数，未提供时使用默认值
+        int numHands = (args.length > 0) ? Integer.parseInt(args[0]) : 4;   // 玩家数量，默认4人
+        int cardsPerHand = (args.length > 1) ? Integer.parseInt(args[1]) : 5; // 每手牌数，默认5张
+
+        if (args.length == 0) {        }
 
         // 创建一副标准的扑克牌（52张）
         String[] suit = new String[]{"spades", "hearts", "diamonds", "clubs"}; // 花色数组：黑桃、红心、方块、梅花
