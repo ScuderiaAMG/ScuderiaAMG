@@ -61,11 +61,11 @@ public class UseDog {                        // 定义一个名为UseDog的公�
      * @param args 命令行参数数组
      */
     public static void main(String[] args) { // 主方法，JVM自动调用
-        // 创建Dog对象，调用带参构造方法，初始名字为"����"
-        Dog d = new Dog("����");
+        // 创建Dog对象，调用带参构造方法，初始名字为"旺财"
+        Dog d = new Dog("旺财");
 
-        // 调用setName方法，将狗的名字修改为"Сǿ"
-        d.setName("Сǿ");
+        // 调用setName方法，将狗的名字修改为"大黄"
+        d.setName("大黄");
 
         // 调用getName方法获取修改后的名字，并拼接后输出
         System.out.println("The dog's name is " + d.getName());
