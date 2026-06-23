@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
 from PyQt5.QtGui import QPainter, QColor, QBrush, QPen, QFont
 from PyQt5.QtCore import Qt, QTimer, QRect
 
-# QL 智能体 —— 管 Q 表的读写和更新
+# QL 智能体 
 class QLearningAgent:
     def __init__(self, actions, learning_rate=0.1, reward_decay=0.9, e_greedy=0.9):
         self.actions = actions          # 0上 1下 2左 3右
@@ -63,7 +63,7 @@ class MazeCanvas(QWidget):
         self.update()
 
     def generate_obstacles(self):
-        """随机撒障碍物，保证不盖住起点终点"""
+
         self.obstacles.clear()
         count = 0
         while count < self.num_obstacles:
@@ -75,7 +75,7 @@ class MazeCanvas(QWidget):
                 count += 1
 
     def step(self, action):
-        """执行动作，返回 (next_state, reward, done)"""
+
         s = tuple(self.agent_pos)
         r, c = s
         # 边界检查 + 移动
@@ -95,7 +95,7 @@ class MazeCanvas(QWidget):
             next_state = s      # 留在原地
             self.agent_pos = list(s)
         else:
-            reward = -1         # 每步扣一分，逼它走最短
+            reward = -1         # 每步扣一分
             done = False
             self.agent_pos = list(next_state)
 
@@ -112,13 +112,13 @@ class MazeCanvas(QWidget):
                 rect = QRect(c * self.cell_size + 10, r * self.cell_size + 10, self.cell_size, self.cell_size)
                 pos = (r, c)
                 if pos == self.start_pos:
-                    painter.setBrush(QBrush(QColor(173, 216, 230)))    # 浅蓝：起点
+                    painter.setBrush(QBrush(QColor(173, 216, 230)))    #起点
                 elif pos == self.goal_pos:
-                    painter.setBrush(QBrush(QColor(144, 238, 144)))    # 浅绿：终点
+                    painter.setBrush(QBrush(QColor(144, 238, 144)))    #终点
                 elif pos in self.obstacles:
-                    painter.setBrush(QBrush(QColor(105, 105, 105)))    # 灰色：障碍
+                    painter.setBrush(QBrush(QColor(105, 105, 105)))    #障碍
                 else:
-                    painter.setBrush(QBrush(QColor(255, 255, 255)))    # 白色：空地
+                    painter.setBrush(QBrush(QColor(255, 255, 255)))    #空
 
                 painter.setPen(QPen(QColor(0, 0, 0)))
                 painter.drawRect(rect)
@@ -148,7 +148,7 @@ class MazeCanvas(QWidget):
 class MazeApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("强化学习迷宫系统 - 自动收敛展示版")
+        self.setWindowTitle("迷宫")
         self.rows, self.cols, self.num_obstacles = 6, 6, 5
         self.init_rl_params()
         self.initUI()
@@ -268,7 +268,7 @@ class MazeApp(QMainWindow):
             self.canvas.update()
 
     def extract_and_draw_optimal_path(self):
-        """从Q表中纯贪婪提取最优路径并画出来"""
+
         path = []
         state = self.canvas.start_pos
         visited = set()  # 防环路

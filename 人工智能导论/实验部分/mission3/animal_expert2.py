@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout,
                              QLabel, QGroupBox, QMessageBox, QScrollArea)
 from PyQt5.QtGui import QFont
 
-# 知识表示层 —— Rule 数据结构 + KnowledgeBase 加载器
+# 知识表示层
 class Rule:
     def __init__(self, rule_id, premise, conclusion, priority=1):
         self.rule_id = rule_id
@@ -45,7 +45,7 @@ class KnowledgeBase:
                     rule = Rule(r["id"], r["premise"], r["conclusion"], r.get("priority", 1))
                     self.rules.append(rule)
 
-                # 2. 自动推导最终目标（Terminal Nodes）
+                #自动推导最终目标（Terminal Nodes）
                 # 如果 JSON 显式配了 targets 就用，否则扫描规则自动算
                 if "targets" in data:
                     self.targets = set(data["targets"])
@@ -62,7 +62,7 @@ class KnowledgeBase:
             print(f"知识库加载失败: {e}")
 
     def get_all_premises(self):
-        """提取所有基础特征，给 UI 生成复选框用"""
+
         all_conditions = set()
         for rule in self.rules:
             all_conditions.update(rule.premise)
@@ -92,7 +92,7 @@ class InferenceEngine:
             inferred = False
             conflict_set = []
 
-            # 1. 匹配：扫描所有未用过的规则，前提完全被满足的加入候选
+            # 扫描所有未用过的规则，前提完全被满足的加入候选
             for rule in self.kb.rules:
                 if rule.rule_id not in used_rules and rule.premise.issubset(working_memory):
                     conflict_set.append(rule)
@@ -100,10 +100,10 @@ class InferenceEngine:
             if not conflict_set:
                 break
 
-            # 2. 冲突消解：priority 数字越小越先触发（越基础），同 priority 下条件越多越优先
+            #priority 数字越小越先触发，同 priority 下条件越多越优先
             conflict_set.sort(key=lambda r: (r.priority, -len(r.premise)))
 
-            # 3. 执行
+            #执行
             selected_rule = conflict_set[0]
             used_rules.add(selected_rule.rule_id)
             working_memory.add(selected_rule.conclusion)
@@ -133,7 +133,7 @@ class AnimalExpertSystem(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('产生式动物识别专家系统')
+        self.setWindowTitle('动物识别')
         self.resize(850, 600)
         
         main_layout = QHBoxLayout()
@@ -153,7 +153,7 @@ class AnimalExpertSystem(QWidget):
         base_features = self.kb.get_all_premises()
 
         if not base_features:
-            QMessageBox.critical(self, "错误", "未能加载特征，请检查 knowledge.json 文件是否存在且格式正确。")
+            QMessageBox.critical(self, "错误", "未能加载特征，请检查 knowledge.json。")
         
         row, col = 0, 0
         for feature in base_features:
@@ -220,9 +220,9 @@ class AnimalExpertSystem(QWidget):
     #
     #     self.log_area.append("="*40)
     #     if target:
-    #         self.log_area.append(f"\n💡 【推理成功】: 识别出的动物是 ---> **{target}** <---")
+    #         self.log_area.append(f"\n 推理成功,识别出的动物是 ---> **{target}** <---")
     #     else:
-    #         self.log_area.append("\n❓ 【推理失败】: 知识库中没有匹配的动物。")
+    #         self.log_area.append("\n 推理失败,知识库中没有匹配的动物。")
     #         self.log_area.append("    当前最终事实库包含: " + ", ".join(final_memory))
 
     def run_inference(self):
@@ -231,7 +231,7 @@ class AnimalExpertSystem(QWidget):
         facts = [cb.text() for cb in self.checkboxes if cb.isChecked()]
                 
         if not facts:
-            QMessageBox.warning(self, "提示", "请至少选择一个特征！")
+            QMessageBox.warning(self, "提示", "请选择一个特征")
             return
             
         target, final_memory, logs = self.engine.forward_chaining(facts)
@@ -242,7 +242,7 @@ class AnimalExpertSystem(QWidget):
 
         self.log_area.append("="*40)
         if target:
-            self.log_area.append(f"\n💡 【推理成功】: 完全匹配！识别出的动物是 ---> **{target}** <---")
+            self.log_area.append(f"\n推理成功,识别出的动物是 ---> **{target}** <---")
         else:
             # 精确匹配失败 → 计算部分匹配推荐
             candidates = []
@@ -275,15 +275,15 @@ class AnimalExpertSystem(QWidget):
                     })
 
             if not candidates:
-                self.log_area.append("\n❓ 【无法匹配】: 当前特征与知识库中任何动物均无交集。")
+                self.log_area.append("\n无法匹配,当前特征与知识库中任何动物均无交集。")
                 self.log_area.append("    当前最终事实库包含: " + ", ".join(final_memory))
             else:
-                self.log_area.append("\n🔍 【特征不足，存在候选】: 无法唯一确定，以下动物满足部分特征：")
+                self.log_area.append("\n特征不足,以下动物满足部分特征：")
                 candidates.sort(key=lambda x: len(x["matched"]), reverse=True)
                 for c in candidates:
                     matched_str = ", ".join(c["matched"])
-                    self.log_area.append(f"  ▶ 候选: **{c['target']}**")
-                    self.log_area.append(f"    - 命中特征: {matched_str}")
+                    self.log_area.append(f"候选: **{c['target']}**")
+                    self.log_area.append(f"命中特征: {matched_str}")
 
     def reset_features(self):
         for cb in self.checkboxes:
