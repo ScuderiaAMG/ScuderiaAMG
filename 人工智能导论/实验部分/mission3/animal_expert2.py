@@ -70,7 +70,7 @@ class KnowledgeBase:
         conclusions = {r.conclusion for r in self.rules}
         return sorted(list(all_conditions - conclusions - self.targets))
 
-# 推理引擎 —— 正向链接 + 冲突消解 + 解释日志
+# 推理
 class InferenceEngine:
     def __init__(self, knowledge_base):
         self.kb = knowledge_base
@@ -123,7 +123,7 @@ class InferenceEngine:
 
         return found_target, working_memory, self.explanation_log
 
-# PyQt5 界面 —— 动态复选框 + 推理展示 + 部分匹配推荐
+# PyQt5
 class AnimalExpertSystem(QWidget):
     def __init__(self):
         super().__init__()

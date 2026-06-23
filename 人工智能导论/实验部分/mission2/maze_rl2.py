@@ -21,7 +21,7 @@ class QLearningAgent:
 
     def choose_action(self, state, test_mode=False):
         self.check_state_exist(state)
-        # test_mode=True 时跳过随机探索，直接走最优（提取路径时用）
+        # test_mode=True 时跳过随机探索，直接走最优
         if test_mode or np.random.uniform() < self.epsilon:
             state_action = self.q_table[state]
             max_value = np.max(state_action)
@@ -41,7 +41,7 @@ class QLearningAgent:
         self.q_table[s][a] += self.lr * (q_target - q_predict)    # 往目标方向挪一小步
 
 
-# 迷宫画布 —— 管地图绘制 + 智能体移动 + 奖励反馈
+# 迷宫地图绘制 智能体移动 奖励反馈
 class MazeCanvas(QWidget):
     def __init__(self, rows, cols, num_obstacles):
         super().__init__()
@@ -144,7 +144,7 @@ class MazeCanvas(QWidget):
         painter.drawEllipse(agent_rect)
 
 
-# 主窗口 —— 训练总控 + 收敛判定 + 路径提取
+# 主窗口
 class MazeApp(QMainWindow):
     def __init__(self):
         super().__init__()
