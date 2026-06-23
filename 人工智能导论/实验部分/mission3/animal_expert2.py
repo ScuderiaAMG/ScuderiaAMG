@@ -6,15 +6,13 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout,
                              QLabel, QGroupBox, QMessageBox, QScrollArea)
 from PyQt5.QtGui import QFont
 
-# ==========================================
-# 核心层：知识表示
-# ==========================================
+# 知识表示层 —— Rule 数据结构 + KnowledgeBase 加载器
 class Rule:
     def __init__(self, rule_id, premise, conclusion, priority=1):
         self.rule_id = rule_id
-        self.premise = set(premise)  # 前提条件集合
-        self.conclusion = conclusion # 结论
-        self.priority = priority     # 优先级（用于冲突消解）
+        self.premise = set(premise)  # 前提转成 set，方便后面做子集判断
+        self.conclusion = conclusion
+        self.priority = priority     # 数字越小 = 越基础的规则 = 越优先触发
 
 class KnowledgeBase:
     def __init__(self, json_path):
@@ -23,6 +21,7 @@ class KnowledgeBase:
         self.load_from_json(json_path)
 
     # def load_from_json(self, json_path):
+    #     """旧版加载器（保留以备对比）"""
     #     if not os.path.exists(json_path):
     #         return
     #     try:
@@ -40,14 +39,14 @@ class KnowledgeBase:
         try:
             with open(json_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                
-                # 1. 加载所有规则
+
+                # 1. 加载全部规则
                 for r in data.get("rules", []):
                     rule = Rule(r["id"], r["premise"], r["conclusion"], r.get("priority", 1))
                     self.rules.append(rule)
-                
-                # 2. 动态推导最终目标 (Terminal Nodes)
-                # 如果 JSON 里配了 targets 就用配的，没配就自动算
+
+                # 2. 自动推导最终目标（Terminal Nodes）
+                # 如果 JSON 显式配了 targets 就用，否则扫描规则自动算
                 if "targets" in data:
                     self.targets = set(data["targets"])
                 else:
@@ -56,68 +55,65 @@ class KnowledgeBase:
                     for r in self.rules:
                         all_premises.update(r.premise)
                         all_conclusions.add(r.conclusion)
-                    # 结论中没有作为任何前提出现过的，就是最终目标动物！
+                    # 出现在结论里但从未作为前提的 → 即最终目标动物
                     self.targets = all_conclusions - all_premises
-                    
+
         except Exception as e:
             print(f"知识库加载失败: {e}")
 
     def get_all_premises(self):
-        """动态提取所有基础特征供 UI 生成复选框"""
+        """提取所有基础特征，给 UI 生成复选框用"""
         all_conditions = set()
         for rule in self.rules:
             all_conditions.update(rule.premise)
-        # 排除中间结论和目标结论
+        # 排除中间结论和目标，只留用户能直接观察的特征
         conclusions = {r.conclusion for r in self.rules}
         return sorted(list(all_conditions - conclusions - self.targets))
 
-# ==========================================
-# 引擎层：带冲突消解的正向推理机
-# ==========================================
+# 推理引擎 —— 正向链接 + 冲突消解 + 解释日志
 class InferenceEngine:
     def __init__(self, knowledge_base):
         self.kb = knowledge_base
-        self.explanation_log = [] # 解释机构：记录推理链
+        self.explanation_log = []  # 记录每步推理
 
     def forward_chaining(self, initial_facts):
         working_memory = set(initial_facts)
         self.explanation_log.clear()
         self.explanation_log.append(f"【初始事实库】: {', '.join(working_memory)}\n")
-        
+
         inferred = True
         step = 1
         found_target = None
         used_rules = set()
 
         self.explanation_log.append("【开始正向推理】")
-        
+
         while inferred:
             inferred = False
             conflict_set = []
 
-            # 1. 匹配阶段 (Match)
+            # 1. 匹配：扫描所有未用过的规则，前提完全被满足的加入候选
             for rule in self.kb.rules:
                 if rule.rule_id not in used_rules and rule.premise.issubset(working_memory):
                     conflict_set.append(rule)
-            
+
             if not conflict_set:
                 break
 
-            # 2. 冲突消解阶段 (Conflict Resolution)
-            # 策略：优先级高的先触发；优先级相同则条件越多的先触发（更具体）
-            conflict_set.sort(key=lambda r: (r.priority, len(r.premise)), reverse=True)
-            
-            # 3. 执行阶段 (Act)
+            # 2. 冲突消解：priority 数字越小越先触发（越基础），同 priority 下条件越多越优先
+            conflict_set.sort(key=lambda r: (r.priority, -len(r.premise)))
+
+            # 3. 执行
             selected_rule = conflict_set[0]
             used_rules.add(selected_rule.rule_id)
             working_memory.add(selected_rule.conclusion)
-            
+
             log_line = (f"-> 步骤 {step}: 触发规则 [{selected_rule.rule_id}]\n"
                         f"   IF   {' AND '.join(selected_rule.premise)}\n"
                         f"   THEN {selected_rule.conclusion}\n"
                         f"   (事实库加入: '{selected_rule.conclusion}')\n")
             self.explanation_log.append(log_line)
-            
+
             inferred = True
             step += 1
 
@@ -127,9 +123,7 @@ class InferenceEngine:
 
         return found_target, working_memory, self.explanation_log
 
-# ==========================================
-# 表示层：PyQt5 动态界面
-# ==========================================
+# PyQt5 界面 —— 动态复选框 + 推理展示 + 部分匹配推荐
 class AnimalExpertSystem(QWidget):
     def __init__(self):
         super().__init__()
@@ -150,14 +144,14 @@ class AnimalExpertSystem(QWidget):
         features_group = QGroupBox("请选择观察到的动物特征:")
         features_group.setFont(QFont("Microsoft YaHei", 10, QFont.Bold))
         
-        # 使用滚动区域以防特征过多
+        # 滚动区域：特征多了不会溢出
         scroll = QScrollArea()
         scroll.setWidgetResizable(True)
         scroll_widget = QWidget()
         grid_layout = QGridLayout(scroll_widget)
-        
+
         base_features = self.kb.get_all_premises()
-        
+
         if not base_features:
             QMessageBox.critical(self, "错误", "未能加载特征，请检查 knowledge.json 文件是否存在且格式正确。")
         
@@ -210,20 +204,20 @@ class AnimalExpertSystem(QWidget):
         self.setLayout(main_layout)
 
     # def run_inference(self):
+    #     """旧版：仅精确匹配"""
     #     self.log_area.clear()
-        
+    #
     #     facts = [cb.text() for cb in self.checkboxes if cb.isChecked()]
-                
+    #
     #     if not facts:
     #         QMessageBox.warning(self, "提示", "请至少选择一个特征！")
     #         return
-            
+    #
     #     target, final_memory, logs = self.engine.forward_chaining(facts)
-        
-    #     # 渲染推理日志
+    #
     #     for line in logs:
     #         self.log_area.append(line)
-                
+    #
     #     self.log_area.append("="*40)
     #     if target:
     #         self.log_area.append(f"\n💡 【推理成功】: 识别出的动物是 ---> **{target}** <---")
@@ -242,60 +236,54 @@ class AnimalExpertSystem(QWidget):
             
         target, final_memory, logs = self.engine.forward_chaining(facts)
         
-        # 渲染正向推理日志
+        # 输出推理日志
         for line in logs:
             self.log_area.append(line)
-                
+
         self.log_area.append("="*40)
         if target:
             self.log_area.append(f"\n💡 【推理成功】: 完全匹配！识别出的动物是 ---> **{target}** <---")
         else:
-            # === 新增逻辑：计算所有满足交集不为空的候选内容 ===
+            # 精确匹配失败 → 计算部分匹配推荐
             candidates = []
-            
-            # 辅助函数：递归获取某个结论在知识库中的所有前置依赖条件（整棵特征树）
+
+            # 递归展开某个结论的完整特征依赖树
             def get_all_dependencies(conclusion, visited=None):
                 if visited is None:
                     visited = set()
                 if conclusion in visited:
-                    return set()
+                    return set()  # 防环
                 visited.add(conclusion)
-                
+
                 deps = set()
                 for r in self.engine.kb.rules:
                     if r.conclusion == conclusion:
                         deps.update(r.premise)
-                        # 递归往下挖，比如“有蹄类动物”还要挖出“哺乳动物”，再挖出“有毛发”
                         for p in r.premise:
                             deps.update(get_all_dependencies(p, visited))
                 return deps
 
-            # 遍历知识库中所有的目标动物
             for possible_target in self.engine.kb.targets:
                 target_deps = get_all_dependencies(possible_target)
-                target_deps.add(possible_target) 
-                
-                # 计算该动物的完整所需特征与当前事实库的交集
+                target_deps.add(possible_target)
+
                 intersect = target_deps.intersection(final_memory)
                 if intersect:
-                    # 交集不为空，加入候选名单
                     candidates.append({
                         "target": possible_target,
                         "matched": intersect
                     })
-            
-            # 判断最终结果
+
             if not candidates:
-                self.log_area.append("\n❓ 【无法匹配】: 交集为空。当前特征与知识库中任何动物均无关联。")
+                self.log_area.append("\n❓ 【无法匹配】: 当前特征与知识库中任何动物均无交集。")
                 self.log_area.append("    当前最终事实库包含: " + ", ".join(final_memory))
             else:
-                self.log_area.append("\n🔍 【特征不足，但存在匹配】: 无法确定唯一动物，但以下知识库内容满足交集条件：")
-                # 按命中特征的数量降序排列，命中越多的排在越前面
+                self.log_area.append("\n🔍 【特征不足，存在候选】: 无法唯一确定，以下动物满足部分特征：")
                 candidates.sort(key=lambda x: len(x["matched"]), reverse=True)
                 for c in candidates:
                     matched_str = ", ".join(c["matched"])
-                    self.log_area.append(f"  ▶ 候选目标: **{c['target']}**")
-                    self.log_area.append(f"    - 命中条件交集: {matched_str}")
+                    self.log_area.append(f"  ▶ 候选: **{c['target']}**")
+                    self.log_area.append(f"    - 命中特征: {matched_str}")
 
     def reset_features(self):
         for cb in self.checkboxes:
