@@ -204,7 +204,7 @@ class AnimalExpertSystem(QWidget):
         self.setLayout(main_layout)
 
     # def run_inference(self):
-    #     """旧版：仅精确匹配"""
+    #    
     #     self.log_area.clear()
     #
     #     facts = [cb.text() for cb in self.checkboxes if cb.isChecked()]
