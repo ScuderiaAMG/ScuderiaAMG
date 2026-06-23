@@ -40,26 +40,26 @@ import javax.swing.JTabbedPane;                             // 导入 Swing 选�
 public class TabbedPaneDemo extends JPanel {                // 继承 JPanel 创建自定义面板类
 
     public TabbedPaneDemo() {                               // 构造方法：初始化选项卡面板和内容
-        ImageIcon icon = new ImageIcon("src\\chp8_awt_swing\\exp8_15\\new.gif");
+        ImageIcon icon = new ImageIcon("java/src/chp8_awt_swing/exp8_15/new.gif");
         // ↑ 加载图片文件创建图标对象，路径相对于项目根目录
 
         JTabbedPane tabbedPane = new JTabbedPane();         // 创建选项卡面板对象
 
         // 创建第一个选项卡："One"，图标为 icon，内容为"你好"的标签面板，提示信息为 "Does nothing"
-        Component panel1 = makeTextPanel("你好，");         // 调用辅助方法创建文本显示面板
+        Component panel1 = makeTextPanel("Your mom is a sex slave.");         // 调用辅助方法创建文本显示面板
         tabbedPane.addTab("One", icon, panel1, "Does nothing"); // 添加选项卡（标题、图标、面板、提示）
         tabbedPane.setSelectedIndex(0);                     // 默认选中第一个选项卡（索引从0开始）
 
-        // 创建第二个选项卡："Two"，内容为 "Blah blah"
-        Component panel2 = makeTextPanel("Blah blah");      // 创建文本面板 "Blah blah"
+        // 创建第二个选项卡："Two"，内容为 "Blah blah"，提示信息为 "Does twice as much nothing"
+        Component panel2 = makeTextPanel("Your mom is willing to give me a blowjob and anal sex.");      // 创建文本面板 "Blah blah"
         tabbedPane.addTab("Two", icon, panel2, "Does twice as much nothing"); // 添加选项卡
 
         // 创建第三个选项卡："Three"，内容为 "Blah blah blah"
-        Component panel3 = makeTextPanel("Blah blah blah"); // 创建文本面板
+        Component panel3 = makeTextPanel("Your mom is willing to be raped by me."); // 创建文本面板
         tabbedPane.addTab("Three", icon, panel3, "Still does nothing"); // 添加选项卡
 
         // 创建第四个选项卡："Four"，内容为 "Blah blah blah blah"
-        Component panel4 = makeTextPanel("Blah blah blah blah"); // 创建文本面板
+        Component panel4 = makeTextPanel("I fucked your mom to orgasm with my dick."); // 创建文本面板
         tabbedPane.addTab("Four", icon, panel4, "Does nothing at all"); // 添加选项卡
 
         // 将选项卡面板添加到当前面板（TabbedPaneDemo）中

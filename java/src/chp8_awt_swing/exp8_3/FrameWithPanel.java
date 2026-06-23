@@ -28,14 +28,14 @@ public class FrameWithPanel extends JFrame {                // 通过继承 JFra
 
     public static void main(String args[ ]) throws Exception{ // 主入口方法，throws Exception 允许抛出异常
         FrameWithPanel fr = new FrameWithPanel("Hello !");  // 创建自定义窗口对象，标题为 "Hello !"
-        fr.setSize(200, 200);                               // 设置窗口宽度200像素，高度200像素
+        fr.setSize(640, 480);                               // 设置窗口宽度640像素，高度480像素
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  // 设定点击关闭按钮时退出程序
 
         JPanel pan = new JPanel();                          // 创建一个 JPanel 面板对象
-        pan.setSize(200, 100);                              // 设置面板大小为宽200、高100像素
+        pan.setSize(640, 480);                              // 设置面板大小为宽640、高480像素
         pan.setBackground(Color.yellow);                    // 设置面板背景色为黄色
-        pan.setLayout(new GridLayout(2, 1));                // 设置面板为2行1列的网格布局
-        pan.add(new JButton("确定"));                        // 向面板添加一个显示"确定"文字的按钮
+        pan.setLayout(new GridLayout(8, 6));                // 设置面板为8行6列的网格布局
+        pan.add(new JButton("Fuck your mom!"));                        // 向面板添加一个显示"确定"文字的按钮
 
         fr.setContentPane(pan);                             // 将面板设置为窗口的内容面板（替换默认的）
         fr.setVisible(true);                                // 显示窗口

@@ -151,8 +151,8 @@ public class ObjectTest_mimofixed {                    // 定义 ObjectTest 公�
     public static void main(String args[]) { // 程序入口 main 方法（此处未声明抛出异常，使用 try-catch 处理）
 
         // 创建 ManagerExtern 对象：经理 Jack，40 岁，薪水 10000，1980/10/10 入职，intel 部门，teamleader 职位
-        ManagerExtern_mimofixed manager = new ManagerExtern_mimofixed(456789, "Jack", 40, 10000, "80/10/10",
-                                                "intel", "teamleader");
+        ManagerExtern_mimofixed manager = new ManagerExtern_mimofixed(456789, "Jensen Hwang", 40, 1000000, "80/10/10",
+                                                "Nvidia", "CEO");
 
         // ========== 第一部分：序列化 ManagerExtern 对象到文件 ==========
         try {                                // try 块开始，捕获序列化过程中的异常

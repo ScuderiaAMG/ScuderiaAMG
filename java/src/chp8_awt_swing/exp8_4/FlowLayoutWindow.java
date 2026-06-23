@@ -30,11 +30,11 @@ public class FlowLayoutWindow extends JFrame {              // 继承 JFrame 创
         setLayout(new FlowLayout());                        // 将窗口的布局管理器设置为 FlowLayout（默认居中对齐）
 
         add(new JLabel("Buttons:"));                        // 向窗口添加一个显示"Buttons:"文字的标签
-        add(new JButton("Button 1"));                       // 向窗口添加按钮，显示文字 "Button 1"
-        add(new JButton("2"));                              // 向窗口添加按钮，显示文字 "2"（短文本演示）
-        add(new JButton("Button 3"));                       // 向窗口添加按钮，显示文字 "Button 3"
-        add(new JButton("Long-Named Button 4"));            // 向窗口添加按钮，显示长文本，演示组件不同宽度对排版的影响
-        add(new JButton("Button 5"));                       // 向窗口添加按钮，显示文字 "Button 5"
+        add(new JButton("Fuck mom's ass"));                       // 向窗口添加按钮，显示文字 "Button 1"
+        add(new JButton("ass"));                              // 向窗口添加按钮，显示文字 "2"（短文本演示）
+        add(new JButton("Fuck mom's vagina"));                       // 向窗口添加按钮，显示文字 "Button 3"
+        add(new JButton("Fuck mom's tits all day long"));            // 向窗口添加按钮，显示长文本，演示组件不同宽度对排版的影响
+        add(new JButton("Mutual oral sex with mom"));                       // 向窗口添加按钮，显示文字 "Button 5"
 
     }                                                       // 构造方法结束
 

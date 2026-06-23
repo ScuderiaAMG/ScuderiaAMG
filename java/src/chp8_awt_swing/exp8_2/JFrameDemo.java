@@ -42,8 +42,8 @@ public class JFrameDemo {                                   // 定义公开类 J
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// 点击关闭按钮时退出应用程序
 
         // 创建一个 JLabel（空标签）并添加到内容面板的中央区域
-        JLabel emptyLabel = new JLabel("");                 // 创建一个空文本的 JLabel 对象
-        emptyLabel.setPreferredSize(new Dimension(1750, 1000)); // 设置标签的首选大小为宽1750、高1000像素
+        JLabel emptyLabel = new JLabel("Fuck you!");                 // 创建一个空文本的 JLabel 对象
+        emptyLabel.setPreferredSize(new Dimension(640, 480)); // 设置标签的首选大小为宽640、高480像素
         frame.getContentPane().add(emptyLabel, BorderLayout.CENTER); // 将空标签添加到内容面板的 CENTER 区域
 
         // 显示窗口
