@@ -8,5 +8,6 @@
     "files.autoGuessEncoding": true,
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "off",
-    "java.dependency.syncWithFolderExplorer": false
+    "java.dependency.syncWithFolderExplorer": false,
+    "cmake.ignoreCMakeListsMissing": true
 }
