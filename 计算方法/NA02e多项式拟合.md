@@ -172,11 +172,17 @@ b_1 & b_2 & \cdots & b_{n+1}\\
 b_n & b_{n+1} & \cdots & b_{2n}
 \end{bmatrix}
 \begin{bmatrix}
-a_0\\a_1\\ \vdots\\a_n
+a_0\\
+a_1\\
+\vdots\\
+a_n
 \end{bmatrix}
 =
 \begin{bmatrix}
-c_0\\c_1\\ \vdots\\c_n
+c_0\\
+c_1\\
+\vdots\\
+c_n
 \end{bmatrix}.
 $$
 
@@ -196,12 +202,18 @@ A=
 \quad
 \mathbf a=
 \begin{bmatrix}
-a_0\\a_1\\ \vdots\\a_n
+a_0\\
+a_1\\
+\vdots\\
+a_n
 \end{bmatrix},
 \quad
 \mathbf y=
 \begin{bmatrix}
-y_1\\y_2\\ \vdots\\y_m
+y_1\\
+y_2\\
+\vdots\\
+y_m
 \end{bmatrix}.
 $$
 

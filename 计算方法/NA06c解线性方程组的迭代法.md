@@ -380,95 +380,54 @@ $$\lambda_{\max}(A^2) = [\lambda_{\max}(A)]^2$$
 
 因此，2-范数也称为**谱范数**（spectral norm）。
 
-## 三、做题方法
+## 三、解题通法
 
-### 1. 迭代法求解线性方程组的一般流程
+### 1. 迭代法统一形式
 
-```
-线性方程组 Ax = b
-    ↓
-改写为 x = Bx + f 的形式
-    ↓
-选择迭代方法（Jacobi / Gauss-Seidel / SOR）
-    ↓
-选取初始向量 x⁽⁰⁾
-    ↓
-迭代计算 x⁽ᵏ⁺¹⁾ = Bx⁽ᵏ⁾ + f
-    ↓
-检查收敛：||x⁽ᵏ⁺¹⁾ - x⁽ᵏ⁾|| < ε
-    ├── 是 → 输出 x⁽ᵏ⁺¹⁾ 作为近似解
-    └── 否 → 继续迭代
-```
+把线性方程组化为
+$$
+x^{(k+1)}=Bx^{(k)}+f.
+$$
 
-### 2. Jacobi 迭代法的标准步骤
+收敛的核心条件是
+$$
+\rho(B)<1.
+$$
 
-**Step 1**：将第 $i$ 个方程改写成 $x_i$ 的表达式（假设 $a_{ii} \neq 0$）：
-$$x_i = \frac{1}{a_{ii}}\left(b_i - \sum_{j=1, j\neq i}^n a_{ij}x_j\right)$$
+### 2. Jacobi 迭代
 
-**Step 2**：建立迭代格式（全部用第 $k$ 步的值）：
-$$x_i^{(k+1)} = \frac{1}{a_{ii}}\left(b_i - \sum_{j=1, j\neq i}^n a_{ij}x_j^{(k)}\right), \quad i = 1, 2, \ldots, n$$
+分量形式：
+$$
+x_i^{(k+1)}=\frac{1}{a_{ii}}\left(b_i-\sum_{j\ne i}a_{ij}x_j^{(k)}\right).
+$$
 
-**Step 3**：选取初值 $\boldsymbol{x}^{(0)}$（通常取 $\boldsymbol{0}$），按格式迭代直到收敛。
+矩阵形式：
+$$
+B_J=-D^{-1}(L+U),\quad f_J=D^{-1}b.
+$$
 
-### 3. Gauss-Seidel 迭代法的标准步骤
+### 3. Gauss-Seidel 迭代
 
-**Step 1**：同样分离出 $x_i$（与 Jacobi 相同）。
+分量形式：
+$$
+x_i^{(k+1)}=\frac{1}{a_{ii}}\left(b_i-\sum_{j<i}a_{ij}x_j^{(k+1)}-\sum_{j>i}a_{ij}x_j^{(k)}\right).
+$$
 
-**Step 2**：建立迭代格式（用最新值）：
-$$x_i^{(k+1)} = \frac{1}{a_{ii}}\left(b_i - \sum_{j=1}^{i-1} a_{ij}x_j^{(k+1)} - \sum_{j=i+1}^n a_{ij}x_j^{(k)}\right), \quad i = 1, 2, \ldots, n$$
+矩阵形式：
+$$
+B_{GS}=-(D+L)^{-1}U.
+$$
 
-**Step 3**：选取初值，按格式迭代直到收敛。
+### 4. 收敛判断
 
-### 4. 收敛性判断
+常用充分条件：
 
-**迭代法收敛的充分必要条件**：
-$$\rho(B) < 1$$
-其中 $\rho(B)$ 是迭代矩阵 $B$ 的谱半径。
+- 若 $\|B\|<1$，则收敛。
+- 若 $A$ 严格对角占优，Jacobi 和 Gauss-Seidel 通常收敛。
+- 若 $A$ 对称正定，Gauss-Seidel 收敛。
 
-**实用判断条件**：
-- 若 $\|B\| < 1$（对某算子范数），则迭代法收敛
-- 对角占优矩阵（$|a_{ii}| > \sum_{j\neq i} |a_{ij}|$）的 Jacobi 法和 Gauss-Seidel 法均收敛
+### 5. 易错点
 
-### 5. 关键公式和矩阵对照表
-
-| 方法 | 迭代格式 | 迭代矩阵 | 分量形式 |
-|------|---------|---------|---------|
-| **Jacobi** | $\boldsymbol{x}^{(k+1)} = -D^{-1}(L+U)\boldsymbol{x}^{(k)} + D^{-1}\boldsymbol{b}$ | $B_J = -D^{-1}(L+U)$ | $x_i^{(k+1)} = \frac{1}{a_{ii}}(b_i - \sum_{j\neq i} a_{ij}x_j^{(k)})$ |
-| **Gauss-Seidel** | $\boldsymbol{x}^{(k+1)} = -(D+L)^{-1}U\boldsymbol{x}^{(k)} + (D+L)^{-1}\boldsymbol{b}$ | $B_{GS} = -(D+L)^{-1}U$ | $x_i^{(k+1)} = \frac{1}{a_{ii}}(b_i - \sum_{j<i} a_{ij}x_j^{(k+1)} - \sum_{j>i} a_{ij}x_j^{(k)})$ |
-
-### 6. 向量和矩阵范数速查表
-
-| 范数 | 定义 | 说明 |
-|:---:|------|------|
-| $\|\boldsymbol{x}\|_1$ | $\sum_{i=1}^n |x_i|$ | 各分量绝对值之和 |
-| $\|\boldsymbol{x}\|_2$ | $\sqrt{\sum_{i=1}^n x_i^2}$ | 欧氏长度 |
-| $\|\boldsymbol{x}\|_\infty$ | $\max_i |x_i|$ | 最大分量绝对值 |
-| $\|A\|_1$ | $\max_j \sum_{i=1}^n |a_{ij}|$ | 最大列和 |
-| $\|A\|_\infty$ | $\max_i \sum_{j=1}^n |a_{ij}|$ | 最大行和 |
-| $\|A\|_2$ | $\sqrt{\lambda_{\max}(A^T A)}$ | 谱范数 |
-
-### 7. 常见陷阱与注意事项
-
-1. **对角元素非零**：要求所有 $a_{ii} \neq 0$，否则需要通过行置换调整
-2. **初值选择**：通常取 $\boldsymbol{x}^{(0)} = \boldsymbol{0}$，但好的初值可加速收敛
-3. **收敛条件**：不是所有方程组都能用迭代法求解，必须满足 $\rho(B) < 1$
-4. **对角占优**：若 $A$ 是严格对角占优矩阵（$|a_{ii}| > \sum_{j\neq i}|a_{ij}|$），则 Jacobi 法和 Gauss-Seidel 法都收敛
-5. **对称正定**：若 $A$ 对称正定，则 Gauss-Seidel 法收敛
-6. **停止准则**：通常用 $\|\boldsymbol{x}^{(k+1)} - \boldsymbol{x}^{(k)}\| < \varepsilon$ 作为停止条件
-
-### 8. 解题选择流程图
-
-```
-给定线性方程组 Ax = b
-    ↓
-A 是否严格对角占优？
-    ├── 是 → 可用 Jacobi 或 Gauss-Seidel 迭代
-    │        （Gauss-Seidel 通常收敛更快）
-    └── 否 → 检查谱半径 ρ(B) < 1？
-             ├── 是 → 可迭代
-             └── 否 → 需改用直接法或预处理
-    ↓
-需要并行计算？
-    ├── 是 → 用 Jacobi 迭代
-    └── 否 → 用 Gauss-Seidel 迭代
-```
+- Jacobi 使用上一轮所有分量，G-S 新算出的分量立即使用。
+- 判断收敛看迭代矩阵，不是看 $A$ 本身的范数。
+- 初值影响迭代过程，但不改变收敛时的精确解。
