@@ -3,7 +3,7 @@
     "allow": [
       "Bash(*)",
       "Read(**)",
-      "Write(**)",
+      "Edit(**)",
       "Delete(**)",
       "Network(*)",
       "mcp__ide__getDiagnostics",
