@@ -16,7 +16,10 @@
       "Bash(cp -r /tmp/Scrapling/agent-skill/Scrapling-Skill ~/.claude/skills/Scrapling-Skill)",
       "Read(//c/Users/taiya/.claude/skills/**)",
       "mcp__ide__executeCode",
-      "WebFetch(domain:claude.com)"
+      "WebFetch(domain:claude.com)",
+      "WebFetch(domain:sources.debian.org)",
+      "WebFetch(domain:gitlab.gnome.org)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }
